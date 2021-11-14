@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tracSuratBentuk extends Model
+class TrackSuratBentuk extends Model
 {
     use HasFactory;
 
@@ -16,5 +16,10 @@ class tracSuratBentuk extends Model
         'id'
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

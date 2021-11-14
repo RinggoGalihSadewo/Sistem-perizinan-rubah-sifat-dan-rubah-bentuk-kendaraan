@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class suratBentuk extends Model
+class SuratBentuk extends Model
 {
     use HasFactory;
 
@@ -16,4 +16,10 @@ class suratBentuk extends Model
         'id'
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }   

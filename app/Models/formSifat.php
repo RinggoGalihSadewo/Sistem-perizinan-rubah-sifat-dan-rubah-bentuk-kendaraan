@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class formSifat extends Model
+class FormSifat extends Model
 {
     use HasFactory;
 
@@ -16,5 +16,15 @@ class formSifat extends Model
         'id'
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function fotoSifat()
+    {
+        return $this->hasOne(FotoSifat::class);
+    }    
 
 }

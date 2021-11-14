@@ -39,4 +39,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function map()
+    {
+        return $this->hasOne(Map::class);
+    }
+
+    public function suratBentuk()
+    {
+        return $this->hasMany(SuratBentuk::class);
+    }
+
+    public function suratSifat()
+    {
+        return $this->hasMany(SuratSifat::class);
+    }
+
+    public function trackSuratBentuk()
+    {
+        return $this->hasMany(TrackSuratBentuk::class);
+    }
+
+    public function trackSuratSifat()
+    {
+        return $this->hasMany(TrackSuratSifat::class);
+    }
+
+    public function formBentuk()
+    {
+        return $this->hasMany(FormBentuk::class);
+    }
+
+    public function formSifat()
+    {
+        return $this->hasMany(FormSifat::class);
+    }
+
 }

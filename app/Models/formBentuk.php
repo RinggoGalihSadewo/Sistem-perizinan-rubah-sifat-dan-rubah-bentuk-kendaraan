@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class formBentuk extends Model
+class FormBentuk extends Model
 {
     use HasFactory;
 
@@ -16,5 +16,15 @@ class formBentuk extends Model
         'id'
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function fotoBentuk()
+    {
+        return $this->hasOne(FotoBentuk::class);
+    }
 
 }
