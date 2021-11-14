@@ -10,7 +10,8 @@ function taruhMarker(peta, posisiTitik){
       marker = new google.maps.Marker({
         position: posisiTitik,
         map: peta,
-        draggable: true,
+        // animation: google.maps.Animation.DROP,
+        draggable: false,
         title: 'Posisi anda'
       });
     }
@@ -100,4 +101,12 @@ function initAutocomplete() {
     });
     map.fitBounds(bounds);
   });
+}
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
 }
