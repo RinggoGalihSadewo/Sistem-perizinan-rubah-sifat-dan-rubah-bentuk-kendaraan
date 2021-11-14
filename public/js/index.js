@@ -10,9 +10,13 @@ function taruhMarker(peta, posisiTitik){
       marker = new google.maps.Marker({
         position: posisiTitik,
         map: peta,
+        draggable: true,
         title: 'Posisi anda'
       });
     }
+
+    document.getElementById('lat').value = posisiTitik.lat();
+    document.getElementById('lng').value = posisiTitik.lng();
 }
 
 function initAutocomplete() {

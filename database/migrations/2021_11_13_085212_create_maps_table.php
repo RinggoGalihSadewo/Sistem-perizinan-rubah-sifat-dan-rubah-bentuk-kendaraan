@@ -16,8 +16,8 @@ class CreateMapsTable extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->index();
-            $table->string('long');
             $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }

@@ -23,5 +23,10 @@
       async
     ></script>
 
+    <div>
+    	<input type="text" name="" id="lat">
+    	<input type="text" name="" id="lng">
+    </div>
+
 </body>
 </html>
