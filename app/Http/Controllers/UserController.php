@@ -13,7 +13,22 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('client.beranda');
+    }
+
+    public function masuk()
+    {
+        return view('client.login');
+    }
+
+    public function forgotPassword()
+    {
+        return view('client.forgotPassword');
+    }
+
+    public function rubahSifat()
+    {
+        return view('client.rubahSifat');
     }
 
     public function registrasi(Request $request)

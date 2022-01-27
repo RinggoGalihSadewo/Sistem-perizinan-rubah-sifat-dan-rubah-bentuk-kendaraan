@@ -17,4 +17,12 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [UserController::class, 'index']);
 
+Route::get('/masuk', [UserController::class, 'masuk']);
+
+Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
+
+Route::get('/perizinan-rubah-sifat', [UserController::class, 'rubahSifat']);
+
+Route::get('/maps', [UserController::class, 'index']);
+
 Route::post('/registrasi', [UserController::class, 'registrasi']);
