@@ -15,12 +15,12 @@
   </head>
   <body>
 
-    <div class="container-sm-fluid login-client">
-    <div style="position: absolute; top: 1%; z-index: 999; left: 0.5%;" class="text-white">
-        <h2>Sistem Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan</h2>
-    </div>
         <div class="waveUp">    
-            <img src="/img/logo/waveUp.png" alt="" width="100%" height="200px">
+            <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
+        </div>
+
+        <div class="ilus1 d-none d-lg-flex">
+            <img src="/img/tataCara/LOGIN.png" alt="">    
         </div>
 
         <div class="login-form">
@@ -47,9 +47,6 @@
             </form>
         </div>
 
-        <div class="waveDown">
-            <img src="/img/logo/waveDown.png" alt="" width="100%" height="150px">
-        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
