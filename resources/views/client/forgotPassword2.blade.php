@@ -19,11 +19,15 @@
     <div style="position: absolute; top: 1%; z-index: 999; left: 0.5%;" class="text-white">
         <h2>Sistem Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan</h2>
     </div>
+
         <div class="waveUp">    
-            <img src="/img/logo/waveUp.png" alt="" width="100%" height="200px">
+            <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
         </div>
 
+        <div class="ilus1 d-none d-lg-flex">
+            <img src="/img/tataCara/forgetPassword.svg" alt="">    
         <div class="login-form">
+
             <h4 class="fw-bold text-center">Lupa Kata Sandi</h4>
 
             <form action="">

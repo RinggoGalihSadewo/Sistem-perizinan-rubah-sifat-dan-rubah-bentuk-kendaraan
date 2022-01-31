@@ -20,7 +20,7 @@
         </div>
 
         <div class="ilus1 d-none d-lg-flex">
-            <img src="/img/tataCara/LOGIN.png" alt="">    
+            <img src="/img/tataCara/login.svg" alt="">    
         </div>
 
         <div class="login-form">

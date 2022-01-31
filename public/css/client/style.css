@@ -224,6 +224,43 @@ footer{
   }
 }
 
+/* Rubah Bentuk Client */
+
+#penjelasan{
+  width: 100%;
+  height: auto;
+  padding: 40px;
+  background-color: #96CEB4;
+}
+
+#perizinan{
+  background: rgba(255, 201, 0, 0.51);
+  padding: 50px;
+}
+
+.formPerizinan{
+  width: 55%;
+  height: auto;
+  padding: 50px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin: 2% auto;
+}
+
+.textPenjelasan{
+  margin-top: 5%;
+}
+
+@media only screen and (max-width:992px){
+  #perizinan{
+    padding: 50px 0 50px 0;
+  }
+  .formPerizinan{
+    width: 100%;
+  }
+}
+
 /* Maps */
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
