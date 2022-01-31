@@ -122,6 +122,50 @@ footer{
 }
 
 .login-form{
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  width: 40%;
+  height: auto;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.input-login{
+  background-color: #CCAC02;
+  border-radius: 30px;
+  height: 55px;
+  width: 374px;
+  border: none;
+  padding-left: 20px;
+}
+
+.input-login:focus{
+  outline: none;
+}
+
+
+/* Login2 Client */
+
+.login-client{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  padding-top: 12%;
+}
+
+.wave1{
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.wave2{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.login-form{
   background-color: #CCAC02;
   border-radius: 20px;
   width: 40%;
@@ -142,8 +186,6 @@ footer{
 .input-login:focus{
   outline: none;
 }
-
-
 
 /* Rubah Sifat Client */
 

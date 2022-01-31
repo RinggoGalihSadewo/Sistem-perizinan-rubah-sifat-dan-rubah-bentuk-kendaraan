@@ -14,9 +14,13 @@
     <title>Masuk</title>
   </head>
   <body>
-      
+
         <div class="waveUp">    
-            <img src="/img/logo/waveUp.png" alt="" width="100%" height="200px">
+            <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
+        </div>
+
+        <div class="ilus1 d-none d-lg-flex">
+            <img src="/img/tataCara/LOGIN.png" alt="">    
         </div>
 
         <div class="login-form">
@@ -35,17 +39,14 @@
                         </label>
                     </div>
                     <div class="col-6">
-                        <a href="{{url('/lupa-kata-sandi')}}" style="margin-right:25%; text-decoration: none; color: white;" target="_blank">Lupa kata sandi ?</a>
+                        <a href="{{url('/lupa-kata-sandi')}}" style="margin-right:25%; text-decoration: none; color: black;" target="_blank">Lupa kata sandi ?</a>
                     </div>
                 </div>
-                <button type="submit" class="btn text-dark mt-4 fw-bold" style="background: #968E8E; height: 50px;">Masuk</button>
+                <button type="submit" class="btn text-dark mt-4 fw-bold" style="background: #D1AD2C; height: 50px;">Masuk</button>
                 </center>
             </form>
         </div>
 
-        <div class="waveDown">
-            <img src="/img/logo/waveDown.png" alt="" width="100%" height="150px">
-        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

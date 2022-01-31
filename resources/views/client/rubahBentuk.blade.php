@@ -59,7 +59,7 @@
         <section id="perizinan">
             <h1 style="font-family: 'Dancing Script', cursive;" class="text-center">Form Surat Perizinan</h1>
             <div class="formPerizinan">
-                <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH SIFAT</h4>
+                <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH BENTUK KENDARAAN</h4>
                 <div class="mt-5">
                     <form action="">
                         @csrf
