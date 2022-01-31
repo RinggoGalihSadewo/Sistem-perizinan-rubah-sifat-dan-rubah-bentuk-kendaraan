@@ -223,7 +223,7 @@
 
         <section id="tataCara">
             <div class="tataCara">
-                <h2 class="text-center fw-bold text-white">Petunjuk Perizinan</h2> 
+                <h2 class="text-center fw-bold text-white">Petunjuk Proses Perizinan</h2> 
                 <div class="row text-center mt-5">
                     <div class="col-xl-3">
                         <img src="/img/tataCara/tata1.png" alt="">

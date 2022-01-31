@@ -11,13 +11,11 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/client/style.css">
 
-    <script src="/js/index.js"></script>
-
-    <title>Rubah Sifat Kendaraan</title>
+    <title>Rubah Bentuk Kendaraan</title>
   </head>
   <body>
 
-    <div class="container-sm-fluid">
+  <div class="container-sm-fluid">
         <section id="navbar">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
@@ -79,7 +77,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Nama Pemilik
+                                Nama Pemilik Lama
                             </div>
                             <div class="col-sm-6">
                                 <input type="password" class="form-control" id="" name="namaPemilik">
@@ -90,7 +88,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Alamat Pemilik
+                                Nama Pemilik Baru 
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="" name="alamatPemilik">
@@ -101,7 +99,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Merk / Type
+                                Alamat Pemilik
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="" name="merk">
@@ -112,7 +110,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Jenis
+                                Merk / Type
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="" name="jenis">
@@ -123,7 +121,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Model
+                                Jenis
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="" name="model">
@@ -156,7 +154,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Isi Silinder
+                                Volume Silinder
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="" name="silinder">
@@ -198,6 +196,16 @@
 
                         <br>
 
+                        <div class="row">
+                            <div class="col-sm-6">
+                                No. Uji Kendaraan
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="" name="warna">
+                            </div>
+                        </div>
+                        
+                        <br>
                         <div class="row">
                             <div class="col-sm-6">
                                 Foto Sebelum
@@ -256,5 +264,7 @@ Development by  IF’18 ITERA</footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+
   </body>
+  
 </html>
