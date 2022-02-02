@@ -18,12 +18,12 @@ class UserController extends Controller
 
     public function masuk()
     {
-        return view('client.login');
+        return view('client.login2');
     }
 
     public function forgotPassword()
     {
-        return view('client.forgotPassword');
+        return view('client.forgotPassword2');
     }
 
     public function rubahSifat()

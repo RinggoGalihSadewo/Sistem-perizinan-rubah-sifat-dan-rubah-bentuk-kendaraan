@@ -14,8 +14,8 @@
     <title>Masuk</title>
   </head>
   <body>
-
-        <div class="waveUp">    
+        
+        <div class="waveUp" style="z-index:-999;">    
             <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
         </div>
 
