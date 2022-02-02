@@ -11,22 +11,20 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/client/style.css">
 
-    <title>Masuk</title>
+    <title>Lupa Kata Sandi</title>
   </head>
   <body>
 
     <div class="container-sm-fluid login-client">
-    <div style="position: absolute; top: 1%; z-index: 999; left: 0.5%;" class="text-white">
-        <h2>Sistem Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan</h2>
-    </div>
 
-        <div class="waveUp">    
+
+        <div class="waveUp" style="z-index:-999;">    
             <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
         </div>
 
         <div class="ilus1 d-none d-lg-flex">
             <img src="/img/tataCara/forgetPassword.svg" alt="">    
-        <div class="login-form">
+        <div class="forgot-form">
 
             <h4 class="fw-bold text-center">Lupa Kata Sandi</h4>
 
@@ -36,14 +34,11 @@
                 <input type="text" class="input-login mt-3" placeholder="username" name="username">
                 <input type="text" class="input-login mt-4" placeholder="kata sandi" name="password">
                 <input type="text" class="input-login mt-4" placeholder="kata sandi baru" name="passwordNew">
-                <button type="submit" class="btn text-dark mt-4 fw-bold px-4" style="background: #968E8E; height: 50px; width: auto;">Kirim Pengaturan Ulang</button>
+                <button type="submit" class="btn text-dark mt-4 fw-bold px-4" style="background: #D1AD2C; height: 50px; width: auto;">Kirim Pengaturan Ulang</button>
                 </center>
             </form>
         </div>
-
-        <div class="waveDown">
-            <img src="/img/logo/waveDown.png" alt="" width="100%" height="150px">
-        </div>
+        
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
