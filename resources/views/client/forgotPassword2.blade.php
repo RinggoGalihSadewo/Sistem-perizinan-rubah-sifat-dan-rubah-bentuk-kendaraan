@@ -14,31 +14,29 @@
     <title>Masuk</title>
   </head>
   <body>
-      
+
+    <div class="container-sm-fluid login-client">
+    <div style="position: absolute; top: 1%; z-index: 999; left: 0.5%;" class="text-white">
+        <h2>Sistem Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan</h2>
+    </div>
+
         <div class="waveUp">    
-            <img src="/img/logo/waveUp.png" alt="" width="100%" height="200px">
+            <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
         </div>
 
+        <div class="ilus1 d-none d-lg-flex">
+            <img src="/img/tataCara/forgetPassword.svg" alt="">    
         <div class="login-form">
-            <h4 class="fw-bold text-center">Masuk</h4>
+
+            <h4 class="fw-bold text-center">Lupa Kata Sandi</h4>
 
             <form action="">
                 <center>
                     <!-- <img src="/img/logo/username.png" alt=""> -->
                 <input type="text" class="input-login mt-3" placeholder="username" name="username">
-                <input type="text" class="input-login mt-4" placeholder="password" name="password">
-                <div class="row mt-4">
-                    <div class="col-6">  
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" style="margin-left:10%;">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Ingat saya
-                        </label>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{url('/lupa-kata-sandi')}}" style="margin-right:25%; text-decoration: none; color: white;" target="_blank">Lupa kata sandi ?</a>
-                    </div>
-                </div>
-                <button type="submit" class="btn text-dark mt-4 fw-bold" style="background: #968E8E; height: 50px;">Masuk</button>
+                <input type="text" class="input-login mt-4" placeholder="kata sandi" name="password">
+                <input type="text" class="input-login mt-4" placeholder="kata sandi baru" name="passwordNew">
+                <button type="submit" class="btn text-dark mt-4 fw-bold px-4" style="background: #968E8E; height: 50px; width: auto;">Kirim Pengaturan Ulang</button>
                 </center>
             </form>
         </div>

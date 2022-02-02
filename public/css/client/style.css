@@ -122,6 +122,50 @@ footer{
 }
 
 .login-form{
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  width: 40%;
+  height: auto;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.input-login{
+  background-color: #CCAC02;
+  border-radius: 30px;
+  height: 55px;
+  width: 374px;
+  border: none;
+  padding-left: 20px;
+}
+
+.input-login:focus{
+  outline: none;
+}
+
+
+/* Login2 Client */
+
+.login-client{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  padding-top: 12%;
+}
+
+.wave1{
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.wave2{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.login-form{
   background-color: #CCAC02;
   border-radius: 20px;
   width: 40%;
@@ -143,9 +187,44 @@ footer{
   outline: none;
 }
 
-
-
 /* Rubah Sifat Client */
+
+#penjelasan{
+  width: 100%;
+  height: auto;
+  padding: 40px;
+  background-color: #96CEB4;
+}
+
+#perizinan{
+  background: rgba(255, 201, 0, 0.51);
+  padding: 50px;
+}
+
+.formPerizinan{
+  width: 55%;
+  height: auto;
+  padding: 50px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin: 2% auto;
+}
+
+.textPenjelasan{
+  margin-top: 5%;
+}
+
+@media only screen and (max-width:992px){
+  #perizinan{
+    padding: 50px 0 50px 0;
+  }
+  .formPerizinan{
+    width: 100%;
+  }
+}
+
+/* Rubah Bentuk Client */
 
 #penjelasan{
   width: 100%;

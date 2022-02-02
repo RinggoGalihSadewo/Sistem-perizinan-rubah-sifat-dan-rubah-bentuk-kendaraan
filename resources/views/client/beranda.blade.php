@@ -31,7 +31,7 @@
                             <a class="nav-link" href="#pendaftaran">Pendaftaran Akun</a>
                             <a class="nav-link" href="#tataCara">Tata Cara</a>
                             <a class="nav-link" href="#layananPengaduan">Layanan Pengaduan</a>
-                            <a class="nav-link" href="{{url('/masuk')}}" target="_blank">Masuk <img src="/img/logo/login.png" alt=""></a>
+                            <a class="nav-link" href="{{url('/masuk')}}" target="_blank">Masuk <img src="/img/logo/masuk.png" alt=""></a>
                         </div>
                     </div>
                 </div>
