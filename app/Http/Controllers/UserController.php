@@ -31,6 +31,11 @@ class UserController extends Controller
         return view('client.rubahSifat');
     }
 
+    public function rubahBentuk()
+    {
+        return view('client.rubahBentuk');
+    }
+
     public function registrasi(Request $request)
     {
         $validate = $request->validate([
