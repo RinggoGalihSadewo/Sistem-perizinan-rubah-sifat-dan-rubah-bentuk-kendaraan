@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data Pengguna</title>
+  <title>Detail Pengguna</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -148,45 +148,30 @@
           </div>
 
           <div class="row">
-            <div class="col-lg-12 mb-4">
-              
-              <!-- Simple Tables -->
-              <div class="card">
+            <div class="col-lg-6 mb-4">
+                <p>Username : {{$user->username}}</p>
+                <p>Email : {{$user->email}}</p>
+                <p>Nama Perusahaan : {{$user->nama_perusahaan}}</p>
+                <p>kabupaten : {{$user->kabupaten}}</p>
+                <p>NPWP : {{$user->npwp}}</p>
+                <p>Alamat : {{$user->alamat}}</p>
+                <p>No. Hp : {{$user->no_hp}}</p>      
+                <p>lat : {{$user->map->lat}}</p>
+                <p>lng : {{$user->map->lng}}</p>
+                <a href="" id="cekMap" target="_blank">Lihat Maps</a>
+                <div id="qr">
 
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Username</th>
-                        <th>Nama Perusahaan</th>
-                        <th>NPWP</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($users as $key => $user)
-                      <tr>
-                        <td><a href="#">1</a></td>
-                        <td>{{$user->username}}</td>
-                        <td>{{$user->nama_perusahaan}}</td>
-                        <td>{{$user->npwp}}</td>
-                        <td>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
                 </div>
-                <div class="card-footer"></div>
-              </div>
             </div>
-          </div>
-          <!--Row-->
-
+            <div class="col-lg-6 mb-4 mt-5">
+                <!-- {!! QrCode::size(250)->generate('https://www.google.com/maps/search/{{$user->map->lat}},{{$user->map->lng}}/@{{$user->map->lat}},{{$user->map->lng}}'); !!} -->
+                
+                <div id="qr">
+                
+                </div> 
+            </div>
+          </div>          
+                
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">
@@ -237,6 +222,14 @@
   <script src="/js/ruang-admin.min.js"></script>
   <script src="/vendors/chart.js/Chart.min.js"></script>
   <script src="/js/demo/chart-area-demo.js"></script> 
+
+  <script>
+
+      document.getElementById("cekMap").href = "https://www.google.com/maps/search/{{$user->map->lat}},{{$user->map->lng}}/@"+"{{$user->map->lat}},{{$user->map->lng}}";
+
+      document.getElementById("qr").innerHTML = "QrCode::size(250)->generate('https://www.google.com/maps/search/{{$user->map->lat}},{{$user->map->lng}}/@"+"{{$user->map->lat}},{{$user->map->lng}}');";
+
+  </script>
 
 </body>
 

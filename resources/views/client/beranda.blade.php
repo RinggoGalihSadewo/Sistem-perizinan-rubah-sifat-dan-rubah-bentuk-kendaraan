@@ -19,7 +19,7 @@
 
     <div class="container-sm-fluid">
         <section id="navbar">
-            <nav class="navbar navbar-expand-lg navbar-dark ">
+            <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand d-flex" href="#"><img src="/img/logo/dishub.png" alt=""><h2 style="margin-top:5%; margin-left: 5%;">E-Perizinan</h2></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,11 +27,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link active" aria-current="page" href="{{url('/')}}">Beranda</a>
-                            <a class="nav-link" href="#pendaftaran">Pendaftaran Akun</a>
-                            <a class="nav-link" href="#tataCara">Tata Cara</a>
-                            <a class="nav-link" href="#layananPengaduan">Layanan Pengaduan</a>
-                            <a class="nav-link" href="{{url('/masuk')}}" target="_blank">Masuk <img src="/img/logo/masuk.png" alt=""></a>
+                            <a class="nav-link {{ Request::is('') ? 'active' : '' }}" aria-current="page" href="{{url('/')}}">Beranda</a>
+                            <a class="nav-link {{ Request::is('/#pendaftaran') ? 'active' : '' }}" href="#pendaftaran">Pendaftaran Akun</a>
+                            <a class="nav-link {{ Request::is('/#tataCara') ? 'active' : '' }}" href="#tataCara">Tata Cara</a>
+                            <a class="nav-link {{ Request::is('/#layananPengaduan') ? 'active' : '' }}" href="#layananPengaduan">Layanan Pengaduan</a>
+                            <a class="nav-link {{ Request::is('/masuk') ? 'active' : '' }}" href="{{url('/masuk')}}" target="_blank">Masuk <img src="/img/logo/masuk.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -69,11 +69,17 @@
             <div class="pendaftaran">
                 <h2 class="text-center fw-bold text-white">Pendaftaran Akun</h2>
                 
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <div class="ilus1 d-none d-lg-flex">
                     <img src="/img/tataCara/1.png" alt="">    
                 </div>
                 <div class="formDaftar mt-5">
-                    <form action="">
+                    <form action="{{url('/')}}" method="post">
                         @csrf
 
                         <div class="row">
@@ -81,7 +87,14 @@
                                 Username
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control @error('username') is-invalid @enderror" id="" name="username">
+                                @error('username')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -92,7 +105,14 @@
                                 Password
                             </div>
                             <div class="col-sm-6">
-                                <input type="password" class="form-control" id="">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="" name="password">
+                                @error('password')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -103,7 +123,14 @@
                                 Nama Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control @error('namaPerusahaan') is-invalid @enderror" id="" name="namaPerusahaan">
+                                @error('namaPerusahaan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
             
@@ -114,7 +141,7 @@
                                 Kabupaten / Kota
                             </div>
                             <div class="col-sm-6">
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="kabupaten">
                                 <option selected>Pilih Kabupaten/Kota</option>
                                 <option value="Kabupaten Lampung Barat">Kabupaten Lampung Barat</option>
                                 <option value="Kabupaten Tanggamus">Kabupaten Tanggamus</option>
@@ -142,7 +169,14 @@
                                 No. NPWP Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control  @error('npwp') is-invalid @enderror" id="" name="npwp">
+                                @error('npwp')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 Contoh: 24421124
                             </div>
                         </div>
@@ -154,7 +188,14 @@
                                 Alamat Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <textarea class="form-control" id="" style="height: 120px;"></textarea>
+                                <textarea class="form-control @error('alamat') is-invalid @enderror" id="" style="height: 120px;" name="alamat"></textarea>
+                                @error('alamat')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 *) Kolom alamat diisi sesuai dengan domisili perusahaan yang dimiliki
                             </div>
                         </div>
@@ -172,8 +213,8 @@
                             placeholder="Cari alamat anda"
                             />
                             <div id="map" class="mt-3"></div>
-                            <input type="text" name="" id="lat" hidden="true">
-                            <input type="text" name="" id="lng" hidden="true">
+                            <input type="text" name="lat" id="lat" hidden="true">
+                            <input type="text" name="lng" id="lng" hidden="true">
                         </div>
                         
                         <br>
@@ -183,7 +224,14 @@
                                 Email
                             </div>
                             <div class="col-sm-6">
-                                <input type="email" class="form-control" id="">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="" name="email">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         
@@ -194,18 +242,23 @@
                                 No. Hp
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control" id="">
+                                <input type="noHp" class="form-control @error('noHp') is-invalid @enderror" id="" name="noHp">
+                                @error('noHp')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
-
-                        <br>
                             
-                        <div class="form-check">
+                        <!-- <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">
                                 Saya bersedia menerima dan menyetujui segala ketentuan yang diatur dalam sistem ini
                             </label>
-                        </div>
+                        </div> -->
 
                         <br>
 
@@ -244,7 +297,7 @@
         <section id="layananPengaduan">
             <div class="layananPengaduan">
             <div class="formPengaduan">
-                    <form action="">
+                    <form action="" method="post">
                         @csrf
                         <div class="row">
                             <h3 ><center> <img src="/img/tataCara/logoPengaduan.png" alt="" width="40px" height="40px"> Sampaikan Laporan Anda!</center></h3>

@@ -26,14 +26,30 @@
         <div class="login-form">
             <h4 class="fw-bold text-center">Masuk</h4>
 
-            <form action="">
+            <form action="{{url('/masuk')}}" method="post">
+                @csrf
                 <center>
                     <!-- <img src="/img/logo/username.png" alt=""> -->
-                <input type="text" class="input-login mt-3" placeholder="username" name="username">
-                <input type="text" class="input-login mt-4" placeholder="password" name="password">
+                <input type="text" class="input-login mt-3 @error('username') is-invalid @enderror" placeholder="username" name="username">
+                @error('username')
+                <div class="invalid-feedback mt-4">
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}	
+                    </div>
+                </div>
+                @enderror
+                <input type="text" class="input-login mt-4 @error('password') is-invalid @enderror" placeholder="password" name="password">
+                @error('password')
+                <div class="invalid-feedback mt-4">
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}	
+                    </div>
+                </div>
+                @enderror
                 <div class="row mt-4">
                     <div class="col-6">  
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" style="margin-left:10%;">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" style="margin-left:10%;" name="remember">
+
                         <label class="form-check-label" for="flexCheckChecked">
                             Ingat saya
                         </label>

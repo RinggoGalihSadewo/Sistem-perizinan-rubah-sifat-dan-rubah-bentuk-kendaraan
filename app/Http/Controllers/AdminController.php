@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\User;
+use App\Models\Map;
 
 class AdminController extends Controller
 {
@@ -13,7 +17,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $users = DB::table('users')->get();
+
+        return view('admin.index', compact('users'));
     }
 
     public function rubahSifat()
@@ -68,9 +74,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user, Map $map)
     {
         //
+        
+        return view('admin.detail', compact('user', 'map'));
     }
 
     /**

@@ -15,7 +15,10 @@ class CreateMapsTable extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->index();
+            // $table->foreignId('user_id')->index();
+            $table->foreignId('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
             $table->string('lat');
             $table->string('lng');
             $table->timestamps();

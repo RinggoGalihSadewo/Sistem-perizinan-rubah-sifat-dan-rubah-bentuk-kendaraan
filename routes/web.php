@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,20 +19,25 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [UserController::class, 'index']);
 
-Route::get('/masuk', [UserController::class, 'masuk']);
+Route::post('/', [LoginController::class, 'registrasi']);
+
+Route::get('/masuk', [UserController::class, 'masuk'])->name('login');
+Route::post('/masuk', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 
-Route::get('/perizinan-rubah-sifat', [UserController::class, 'rubahSifat']);
+Route::middleware(['auth'])->group( function(){
 
-Route::get('/perizinan-rubah-bentuk', [UserController::class, 'rubahBentuk']);
+    Route::get('/perizinan-rubah-sifat', [UserController::class, 'rubahSifat']);
 
-Route::get('/maps', [UserController::class, 'index']);
+    Route::get('/perizinan-rubah-bentuk', [UserController::class, 'rubahBentuk']);
 
-Route::post('/registrasi', [UserController::class, 'registrasi']);
+});
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
+Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
 Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
 Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
 Route::get('/admin/data-qr-code', [AdminController::class, 'qrCode']);
