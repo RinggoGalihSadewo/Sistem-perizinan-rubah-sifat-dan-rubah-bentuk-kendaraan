@@ -156,7 +156,9 @@
                 <p>NPWP : {{$user->npwp}}</p>
                 <p>Alamat : {{$user->alamat}}</p>
                 <p>No. Hp : {{$user->no_hp}}</p>      
-                <p>lat : {{$user->map->lat}}</p>
+                <p>lat : {{$user->map->lat}}
+
+                </p>
                 <p>lng : {{$user->map->lng}}</p>
                 <a href="" id="cekMap" target="_blank">Lihat Maps</a>
                 <div id="qr">
@@ -164,11 +166,7 @@
                 </div>
             </div>
             <div class="col-lg-6 mb-4 mt-5">
-                <!-- {!! QrCode::size(250)->generate('https://www.google.com/maps/search/{{$user->map->lat}},{{$user->map->lng}}/@{{$user->map->lat}},{{$user->map->lng}}'); !!} -->
-                
-                <div id="qr">
-                
-                </div> 
+                {{ $qr }}
             </div>
           </div>          
                 

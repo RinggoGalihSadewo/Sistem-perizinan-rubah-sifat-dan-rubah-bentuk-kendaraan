@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Map;
 
+use QrCode;
+
 class AdminController extends Controller
 {
     /**
@@ -77,8 +79,11 @@ class AdminController extends Controller
     public function show(User $user, Map $map)
     {
         //
-        
-        return view('admin.detail', compact('user', 'map'));
+        $map = Map::with('user')->where('user_id', $user->id)->firstOrFail();
+
+        $qr = QrCode::size(250)->generate('https://www.google.com/maps/search/'.$map->lat.','.$map->lng.'/@'.$map->lat.','.$map->lng);
+
+        return view('admin.detail', compact('user', 'qr'));
     }
 
     /**
