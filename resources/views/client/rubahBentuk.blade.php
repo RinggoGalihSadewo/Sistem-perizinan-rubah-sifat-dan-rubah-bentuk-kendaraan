@@ -60,8 +60,15 @@
             <h1 style="font-family: 'Dancing Script', cursive;" class="text-center">Form Surat Perizinan</h1>
             <div class="formPerizinan">
                 <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH BENTUK</h4>
+
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                
                 <div class="mt-5">
-                    <form action="">
+                    <form action="/perizinan-rubah-bentuk" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
@@ -80,7 +87,7 @@
                                 Nama Pemilik Lama
                             </div>
                             <div class="col-sm-6">
-                                <input type="password" class="form-control" id="" name="namaPemilik">
+                                <input type="text" class="form-control" id="" name="namaPemilikLama">
                             </div>
                         </div>
 
@@ -91,7 +98,7 @@
                                 Nama Pemilik Baru 
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="alamatPemilik">
+                                <input type="text" class="form-control" id="" name="namaPemilikBaru">
                             </div>
                         </div>
             
@@ -102,7 +109,7 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="merk">
+                                <input type="text" class="form-control" id="" name="alamat">
                             </div>
                         </div>
 
@@ -113,7 +120,7 @@
                                 Merk / Type
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="jenis">
+                                <input type="text" class="form-control" id="" name="merk">
                             </div>
                         </div>
 
@@ -124,7 +131,7 @@
                                 Jenis
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="model">
+                                <input type="text" class="form-control" id="" name="jenis">
                             </div>
                         </div>
 
@@ -201,7 +208,7 @@
                                 No. Uji Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="warna">
+                                <input type="text" class="form-control" id="" name="noUji">
                             </div>
                         </div>
                         

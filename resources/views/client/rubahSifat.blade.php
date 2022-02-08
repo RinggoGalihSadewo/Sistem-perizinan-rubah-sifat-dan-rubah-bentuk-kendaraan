@@ -62,8 +62,15 @@
             <h1 style="font-family: 'Dancing Script', cursive;" class="text-center">Form Surat Perizinan</h1>
             <div class="formPerizinan">
                 <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH SIFAT</h4>
+
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <div class="mt-5">
-                    <form action="">
+                    <form action="/perizinan-rubah-sifat" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
@@ -82,7 +89,7 @@
                                 Nama Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="password" class="form-control" id="" name="namaPemilik">
+                                <input type="text" class="form-control" id="" name="namaPemilik">
                             </div>
                         </div>
 
@@ -93,7 +100,7 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="alamatPemilik">
+                                <input type="text" class="form-control" id="" name="alamat">
                             </div>
                         </div>
             

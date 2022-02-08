@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 @enderror
-                <input type="text" class="input-login mt-4 @error('password') is-invalid @enderror" placeholder="password" name="password">
+                <input type="password" class="input-login mt-4 @error('password') is-invalid @enderror" placeholder="password" name="password">
                 @error('password')
                 <div class="invalid-feedback mt-4">
                     <div class="alert alert-danger" role="alert">

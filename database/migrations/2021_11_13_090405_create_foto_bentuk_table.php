@@ -15,11 +15,15 @@ class CreateFotoBentukTable extends Migration
     {
         Schema::create('foto_bentuk', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('formBentuk_id')->index();
-            $table->string('stnk');
-            $table->string('bpkb');
-            $table->string('ktp');
-            $table->string('buku_uji');
+            $table->foreignId('formBentuk_id')
+            ->references('id')->on('form_bentuk')
+            ->onDelete('cascade');
+            $table->string('foto_sebelum');
+            $table->string('foto_sesudah');
+            // $table->string('stnk');
+            // $table->string('bpkb');
+            // $table->string('ktp');
+            // $table->string('buku_uji');
             $table->timestamps();
         });
     }

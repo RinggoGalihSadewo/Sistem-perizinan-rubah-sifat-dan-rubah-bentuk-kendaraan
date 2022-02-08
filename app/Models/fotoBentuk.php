@@ -17,9 +17,9 @@ class FotoBentuk extends Model
 
     ];
 
-    public function fotoBentuk()
+    public function formBentuk()
     {
-        return $this->belongsTo(FotoBentuk::class);
+        return $this->belongsTo(FormBentuk::class);
     }
 
 }

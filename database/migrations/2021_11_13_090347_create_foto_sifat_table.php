@@ -15,11 +15,15 @@ class CreateFotoSifatTable extends Migration
     {
         Schema::create('foto_sifat', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('formSifat_id')->index();
-            $table->string('stnk');
-            $table->string('bpkb');
-            $table->string('ktp');
-            $table->string('buku_uji');
+            $table->foreignId('formSifat_id')
+            ->references('id')->on('form_sifat')
+            ->onDelete('cascade');
+            $table->string('foto_sebelum');
+            $table->string('foto_sesudah');
+            // $table->string('stnk');
+            // $table->string('bpkb');
+            // $table->string('ktp');
+            // $table->string('buku_uji');
             $table->timestamps();
         });
     }

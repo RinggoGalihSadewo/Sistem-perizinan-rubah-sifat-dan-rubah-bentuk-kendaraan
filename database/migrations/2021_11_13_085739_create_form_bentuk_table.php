@@ -15,10 +15,12 @@ class CreateFormBentukTable extends Migration
     {
         Schema::create('form_bentuk', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->index();
+            $table->foreignId('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
             $table->string('nomor_kendaraan');
-            $table->string('nomor_pemilik_lama');
-            $table->string('nomor_pemilik_baru');
+            $table->string('nama_pemilik_lama');
+            $table->string('nama_pemilik_baru');
             $table->string('alamat');
             $table->string('merk');
             $table->string('jenis');
@@ -28,8 +30,9 @@ class CreateFormBentukTable extends Migration
             $table->string('no_landasan');
             $table->string('no_mesin');
             $table->string('no_bpkb');
-            $table->string('nomor_ujiKendaraan');
-            $table->string('masa_berlaku');
+            $table->string('no_uji');
+            // $table->string('nomor_ujiKendaraan');
+            // $table->string('masa_berlaku');
             $table->timestamps();
         });
     }

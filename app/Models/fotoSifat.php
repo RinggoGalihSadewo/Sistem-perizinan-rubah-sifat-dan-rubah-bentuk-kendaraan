@@ -17,9 +17,9 @@ class FotoSifat extends Model
 
     ];
 
-    public function fotoSifat()
+    public function formSifat()
     {
-        return $this->belongsTo(FotoSifat::class);
+        return $this->belongsTo(FormSifat::class);
     }
 
 

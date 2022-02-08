@@ -30,8 +30,10 @@ Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 Route::middleware(['auth'])->group( function(){
 
     Route::get('/perizinan-rubah-sifat', [UserController::class, 'rubahSifat']);
+    Route::post('/perizinan-rubah-sifat', [UserController::class, 'storeSifat']);
 
     Route::get('/perizinan-rubah-bentuk', [UserController::class, 'rubahBentuk']);
+    Route::post('/perizinan-rubah-bentuk', [UserController::class, 'storeBentuk']);
 
 });
 

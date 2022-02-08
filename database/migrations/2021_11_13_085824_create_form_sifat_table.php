@@ -15,10 +15,13 @@ class CreateFormSifatTable extends Migration
     {
         Schema::create('form_sifat', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->index();
+            // $table->foreignId('user_id')->index();
+            $table->foreignId('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
             $table->string('nomor_kendaraan');
-            $table->string('nomor_pemilik_lama');
-            $table->string('nomor_pemilik_baru');
+            $table->string('nama_pemilik');
+            // $table->string('nomor_pemilik_baru');
             $table->string('alamat');
             $table->string('merk');
             $table->string('jenis');
@@ -29,8 +32,8 @@ class CreateFormSifatTable extends Migration
             $table->string('no_landasan');
             $table->string('no_mesin');
             $table->string('no_bpkb');
-            $table->string('keterangan');
-            $table->string('masa_berlaku');
+            // $table->string('keterangan');
+            // $table->string('masa_berlaku');
             $table->timestamps();
         });
     }
