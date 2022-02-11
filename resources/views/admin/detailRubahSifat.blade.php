@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data Rubah Sifat</title>
+  <title>Detail Data Rubah Sifat</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -144,45 +144,25 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Rubah Sifat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Detail Data Rubah Sifat</h1>
           </div>
 
           <div class="row">
             <div class="col-lg-12 mb-4">
-              
-              <!-- Simple Tables -->
-              <div class="card">
-
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Perusahaan</th>
-                        <th>Nama Pemilik</th>
-                        <th>Nomor Kendaraan</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$d->user->nama_perusahaan}}</td>
-                        <td>{{$d->nama_pemilik}}</td>
-                        <td>{{$d->nomor_kendaraan}}</td>
-                        <td>
-                          <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary" target="_blank">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-                </div>
-                <div class="card-footer"></div>
-              </div>
+              <p>Nomor kendaraan : {{$formSifat->nomor_kendaraan}}</p>
+              <p>Nama pemilik : {{$formSifat->nama_pemilik}}</p>
+              <p>Alamat : {{$formSifat->alamat}}</p>
+              <p>Merk : {{$formSifat->merk}}</p>
+              <p>Jenis : {{$formSifat->jenis}}</p>
+              <p>Model : {{$formSifat->model}}</p>
+              <p>Warna : {{$formSifat->warna}}</p>
+              <p>Tahun : {{$formSifat->tahun}}</p>
+              <p>Isi Silinder : {{$formSifat->isi_silinder}}</p>
+              <p>No Landasan : {{$formSifat->no_landasan}}</p>
+              <p>No Mesin : {{$formSifat->no_mesin}}</p>
+              <p>No BPKB : {{$formSifat->no_bpkb}}</p>
+              <p>Foto Sebelumnya : {{$foto[0]->foto_sebelum}}</p>
+              <p>Foto Sesudahnya : {{$foto[0]->foto_sesudah}}</p>
             </div>
           </div>
           <!--Row-->

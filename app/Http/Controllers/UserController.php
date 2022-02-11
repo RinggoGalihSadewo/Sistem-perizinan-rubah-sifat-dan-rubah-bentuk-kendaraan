@@ -55,8 +55,8 @@ class UserController extends Controller
             'noLandasan' => 'required',
             'noMesin' => 'required',
             'bpkb' => 'required',
-            'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
-            'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048'            
+            'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
+            'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
 
         ],
         [
@@ -159,8 +159,8 @@ class UserController extends Controller
             'noMesin' => 'required',
             'bpkb' => 'required',
             'noUji' => 'required',
-            'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
-            'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048'            
+            'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
+            'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
 
         ],
         [

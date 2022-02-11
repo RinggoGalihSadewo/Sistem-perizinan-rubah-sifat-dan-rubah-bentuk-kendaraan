@@ -18,6 +18,7 @@ class LoginController extends Controller
             'username' => 'required',
             'password' => 'required',
             'namaPerusahaan' => 'required',
+            'namaPemilik' => 'required',
             'kabupaten' => 'required',
             'npwp' => 'required',
             'alamat' => 'required',
@@ -31,6 +32,7 @@ class LoginController extends Controller
             'username.required' => 'username wajib di isi',
             'password.required' => 'password wajib di isi',
             'namaPerusahaan.required' => 'nama perusahaan wajib di isi',
+            'namaPemilik.required' => 'nama pemilik wajib di isi',
             'kabupaten.required' => 'kabupaten wajib di isi',
             'npwp.required' => 'npwp wajib di isi',
             'alamat.required' => 'alamat wajib di isi',
@@ -50,6 +52,7 @@ class LoginController extends Controller
         $user->username = $request->username;
         $user->password = $password;
         $user->nama_perusahaan = $request->namaPerusahaan;
+        $user->nama_pemilik = $request->namaPemilik;
         $user->kabupaten = $request->kabupaten;
         $user->npwp = $request->npwp;
         $user->alamat = $request->alamat;

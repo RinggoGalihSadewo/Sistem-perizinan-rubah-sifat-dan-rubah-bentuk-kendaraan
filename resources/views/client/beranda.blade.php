@@ -138,6 +138,24 @@
 
                         <div class="row">
                             <div class="col-sm-6">
+                                Nama Pemilik
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="" name="namaPemilik">
+                                @error('namaPemilik')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}  
+                                    </div>
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
                                 Kabupaten / Kota
                             </div>
                             <div class="col-sm-6">

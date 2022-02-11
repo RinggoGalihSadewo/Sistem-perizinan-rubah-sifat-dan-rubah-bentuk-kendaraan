@@ -167,7 +167,7 @@
                     <tbody>
                       @foreach ($users as $key => $user)
                       <tr>
-                        <td><a href="#">1</a></td>
+                        <td>{{$loop->iteration}}</td>
                         <td>{{$user->username}}</td>
                         <td>{{$user->nama_perusahaan}}</td>
                         <td>{{$user->npwp}}</td>
