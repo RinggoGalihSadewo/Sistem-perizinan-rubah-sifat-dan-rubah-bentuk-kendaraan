@@ -158,68 +158,28 @@
                     <thead class="thead-light">
                       <tr>
                         <th>No</th>
-                        <th>Nama Pemilik</th>
                         <th>Nama Perusahaan</th>
-                        <th>Kabupaten / Kota</th>
+                        <th>Nama Pemilik Lama</th>
+                        <th>Nama Pemilik Baru</th>
+                        <th>No. Kendaraan</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($data as $d)
                       <tr>
-                        <td><a href="#">1</a></td>
-                        <td>Udin Wayang</td>
-                        <td>Nasi Padang</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$d->user->nama_perusahaan}}</td>
+                        <td>{{$d->nama_pemilik_lama}}</td>
+                        <td>{{$d->nama_pemilik_baru}}</td>
+                        <td>{{$d->nomor_kendaraan}}</td>
                         <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                          <a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" target="_blank" class="btn btn-sm btn-primary">Detail</a>
                           <a href="#" class="btn btn-sm btn-success">Edit</a>
                           <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                         </td>
                       </tr>
-                      <tr>
-                        <td><a href="#">2</a></td>
-                        <td>Jaenab Bajigur</td>
-                        <td>Gundam 90' Edition</td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">3</a></td>
-                        <td>Rivat Mahesa</td>
-                        <td>Oblong T-Shirt</td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">4</a></td>
-                        <td>Indri Junanda</td>
-                        <td>Hat Rounded</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">5</a></td>
-                        <td>Udin Cilok</td>
-                        <td>Baby Powder</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

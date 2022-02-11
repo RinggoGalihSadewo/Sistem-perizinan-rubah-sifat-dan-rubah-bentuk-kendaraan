@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Map;
 use App\Models\FormSifat;
 use App\Models\FotoSifat;
+use App\Models\FormBentuk;
+use App\Models\FotoBentuk;
 
 use QrCode;
 
@@ -42,7 +44,15 @@ class AdminController extends Controller
 
     public function rubahBentuk()
     {
-        return view('admin.RubahBentuk');
+        $data = FormBentuk::with('user')->get();
+        return view('admin.RubahBentuk', compact('data'));
+    }
+
+    public function detailRubahBentuk(FormBentuk $formBentuk)
+    {
+        
+        $foto = FotoBentuk::where('formBentuk_id', $formBentuk->id)->get();
+        return view('admin.detailRubahBentuk', compact('formBentuk'));
     }
 
     public function qrCode()
