@@ -144,7 +144,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Detail Data Rubah Sifat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Detail Data Rubah Bentuk</h1>
           </div>
 
           <div class="row">
@@ -162,8 +162,8 @@
               <p>No Mesin : {{$formBentuk->no_mesin}}</p>
               <p>No BPKB : {{$formBentuk->no_bpkb}}</p>
               <p>No Uji : {{$formBentuk->no_uji}}</p>
-              <!-- <p>Foto Sebelumnya : {{$foto[0]->foto_sebelum}}</p> -->
-              <!-- <p>Foto Sesudahnya : {{$foto[0]->foto_sesudah}}</p> -->
+              <p>Foto Sebelumnya : {{$foto[0]->foto_sebelum}}</p>
+              <p>Foto Sesudahnya : {{$foto[0]->foto_sesudah}}</p>
             </div>
           </div>
           <!--Row-->

@@ -50,9 +50,8 @@ class AdminController extends Controller
 
     public function detailRubahBentuk(FormBentuk $formBentuk)
     {
-        
         $foto = FotoBentuk::where('formBentuk_id', $formBentuk->id)->get();
-        return view('admin.detailRubahBentuk', compact('formBentuk'));
+        return view('admin.detailRubahBentuk', compact('formBentuk', 'foto'));
     }
 
     public function qrCode()

@@ -43,10 +43,12 @@ Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
 
 Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
-Route::get('/admin/data-rubah-sifat/detail/{{formSifat}}', [AdminController::class, 'detailRubahSifat']);
+Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
+
+
 
 Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
-Route::get('/admin/data-rubah-bentuk/detail/{{formBentuk}}', [AdminController::class, 'detailRubahBentuk']);
+Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::class, 'detailRubahBentuk']);
 
 Route::get('/admin/data-qr-code', [AdminController::class, 'qrCode']);
 Route::get('/admin/generate-qrcode-rubah-sifat', [AdminController::class, 'generateRubahSifat']);
