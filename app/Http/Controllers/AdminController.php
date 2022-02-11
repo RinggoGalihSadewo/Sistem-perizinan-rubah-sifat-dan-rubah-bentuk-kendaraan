@@ -28,6 +28,57 @@ class AdminController extends Controller
         return view('admin.index', compact('users'));
     }
 
+    public function viewEditIndex(User $user)
+    {
+        return view('admin.editIndex', compact('user'));
+    }
+
+    public function storeEditIndex(User $user, Request $request)
+    {
+        $validatedData = $request->validate([
+
+            'namaPerusahaan' => 'required',
+            'namaPemilik' => 'required',
+            'kabupaten' => 'required',
+            'npwp' => 'required',
+            'alamat' => 'required',
+            // 'lat' => 'required',
+            // 'lng' => 'required',
+            'email' => 'required|email',
+            'noHp' => 'required',            
+
+        ],
+        [
+            'namaPerusahaan.required' => 'nama perusahaan wajib di isi',
+            'namaPemilik.required' => 'nama pemilik wajib di isi',
+            'kabupaten.required' => 'kabupaten wajib di isi',
+            'npwp.required' => 'npwp wajib di isi',
+            'alamat.required' => 'alamat wajib di isi',
+            // 'lat.required' => 'masukan nilai lattitude',
+            // 'lng.required' => 'masukan nilai longtitude',
+            'email.required' => 'email wajib di isi',
+            'email.email' => 'harap masukan email sesuai dengan formatnya',
+            'noHP.required' => 'no hp wajib di isi',
+  
+        ]
+        );
+
+
+
+        User::where('id', $user->id)
+            ->update([
+                'nama_perusahaan' => $request->namaPerusahaan,
+                'nama_pemilik' => $request->namaPemilik,
+                'kabupaten' => $request->kabupaten,
+                'npwp' => $request->npwp,
+                'alamat' => $request->alamat,
+                'email' => $request->email,
+                'no_hp' => $request->noHp
+        ]);
+
+        return redirect('/admin/dashboard')->with('status', 'Data berhasil di edit');
+    }
+
     public function rubahSifat()
     {
 
@@ -40,6 +91,77 @@ class AdminController extends Controller
     {
         $foto = FotoSifat::where('formSifat_id', $formSifat->id)->get();
         return view('admin.detailRubahSifat', compact('formSifat', 'foto'));
+    }
+    
+    public function viewEditSifat(FormSifat $formSifat)
+    {
+        return view('admin.editRubahSifat', compact('formSifat'));
+    }
+
+    public function storeEditSifat(FormSifat $formSifat, Request $request, User $user)
+    {
+
+        
+        $validatedData = $request->validate([
+
+            'noKendaraan' => 'required',
+            'namaPemilik' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'model' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'isiSilinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'noBpkb' => 'required',
+            // 'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
+            // 'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
+
+        ],
+        [
+            'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
+            'namaPemilik.required' => 'Nama Pemilik wajib di isi',
+            'alamat.required' => 'Alamat wajib di isi',
+            'merk.required' => 'merk wajib di isi',
+            'jenis.required' => 'Jenis wajib di isi',
+            'model.required' => 'Model wajib di isi',
+            'warna.required' => 'Warna wajib di isi',
+            'tahun.required' => 'Tahun wajib di isi',
+            'isiSilinder.required' => 'Isi Silinder wajib di isi',
+            'noLandasan.required' => 'No. Landasan wajib di isi',
+            'noMesin.required' => 'No. Mesin wajib di isi',
+            'noBpkb.required' => 'No. BPKB wajib di isi',
+            // 'fotoSebelum.required' => 'Wajib masukan foto',
+            // 'fotoSebelum.image' => 'Foto harus berupa gambar',
+            // 'fotoSebelum.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
+            // 'fotoSebelum.max' => 'Ukuran gambar maksimal 2MB',
+            // 'fotoSesudah.required' => 'Wajib masukan foto',
+            // 'fotoSesudah.image' => 'Foto harus berupa gambar',
+            // 'fotoSesudah.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
+            // 'fotoSesudah.max' => 'Ukuran gambar maksimal 2MB',
+  
+        ]
+        );
+
+        FormSifat::where('id', $formSifat->id)
+            ->update([
+                'nomor_kendaraan' => $request->noKendaraan,
+                'nama_pemilik' => $request->namaPemilik,
+                'alamat' => $request->alamat,
+                'merk' => $request->merk,
+                'jenis' => $request->jenis,
+                'model' => $request->model,
+                'warna' => $request->warna,
+                'tahun' => $request->tahun,
+                'isi_silinder' => $request->isiSilinder,
+                'no_landasan' => $request->noLandasan,
+                'no_mesin' => $request->noMesin,
+                'no_bpkb' => $request->noBpkb,
+        ]);
+
+        return redirect('/admin/data-rubah-sifat')->with('status', 'Data berhasil di edit');
     }
 
     public function rubahBentuk()
@@ -54,6 +176,82 @@ class AdminController extends Controller
         return view('admin.detailRubahBentuk', compact('formBentuk', 'foto'));
     }
 
+    public function storeEditBentuk(FormBentuk $formBentuk, Request $request)
+    {
+        $validatedData = $request->validate([
+
+            'noKendaraan' => 'required',
+            'namaPemilikLama' => 'required',
+            'namaPemilikBaru' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'volumeSilinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'noBpkb' => 'required',
+            'noUji' => 'required',
+            // 'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
+            // 'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
+
+        ],
+        [
+            'noKendaraan .required' => 'No. Kendaraan  wajib di isi',
+            'namaPemilikLama.required' => 'Nama pemilik lama wajib di isi',
+            'namaPemilikBaru.required' => 'Nama pemilik baru wajib di isi',
+            'alamat.required' => 'Alamat wajib di isi',
+            'merk.required' => 'merk wajib di isi',
+            'jenis.required' => 'Jenis wajib di isi',
+            'warna.required' => 'Warna wajib di isi',
+            'tahun.required' => 'Tahun wajib di isi',
+            'volumeSilinder.required' => 'Volume Silinder wajib di isi',
+            'noLandasan.required' => 'No. Landasan wajib di isi',
+            'noMesin.required' => 'No. Mesin wajib di isi',
+            'noBpkb' => 'No. BPKB wajib di isi',
+            'noUji' => 'No. Uji wajib di isi',
+            'fotoSebelum.required' => 'Wajib masukan foto',
+            'fotoSebelum.image' => 'Foto harus berupa gambar',
+            'fotoSebelum.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
+            'fotoSebelum.max' => 'Ukuran gambar maksimal 2MB',
+            'fotoSesudah.required' => 'Wajib masukan foto',
+            'fotoSesudah.image' => 'Foto harus berupa gambar',
+            'fotoSesudah.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
+            'fotoSesudah.max' => 'Ukuran gambar maksimal 2MB',
+  
+        ]
+        );
+
+
+
+        FormBentuk::where('id', $formBentuk->id)
+        ->update([
+            "nomor_kendaraan" => $request->noKendaraan,
+            "nama_pemilik_lama" => $request->namaPemilikLama,
+            "nama_pemilik_baru" => $request->namaPemilikBaru,
+            "alamat" => $request->alamat,
+            "merk" => $request->merk,
+            "jenis" => $request->jenis,
+            "warna" => $request->warna,
+            "tahun" => $request->tahun,
+            "volume_silinder" => $request->volumeSilinder,
+            "no_landasan" => $request->noLandasan,
+            "no_mesin" => $request->noMesin,
+            "no_bpkb" => $request->noBpkb,
+            "no_uji" => $request->noUji,
+
+         ]);
+
+         return redirect('/admin/data-rubah-bentuk')->with('status', 'Data berhasil di edit');
+
+    }
+
+    public function viewEditBentuk(FormBentuk $formBentuk)
+    {
+        return view('admin.editRubahBentuk', compact('formBentuk'));
+    }
+    
     public function qrCode()
     {
         return view('admin.dataQr');

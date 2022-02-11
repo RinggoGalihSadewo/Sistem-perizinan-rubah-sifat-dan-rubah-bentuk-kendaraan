@@ -4,12 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data Rubah Sifat</title>
+  <title>Data Rubah Bentuk</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -44,8 +43,8 @@
         </a>
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
-            <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
+            <a class="collapse-item active" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>
@@ -69,8 +68,8 @@
         </a>
         <div id="collapseQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="simple-tables.html">QR Simple Tables</a>
-            <a class="collapse-item" href="datatables.html">DataTables</a>
+            <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-sifat')}}">Rubah Sifat</a>
+            <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>
@@ -145,51 +144,75 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Rubah Sifat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Data Rubah Bentuk</h1>
           </div>
 
           <div class="row">
             <div class="col-lg-12 mb-4">
               
-            @if (session('status'))
-                  <div class="alert alert-success">
-                      {{ session('status') }}
-                  </div>
-              @endif
-              
-              <!-- Simple Tables -->
-              <div class="card">
+            <div class="card mb-4">
+            <div class="card-body">
 
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Perusahaan</th>
-                        <th>Nama Pemilik</th>
-                        <th>Nomor Kendaraan</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$d->user->nama_perusahaan}}</td>
-                        <td>{{$d->nama_pemilik}}</td>
-                        <td>{{$d->nomor_kendaraan}}</td>
-                        <td>
-                          <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary" target="_blank">Detail</a>
-                          <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                <form action="/admin/data-rubah-bentuk/edit/{{$formBentuk->id}}" method="post">
+                @csrf
+                @method('patch')
+                <div class="form-group">
+                    <label for="exampleInputEmail1">No. Kendaraan</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="noKendaraan" value="{{$formBentuk->nomor_kendaraan}}">
                 </div>
-                <div class="card-footer"></div>
-              </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Nama Pemilik Lama</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" name="namaPemilikLama" value="{{$formBentuk->nama_pemilik_lama}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Nama Pemilik Baru</label>
+                    <input type="text" class="form-control" id="exampleInputEmail3" name="namaPemilikBaru" value="{{$formBentuk->nama_pemilik_baru}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail4">Alamat</label>
+                    <input type="text" class="form-control" id="exampleInputEmail4" name="alamat" value="{{$formBentuk->alamat}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail5">Merk</label>
+                    <input type="text" class="form-control" id="exampleInputEmail5" name="merk" value="{{$formBentuk->merk}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail6">Jenis</label>
+                    <input type="text" class="form-control" id="exampleInputEmail6" name="jenis" value="{{$formBentuk->jenis}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail7">Warna</label>
+                    <input type="text" class="form-control" id="exampleInputEmail7" name="warna" value="{{$formBentuk->warna}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail8">Tahun</label>
+                    <input type="text" class="form-control" id="exampleInputEmail8" name="tahun" value="{{$formBentuk->tahun}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail9">Volume Silinder</label>
+                    <input type="text" class="form-control" id="exampleInputEmail9" name="volumeSilinder" value="{{$formBentuk->volume_silinder}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail10">No. Landasan</label>
+                    <input type="text" class="form-control" id="exampleInputEmail10" name="noLandasan" value="{{$formBentuk->no_landasan}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail11">No. Mesin</label>
+                    <input type="text" class="form-control" id="exampleInputEmail11" name="noMesin" value="{{$formBentuk->no_mesin}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail12">No. BPKB</label>
+                    <input type="text" class="form-control" id="exampleInputEmail12" name="noBpkb" value="{{$formBentuk->no_bpkb}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail13">No. Uji</label>
+                    <input type="text" class="form-control" id="exampleInputEmail13" name="noUji" value="{{$formBentuk->no_uji}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            </div>
+             
             </div>
           </div>
           <!--Row-->

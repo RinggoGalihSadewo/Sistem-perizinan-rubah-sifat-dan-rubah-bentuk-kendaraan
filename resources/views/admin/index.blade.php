@@ -149,10 +149,15 @@
 
           <div class="row">
             <div class="col-lg-12 mb-4">
-              
+
+              @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+              @endif
+            
               <!-- Simple Tables -->
               <div class="card">
-
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
@@ -173,7 +178,7 @@
                         <td>{{$user->npwp}}</td>
                         <td>
                           <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-success">Edit</a>
+                          <a href="/admin/dashboard/edit/{{$user->id}}" class="btn btn-sm btn-success">Edit</a>
                           <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-danger">Hapus</a>
                         </td>
                       </tr>

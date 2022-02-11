@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data Rubah Sifat</title>
+  <title>Edit Data Rubah Sifat</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -145,51 +145,155 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Rubah Sifat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Data Rubah Sifat</h1>
           </div>
 
           <div class="row">
             <div class="col-lg-12 mb-4">
               
-            @if (session('status'))
-                  <div class="alert alert-success">
-                      {{ session('status') }}
-                  </div>
-              @endif
-              
-              <!-- Simple Tables -->
-              <div class="card">
+            <div class="card mb-4">
+            <div class="card-body">
 
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Perusahaan</th>
-                        <th>Nama Pemilik</th>
-                        <th>Nomor Kendaraan</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$d->user->nama_perusahaan}}</td>
-                        <td>{{$d->nama_pemilik}}</td>
-                        <td>{{$d->nomor_kendaraan}}</td>
-                        <td>
-                          <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary" target="_blank">Detail</a>
-                          <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                <form action="/admin/data-rubah-sifat/edit/{{$formSifat->id}}" method="post">
+                @csrf
+                @method('patch')
+                <div class="form-group">
+                    <label for="exampleInputEmail1">No. Kendaraan</label>
+                    <input type="text" class="form-control @error('noKendaraan') is-invalid @enderror" id="exampleInputEmail1" name="noKendaraan" value="{{$formSifat->nomor_kendaraan}}">
+                    @error('noKendaraan')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
                 </div>
-                <div class="card-footer"></div>
-              </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Nama Pemilik</label>
+                    <input type="text" class="form-control @error('nama_pemilik') is-invalid @enderror" id="exampleInputEmail2" name="namaPemilik" value="{{$formSifat->nama_pemilik}}">
+                    @error('nama_pemilik')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Alamat</label>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="exampleInputEmail3" name="alamat" value="{{$formSifat->alamat}}">
+                    @error('alamat')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail4">Merk</label>
+                    <input type="text" class="form-control @error('merk') is-invalid @enderror" id="exampleInputEmail4" name="merk" value="{{$formSifat->merk}}">
+                    @error('merk')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail5">Jenis</label>
+                    <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="exampleInputEmail5" name="jenis" value="{{$formSifat->jenis}}">
+                    @error('jenis')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail6">Model</label>
+                    <input type="text" class="form-control @error('model') is-invalid @enderror" id="exampleInputEmail6" name="model" value="{{$formSifat->model}}">
+                    @error('model')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail7">Warna</label>
+                    <input type="text" class="form-control @error('warna') is-invalid @enderror" id="exampleInputEmail7" name="warna" value="{{$formSifat->warna}}">
+                    @error('warna')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail8">Tahun</label>
+                    <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="exampleInputEmail8" name="tahun" value="{{$formSifat->tahun}}">
+                    @error('tahun')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail9">Isi Silinder</label>
+                    <input type="text" class="form-control @error('isiSilinder') is-invalid @enderror" id="exampleInputEmail9" name="isiSilinder" value="{{$formSifat->isi_silinder}}">
+                    @error('isiSilinder')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail10">No. Landasan</label>
+                    <input type="text" class="form-control @error('noLandasan') is-invalid @enderror" id="exampleInputEmail10" name="noLandasan" value="{{$formSifat->no_landasan}}">
+                    @error('noLandasan')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail11">No. Mesin</label>
+                    <input type="text" class="form-control @error('noMesin') is-invalid @enderror" id="exampleInputEmail11" name="noMesin" value="{{$formSifat->no_mesin}}">
+                    @error('noMesin')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail12">No. BPKB</label>
+                    <input type="text" class="form-control @error('noBpkb') is-invalid @enderror" id="exampleInputEmail12" name="noBpkb" value="{{$formSifat->no_bpkb}}">
+                    @error('noBpkb')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            </div>
+              
             </div>
           </div>
           <!--Row-->

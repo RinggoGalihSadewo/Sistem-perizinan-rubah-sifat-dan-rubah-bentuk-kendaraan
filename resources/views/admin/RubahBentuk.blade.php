@@ -149,6 +149,12 @@
 
           <div class="row">
             <div class="col-lg-12 mb-4">
+
+              @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+              @endif
               
               <!-- Simple Tables -->
               <div class="card">
@@ -175,7 +181,7 @@
                         <td>{{$d->nomor_kendaraan}}</td>
                         <td>
                           <a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" target="_blank" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
+                          <a href="/admin/data-rubah-bentuk/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
                           <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                         </td>
                       </tr>

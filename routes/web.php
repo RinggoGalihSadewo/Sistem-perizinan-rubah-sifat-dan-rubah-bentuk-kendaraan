@@ -39,16 +39,20 @@ Route::middleware(['auth'])->group( function(){
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
-
 Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
+Route::get('/admin/dashboard/edit/{user}', [AdminController::class, 'viewEditIndex']);
+Route::patch('/admin/dashboard/edit/{user}', [AdminController::class, 'storeEditIndex']);
 
 Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
 Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
-
+Route::get('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'viewEditSifat']);
+Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
 
 
 Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
 Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::class, 'detailRubahBentuk']);
+Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'viewEditBentuk']);
+Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
 
 Route::get('/admin/data-qr-code', [AdminController::class, 'qrCode']);
 Route::get('/admin/generate-qrcode-rubah-sifat', [AdminController::class, 'generateRubahSifat']);

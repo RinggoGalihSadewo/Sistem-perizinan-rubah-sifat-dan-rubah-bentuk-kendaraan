@@ -60,7 +60,7 @@ class UserController extends Controller
 
         ],
         [
-            'noKendaraan .required' => 'No. Kendaraan  wajib di isi',
+            'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
             'namaPemilik.required' => 'Nama Pemilik wajib di isi',
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
