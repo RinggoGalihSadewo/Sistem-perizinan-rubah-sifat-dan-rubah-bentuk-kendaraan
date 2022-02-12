@@ -11,6 +11,8 @@ use App\Models\FormSifat;
 use App\Models\FotoSifat;
 use App\Models\FormBentuk;
 use App\Models\FotoBentuk;
+use App\Models\TrackSuratSifat;
+use App\Models\TrackSuratBentuk;
 
 class UserController extends Controller
 {
@@ -130,7 +132,18 @@ class UserController extends Controller
         $fotoSifat->foto_sesudah = $fotoSesudah;
         $fotoSifat->save();
 
+        $TrackSifat = new TrackSuratSifat;
 
+        $valid = "Belum Validasi";
+
+        $TrackSifat->form_sifat_id = $formSifat->id;
+        $TrackSifat->staff_angkutan = $valid;
+        $TrackSifat->kasi_angkutan = $valid;
+        $TrackSifat->kabid_lla = $valid;
+        $TrackSifat->sekretariat = $valid;
+        $TrackSifat->kepala_dinas = $valid;
+
+        $TrackSifat->save();
 
         return redirect('/perizinan-rubah-sifat')->with('status', 'Pengisian form perizinan berhasil');
 
@@ -237,7 +250,17 @@ class UserController extends Controller
         $FotoBentuk->foto_sesudah = $fotoSesudah;
         $FotoBentuk->save();
 
+        $TrackBentuk = new TrackSuratBentuk;
 
+        $valid = "Belum Validasi";
+
+        $TrackBentuk->form_bentuk_id = $FormBentuk->id;
+        $TrackBentuk->kasi = $valid;
+        $TrackBentuk->kabid = $valid;
+        $TrackBentuk->sekretaris = $valid;
+        $TrackBentuk->kepala_dinas = $valid;
+
+        $TrackBentuk->save();
 
         return redirect('/perizinan-rubah-bentuk')->with('status', 'Pengisian form perizinan berhasil');
 

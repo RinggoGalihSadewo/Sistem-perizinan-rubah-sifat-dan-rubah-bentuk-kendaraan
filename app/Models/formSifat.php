@@ -25,6 +25,11 @@ class FormSifat extends Model
     public function fotoSifat()
     {
         return $this->hasOne(FotoSifat::class);
+    }
+
+    public function trackSuratSifat()
+    {
+        return $this->hasOne(TrackSuratSifat::class);
     }    
 
 }

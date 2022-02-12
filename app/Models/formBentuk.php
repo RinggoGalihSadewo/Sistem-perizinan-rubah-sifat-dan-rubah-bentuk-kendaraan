@@ -27,4 +27,9 @@ class FormBentuk extends Model
         return $this->hasOne(FotoBentuk::class);
     }
 
+    public function trackSuratBentuk()
+    {
+        return $this->hasOne(TrackSuratBentuk::class);
+    } 
+
 }

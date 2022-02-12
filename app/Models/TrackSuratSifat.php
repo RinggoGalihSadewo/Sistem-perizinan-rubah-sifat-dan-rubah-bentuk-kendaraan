@@ -17,9 +17,9 @@ class TrackSuratSifat extends Model
 
     ];
 
-    public function user()
+    public function formSifat()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(FormSifat::class);
     }    
 
 }

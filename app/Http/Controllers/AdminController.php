@@ -11,6 +11,7 @@ use App\Models\FormSifat;
 use App\Models\FotoSifat;
 use App\Models\FormBentuk;
 use App\Models\FotoBentuk;
+use App\Models\TrackSuratSifat;
 
 use QrCode;
 
@@ -21,7 +22,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
         $users = DB::table('users')->get();
 
@@ -62,8 +63,6 @@ class AdminController extends Controller
   
         ]
         );
-
-
 
         User::where('id', $user->id)
             ->update([

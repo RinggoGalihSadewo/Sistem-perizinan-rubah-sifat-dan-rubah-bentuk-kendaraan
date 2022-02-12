@@ -55,16 +55,6 @@ class User extends Authenticatable
         return $this->hasMany(SuratSifat::class);
     }
 
-    public function trackSuratBentuk()
-    {
-        return $this->hasMany(TrackSuratBentuk::class);
-    }
-
-    public function trackSuratSifat()
-    {
-        return $this->hasMany(TrackSuratSifat::class);
-    }
-
     public function formBentuk()
     {
         return $this->hasMany(FormBentuk::class);

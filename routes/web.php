@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ValidasiSifatController;
+use App\Http\Controllers\ValidasiBentukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +59,16 @@ Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::cla
 Route::get('/admin/data-qr-code', [AdminController::class, 'qrCode']);
 Route::get('/admin/generate-qrcode-rubah-sifat', [AdminController::class, 'generateRubahSifat']);
 Route::get('/admin/generate-qrcode-rubah-bentuk', [AdminController::class, 'generateRubahBentuk']);
+
+Route::get('/admin/validasi/rubah-sifat', [ValidasiSifatController::class, 'index']);
+Route::get('/admin/validasi/rubah-sifat/staff-angkutan/{formSifat}', [ValidasiSifatController::class, 'staff']);
+Route::get('/admin/validasi/rubah-sifat/kasi-angkutan/{formSifat}', [ValidasiSifatController::class, 'kasi']);
+Route::get('/admin/validasi/rubah-sifat/kabid-lla/{formSifat}', [ValidasiSifatController::class, 'kabid']);
+Route::get('/admin/validasi/rubah-sifat/sekretariat/{formSifat}', [ValidasiSifatController::class, 'sekretariat']);
+Route::get('/admin/validasi/rubah-sifat/kepala-dinas/{formSifat}', [ValidasiSifatController::class, 'kepalaDinas']);
+
+Route::get('/admin/validasi/rubah-bentuk', [ValidasiBentukController::class, 'index']);
+Route::get('/admin/validasi/rubah-bentuk/kasi/{formBentuk}', [ValidasiBentukController::class, 'kasi']);
+Route::get('/admin/validasi/rubah-bentuk/kabid/{formBentuk}', [ValidasiBentukController::class, 'kabid']);
+Route::get('/admin/validasi/rubah-bentuk/sekretaris/{formBentuk}', [ValidasiBentukController::class, 'sekretaris']);
+Route::get('/admin/validasi/rubah-bentuk/kepala-dinas/{formBentuk}', [ValidasiBentukController::class, 'kepalaDinas']);

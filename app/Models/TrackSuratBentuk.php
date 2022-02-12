@@ -17,9 +17,9 @@ class TrackSuratBentuk extends Model
 
     ];
 
-    public function user()
+    public function formBentuk()
     {
-        return $this->belongsTo(User::class);
+       return $this->belongsTo(FormBentuk::class); 
     }
 
 }
