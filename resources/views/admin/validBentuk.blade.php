@@ -166,7 +166,7 @@
                   @foreach($data as $d)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$d->nomor_kendaraan}}</td>
+                    <td><a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" target="_blank">{{$d->nomor_kendaraan}}</a></td>
                     <td>
                       @if($d->trackSuratBentuk['kasi'] == "Belum Validasi")
                       <a href="/admin/validasi/rubah-bentuk/kasi/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratBentuk['kasi']}}</a>

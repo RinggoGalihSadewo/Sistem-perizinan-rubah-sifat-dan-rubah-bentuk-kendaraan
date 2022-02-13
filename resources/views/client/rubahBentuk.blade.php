@@ -35,8 +35,8 @@
                                     <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}" target="_blank">Perizinan Rubah Bentuk Kendaraan</a></li>
                                 </ul>
                             </li>
-                            <a class="nav-link" href="#">Alur Kordinasi</a>
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
+                            <a class="nav-link" href="{{url('/profile')}}">Profile</a>
                             <a class="nav-link" href="{{url('/logout')}}" target="_blank">Keluar <img src="/img/logo/logout.png" alt=""></a>
                         </div>
                     </div>

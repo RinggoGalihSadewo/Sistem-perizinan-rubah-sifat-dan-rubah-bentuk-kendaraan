@@ -41,6 +41,18 @@ class UserController extends Controller
         return view('client.rubahSifat');
     }
 
+    public function profile()
+    {
+        dd('profile');
+        return view('client.profile');
+    }
+
+    public function alurKordinasi(FormSifat $formSifat)
+    {
+        $data = FormSifat::where('user_id', Auth::user()->id)->get();
+        return view('client.alur', compact('data'));
+    }
+
     public function storeSifat(Request $request)
     {
         $validatedData = $request->validate([
