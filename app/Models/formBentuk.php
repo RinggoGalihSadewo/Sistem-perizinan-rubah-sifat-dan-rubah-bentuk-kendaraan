@@ -30,6 +30,11 @@ class FormBentuk extends Model
     public function trackSuratBentuk()
     {
         return $this->hasOne(TrackSuratBentuk::class);
+    }
+
+    public function qrBentuk()
+    {
+        return $this->hasOne(QrBentuk::class);
     } 
 
 }

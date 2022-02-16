@@ -256,16 +256,6 @@ class AdminController extends Controller
         return view('admin.dataQr');
     }
 
-    public function generateRubahSifat()
-    {
-        return view('admin.genRubahSifat');
-    }
-
-    public function generateRubahBentuk()
-    {
-        return view('admin.genRubahBentuk');
-    }
-
     /**
      * Show the form for creating a new resource.
      *

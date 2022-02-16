@@ -7,7 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ValidasiSifatController;
 use App\Http\Controllers\ValidasiBentukController;
-
+use App\Http\Controllers\GenerateQRController;
+use App\Http\Controllers\QrCodeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,9 +61,12 @@ Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::cla
 Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'viewEditBentuk']);
 Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
 
-Route::get('/admin/data-qr-code', [AdminController::class, 'qrCode']);
-Route::get('/admin/generate-qrcode-rubah-sifat', [AdminController::class, 'generateRubahSifat']);
-Route::get('/admin/generate-qrcode-rubah-bentuk', [AdminController::class, 'generateRubahBentuk']);
+Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
+
+Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
+Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);
+
+Route::get('/admin/generate-qrcode-rubah-bentuk', [GenerateQRController::class, 'viewGenerateRubahBentuk']);
 
 Route::get('/admin/validasi/rubah-sifat', [ValidasiSifatController::class, 'index']);
 Route::get('/admin/validasi/rubah-sifat/staff-angkutan/{formSifat}', [ValidasiSifatController::class, 'staff']);

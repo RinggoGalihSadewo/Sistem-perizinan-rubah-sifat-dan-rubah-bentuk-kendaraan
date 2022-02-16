@@ -62,14 +62,15 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('/admin/data-qr-code')}}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable2" aria-expanded="true"
+          aria-controls="collapseTable">
           <i class="fas fa-file-signature"></i>
           <span>Data QR-Code</span>
         </a>
-        <div id="collapseQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+        <div id="collapseTable2" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-sifat')}}">Rubah Sifat</a>
-            <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-sifat')}}">Rubah Sifat</a>
+            <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>

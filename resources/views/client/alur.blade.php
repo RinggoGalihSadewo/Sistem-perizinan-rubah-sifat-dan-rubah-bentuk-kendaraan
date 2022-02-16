@@ -45,6 +45,9 @@
         </section>
 
     <br>
+    @if(!$data)
+    <p>data belum ada</p>
+    @elseif($data)
     @foreach($data as $d)
     <div class="row">
         <div class="col-12">
@@ -108,6 +111,7 @@
     </div>
     </div> 
     @endforeach
+    @endif
     <br>
 
         <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved

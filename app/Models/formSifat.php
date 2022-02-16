@@ -30,6 +30,11 @@ class FormSifat extends Model
     public function trackSuratSifat()
     {
         return $this->hasOne(TrackSuratSifat::class);
+    }
+
+    public function qrSifat()
+    {
+        return $this->hasOne(QrSifat::class);
     }    
 
 }

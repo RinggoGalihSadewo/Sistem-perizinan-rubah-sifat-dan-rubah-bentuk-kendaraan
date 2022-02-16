@@ -12,6 +12,7 @@
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 </head>
 
 <body id="page-top">
@@ -62,14 +63,15 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('/admin/data-qr-code')}}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable2" aria-expanded="true"
+          aria-controls="collapseTable">
           <i class="fas fa-file-signature"></i>
           <span>Data QR-Code</span>
         </a>
-        <div id="collapseQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+        <div id="collapseTable2" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="simple-tables.html">QR Simple Tables</a>
-            <a class="collapse-item" href="datatables.html">DataTables</a>
+            <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-sifat')}}">Rubah Sifat</a>
+            <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>
@@ -147,53 +149,56 @@
             <h1 class="h3 mb-0 text-gray-800">Generate QR Code Rubah Sifat</h1>
           </div>
 
-            <!-- Horizontal Form -->
-            <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-3 col-form-label">No. Surat</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="No. Surat">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">No. Kendaraan</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword3" placeholder="No. Kendaraan">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword4" class="col-sm-3 col-form-label">Nama Pemilik</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Nama Pemilik">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-3 col-f orm-label">Jenis Surat</label>
-                      <div class="col-sm-9">
-                        <select type="text" class="form-control">
-                        <option value="Rubah Sifat">Rubah Sifat</option>
-                        <option value="Rubah Bentuk">Rubah Bentuk</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword5" class="col-sm-3 col-form-label">MD5 Hash</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword5" placeholder="MD5 Hash">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Generate</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+              @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
               </div>
+              @endif
+
+              <!-- Simple Tables -->
+              <div class="card">
+
+                <div class="table-responsive">
+                  <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>No</th>
+                        <th>Nomor Kendaraan</th>
+                        <th>Nomor Surat</th>
+                        <th>Generate QR Code</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($data as $d)
+                      @if($d->trackSuratSifat['staff_angkutan'] == "Sudah Validasi" && $d->trackSuratSifat['kasi_angkutan'] == "Sudah Validasi" && $d->trackSuratSifat['kabid_lla'] == "Sudah Validasi" && $d->trackSuratSifat['sekretariat'] == "Sudah Validasi" && $d->trackSuratSifat['kepala_dinas'] == "Sudah Validasi" && !isset($d->qrSifat['qr_valid']))
+                      <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
+                        <td>
+                          <form action="/admin/generate-qrcode-rubah-sifat/{{$d->id}}"method="post">
+                          @csrf
+                          <div class="form-group d-flex">
+                            <input type="text" class="form-control" id="exampleInputEmail1"  name="noSurat" placeholder="Masukan nomor surat" style="width:200px;">
+                            
+                          </div>
+                          
+                        </td>
+                        <td>
+                            <button class="btn btn-success ml-3">Generate</button>
+                        </td>
+
+                        </form>
+                      </tr>
+                      @endif
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer"></div>
+              </div>
+            </div>
+          </div>
+          <!--Row-->
             
 
  
@@ -242,6 +247,7 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+  
   <script src="/vendors/jquery/jquery.min.js"></script>
   <script src="/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/vendors/jquery-easing/jquery.easing.min.js"></script>
