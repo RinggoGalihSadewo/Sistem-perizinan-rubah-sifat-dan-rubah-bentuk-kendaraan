@@ -15,4 +15,10 @@ class QrCodeController extends Controller
         $data = FormSifat::all();
         return view('admin.dataQrSifat', compact('data'));
     }
+
+    public function viewBentuk(FormBentuk $formBentuk)
+    {
+        $data = FormBentuk::all();
+        return view('admin.dataQrBentuk', compact('data'));
+    }
 }

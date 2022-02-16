@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Generate Qr Code Rubah Sifat</title>
+  <title>Generate Qr Code Rubah Bentuk</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -148,56 +148,59 @@
             <h1 class="h3 mb-0 text-gray-800">Generate QR Code Rubah Bentuk</h1>
           </div>
 
-            <!-- Horizontal Form -->
-            <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                </div>
-                <div class="card-body">
-                  <form>
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-3 col-form-label">No. Surat</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="No. Surat">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">No. Kendaraan</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword3" placeholder="No. Kendaraan">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword4" class="col-sm-3 col-form-label">Nama Pemilik</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Nama Pemilik">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-3 col-f orm-label">Jenis Surat</label>
-                      <div class="col-sm-9">
-                        <select type="text" class="form-control">
-                        <option value="Rubah Sifat">Rubah Sifat</option>
-                        <option value="Rubah Bentuk">Rubah Bentuk</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword5" class="col-sm-3 col-form-label">MD5 Hash</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword5" placeholder="MD5 Hash">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Generate</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            
+            <div class="row">
+            <div class="col-lg-12 mb-4">
 
- 
+              @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+              @endif
+
+              <!-- Simple Tables -->
+              <div class="card">
+
+                <div class="table-responsive">
+                  <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>No</th>
+                        <th>Nomor Kendaraan</th>
+                        <th>Nomor Surat</th>
+                        <th>Generate QR Code</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($data as $d)
+                      @if($d->trackSuratBentuk['kasi'] == "Sudah Validasi" && $d->trackSuratBentuk['kabid'] == "Sudah Validasi" && $d->trackSuratBentuk['sekretaris'] == "Sudah Validasi" && $d->trackSuratBentuk['kepala_dinas'] == "Sudah Validasi" && !isset($d->qrBentuk['qr_valid']))
+                      <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td><a href="/admin/data-rubah-bentuk/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
+                        <td>
+                          <form action="/admin/generate-qrcode-rubah-bentuk/{{$d->id}}"method="post">
+                          @csrf
+                          <div class="form-group d-flex">
+                            <input type="text" class="form-control" id="exampleInputEmail1"  name="noSurat" placeholder="Masukan nomor surat" style="width:200px;">
+                            
+                          </div>
+                          
+                        </td>
+                        <td>
+                            <button class="btn btn-success ml-3">Generate</button>
+                        </td>
+
+                        </form>
+                      </tr>
+                      @endif
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer"></div>
+              </div>
+            </div>
+          </div>
+          <!--Row-->
 
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"

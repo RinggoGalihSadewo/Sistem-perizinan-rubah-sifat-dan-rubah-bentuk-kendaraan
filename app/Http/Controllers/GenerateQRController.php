@@ -22,9 +22,7 @@ class GenerateQRController extends Controller
 
     public function generateSifat(FormSifat $formSifat, Request $request)
     {
-        $valid = bcrypt('valid');
-
-        
+        $valid = bcrypt('valid');        
 
         $qr = new QrSifat;
         $qr->form_sifat_id = $formSifat->id;
@@ -33,5 +31,24 @@ class GenerateQRController extends Controller
         $qr->save();
 
         return redirect('/admin/generate-qrcode-rubah-sifat')->with('status', 'Generate berhasil');
+    }
+
+    public function viewGenerateRubahBentuk(FormBentuk $formBentuk)
+    {
+        $data = FormBentuk::with('user')->get();
+        return view('admin.genRubahBentuk', compact('data'));
+    }
+
+    public function generateBentuk(FormBentuk $formBentuk, Request $request)
+    {
+        $valid = bcrypt('valid');        
+
+        $qr = new QrBentuk;
+        $qr->form_bentuk_id = $formBentuk->id;
+        $qr->no_surat = $request->noSurat;
+        $qr->qr_valid = $valid;
+        $qr->save();
+
+        return redirect('/admin/generate-qrcode-rubah-bentuk')->with('status', 'Generate berhasil');
     }
 }

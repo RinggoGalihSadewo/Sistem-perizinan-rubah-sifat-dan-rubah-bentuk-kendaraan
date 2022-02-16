@@ -114,6 +114,68 @@
     @endif
     <br>
 
+    @if(!$data2)
+    <p>data belum ada</p>
+    @elseif($data2)
+    @foreach($data2 as $d)
+    <div class="row">
+        <div class="col-12">
+    <div class="card">
+    <div class="title">Surat Perizinan Rubah Bentuk</div>
+    <div class="info">
+        <div class="row">
+            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
+            <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$d->id}}</span> </div>
+        </div>
+        <br>
+        <div class="row">
+            <span>Nomor Kendaraan : {{$d->nomor_kendaraan}}</span>
+        </div>
+    </div>
+    <div class="tracking">
+        <div class="title">Alur Surat</div>
+    </div>
+    <div class="progress-track">
+        <ul id="progressbar2">
+            
+            @if($d->trackSuratBentuk['kasi'] == "Belum Validasi")
+                <li class="step0" id="step1">Kasi</li>
+            @else
+                <li class="step0 active" id="step1">Kasi</li>
+            @endif
+
+            @if($d->trackSuratBentuk['kabid'] == "Belum Validasi")
+                <li class="step0 text-center" id="step2"><span style="margin-left: -30%;">Kabid</span></li>
+            @else
+                <li class="step0 active text-center" id="step2"><span style="margin-left: -30%;">Kabid</span></li>
+            @endif
+
+            @if($d->trackSuratBentuk['sekretaris'] == "Belum Validasi")
+                <li class="step0 text-right" id="step3"><span style="margin-left: 40%;">Sekretaris</span></li>
+            @else
+                <li class="step0 active" id="step3"><span style="margin-left: 40%;">Sekretaris</span></li>
+            @endif
+
+            @if($d->trackSuratBentuk['kepala_dinas'] == "Belum Validasi")
+                <li class="step0 text-right" id="step4"><span style="margin-left: 35%;">Kepala Dinas</span></li>
+            @else
+                <li class="step0 active text-right" id="step4"><span style="margin-left: 35%;">Kepala Dinas</span></li>
+            @endif
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/YBWc55P.png"></div>
+            <div class="col-10">Want any help? Please &nbsp;<a> contact us</a></div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    </div> 
+    @endforeach
+    @endif
+
         <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
 Development by  IF’18 ITERA</footer>
     </div>

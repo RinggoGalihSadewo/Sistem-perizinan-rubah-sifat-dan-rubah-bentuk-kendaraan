@@ -466,6 +466,14 @@ footer{
     margin-top: 3vh;
 }
 
+#progressbar2 {
+    margin-bottom: 3vh;
+    overflow: hidden;
+    color: #22577E;
+    padding-left: 0px;
+    margin-top: 3vh;
+}
+
 #progressbar li {
     list-style-type: none;
     font-size: x-small;
@@ -475,6 +483,17 @@ footer{
     font-weight: 400;
     color: rgb(160, 159, 159)
 }
+
+#progressbar2 li {
+    list-style-type: none;
+    font-size: x-small;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+    color: rgb(160, 159, 159)
+}
+
 
 #progressbar #step1:before {
     content: "";
@@ -567,6 +586,96 @@ footer{
 
 #progressbar li.active:before,
 #progressbar li.active:after {
+    background: #22577E
+}
+
+#progressbar2 #step1:before {
+    content: "";
+    color: #22577E;
+    width: 5px;
+    height: 5px;
+    margin-left: 0px !important
+}
+
+#progressbar2 #step2:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-left: 32%
+}
+
+#progressbar2 #step3:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-right: 32%
+}
+
+#progressbar2 #step4:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-right: 0px !important
+}
+
+#progressbar2 #step5:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-right: 0px !important
+}
+
+#progressbar2 li:before {
+    line-height: 29px;
+    display: block;
+    font-size: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: auto;
+    z-index: -1;
+    margin-bottom: 1vh
+}
+
+#progressbar2 li:after {
+    content: '';
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 2vh;
+    top: 1px;
+    z-index: 1
+}
+
+#progressbar2 li:nth-child(2):after {
+    margin-right: auto
+}
+
+#progressbar2 li:nth-child(1):after {
+    margin: auto
+}
+
+#progressbar2 li:nth-child(3):after {
+    float: left;
+    width: 68%
+}
+
+#progressbar2 li:nth-child(4):after {
+    margin-left: auto;
+    width: 132%
+}
+
+#progressbar2 li.active {
+    color: black
+}
+
+#progressbar2 li.active:before,
+#progressbar2 li.active:after {
     background: #22577E
 }
 

@@ -148,7 +148,7 @@
             <h1 class="h3 mb-0 text-gray-800">Data QR Code Rubah Sifat</h1>
           </div>
 
-          <div class="row">
+         <div class="row">
             <div class="col-lg-12 mb-4">
               
               <!-- Simple Tables -->
@@ -166,61 +166,21 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($data as $d)
+                      @if(isset($d->qrBentuk['qr_valid']))
                       <tr>
-                        <td><a href="#">1</a></td>
-                        <td>Udin Wayang</td>
-                        <td>Nasi Padang</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
+                        <td>{{$loop->iteration}}</td>
+                        <td><a href="/admin/data-rubah-bentuk/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
+                        <td>{{isset($d->qrBentuk['no_surat']) ? $d->qrBentuk['no_surat'] : ''}}</td>
+                        <td>{{Str::limit(isset($d->qrBentuk['qr_valid']) ? $d->qrBentuk['qr_valid'] : '', 20)}}</td>
                         <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
+                          <a href="#" class="btn btn-sm btn-primary">Download</a>
+                          <a href="#" class="btn btn-sm btn-warning">Lihat Surat</a>
+                          <a href="#" class="btn btn-sm btn-success">Kirim</a>
                         </td>
                       </tr>
-                      <tr>
-                        <td><a href="#">2</a></td>
-                        <td>Jaenab Bajigur</td>
-                        <td>Gundam 90' Edition</td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">3</a></td>
-                        <td>Rivat Mahesa</td>
-                        <td>Oblong T-Shirt</td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">4</a></td>
-                        <td>Indri Junanda</td>
-                        <td>Hat Rounded</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">5</a></td>
-                        <td>Udin Cilok</td>
-                        <td>Baby Powder</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="#" class="btn btn-sm btn-success">Edit</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
+                      @endif
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

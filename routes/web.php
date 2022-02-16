@@ -63,10 +63,13 @@ Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::cla
 
 Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
 
+Route::get('/admin/data-qr-code/rubah-bentuk', [QrCodeController::class, 'viewBentuk']);
+
 Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
 Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);
 
 Route::get('/admin/generate-qrcode-rubah-bentuk', [GenerateQRController::class, 'viewGenerateRubahBentuk']);
+Route::post('/admin/generate-qrcode-rubah-bentuk/{formBentuk}', [GenerateQRController::class, 'generateBentuk']);
 
 Route::get('/admin/validasi/rubah-sifat', [ValidasiSifatController::class, 'index']);
 Route::get('/admin/validasi/rubah-sifat/staff-angkutan/{formSifat}', [ValidasiSifatController::class, 'staff']);

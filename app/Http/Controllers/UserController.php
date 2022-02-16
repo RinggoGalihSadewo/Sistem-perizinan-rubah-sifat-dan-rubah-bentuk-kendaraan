@@ -47,10 +47,11 @@ class UserController extends Controller
         return view('client.profile');
     }
 
-    public function alurKordinasi(FormSifat $formSifat)
+    public function alurKordinasi(FormSifat $formSifat, FormBentuk $formBentuk)
     {
         $data = FormSifat::where('user_id', Auth::user()->id)->get();
-        return view('client.alur', compact('data'));
+        $data2 = FormBentuk::where('user_id', Auth::user()->id)->get();
+        return view('client.alur', compact('data', 'data2'));
     }
 
     public function storeSifat(Request $request)
