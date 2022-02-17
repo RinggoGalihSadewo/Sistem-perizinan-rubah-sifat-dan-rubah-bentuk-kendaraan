@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data QR Code Rubah Sifat</title>
+  <title>Lihat Surat Perizinan Rubah Sifat</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -145,47 +145,207 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data QR Code Rubah Sifat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lihat Hasil Surat Perizinan Rubah Sifat</h1>
           </div>
 
           <div class="row">
             <div class="col-lg-12 mb-4">
-              
-              <!-- Simple Tables -->
-              <div class="card">
 
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>No Kendaraan</th>
-                        <th>Nomor Surat</th>
-                        <th>MD5 Hash</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      @if(isset($d->qrSifat['qr_valid']))
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
-                        <td>{{isset($d->qrSifat['no_surat']) ? $d->qrSifat['no_surat'] : ''}}</td>
-                        <td>{{Str::limit(isset($d->qrSifat['qr_valid']) ? $d->qrSifat['qr_valid'] : '', 20)}}</td>
-                        <td>
-                          <a href="/admin/data-qr-code/rubah-sifat/download-surat/{{$d->id}}" class="btn btn-sm btn-primary">Download</a>
-                          <a href="/admin/data-qr-code/rubah-sifat/lihat-surat/{{$d->id}}" class="btn btn-sm btn-warning">Lihat Surat</a>
-                          <a href="#" class="btn btn-sm btn-success">Kirim</a>
-                        </td>
-                      </tr>
-                      @endif
-                      @endforeach
-                    </tbody>
+              <div class="surat">
+
+                  <div class="kop">
+                    <img src="/img/surat/kop.PNG" width="100%">
+                  </div>
+
+                  <center>
+                  <h4><u>SURAT KETERANGAN</u></h4>
+                  <p>Nomor : {{isset($data->qrSifat['no_surat']) ? $data->qrSifat['no_surat'] : ''}}</p>
+                  </center>
+
+                  <table border="0" cellpadding=""> 
+                    <tr>
+                      <td>Membaca</td>
+                      <td>:</td>
+                      <td>Permohonan dari <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+                    </tr>
+                    <tr>
+                      <td>Menimbang</td>
+                      <td>:</td>
+                      <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b>Perubahan Sifat.</b></td>
+                    </tr>
+                    <tr>
+                      <td>Mengigat</td>
+                      <td>:</td>
+                      <td>
+                        <ol start="1">
+                          <li>Undang-Undang No. 22 Tahun 2009 Tentang Lalu Lintas dan Angkutan Jalan;</li>
+                          <li>Peraturan Pemerintah No. 55 Tahun 2012 Tentang Kendaraan dan Pengemudi;</li>
+                          <li>Peraturan Pemerintah No. 74 Tahun 2014 Tentang Angkutan Jalan;</li>
+                          <li>Peraturan Menteri Perhubungan No. PM. 60 Tahun 2019 tentang Penyelenggaraan Angkutan Barang dengan Kendaraan Bermotor di Jalan;</li>
+                          <li>Peraturan Menteri Perhubungan No. PM. 19 Tahun 2021 Tentang Pengujian Berkala Kendaraan Bermotor</li>
+                          <li>Keputusan Menteri Perhubungan No. PM. 33 Tahun 2018 Tentang Pengujian Tipe Kendaraan Bermotor;</li>
+                          <li>Peraturan Gubernur Lampung No. 36 Tahun 2007 Tentang Ketentuan Perubahan Sifat dan Perubahan Bentuk Kendaraan Bermotor</li>
+                        </ol>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Menerangkan</td>
+                      <td>:</td>
+                      <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>Plat Umum (KUNING)</b> menjadi <b>Plat Tidak Umum (HITAM), Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+                      <br>
+                        <table border="0" cellpadding="5">
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Nomor Kendaraan
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->nomor_kendaraan}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Nama Pemilik
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->nama_pemilik}}</td>
+                          </tr>                     
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Alamat Pemilik
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->alamat}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Merk/Type
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->merk}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Jenis
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->jenis}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Model
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->model}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Warna
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->warna}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Tahun Pembuatan
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->tahun}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Isi Silinder
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->isi_silinder}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                No. Landasan/Rangka
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_landasan}}</td>
+                          </tr>                        
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                No.Mesin
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_mesin}}</td>
+                          </tr>  
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Nomor Kendaraan
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_bpkb}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Masa Berlaku s/d
+                              </td>
+                              <td>:</td>
+                              <td style="color:red;">REVISI</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>Catatan : Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+                    </tr>
                   </table>
-                </div>
-                <div class="card-footer"></div>
+
+                  <div class="paraf d-flex"> 
+                    <div class="qr">
+                      {{$qr}} 
+                    </div>
+                    <div class="subParaf">
+                      <table border="0" cellpadding="5">
+                        <tr>
+                          <td>DIKELUARKAN DI</td>
+                          <td>:</td>
+                          <td>BANDAR LAMPUNG</td>
+                        </tr>
+                        <tr>
+                          <td>TANGGAL</td>
+                          <td>:</td>
+                          <td>{{$data->created_at}}</td>
+                        </tr>
+                        <tr>
+                          <td>KEPALA DINAS</td>
+                        </tr>
+                        <tr>
+                        </tr>
+                      </table>
+                      <br>
+                      <br>
+                      <div style="margin-left: 1%;">
+                        <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+                        <p>
+                          Pembina Utama Muda
+                          <br>
+                          NIP. 19710422 199503 1 002
+                        </p>
+                        
+                      </div>
+                    </div>
+                  </div>   
+                
               </div>
+
             </div>
           </div>
           <!--Row-->

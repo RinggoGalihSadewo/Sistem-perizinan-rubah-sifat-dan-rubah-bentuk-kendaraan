@@ -9,6 +9,8 @@ use App\Http\Controllers\ValidasiSifatController;
 use App\Http\Controllers\ValidasiBentukController;
 use App\Http\Controllers\GenerateQRController;
 use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\PdfController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +64,9 @@ Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class
 Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
 
 Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
+Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);
+Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
+
 
 Route::get('/admin/data-qr-code/rubah-bentuk', [QrCodeController::class, 'viewBentuk']);
 
