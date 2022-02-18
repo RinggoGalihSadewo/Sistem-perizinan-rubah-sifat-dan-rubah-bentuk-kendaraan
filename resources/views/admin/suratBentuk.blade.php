@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data QR Code Rubah Bentuk</title>
+  <title>Lihat Surat Perizinan Rubah Bentuk</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -145,47 +145,215 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data QR Code Rubah Bentuk</h1>
+            <h1 class="h3 mb-0 text-gray-800">Lihat Hasil Surat Perizinan Rubah Bentuk</h1>
           </div>
 
-         <div class="row">
+          <div class="row">
             <div class="col-lg-12 mb-4">
-              
-              <!-- Simple Tables -->
-              <div class="card">
 
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>No Kendaraan</th>
-                        <th>Nomor Surat</th>
-                        <th>Email</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      @if(isset($d->qrBentuk['qr_valid']))
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td><a href="/admin/data-rubah-bentuk/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
-                        <td>{{isset($d->qrBentuk['no_surat']) ? $d->qrBentuk['no_surat'] : ''}}</td>
-                        <td>{{$d->user->email}}</td>
-                        <td>
-                          <a href="/admin/data-qr-code/rubah-bentuk/download-surat/{{$d->id}}" class="btn btn-sm btn-primary">Download</a>
-                          <a href="/admin/data-qr-code/rubah-bentuk/lihat-surat/{{$d->id}}" class="btn btn-sm btn-warning">Lihat Surat</a>
-                          <a href="#" class="btn btn-sm btn-success">Kirim Via Email</a>
-                        </td>
-                      </tr>
-                      @endif
-                      @endforeach
-                    </tbody>
+              <div class="surat">
+
+                  <div class="kop">
+                    <img src="/img/surat/kop.PNG" width="100%">
+                  </div>
+
+                  <center>
+                  <h4><u>SURAT KETERANGAN</u></h4>
+                  <p>Nomor : {{isset($data->qrBentuk['no_surat']) ? $data->qrBentuk['no_surat'] : ''}}</p>
+                  </center>
+
+                  <table border="0" cellpadding=""> 
+                    <tr>
+                      <td>Membaca</td>
+                      <td>:</td>
+                      <td>Permohonan Rubah Bentuk dari <b>Sdr. {{$data->nama_pemilik_baru}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>:</td>
+                      <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b>Perubahan Bentuk.</b></td>
+                    </tr>
+                    <tr>
+                      <td>Mengigat</td>
+                      <td>:</td>
+                      <td>
+                        <ol start="1">
+                          <li>Undang-Undang No. 22 Tahun 2009 Tentang Lalu Lintas dan Angkutan Jalan;</li>
+                          <li>Peraturan Pemerintah No. 55 Tahun 2012 Tentang Kendaraan dan Pengemudi;</li>
+                          <li>Keputusan Menteri Perhubungan No. 133 Tahun 2015 Tentang Pengujian Berkala Kendaraan Bermotor;</li>
+                          <li>Keputusan Menteri Perhubungan No. 33 Tahun 2018 Tentang Pengujian Tipe Kendaraan Bermotor;</li>
+                          <li>Peraturan Gubernur Lampung No. 36 Tahun 2007 Tentang Ketentuan Perubahan Sifat dan Perubahan Bentuk Kendaraan Bermotor</li>
+                        </ol>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Menerangkan</td>
+                      <td>:</td>
+                      <td>Memberikan Surat Keterangan Perubahan Bentuk dari <b>TRUCK TANGKI</b> menjadi <b>MOBIL BARANG BAK TERBUKA</b> kepada <b>Sdr. {{$data->nama_pemilik_baru}}</b> yang beralamat di {{$data->alamat}}. Pemilik/Pemohon menjamin keselamatan (Safety) dari Kendaraan yang telah di Rubah Bentuk dengan data kendaraan sebagai berikut :
+                      <br>
+                        <table border="0" cellpadding="5">
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Nomor Kendaraan
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->nomor_kendaraan}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Nama Pemilik Lama
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->nama_pemilik_lama}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Nama Pemilik Baru
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->nama_pemilik_baru}}</td>
+                          </tr>                      
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Alamat Pemilik
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->alamat}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Merk/Type
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->merk}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Jenis
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->jenis}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Warna
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->warna}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Tahun Pembuatan
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->tahun}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Volume Silinder
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->volume_silinder}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                No. Landasan/Rangka
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_landasan}}</td>
+                          </tr>                        
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                No. Mesin
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_mesin}}</td>
+                          </tr>  
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                No. BPKB
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_bpkb}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                No. Uji Kendaraan
+                              </td>
+                              <td>:</td>
+                              <td>{{$data->no_uji}}</td>
+                          </tr>
+                          <tr>
+                              <td>-</td>
+                              <td>
+                                Masa Berlaku S.K
+                              </td>
+                              <td>:</td>
+                              <td style="color:red">REVISI</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>Catatan : <span style="color:red;">ADA CATATAN TAMBAHAN DISINI </span>Surat Keterangan ini hanya berlaku sebagai syarat untuk penerbitan STNK dan BPKB kendaraan</td>                      
+                    </tr>
                   </table>
-                </div>
-                <div class="card-footer"></div>
+
+                  <p>Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</p>
+
+                  <div class="paraf d-flex"> 
+                    <div class="qr">
+                      {{$qr}} 
+                    </div>
+                    <div class="subParaf">
+                      <table border="0" cellpadding="5">
+                        <tr>
+                          <td>DIKELUARKAN DI</td>
+                          <td>:</td>
+                          <td>BANDAR LAMPUNG</td>
+                        </tr>
+                        <tr>
+                          <td>TANGGAL</td>
+                          <td>:</td>
+                          <td>{{$data->created_at}}</td>
+                        </tr>
+                        <tr>
+                          <td>KEPALA DINAS</td>
+                        </tr>
+                        <tr>
+                        </tr>
+                      </table>
+                      <br>
+                      <br>
+                      <div style="margin-left: 1%;">
+                        <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+                        <p>
+                          Pembina Utama Muda
+                          <br>
+                          NIP. 19710422 199503 1 002
+                        </p>
+                        
+                      </div>
+                    </div>
+                  </div>   
+                
               </div>
+
             </div>
           </div>
           <!--Row-->

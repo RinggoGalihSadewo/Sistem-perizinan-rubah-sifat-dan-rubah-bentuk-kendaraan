@@ -33,4 +33,14 @@ class QrCodeController extends Controller
         $data = FormBentuk::all();
         return view('admin.dataQrBentuk', compact('data'));
     }
+
+    public function lihatSuratBentuk(FormBentuk $formBentuk)
+    {   
+        $url = "http://127.0.0.1:8000/admin/data-rubah-bentuk/detail/".$formBentuk->id;
+
+        $data = FormBentuk::find($formBentuk->id);
+
+        $qr = QrCode::size(100)->generate($url);
+        return view('admin.suratBentuk', compact('qr', 'data'));
+    }
 }

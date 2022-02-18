@@ -162,9 +162,6 @@
                 </p>
                 <p>lng : {{$user->map->lng}}</p>
                 <a href="" id="cekMap" target="_blank">Lihat Maps</a>
-                <div id="qr">
-
-                </div>
             </div>
             <div class="col-lg-6 mb-4 mt-5">
                 {{ $qr }}

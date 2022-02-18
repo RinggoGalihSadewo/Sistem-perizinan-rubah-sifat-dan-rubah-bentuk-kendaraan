@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Surat Perizinan Rubah Sifat</title>
+  <title>Surat Perizinan Rubah Bentuk</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -56,20 +56,19 @@
 
         <center>
         <h4><u>SURAT KETERANGAN</u></h4>
-        <p>Nomor : {{isset($data->qrSifat['no_surat']) ? $data->qrSifat['no_surat'] : ''}}</p>
+        <p>Nomor : {{isset($data->qrBentuk['no_surat']) ? $data->qrBentuk['no_surat'] : ''}}</p>
         </center>
 
-        <table border="0" cellpadding="" style="text-align: justify;"> 
+        <table border="0" cellpadding=""> 
           <tr>
             <td>Membaca</td>
             <td>:</td>
-            <td>Permohonan dari <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+            <td>Permohonan Rubah Bentuk dari <b>Sdr. {{$data->nama_pemilik_baru}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
           </tr>
-          <br>
           <tr>
-            <td>Menimbang</td>
+            <td></td>
             <td>:</td>
-            <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b>Perubahan Sifat.</b></td>
+            <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b>Perubahan Bentuk.</b></td>
           </tr>
           <tr>
             <td>Mengigat</td>
@@ -78,10 +77,8 @@
               <ol start="1">
                 <li>Undang-Undang No. 22 Tahun 2009 Tentang Lalu Lintas dan Angkutan Jalan;</li>
                 <li>Peraturan Pemerintah No. 55 Tahun 2012 Tentang Kendaraan dan Pengemudi;</li>
-                <li>Peraturan Pemerintah No. 74 Tahun 2014 Tentang Angkutan Jalan;</li>
-                <li>Peraturan Menteri Perhubungan No. PM. 60 Tahun 2019 tentang Penyelenggaraan Angkutan Barang dengan Kendaraan Bermotor di Jalan;</li>
-                <li>Peraturan Menteri Perhubungan No. PM. 19 Tahun 2021 Tentang Pengujian Berkala Kendaraan Bermotor</li>
-                <li>Keputusan Menteri Perhubungan No. PM. 33 Tahun 2018 Tentang Pengujian Tipe Kendaraan Bermotor;</li>
+                <li>Keputusan Menteri Perhubungan No. 133 Tahun 2015 Tentang Pengujian Berkala Kendaraan Bermotor;</li>
+                <li>Keputusan Menteri Perhubungan No. 33 Tahun 2018 Tentang Pengujian Tipe Kendaraan Bermotor;</li>
                 <li>Peraturan Gubernur Lampung No. 36 Tahun 2007 Tentang Ketentuan Perubahan Sifat dan Perubahan Bentuk Kendaraan Bermotor</li>
               </ol>
             </td>
@@ -89,8 +86,8 @@
           <tr>
             <td>Menerangkan</td>
             <td>:</td>
-            <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>Plat Umum (KUNING)</b> menjadi <b>Plat Tidak Umum (HITAM), Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
-            <br><br>
+            <td>Memberikan Surat Keterangan Perubahan Bentuk dari <b>TRUCK TANGKI</b> menjadi <b>MOBIL BARANG BAK TERBUKA</b> kepada <b>Sdr. {{$data->nama_pemilik_baru}}</b> yang beralamat di {{$data->alamat}}. Pemilik/Pemohon menjamin keselamatan (Safety) dari Kendaraan yang telah di Rubah Bentuk dengan data kendaraan sebagai berikut :
+            <br>
               <table>
                 <tr>
                     <td>-</td>
@@ -103,11 +100,19 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      Nama Pemilik
+                      Nama Pemilik Lama
                     </td>
                     <td>:</td>
-                    <td>{{$data->nama_pemilik}}</td>
-                </tr>                     
+                    <td>{{$data->nama_pemilik_lama}}</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>
+                      Nama Pemilik Baru
+                    </td>
+                    <td>:</td>
+                    <td>{{$data->nama_pemilik_baru}}</td>
+                </tr>                      
                 <tr>
                     <td>-</td>
                     <td>
@@ -135,14 +140,6 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      Model
-                    </td>
-                    <td>:</td>
-                    <td>{{$data->model}}</td>
-                </tr>
-                <tr>
-                    <td>-</td>
-                    <td>
                       Warna
                     </td>
                     <td>:</td>
@@ -159,10 +156,10 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      Isi Silinder
+                      Volume Silinder
                     </td>
                     <td>:</td>
-                    <td>{{$data->isi_silinder}}</td>
+                    <td>{{$data->volume_silinder}}</td>
                 </tr>
                 <tr>
                     <td>-</td>
@@ -175,7 +172,7 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      No.Mesin
+                      No. Mesin
                     </td>
                     <td>:</td>
                     <td>{{$data->no_mesin}}</td>
@@ -183,7 +180,7 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      Nomor Kendaraan
+                      No. BPKB
                     </td>
                     <td>:</td>
                     <td>{{$data->no_bpkb}}</td>
@@ -191,21 +188,30 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      Masa Berlaku s/d
+                      No. Uji Kendaraan
                     </td>
                     <td>:</td>
-                    <td style="color:red;">REVISI</td>
+                    <td>{{$data->no_uji}}</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>
+                      Masa Berlaku S.K
+                    </td>
+                    <td>:</td>
+                    <td style="color:red">REVISI</td>
                 </tr>
               </table>
             </td>
           </tr>
-          <br>
           <tr>
             <td></td>
             <td></td>
-            <td>Catatan : Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+            <td>Catatan : <span style="color:red;">ADA CATATAN TAMBAHAN DISINI </span>Surat Keterangan ini hanya berlaku sebagai syarat untuk penerbitan STNK dan BPKB kendaraan</td>                      
           </tr>
         </table>
+
+        <p>Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</p>
 
         <div class="paraf d-flex" style="text-align: justify;"> 
           <div class="qr">

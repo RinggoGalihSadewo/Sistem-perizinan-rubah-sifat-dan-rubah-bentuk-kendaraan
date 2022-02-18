@@ -102,8 +102,11 @@
     </div>
     <div class="footer">
         <div class="row">
-            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/YBWc55P.png"></div>
-            <div class="col-10">Want any help? Please &nbsp;<a> contact us</a></div>
+            @if(isset($d->qrSifat['qr_valid']))
+            <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$d->id}}" class="btn text-white" style="background: #22577E;">Download Surat</a>
+            @else
+            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+            @endif
         </div>
     </div>
     </div>
@@ -165,8 +168,11 @@
     </div>
     <div class="footer">
         <div class="row">
-            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/YBWc55P.png"></div>
-            <div class="col-10">Want any help? Please &nbsp;<a> contact us</a></div>
+            @if(isset($d->qrBentuk['qr_valid']))
+            <a href="/alur-kordinasi/rubah-bentuk/download-surat/{{$d->id}}" class="btn text-white" style="background: #22577E;">Download Surat</a>
+            @else
+            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+            @endif
         </div>
     </div>
     </div>

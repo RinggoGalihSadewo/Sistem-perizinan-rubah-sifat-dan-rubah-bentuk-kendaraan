@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group( function(){
     Route::get('/profile', [UserController::class, 'profile']);
 
     Route::get('/alur-kordinasi', [UserController::class, 'alurKordinasi']);
+    Route::get('/alur-kordinasi/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
+    Route::get('/alur-kordinasi/rubah-bentuk/download-surat/{formBentuk}', 'App\Http\Controllers\PdfController@generateBentuk');
 
     Route::get('/perizinan-rubah-sifat', [UserController::class, 'rubahSifat']);
     Route::post('/perizinan-rubah-sifat', [UserController::class, 'storeSifat']);
@@ -69,6 +71,8 @@ Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfCon
 
 
 Route::get('/admin/data-qr-code/rubah-bentuk', [QrCodeController::class, 'viewBentuk']);
+Route::get('/admin/data-qr-code/rubah-bentuk/lihat-surat/{formBentuk}', [QrCodeController::class, 'lihatSuratBentuk']);
+Route::get('/admin/data-qr-code/rubah-bentuk/download-surat/{formBentuk}', [PdfController::class, 'generateBentuk']);
 
 Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
 Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);

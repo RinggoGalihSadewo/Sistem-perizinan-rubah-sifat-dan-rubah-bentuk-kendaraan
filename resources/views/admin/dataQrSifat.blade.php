@@ -161,7 +161,7 @@
                         <th>No</th>
                         <th>No Kendaraan</th>
                         <th>Nomor Surat</th>
-                        <th>MD5 Hash</th>
+                        <th>Email</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -172,11 +172,11 @@
                         <td>{{$loop->iteration}}</td>
                         <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
                         <td>{{isset($d->qrSifat['no_surat']) ? $d->qrSifat['no_surat'] : ''}}</td>
-                        <td>{{Str::limit(isset($d->qrSifat['qr_valid']) ? $d->qrSifat['qr_valid'] : '', 20)}}</td>
+                        <td>{{$d->user->email}}</td>
                         <td>
                           <a href="/admin/data-qr-code/rubah-sifat/download-surat/{{$d->id}}" class="btn btn-sm btn-primary">Download</a>
                           <a href="/admin/data-qr-code/rubah-sifat/lihat-surat/{{$d->id}}" class="btn btn-sm btn-warning">Lihat Surat</a>
-                          <a href="#" class="btn btn-sm btn-success">Kirim</a>
+                          <a href="#" class="btn btn-sm btn-success">Kirim Via Email</a>
                         </td>
                       </tr>
                       @endif
