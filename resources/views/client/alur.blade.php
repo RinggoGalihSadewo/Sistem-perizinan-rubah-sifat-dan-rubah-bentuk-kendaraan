@@ -49,70 +49,66 @@
     <p>data belum ada</p>
     @elseif($data)
     @foreach($data as $d)
-    <div class="row">
-        <div class="col-12">
     <div class="card">
-    <div class="title">Surat Perizinan Rubah Sifat</div>
-    <div class="info">
-        <div class="row">
-            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
-            <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$d->id}}</span> </div>
+        <div class="title">Surat Perizinan Rubah Sifat</div>
+        <div class="info">
+            <div class="row">
+                <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
+                <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$d->id}}</span> </div>
+            </div>
+            <br>
+            <div class="row">
+                <span>Nomor Kendaraan : {{$d->nomor_kendaraan}}</span>
+            </div>
         </div>
-        <br>
-        <div class="row">
-            <span>Nomor Kendaraan : {{$d->nomor_kendaraan}}</span>
+        <div class="tracking">
+            <div class="title">Alur Surat</div>
+        </div>
+        <div class="progress-track">
+            <ul id="progressbar">
+                
+                @if($d->trackSuratSifat['staff_angkutan'] == "Belum Validasi")
+                    <li class="step0" id="step1">Staff Angkutan</li>
+                @else
+                    <li class="step0 active" id="step1">Staff Angkutan</li>
+                @endif
+
+                @if($d->trackSuratSifat['kasi_angkutan'] == "Belum Validasi")
+                    <li class="step0 text-center" id="step2">Kasi Angkutan</li>
+                @else
+                    <li class="step0 active text-center" id="step2">Kasi Angkutan</li>
+                @endif
+
+                @if($d->trackSuratSifat['kabid_lla'] == "Belum Validasi")
+                    <li class="step0 text-right" id="step3"><span style="margin-left: 40%;">Kabid LLA</span></li>
+                @else
+                    <li class="step0 active" id="step3"><span style="margin-left: 40%;">Kabid LLA</span></li>
+                @endif
+
+                @if($d->trackSuratSifat['sekretariat'] == "Belum Validasi")
+                    <li class="step0 text-right" id="step4"><span style="margin-left: 35%;">Sekretariat</span></li>
+                @else
+                    <li class="step0 active text-right" id="step4"><span style="margin-left: 35%;">Sekretariat</span></li>
+                @endif
+
+                @if($d->trackSuratSifat['kepala_dinas'] == "Belum Validasi")
+                    <li class="step0 text-right" id="step5"><span style="margin-left: 20%;">Kepala Dinas</span></li>
+                @else
+                    <li class="step0 active text-right" id="step5"><span style="margin-left: 20%;">Kepala Dinas</span></li>
+                @endif
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="row">
+                @if(isset($d->qrSifat['qr_valid']))
+                <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$d->id}}" class="btn text-white" style="background: #22577E;">Download Surat</a>
+                @else
+                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                @endif
+            </div>
         </div>
     </div>
-    <div class="tracking">
-        <div class="title">Alur Surat</div>
-    </div>
-    <div class="progress-track">
-        <ul id="progressbar">
-            
-            @if($d->trackSuratSifat['staff_angkutan'] == "Belum Validasi")
-                <li class="step0" id="step1">Staff Angkutan</li>
-            @else
-                <li class="step0 active" id="step1">Staff Angkutan</li>
-            @endif
-
-            @if($d->trackSuratSifat['kasi_angkutan'] == "Belum Validasi")
-                <li class="step0 text-center" id="step2">Kasi Angkutan</li>
-            @else
-                <li class="step0 active text-center" id="step2">Kasi Angkutan</li>
-            @endif
-
-            @if($d->trackSuratSifat['kabid_lla'] == "Belum Validasi")
-                <li class="step0 text-right" id="step3"><span style="margin-left: 40%;">Kabid LLA</span></li>
-            @else
-                <li class="step0 active" id="step3"><span style="margin-left: 40%;">Kabid LLA</span></li>
-            @endif
-
-            @if($d->trackSuratSifat['sekretariat'] == "Belum Validasi")
-                <li class="step0 text-right" id="step4"><span style="margin-left: 35%;">Sekretariat</span></li>
-            @else
-                <li class="step0 active text-right" id="step4"><span style="margin-left: 35%;">Sekretariat</span></li>
-            @endif
-
-            @if($d->trackSuratSifat['kepala_dinas'] == "Belum Validasi")
-                <li class="step0 text-right" id="step5"><span style="margin-left: 20%;">Kepala Dinas</span></li>
-            @else
-                <li class="step0 active text-right" id="step5"><span style="margin-left: 20%;">Kepala Dinas</span></li>
-            @endif
-        </ul>
-    </div>
-    <div class="footer">
-        <div class="row">
-            @if(isset($d->qrSifat['qr_valid']))
-            <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$d->id}}" class="btn text-white" style="background: #22577E;">Download Surat</a>
-            @else
-            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
-            @endif
-        </div>
-    </div>
-    </div>
-
-    </div>
-    </div> 
+    <br>
     @endforeach
     @endif
     <br>
@@ -179,6 +175,7 @@
 
     </div>
     </div> 
+    <br>
     @endforeach
     @endif
 

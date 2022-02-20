@@ -22,9 +22,9 @@ class FormSifat extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function fotoSifat()
+    public function berkasSifat()
     {
-        return $this->hasOne(FotoSifat::class);
+        return $this->hasOne(BerkasSifat::class);
     }
 
     public function trackSuratSifat()

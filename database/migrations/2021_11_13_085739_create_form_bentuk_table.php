@@ -19,6 +19,7 @@ class CreateFormBentukTable extends Migration
             ->references('id')->on('users')
             ->onDelete('cascade');
             $table->string('nomor_kendaraan');
+            $table->string('perubahan_bentuk');
             $table->string('nama_pemilik_lama');
             $table->string('nama_pemilik_baru');
             $table->string('alamat');

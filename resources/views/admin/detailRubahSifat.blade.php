@@ -149,7 +149,7 @@
           </div>
 
           <div class="row">
-            <div class="col-lg-12 mb-4">
+            <div class="col-lg-6 mb-4">
               <p>Nomor kendaraan : {{$formSifat->nomor_kendaraan}}</p>
               <p>Nama pemilik : {{$formSifat->nama_pemilik}}</p>
               <p>Alamat : {{$formSifat->alamat}}</p>
@@ -162,10 +162,17 @@
               <p>No Landasan : {{$formSifat->no_landasan}}</p>
               <p>No Mesin : {{$formSifat->no_mesin}}</p>
               <p>No BPKB : {{$formSifat->no_bpkb}}</p>
-              <p>Foto Sebelumnya : </p><img src="/FotoPerizinanSifat/{{$foto[0]->foto_sebelum}}" width="200px" height="200px">
-              <p>Foto Sesudah : </p><img src="/FotoPerizinanSifat/{{$foto[0]->foto_sesudah}}" width="200px" height="200px">
-              <p>Foto Sebelumnya : {{$foto[0]->foto_sebelum}}</p>
-              <p>Foto Sesudahnya : {{$foto[0]->foto_sesudah}}</p>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <p>Surat Permohonan : <a href="/download-berkas-surat-permohonan/{{$berkas[0]->surat_permohonan}}"><button class="btn btn-primary">Download</button></a></p>
+              <p>Surat Pernyataan : <a href="/download-berkas-surat-pernyataan/{{$berkas[0]->surat_pernyataan}}"><button class="btn btn-primary">Download</button></a></p>
+              <p>Foto FC. STNK : {{$berkas[0]->fc_stnk}} <br> <img src="/storage/Perizinan_Sifat/FC_STNK/{{$berkas[0]->fc_stnk}}" width="200px" height="200px"></p>
+              <p>Foto FC. BPKB : {{$berkas[0]->fc_bpkb}} <br> <img src="/storage/Perizinan_Sifat/FC_BPKB/{{$berkas[0]->fc_bpkb}}" width="200px" height="200px"></p>
+              <p>Foto FC. Buku Uji : {{$berkas[0]->fc_buku_uji}} <br> <img src="/storage/Perizinan_Sifat/FC_Buku_Uji/{{$berkas[0]->fc_buku_uji}}" width="200px" height="200px"></p>
+              <p>Foto Empat Sisi Kendaaran : {{$berkas[0]->foto_empat_sisi_kendaraan}} <br> <img src="/storage/Perizinan_Sifat/Foto_Kendaraan_Empat_Sisi/{{$berkas[0]->foto_empat_sisi_kendaraan}}" width="200px" height="200px"></p>
+              <p>Akte Notaris : {{$berkas[0]->akte_notaris}} <br> <img src="/storage/Perizinan_Sifat/Akte_Notaris/{{$berkas[0]->akte_notaris}}" width="200px" height="200px"></p>
+              <p>NIB / SIUP / TDP : {{$berkas[0]->kbli}} <br> <img src="/storage/Perizinan_Sifat/KBLI/{{$berkas[0]->kbli}}" width="200px" height="200px"></p>
+
             </div>
           </div>
           <!--Row-->

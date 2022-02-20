@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Map;
 use App\Models\FormSifat;
-use App\Models\FotoSifat;
+use App\Models\BerkasSifat;
 use App\Models\FormBentuk;
-use App\Models\FotoBentuk;
+use App\Models\BerkasBentuk;
 use App\Models\TrackSuratSifat;
 
 use QrCode;

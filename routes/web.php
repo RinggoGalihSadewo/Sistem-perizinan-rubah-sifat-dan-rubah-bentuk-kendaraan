@@ -58,6 +58,8 @@ Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
 Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
 Route::get('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'viewEditSifat']);
 Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
+Route::get('/download-berkas-surat-permohonan/{namaFile}', [AdminController::class, 'berkasPermohonan']);
+Route::get('/download-berkas-surat-pernyataan/{namaFile}', [AdminController::class, 'berkasPernyataan']);
 
 
 Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);

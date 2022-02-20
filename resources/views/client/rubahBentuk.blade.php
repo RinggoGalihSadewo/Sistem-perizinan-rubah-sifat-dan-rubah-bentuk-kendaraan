@@ -84,6 +84,18 @@
 
                         <div class="row">
                             <div class="col-sm-6">
+                                Perubahan Bentuk
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="" name="perubahanBentuk">
+                                <small>*Contoh: Truck Tangki Menjadi Mobil Barang Bak Terbuka</small>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
                                 Nama Pemilik Lama
                             </div>
                             <div class="col-sm-6">

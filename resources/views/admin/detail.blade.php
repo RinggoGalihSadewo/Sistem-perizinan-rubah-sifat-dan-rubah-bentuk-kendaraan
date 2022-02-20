@@ -157,9 +157,7 @@
                 <p>NPWP : {{$user->npwp}}</p>
                 <p>Alamat : {{$user->alamat}}</p>
                 <p>No. Hp : {{$user->no_hp}}</p>      
-                <p>lat : {{$user->map->lat}}
-
-                </p>
+                <p>lat : {{$user->map->lat}}</p>
                 <p>lng : {{$user->map->lng}}</p>
                 <a href="" id="cekMap" target="_blank">Lihat Maps</a>
             </div>

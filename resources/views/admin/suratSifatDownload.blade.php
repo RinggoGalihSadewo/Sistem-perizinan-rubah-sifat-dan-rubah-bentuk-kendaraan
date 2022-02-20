@@ -89,7 +89,7 @@
           <tr>
             <td>Menerangkan</td>
             <td>:</td>
-            <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>Plat Umum (KUNING)</b> menjadi <b>Plat Tidak Umum (HITAM), Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+            <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
             <br><br>
               <table>
                 <tr>

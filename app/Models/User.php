@@ -45,16 +45,6 @@ class User extends Authenticatable
         return $this->hasOne(Map::class);
     }
 
-    public function suratBentuk()
-    {
-        return $this->hasMany(SuratBentuk::class);
-    }
-
-    public function suratSifat()
-    {
-        return $this->hasMany(SuratSifat::class);
-    }
-
     public function formBentuk()
     {
         return $this->hasMany(FormBentuk::class);

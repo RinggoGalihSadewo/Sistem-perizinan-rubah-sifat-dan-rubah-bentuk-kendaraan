@@ -10,8 +10,8 @@ function taruhMarker(peta, posisiTitik){
       marker = new google.maps.Marker({
         position: posisiTitik,
         map: peta,
-        // animation: google.maps.Animation.DROP,
-        draggable: false,
+        animation: google.maps.Animation.DROP,
+        draggable: true,
         title: 'Posisi anda'
       });
     }

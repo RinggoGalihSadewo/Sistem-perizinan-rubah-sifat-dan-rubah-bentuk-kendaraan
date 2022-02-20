@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Map;
 use App\Models\FormSifat;
-use App\Models\FotoSifat;
+use App\Models\BerkasSifat;
 use App\Models\FormBentuk;
-use App\Models\FotoBentuk;
+use App\Models\BerkasBentuk;
 use App\Models\TrackSuratSifat;
 use App\Models\TrackSuratBentuk;
 
@@ -59,6 +59,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
 
             'noKendaraan' => 'required',
+            'jenisPerizinan' => 'required',
             'namaPemilik' => 'required',
             'alamat' => 'required',
             'merk' => 'required',
@@ -70,12 +71,10 @@ class UserController extends Controller
             'noLandasan' => 'required',
             'noMesin' => 'required',
             'bpkb' => 'required',
-            'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
-            'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
-
         ],
         [
             'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
+            'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
             'namaPemilik.required' => 'Nama Pemilik wajib di isi',
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
@@ -87,44 +86,34 @@ class UserController extends Controller
             'noLandasan.required' => 'No. Landasan wajib di isi',
             'noMesin.required' => 'No. Mesin wajib di isi',
             'bpkb' => 'No. BPKB wajib di isi',
-            'fotoSebelum.required' => 'Wajib masukan foto',
-            'fotoSebelum.image' => 'Foto harus berupa gambar',
-            'fotoSebelum.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            'fotoSebelum.max' => 'Ukuran gambar maksimal 2MB',
-            'fotoSesudah.required' => 'Wajib masukan foto',
-            'fotoSesudah.image' => 'Foto harus berupa gambar',
-            'fotoSesudah.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            'fotoSesudah.max' => 'Ukuran gambar maksimal 2MB',
-  
         ]
         );
 
-        $fotoSebelum = time().'.'.$request->fotoSebelum->extension();
-        $fotoSesudah = time().'.'.$request->fotoSesudah->extension();
+        $nameSuratPermohonan = $request->file('suratPermohonan')->getClientOriginalName();
+        $nameSuratPernyataan = $request->file('suratPernyataan')->getClientOriginalName();
+        $nameFcStnk = $request->file('fcStnk')->getClientOriginalName();
+        $nameFcBpkb = $request->file('fcBpkb')->getClientOriginalName();
+        $nameFcBukuUji = $request->file('fcBukuUji')->getClientOriginalName();
+        $nameEmpatSisi = $request->file('empatSisi')->getClientOriginalName();
+        $nameAkteNotaris = $request->file('akteNotaris')->getClientOriginalName();
+        $nameKbli = $request->file('kbli')->getClientOriginalName();
 
-        $request->fotoSebelum->move(public_path('fotoPerizinanSifat'), $fotoSebelum);
-        $request->fotoSesudah->move(public_path('fotoPerizinanSifat'), $fotoSesudah); 
+        $suratPermohonan = $request->file('suratPermohonan')->storeAs(('Perizinan_Sifat/Surat_Permohonan'), $nameSuratPermohonan);
+        $suratPernyataan = $request->file('suratPernyataan')->storeAs(('Perizinan_Sifat/Surat_Pernyataan'), $nameSuratPernyataan);
+        $fcStnk = $request->file('fcStnk')->storeAs(('Perizinan_Sifat/FC_STNK'), $nameFcStnk);
+        $fcBpkb = $request->file('fcBpkb')->storeAs(('Perizinan_Sifat/FC_BPKB'), $nameFcBpkb);
+        $bukuUji = $request->file('fcBukuUji')->storeAs(('Perizinan_Sifat/FC_Buku_Uji'), $nameFcBukuUji);
+        $empatSisi = $request->file('empatSisi')->storeAs(('Perizinan_Sifat/Foto_Kendaraan_Empat_Sisi'), $nameEmpatSisi);
+        $akteNotaris = $request->file('akteNotaris')->storeAs(('Perizinan_Sifat/Akte_Notaris'), $nameAkteNotaris);
+        $kbli = $request->file('kbli')->storeAs(('Perizinan_Sifat/KBLI'), $nameKbli);
 
-        // FormSifat::create([
-        //     'user_id' => Auth::user()->id,
-        //     'nomor_kendaraan' => $request->noKendaraan,
-        //     'nama_pemilik' => $request->namaPemilik,
-        //     'alamat' => $request->alamat,
-        //     'merk' => $request->merk,
-        //     'jenis' => $request->jenis,
-        //     'model' => $request->model,
-        //     'warna' => $request->warna,
-        //     'tahun' => $request->tahun,
-        //     'isi_silinder' => $request->silinder,
-        //     'no_landasan' => $request->noLandasan,
-        //     'no_mesin' => $request->noMesin,
-        //     'no_bpkb' => $request->bpkb
-        // ]);
+
 
         $formSifat = new FormSifat;
 
         $formSifat->user_id = Auth::user()->id;
         $formSifat->nomor_kendaraan = $request->noKendaraan;
+        $formSifat->jenis_perubahan = $request->jenisPerizinan;
         $formSifat->nama_pemilik = $request->namaPemilik;
         $formSifat->alamat = $request->alamat;
         $formSifat->merk = $request->merk;
@@ -138,12 +127,18 @@ class UserController extends Controller
         $formSifat->no_bpkb = $request->bpkb;
         $formSifat->save();
 
-        $fotoSifat = new FotoSifat;
+        $BerkasSifat = new BerkasSifat;
 
-        $fotoSifat->formSifat_id = $formSifat->id;
-        $fotoSifat->foto_sebelum = $fotoSebelum;
-        $fotoSifat->foto_sesudah = $fotoSesudah;
-        $fotoSifat->save();
+        $BerkasSifat->form_sifat_id = $formSifat->id;
+        $BerkasSifat->surat_permohonan = $nameSuratPermohonan;
+        $BerkasSifat->surat_pernyataan = $nameSuratPernyataan;
+        $BerkasSifat->fc_stnk = $nameFcStnk;
+        $BerkasSifat->fc_bpkb = $nameFcBpkb;
+        $BerkasSifat->fc_buku_uji = $nameFcBukuUji;
+        $BerkasSifat->foto_empat_sisi_kendaraan = $nameEmpatSisi;
+        $BerkasSifat->akte_notaris = $nameAkteNotaris;
+        $BerkasSifat->kbli = $nameKbli;
+        $BerkasSifat->save();
 
         $TrackSifat = new TrackSuratSifat;
 
@@ -215,32 +210,18 @@ class UserController extends Controller
         ]
         );
 
-        $fotoSebelum = time().'.'.$request->fotoSebelum->extension();
-        $fotoSesudah = time().'.'.$request->fotoSesudah->extension();
+        $nameFotoSebelum = $request->fotoSebelum->getClientOriginalName();
+        $nameFotoSesudah = $request->fotoSesudah->getClientOriginalName();
 
-        $request->fotoSebelum->move(public_path('fotoPerizinanBentuk'), $fotoSebelum);
-        $request->fotoSesudah->move(public_path('fotoPerizinanBentuk'), $fotoSesudah); 
+        $fotoSebelum = $request->fotoSebelum->storeAs(('Perizinan_Bentuk/Foto_Sebelum'), $nameFotoSebelum);
 
-        // FormSifat::create([
-        //     'user_id' => Auth::user()->id,
-        //     'nomor_kendaraan' => $request->noKendaraan,
-        //     'nama_pemilik' => $request->namaPemilik,
-        //     'alamat' => $request->alamat,
-        //     'merk' => $request->merk,
-        //     'jenis' => $request->jenis,
-        //     'model' => $request->model,
-        //     'warna' => $request->warna,
-        //     'tahun' => $request->tahun,
-        //     'isi_silinder' => $request->silinder,
-        //     'no_landasan' => $request->noLandasan,
-        //     'no_mesin' => $request->noMesin,
-        //     'no_bpkb' => $request->bpkb
-        // ]);
+        $fotoSesudah = $request->fotoSesudah->storeAs(('Perizinan_Bentuk/Foto_Sesudah'), $nameFotoSesudah); 
 
         $FormBentuk = new FormBentuk;
 
         $FormBentuk->user_id = Auth::user()->id;
         $FormBentuk->nomor_kendaraan = $request->noKendaraan;
+        $FormBentuk->perubahan_bentuk = $request->perubahanBentuk;
         $FormBentuk->nama_pemilik_lama = $request->namaPemilikLama;
         $FormBentuk->nama_pemilik_baru = $request->namaPemilikBaru;
         $FormBentuk->alamat = $request->alamat;
@@ -256,12 +237,12 @@ class UserController extends Controller
 
         $FormBentuk->save();
 
-        $FotoBentuk = new FotoBentuk;
+        $BerkasBentuk = new BerkasBentuk;
 
-        $FotoBentuk->formBentuk_id = $FormBentuk->id;
-        $FotoBentuk->foto_sebelum = $fotoSebelum;
-        $FotoBentuk->foto_sesudah = $fotoSesudah;
-        $FotoBentuk->save();
+        $BerkasBentuk->form_bentuk_id = $FormBentuk->id;
+        $BerkasBentuk->foto_sebelum = $fotoSebelum;
+        $BerkasBentuk->foto_sesudah = $fotoSesudah;
+        $BerkasBentuk->save();
 
         $TrackBentuk = new TrackSuratBentuk;
 

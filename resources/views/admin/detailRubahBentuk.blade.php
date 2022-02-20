@@ -43,8 +43,8 @@
         </a>
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
-            <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
+            <a class="collapse-item active" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>
@@ -163,10 +163,8 @@
               <p>No Mesin : {{$formBentuk->no_mesin}}</p>
               <p>No BPKB : {{$formBentuk->no_bpkb}}</p>
               <p>No Uji : {{$formBentuk->no_uji}}</p>
-              <p>Foto Sebelumnya : </p><img src="/FotoPerizinanBentuk/{{$foto[0]->foto_sebelum}}" width="200px" height="200px">
-              <p>Foto Sesudah : </p><img src="/FotoPerizinanBentuk/{{$foto[0]->foto_sesudah}}" width="200px" height="200px">
-              <p>Foto Sebelumnya : {{$foto[0]->foto_sebelum}}</p>
-              <p>Foto Sesudahnya : {{$foto[0]->foto_sesudah}}</p>
+              <p>Foto Sebelumnya : </p><img src="/storage/{{$foto[0]->foto_sebelum}}" width="200px" height="200px">
+              <p>Foto Sesudah : </p><img src="/storage/{{$foto[0]->foto_sesudah}}" width="200px" height="200px">
           </div>
           <!--Row-->
 

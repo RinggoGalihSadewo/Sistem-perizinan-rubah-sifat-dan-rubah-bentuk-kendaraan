@@ -22,9 +22,9 @@ class FormBentuk extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function fotoBentuk()
+    public function berkasBentuk()
     {
-        return $this->hasOne(FotoBentuk::class);
+        return $this->hasOne(BerkasBentuk::class);
     }
 
     public function trackSuratBentuk()

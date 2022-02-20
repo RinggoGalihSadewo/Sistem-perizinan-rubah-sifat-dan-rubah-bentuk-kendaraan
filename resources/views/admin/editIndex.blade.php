@@ -271,7 +271,7 @@
                             placeholder="Cari alamat anda"
                             />
                             <div id="map" class="mt-3 mb-2"></div>
-                            <input type="text" name="lat" id="lat" hidden="true" value="{{$user->map->lat}}">
+                            <input type="text" name="lat" id="lat" hidden="true"  value="{{$user->map->lat}}">
                             <input type="text" name="lng" id="lng" hidden="true" value="{{$user->map->lng}}">
                 <div class="form-group">
                     <label for="exampleInputEmail6">Email</label>
@@ -355,8 +355,8 @@ function taruhMarker(peta, posisiTitik){
       marker = new google.maps.Marker({
         position: posisiTitik,
         map: peta,
-        // animation: google.maps.Animation.DROP,
-        draggable: false,
+        animation: google.maps.Animation.DROP,
+        draggable: true,
         title: 'Posisi anda yang baru'
       });
     }
@@ -373,7 +373,7 @@ function initAutocomplete() {
   console.log(latitude);
   console.log(longtitude);
 
-  var lokasi = new google.maps.LatLng(latitude, longtitude)
+  var lokasi = new google.maps.LatLng(latitude, longtitude);
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -5.443429907357782, lng: 105.26257464716446 },
     zoom: 13,

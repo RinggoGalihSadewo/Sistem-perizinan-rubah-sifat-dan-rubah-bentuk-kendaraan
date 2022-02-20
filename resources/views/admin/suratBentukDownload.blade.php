@@ -86,7 +86,7 @@
           <tr>
             <td>Menerangkan</td>
             <td>:</td>
-            <td>Memberikan Surat Keterangan Perubahan Bentuk dari <b>TRUCK TANGKI</b> menjadi <b>MOBIL BARANG BAK TERBUKA</b> kepada <b>Sdr. {{$data->nama_pemilik_baru}}</b> yang beralamat di {{$data->alamat}}. Pemilik/Pemohon menjamin keselamatan (Safety) dari Kendaraan yang telah di Rubah Bentuk dengan data kendaraan sebagai berikut :
+            <td>Memberikan Surat Keterangan Perubahan Bentuk dari <b>{{$data->perubahan_bentuk}}</b> kepada <b>Sdr. {{$data->nama_pemilik_baru}}</b> yang beralamat di {{$data->alamat}}. Pemilik/Pemohon menjamin keselamatan (Safety) dari Kendaraan yang telah di Rubah Bentuk dengan data kendaraan sebagai berikut :
             <br>
               <table>
                 <tr>
@@ -135,7 +135,7 @@
                       Jenis
                     </td>
                     <td>:</td>
-                    <td>{{$data->jenis}}</td>
+                    <td>{{$data->jenis}} (sebelum dirubah)</td>
                 </tr>
                 <tr>
                     <td>-</td>

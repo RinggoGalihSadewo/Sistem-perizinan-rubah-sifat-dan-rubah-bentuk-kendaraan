@@ -20,8 +20,8 @@ class CreateFormSifatTable extends Migration
             ->references('id')->on('users')
             ->onDelete('cascade');
             $table->string('nomor_kendaraan');
+            $table->string('jenis_perubahan');
             $table->string('nama_pemilik');
-            // $table->string('nomor_pemilik_baru');
             $table->string('alamat');
             $table->string('merk');
             $table->string('jenis');

@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Map;
 use App\Models\FormSifat;
-use App\Models\FotoSifat;
+use App\Models\BerkasSifat;
 use App\Models\FormBentuk;
-use App\Models\FotoBentuk;
+use App\Models\BerkasBentuk;
 use App\Models\TrackSuratSifat;
 
 use QrCode;
+use Storage;
 
 class AdminController extends Controller
 {
@@ -75,6 +76,12 @@ class AdminController extends Controller
                 'no_hp' => $request->noHp
         ]);
 
+        Map::where('user_id', $user->id)
+            ->update([
+                'lat' => $request->lat,
+                'lng' => $request->lng,
+        ]);
+
         return redirect('/admin/dashboard')->with('status', 'Data berhasil di edit');
     }
 
@@ -88,8 +95,9 @@ class AdminController extends Controller
 
     public function detailRubahSifat(FormSifat $formSifat)
     {
-        $foto = FotoSifat::where('formSifat_id', $formSifat->id)->get();
-        return view('admin.detailRubahSifat', compact('formSifat', 'foto'));
+        $berkas = BerkasSifat::where('form_sifat_id', $formSifat->id)->get();
+        $formSifat = FormSifat::with('berkasSifat')->find($formSifat->id);
+        return view('admin.detailRubahSifat', compact('formSifat','berkas'));
     }
     
     public function viewEditSifat(FormSifat $formSifat)
@@ -163,6 +171,16 @@ class AdminController extends Controller
         return redirect('/admin/data-rubah-sifat')->with('status', 'Data berhasil di edit');
     }
 
+    public function berkasPermohonan($namaFile)
+    {
+        return Storage::download('Perizinan_Sifat/Surat_Permohonan/'.$namaFile);
+    }
+
+    public function berkasPernyataan($namaFile)
+    {
+        return Storage::download('Perizinan_Sifat/Surat_Pernyataan/'.$namaFile);
+    }
+
     public function rubahBentuk()
     {
         $data = FormBentuk::with('user')->get();
@@ -171,7 +189,7 @@ class AdminController extends Controller
 
     public function detailRubahBentuk(FormBentuk $formBentuk)
     {
-        $foto = FotoBentuk::where('formBentuk_id', $formBentuk->id)->get();
+        $foto = BerkasBentuk::where('form_bentuk_id', $formBentuk->id)->get();
         return view('admin.detailRubahBentuk', compact('formBentuk', 'foto'));
     }
 

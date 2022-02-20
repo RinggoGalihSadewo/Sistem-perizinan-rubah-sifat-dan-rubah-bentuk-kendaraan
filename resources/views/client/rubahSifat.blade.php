@@ -86,6 +86,21 @@
 
                         <div class="row">
                             <div class="col-sm-6">
+                                Jenis Perubahan Sifat
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="form-select" name="jenisPerizinan">
+                                    <option>Perubahan Sifat (HITAM)</option>
+                                    <option>Penetapan Sifat (KUNING)</option>
+                                    <option>Perubahan Sifat (HITAM KE KUNING)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
                                 Nama Pemilik
                             </div>
                             <div class="col-sm-6">
@@ -207,10 +222,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Sebelum
+                                Surat Permohonan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fotoSebelum">
+                                <input type="file" class="form-control" id="" name="suratPermohonan">
                             </div>
                         </div>
 
@@ -218,15 +233,80 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Sesudah
+                                Surat Pernyataan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fotoSesudah">
+                                <input type="file" class="form-control" id="" name="suratPernyataan">
                             </div>
                         </div>
 
                         <br>
 
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Foto FC. STNK
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="fcStnk">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Foto FC. BPKB
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="fcBpkb">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Foto FC. Buku Uji (KIR)
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="fcBukuUji">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Foto Kendaraan empat sisi
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="empatSisi">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Akte Notaris
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="akteNotaris">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                NIB / SIUP / TDP dengan KBLI yang sudah ditentukan
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="kbli">
+                            </div>
+                        </div>
+
+                        <br>
                         <center>
                             <div class="col-12">
                                 <button class="btn" type="submit">KIRIM</button>
@@ -252,6 +332,8 @@ Development by  IF’18 ITERA</footer>
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Hns7ZUFLMCxdRg6W_UZRl07Tcgv4h34&callback=initAutocomplete&libraries=places&v=weekly"
       async
     ></script>
+
+    <script type="text/javascript"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
