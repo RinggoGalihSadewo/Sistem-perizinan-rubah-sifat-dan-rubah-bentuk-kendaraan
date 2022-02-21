@@ -170,8 +170,13 @@
                 {{ $qr }}
             </div>
             <div class="col-lg-6 mb-4 mt-0">
+                @if($user->foto_profile == "default.png")
+                <p>Foto Profile :</p>
+                <img src="/storage/profile/default.png" width="250px" height="250px" class="d-block">
+                @else
                 <p>Foto Profile :</p>
                 <img src="/storage/{{$user->foto_profile}}" width="250px" height="250px" class="d-block">
+                @endif
             </div>
           </div>          
                 
