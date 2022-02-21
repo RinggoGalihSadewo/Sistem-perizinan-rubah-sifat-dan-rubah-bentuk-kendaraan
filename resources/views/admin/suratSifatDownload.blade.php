@@ -16,6 +16,7 @@
   <style type="text/css">
     .surat{
         background-color: white;
+        font-size: 13px;
         width: 100%;
         height: auto;
         padding: 0px;
@@ -25,7 +26,7 @@
     }
 
     .paraf{
-      margin: 2% auto;
+      margin: -5px auto;
       width: auto;
       height: 230px;
       position: relative;
@@ -40,6 +41,7 @@
     .subParaf{
       position: absolute;
       right: 10%;
+      top: 2%;
       bottom: 0;
     }
   </style>
@@ -55,7 +57,7 @@
         </div>
 
         <center>
-        <h4><u>SURAT KETERANGAN</u></h4>
+        <h4 style="font-size: 16px;"><u>SURAT KETERANGAN</u></h4>
         <p>Nomor : {{isset($data->qrSifat['no_surat']) ? $data->qrSifat['no_surat'] : ''}}</p>
         </center>
 
@@ -199,7 +201,6 @@
               </table>
             </td>
           </tr>
-          <br>
           <tr>
             <td></td>
             <td></td>

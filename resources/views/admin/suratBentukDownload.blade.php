@@ -17,6 +17,7 @@
     .surat{
         background-color: white;
         width: 100%;
+        font-size: 13px;
         height: auto;
         padding: 0px;
         font-family: 'times new roman';
@@ -25,7 +26,7 @@
     }
 
     .paraf{
-      margin: 2% auto;
+      margin: -5px auto;
       width: auto;
       height: 230px;
       position: relative;
@@ -40,6 +41,7 @@
     .subParaf{
       position: absolute;
       right: 10%;
+      top: 2%;
       bottom: 0;
     }
   </style>
@@ -55,7 +57,7 @@
         </div>
 
         <center>
-        <h4><u>SURAT KETERANGAN</u></h4>
+        <h4 style="font-size: 16px;"><u>SURAT KETERANGAN</u></h4>
         <p>Nomor : {{isset($data->qrBentuk['no_surat']) ? $data->qrBentuk['no_surat'] : ''}}</p>
         </center>
 
