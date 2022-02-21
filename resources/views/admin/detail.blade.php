@@ -99,6 +99,12 @@
             <a class="collapse-item" href="{{url('/admin/validasi/rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/laporan')}}">
+          <i class="fas fa-file"></i>
+          <span>Laporan</span>
+        </a>
       </li>
 
     </ul>
@@ -159,10 +165,13 @@
                 <p>No. Hp : {{$user->no_hp}}</p>      
                 <p>lat : {{$user->map->lat}}</p>
                 <p>lng : {{$user->map->lng}}</p>
-                <a href="" id="cekMap" target="_blank">Lihat Maps</a>
-            </div>
-            <div class="col-lg-6 mb-4 mt-5">
+                <a href="" id="cekMap" target="_blank" class="d-block">Lihat Maps</a>
+                <br>
                 {{ $qr }}
+            </div>
+            <div class="col-lg-6 mb-4 mt-0">
+                <p>Foto Profile :</p>
+                <img src="/storage/{{$user->foto_profile}}" width="250px" height="250px" class="d-block">
             </div>
           </div>          
                 

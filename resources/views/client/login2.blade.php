@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 @enderror
-                <div class="row mt-4">
+<!--                 <div class="row mt-4">
                     <div class="col-6">  
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" style="margin-left:10%;" name="remember">
 
@@ -57,8 +57,8 @@
                     <div class="col-6">
                         <a href="{{url('/lupa-kata-sandi')}}" style="margin-right:25%; text-decoration: none; color: black;" target="_blank">Lupa kata sandi ?</a>
                     </div>
-                </div>
-                <button type="submit" class="btn text-dark mt-4 fw-bold" style="background: #D1AD2C; height: 50px;">Masuk</button>
+                </div> -->
+                <button type="submit" class="btn text-white mt-4 fw-bold" style="background: #22577E; height: 50px;">Masuk</button>
                 </center>
             </form>
         </div>

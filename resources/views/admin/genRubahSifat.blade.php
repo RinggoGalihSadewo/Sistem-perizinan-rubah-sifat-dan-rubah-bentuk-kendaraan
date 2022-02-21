@@ -101,6 +101,12 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/laporan')}}">
+          <i class="fas fa-file"></i>
+          <span>Laporan</span>
+        </a>
+      </li>
 
     </ul>
     <!-- Sidebar -->
@@ -172,10 +178,11 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php $i=1?>
                       @foreach($data as $d)
                       @if($d->trackSuratSifat['staff_angkutan'] == "Sudah Validasi" && $d->trackSuratSifat['kasi_angkutan'] == "Sudah Validasi" && $d->trackSuratSifat['kabid_lla'] == "Sudah Validasi" && $d->trackSuratSifat['sekretariat'] == "Sudah Validasi" && $d->trackSuratSifat['kepala_dinas'] == "Sudah Validasi" && !isset($d->qrSifat['qr_valid']))
                       <tr>
-                        <td>{{$loop->iteration}}</td>
+                        <td>{{$i}}</td>
                         <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
                         <td>
                           <form action="/admin/generate-qrcode-rubah-sifat/{{$d->id}}"method="post">
@@ -193,6 +200,7 @@
                         </form>
                       </tr>
                       @endif
+                      <?php $i++;?>
                       @endforeach
                     </tbody>
                   </table>

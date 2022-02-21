@@ -27,11 +27,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link {{ Request::is('') ? 'active' : '' }}" aria-current="page" href="{{url('/')}}">Beranda</a>
-                            <a class="nav-link {{ Request::is('/#pendaftaran') ? 'active' : '' }}" href="#pendaftaran">Pendaftaran Akun</a>
-                            <a class="nav-link {{ Request::is('/#tataCara') ? 'active' : '' }}" href="#tataCara">Tata Cara</a>
-                            <a class="nav-link {{ Request::is('/#layananPengaduan') ? 'active' : '' }}" href="#layananPengaduan">Layanan Pengaduan</a>
-                            <a class="nav-link {{ Request::is('/masuk') ? 'active' : '' }}" href="{{url('/masuk')}}" target="_blank">Masuk <img src="/img/logo/masuk.png" alt=""></a>
+                            <a class="nav-link active {{ Request::is('') ? 'active' : '' }}" aria-current="page" href="{{url('/')}}">Beranda</a>
+                            <a class="nav-link active {{ Request::is('/#pendaftaran') ? 'active' : '' }}" href="#pendaftaran">Pendaftaran Akun</a>
+                            <a class="nav-link active {{ Request::is('/#tataCara') ? 'active' : '' }}" href="#tataCara">Tata Cara</a>
+                            <a class="nav-link active {{ Request::is('/#layananPengaduan') ? 'active' : '' }}" href="#layananPengaduan">Layanan Pengaduan</a>
+                            <a class="nav-link active {{ Request::is('/masuk') ? 'active' : '' }}" href="{{url('/masuk')}}">Masuk <img src="/img/logo/masuk.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -46,13 +46,13 @@
             </div>
             <div class="carousel-inner" >
                 <div class="carousel-item active">
-                <img src="/img/slides/slides1_1.png" class="d-block w-100" alt="...">
+                <img src="/img/slides/slides1_1 1.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="/img/slides/slides1_1.png" class="d-block w-100" alt="..." >
+                <img src="/img/slides/slides1_1 1.png" class="d-block w-100" alt="..." >
                 </div>
                 <div class="carousel-item">
-                <img src="/img/slides/slides1_1.png" class="d-block w-100" alt="..." >
+                <img src="/img/slides/slides1_1 1.png" class="d-block w-100" alt="..." >
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -67,9 +67,10 @@
 
         <section id="pendaftaran">
             <div class="pendaftaran">
-                <h2 class="text-center fw-bold text-white">Pendaftaran Akun</h2>
+                <h2 class="text-center fw-bold text-dark">Pendaftaran Akun</h2>
                 
                 @if (session('status'))
+                    <br>
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
@@ -282,11 +283,10 @@
 
                         <center>
                             <div class="col-12">
-                                <button class="btn" type="submit">DAFTAR</button>
+                                <button class="btn" type="submit" style="background: #22577E;">DAFTAR</button>
                             </div>
                         </center>
 
-                        
                     </form>
                 </div>
             </div>
@@ -314,27 +314,33 @@
 
         <section id="layananPengaduan">
             <div class="layananPengaduan">
-            <div class="formPengaduan">
-                    <form action="" method="post">
+            @if (session('laporan'))
+                <div class="alert alert-success">
+                    {{ session('laporan') }}
+                </div>
+                <br>
+            @endif
+            <div class="formPengaduan mt-2">
+                    <form action="/laporan" method="post">
                         @csrf
-                        <div class="row">
-                            <h3 ><center> <img src="/img/tataCara/logoPengaduan.png" alt="" width="40px" height="40px"> Sampaikan Laporan Anda!</center></h3>
+                        <div class="row text-white">
+                            <h3 ><center>Sampaikan Laporan Anda!</center></h3>
 
                             <div class="col-sm-12">
                                 Kritik
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="form-control" id="" style="height: 120px;"></textarea>
+                                <textarea class="form-control mt-2" id="" style="height: 120px;" name="kritik"></textarea>
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 text-white">
                                 Saran
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="form-control" id="" style="height: 120px;"></textarea>
+                                <textarea class="form-control mt-2" id="" style="height: 120px;" name="saran"></textarea>
                                 <center>
-                                <button class="btn mt-3" type="submit">KIRIM</button>
+                                <button class="btn mt-5" type="submit" style="background: #fff; color: #22577E;">KIRIM</button>
                                 </center>   
                             </div>
                         </div>

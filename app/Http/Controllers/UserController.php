@@ -13,6 +13,7 @@ use App\Models\FormBentuk;
 use App\Models\BerkasBentuk;
 use App\Models\TrackSuratSifat;
 use App\Models\TrackSuratBentuk;
+use App\Models\Laporan;
 
 class UserController extends Controller
 {
@@ -31,6 +32,16 @@ class UserController extends Controller
         return view('client.login2');
     }
 
+    public function storeLaporan(Request $request)
+    {
+        Laporan::create([
+            'kritik' => $request->kritik,
+            'saran' => $request->saran
+        ]);
+
+        return redirect('/')->with('laporan', 'Berhasil mengirimkan laporan');
+    }
+
     public function forgotPassword()
     {
         return view('client.forgotPassword2');
@@ -41,10 +52,36 @@ class UserController extends Controller
         return view('client.rubahSifat');
     }
 
-    public function profile()
+    public function profile(User $user)
     {
-        dd('profile');
-        return view('client.profile');
+        $data = User::where('id', Auth::user()->id)->get();
+        return view('client.profile', compact('data'));
+    }
+
+    public function editProfile(User $user, Request $request)
+    {   
+        if($request->profile == null)
+        {
+            $foto = $request->nullProfile;
+        }
+        
+        else
+        {
+            $nameFoto = $request->profile->getClientOriginalName();
+            $foto = $request->profile->storeAs(('profile'), $nameFoto);
+        }
+
+        User::where('id', Auth::user()->id)
+            ->update([
+                'nama_pemilik' => $request->nama,
+                'alamat' => $request->alamat,
+                'email' => $request->email,
+                'no_hp' => $request->noHp,
+                'foto_profile' => $foto
+        ]);
+
+        return redirect('/profile')->with('status', 'Profile berhasil di ubah');
+
     }
 
     public function alurKordinasi(FormSifat $formSifat, FormBentuk $formBentuk)

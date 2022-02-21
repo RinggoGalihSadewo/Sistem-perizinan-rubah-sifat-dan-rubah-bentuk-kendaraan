@@ -12,6 +12,7 @@ use App\Models\BerkasSifat;
 use App\Models\FormBentuk;
 use App\Models\BerkasBentuk;
 use App\Models\TrackSuratSifat;
+use App\Models\laporan;
 
 use QrCode;
 use Storage;
@@ -262,6 +263,13 @@ class AdminController extends Controller
 
          return redirect('/admin/data-rubah-bentuk')->with('status', 'Data berhasil di edit');
 
+    }
+
+    public function laporan(Laporan $laporan)
+    {
+        $data = Laporan::all();
+
+        return view('admin.laporan', compact('data'));
     }
 
     public function viewEditBentuk(FormBentuk $formBentuk)

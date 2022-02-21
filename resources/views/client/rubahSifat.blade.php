@@ -29,24 +29,24 @@
                         <div class="navbar-nav ms-auto">
                             <a class="nav-link active" aria-current="page" href="{{url('/')}}">Beranda</a>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Form Surat Perizinan
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-sifat')}}" target="_blank">Perizinan Rubah Sifat Kendaraan</a></li>
-                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}" target="_blank">Perizinan Rubah Bentuk Kendaraan</a></li>
+                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-sifat')}}">Perizinan Rubah Sifat Kendaraan</a></li>
+                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}">Perizinan Rubah Bentuk Kendaraan</a></li>
                                 </ul>
                             </li>
-                            <a class="nav-link" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
-                            <a class="nav-link" href="{{url('/profile')}}">Profile</a>
-                            <a class="nav-link" href="{{url('/logout')}}" target="_blank">Keluar <img src="/img/logo/logout.png" alt=""></a>
+                            <a class="nav-link active" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
+                            <a class="nav-link active" href="{{url('/profile')}}">Profile</a>
+                            <a class="nav-link active" href="{{url('/logout')}}">Keluar <img src="/img/logo/logout.png" alt=""></a>
                         </div>
                     </div>
                 </div>
             </nav>
         </section>
 
-        <section id="penjelasan">
+<!--         <section id="penjelasan">
             <div class="row d-flex">
                 <div class="col-5">
                     <img src="/img/logo/perizinan.png" alt="">
@@ -56,14 +56,14 @@
                 <p class="mt-4 text-center">E-Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan adalah sistem pelayanan online berbasis website yang disediakan oleh Dinas Perhubungan Provinsi Lampung dimana memiliki manfaat bagi masyarakat atau client yang ingin melakukan perizinan mengenai rubah sifat ataupun rubah bentuk kendaraan dengan hanya membuka website tersebut dan jika surat perizinan sudah selesai akan langsung bisa di download surat tersebut karena dikirimkan melalui email pribadi, sehingga akan menghemat waktu dan tenaga.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section id="perizinan">
-            <h1 style="font-family: 'Dancing Script', cursive;" class="text-center">Form Surat Perizinan</h1>
             <div class="formPerizinan">
                 <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH SIFAT</h4>
 
                 @if (session('status'))
+                    <br>
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
@@ -309,7 +309,7 @@
                         <br>
                         <center>
                             <div class="col-12">
-                                <button class="btn" type="submit">KIRIM</button>
+                                <button class="btn" type="submit" style="background: #22577E;">KIRIM</button>
                             </div>
                         </center>
 

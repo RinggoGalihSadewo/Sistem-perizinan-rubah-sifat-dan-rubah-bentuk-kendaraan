@@ -27,6 +27,7 @@ Route::get('/', [UserController::class, 'index']);
 Route::post('/', [LoginController::class, 'registrasi']);
 
 Route::get('/masuk', [UserController::class, 'masuk'])->name('login');
+Route::post('/laporan', [UserController::class, 'storeLaporan']);
 Route::post('/masuk', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -35,6 +36,7 @@ Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 Route::middleware(['auth'])->group( function(){
 
     Route::get('/profile', [UserController::class, 'profile']);
+    Route::patch('/profile', [UserController::class, 'editProfile']);
 
     Route::get('/alur-kordinasi', [UserController::class, 'alurKordinasi']);
     Route::get('/alur-kordinasi/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
@@ -94,3 +96,5 @@ Route::get('/admin/validasi/rubah-bentuk/kasi/{formBentuk}', [ValidasiBentukCont
 Route::get('/admin/validasi/rubah-bentuk/kabid/{formBentuk}', [ValidasiBentukController::class, 'kabid']);
 Route::get('/admin/validasi/rubah-bentuk/sekretaris/{formBentuk}', [ValidasiBentukController::class, 'sekretaris']);
 Route::get('/admin/validasi/rubah-bentuk/kepala-dinas/{formBentuk}', [ValidasiBentukController::class, 'kepalaDinas']);
+
+Route::get('/admin/laporan', [AdminController::class, 'laporan']);

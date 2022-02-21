@@ -100,7 +100,12 @@
           </div>
         </div>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/laporan')}}">
+          <i class="fas fa-file"></i>
+          <span>Laporan</span>
+        </a>
+      </li>
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -171,7 +176,7 @@
                   @foreach($data as $d)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}" target="_blank">{{$d->nomor_kendaraan}}</a></td>
+                    <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
                     <td>
                       @if($d->trackSuratSifat['staff_angkutan'] == "Belum Validasi")
                       <a href="/admin/validasi/rubah-sifat/staff-angkutan/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratSifat['staff_angkutan']}}</a>

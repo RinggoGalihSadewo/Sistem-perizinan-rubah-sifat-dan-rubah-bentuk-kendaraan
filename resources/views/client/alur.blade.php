@@ -27,17 +27,17 @@
                         <div class="navbar-nav ms-auto">
                             <a class="nav-link active" aria-current="page" href="{{url('/')}}">Beranda</a>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Form Surat Perizinan
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-sifat')}}" target="_blank">Perizinan Rubah Sifat Kendaraan</a></li>
-                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}" target="_blank">Perizinan Rubah Bentuk Kendaraan</a></li>
+                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-sifat')}}">Perizinan Rubah Sifat Kendaraan</a></li>
+                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}">Perizinan Rubah Bentuk Kendaraan</a></li>
                                 </ul>
                             </li>
-                            <a class="nav-link" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
-                            <a class="nav-link" href="{{url('/profile')}}">Profile</a>
-                            <a class="nav-link" href="{{url('/logout')}}" target="_blank">Keluar <img src="/img/logo/logout.png" alt=""></a>
+                            <a class="nav-link active" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
+                            <a class="nav-link active" href="{{url('/profile')}}">Profile</a>
+                            <a class="nav-link active" href="{{url('/logout')}}">Keluar <img src="/img/logo/logout.png" alt=""></a>
                         </div>
                     </div>
                 </div>

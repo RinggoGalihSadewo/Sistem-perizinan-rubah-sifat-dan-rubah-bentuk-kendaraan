@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('alamat');
             $table->string('email');
             $table->string('no_hp');
+            $table->string('foto_profile');
             $table->timestamps();
         });
     }

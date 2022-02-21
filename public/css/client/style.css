@@ -26,6 +26,12 @@ nav{
     background-color: #22577E;
     height: auto;
 }
+.carousel-inner{
+    height: 600px;
+}
+.carousel-inner .carousel-item img {
+
+}
 .carousel-control-prev-icon{
   background-color: #C4C4C4;
   width: 40px;
@@ -41,20 +47,21 @@ nav{
   border-radius: 50%;
 }
 #pendaftaran{
-    background: rgba(8, 110, 125, 0.51);
+    background: #ffffff;
     padding: 60px;
     height: auto;
     position: relative;
 }
 .formDaftar{
-    width: 45%;
+    width: 55%;
     font-size: 0.9em;
     height: auto;
     padding: 50px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 .btn{
     width: 190px;
@@ -70,12 +77,12 @@ nav{
     bottom: 0;
 }
 .tataCara{
-    background-color: #ffc900;
+    background-color: #22577E;
     padding: 60px;
 }
 
 .layananPengaduan{
-    background-color: #96ceb4;
+    background-color: #ffffff;
     margin: 0 auto;
     padding: 100px;
 }
@@ -85,10 +92,9 @@ nav{
     height: auto;
     padding: 50px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #22577E;
     border-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: 1px solid #ccac02;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 footer{
@@ -194,7 +200,7 @@ footer{
   border-radius: 30px;
   height: 55px;
   width: 374px;
-  border: 1px solid #ccac02;
+  border: 1px solid #22577E;
   padding-left: 20px;
 }
 
@@ -212,7 +218,6 @@ footer{
 }
 
 #perizinan{
-  background: rgba(255, 201, 0, 0.51);
   padding: 50px;
 }
 
@@ -221,7 +226,8 @@ footer{
   height: auto;
   padding: 50px;
   background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   border-radius: 15px;
   margin: 2% auto;
 }
@@ -249,7 +255,6 @@ footer{
 }
 
 #perizinan{
-  background: rgba(255, 201, 0, 0.51);
   padding: 50px;
 }
 
@@ -258,7 +263,8 @@ footer{
   height: auto;
   padding: 50px;
   background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   border-radius: 15px;
   margin: 2% auto;
 }
@@ -678,6 +684,19 @@ footer{
 #progressbar2 li.active:after {
     background: #22577E
 }
+
+/*Profile*/
+
+.myProfile{
+    width: 75%;
+    background-color: #fff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin: 7% auto;
+    padding: 30px;
+}
+
+
 
 @media only screen and (max-width:992px){
   

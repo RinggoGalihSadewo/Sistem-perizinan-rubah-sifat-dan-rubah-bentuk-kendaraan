@@ -100,6 +100,12 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/laporan')}}">
+          <i class="fas fa-file"></i>
+          <span>Laporan</span>
+        </a>
+      </li>
 
     </ul>
     <!-- Sidebar -->
@@ -181,7 +187,7 @@
                         <td>{{$d->nama_pemilik_baru}}</td>
                         <td>{{$d->nomor_kendaraan}}</td>
                         <td>
-                          <a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" target="_blank" class="btn btn-sm btn-primary">Detail</a>
+                          <a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
                           <a href="/admin/data-rubah-bentuk/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
                           <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                         </td>

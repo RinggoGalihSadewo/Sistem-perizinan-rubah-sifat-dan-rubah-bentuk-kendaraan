@@ -58,6 +58,7 @@ class LoginController extends Controller
         $user->alamat = $request->alamat;
         $user->email = $request->email;
         $user->no_hp = $request->noHp;
+        $user->foto_profile = "default.png";
         $user->save();
 
         $map = new Map;
@@ -66,23 +67,6 @@ class LoginController extends Controller
         $map->lat = $request->lat;
         $map->lng = $request->lng;
         $map->save();
-
-        // User::create([
-        //     'username' => $request->username,
-        //     'password' => $request->password,
-        //     'nama_perusahaan' => $request->namaPerusahaan,
-        //     'kabupaten' => $request->kabupaten,
-        //     'npwp' => $request->npwp,
-        //     'alamat' => $request->alamat,
-        //     'email' => $request->email,
-        //     'no_hp' => $request->noHp
-        // ]);
-
-        // Map::create([
-        //     'user_id' => $user->id,
-        //     'lat' => $request->lat,
-        //     'lng' => $request->lng
-        // ]);
 
         return redirect('/')->with('status', 'Pendaftaran Akun Berhasil !');
     }
@@ -121,4 +105,5 @@ class LoginController extends Controller
     	return redirect('/');
 
     }
+
 }

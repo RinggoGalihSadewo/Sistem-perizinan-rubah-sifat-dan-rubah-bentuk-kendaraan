@@ -27,239 +27,99 @@
                         <div class="navbar-nav ms-auto">
                             <a class="nav-link active" aria-current="page" href="{{url('/')}}">Beranda</a>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Form Surat Perizinan
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-sifat')}}" target="_blank">Perizinan Rubah Sifat Kendaraan</a></li>
-                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}" target="_blank">Perizinan Rubah Bentuk Kendaraan</a></li>
+                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-sifat')}}">Perizinan Rubah Sifat Kendaraan</a></li>
+                                    <li><a class="dropdown-item" href="{{url('perizinan-rubah-bentuk')}}">Perizinan Rubah Bentuk Kendaraan</a></li>
                                 </ul>
                             </li>
-                            <a class="nav-link" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
-                            <a class="nav-link" href="{{url('/profile')}}">Profile</a>
-                            <a class="nav-link" href="{{url('/logout')}}" target="_blank">Keluar <img src="/img/logo/logout.png" alt=""></a>
+                            <a class="nav-link active" href="{{url('/alur-kordinasi')}}">Alur Kordinasi</a>
+                            <a class="nav-link active" href="{{url('/profile')}}">Profile</a>
+                            <a class="nav-link active" href="{{url('/logout')}}">Keluar <img src="/img/logo/logout.png" alt=""></a>
                         </div>
                     </div>
                 </div>
             </nav>
         </section>
 
-        <section id="penjelasan">
-            <div class="row d-flex">
-                <div class="col-5">
-                    <img src="/img/logo/perizinan.png" alt="">
-                </div>
-                <div class="col-7 textPenjelasan">
-                <img src="/img/logo/text-perizinan.png" alt="" >
-                <p class="mt-4 text-center">E-Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan adalah sistem pelayanan online berbasis website yang disediakan oleh Dinas Perhubungan Provinsi Lampung dimana memiliki manfaat bagi masyarakat atau client yang ingin melakukan perizinan mengenai rubah sifat ataupun rubah bentuk kendaraan dengan hanya membuka website tersebut dan jika surat perizinan sudah selesai akan langsung bisa di download surat tersebut karena dikirimkan melalui email pribadi, sehingga akan menghemat waktu dan tenaga.</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="perizinan">
-            <h1 style="font-family: 'Dancing Script', cursive;" class="text-center">Form Surat Perizinan</h1>
-            <div class="formPerizinan">
-                <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH BENTUK</h4>
-
+        <section id="myProfile">
+            <div class="myProfile">
                 @if (session('status'))
+                    <br>
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
+                    <br>
                 @endif
-                
-                <div class="mt-5">
-                    <form action="/perizinan-rubah-bentuk" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-4">
+                        <form action="/profile" method="post" enctype="multipart/form-data">
                         @csrf
-
+                        @method('patch')
+                        @if($data[0]->foto_profile == "default.png")
+                        <img src="/storage/profile/{{$data[0]->foto_profile}}" class="img-rounded">
+                        <input type="file" name="profile" class="mt-3 form-control">
+                        @else
+                        <img src="/storage/{{$data[0]->foto_profile}}" class="img-rounded"  width="200px" height="200px">
+                        <input type="file" name="profile" class="mt-3 form-control" value="">
+                        @endif
+                        <input type="text" hidden="true" class="form-control" id="" name="nullProfile" value="{{$data[0]->foto_profile}}">
+                    </div>
+                    <div class="col-8">
                         <div class="row">
-                            <div class="col-sm-6">
-                                Nomor Kendaraan
+                            <div class="col-sm-4">
+                                Nama Pemilik
                             </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noKendaraan">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="" name="nama" value="{{$data[0]->nama_pemilik}}">
                             </div>
                         </div>
-
                         <br>
-
                         <div class="row">
-                            <div class="col-sm-6">
-                                Nama Pemilik Lama
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="namaPemilikLama">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Nama Pemilik Baru 
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="namaPemilikBaru">
-                            </div>
-                        </div>
-            
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 Alamat Pemilik
                             </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="alamat">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="" name="alamat" value="{{$data[0]->alamat}}">
                             </div>
                         </div>
-
-                        <br>
-
+                        <br>  
                         <div class="row">
-                            <div class="col-sm-6">
-                                Merk / Type
+                            <div class="col-sm-4">
+                                Email
                             </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="merk">
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="" name="email" value="{{$data[0]->email}}">
                             </div>
                         </div>
-
-                        <br>
-
+                        <br>             
                         <div class="row">
-                            <div class="col-sm-6">
-                                Jenis
+                            <div class="col-sm-4">
+                                No. HP
                             </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="jenis">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Warna
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="warna">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="" name="noHp" value="{{$data[0]->no_hp}}">
                             </div>
                         </div>
-                        
                         <br>
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Tahun Pembuatan
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="tahun">
-                            </div>
-                        </div>
-                        
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Volume Silinder
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="silinder">
-                            </div>
-                        </div>
-
-                        <br>
-                            
-                        <div class="row">
-                            <div class="col-sm-6">
-                                No. Landasan / Rangka
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noLandasan">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                No. Mesin
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noMesin">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                No. BPKB
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="bpkb">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                No. Uji Kendaraan
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noUji">
-                            </div>
-                        </div>
-                        
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Foto Sebelum
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fotoSebelum">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Foto Sesudah
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fotoSesudah">
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <center>
-                            <div class="col-12">
-                                <button class="btn" type="submit">KIRIM</button>
-                            </div>
-                        </center>
-
-                        
-                    </form>
+                        <button type="submit" class="btn" style="background: #22577E;">UBAH PROFILE</button>                                                       
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
+      
 
  
 
-        <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
+        <footer style="position: absolute; bottom: 0; width: 100%;"> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
 Development by  IF’18 ITERA</footer>
     </div>
 
-
-    <!-- Google Maps API -->
-
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Hns7ZUFLMCxdRg6W_UZRl07Tcgv4h34&callback=initAutocomplete&libraries=places&v=weekly"
-      async
-    ></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
