@@ -34,6 +34,12 @@ class QrCodeController extends Controller
         return view('client.validSifat', compact('data'));
     }
 
+    public function detailValidBentuk(FormBentuk $formBentuk)
+    {
+        $data = FormBentuk::find($formBentuk->id);
+        return view('client.validBentuk', compact('data'));
+    }
+
     public function viewBentuk(FormBentuk $formBentuk)
     {
         $data = FormBentuk::all();
@@ -42,7 +48,7 @@ class QrCodeController extends Controller
 
     public function lihatSuratBentuk(FormBentuk $formBentuk)
     {   
-        $url = "http://127.0.0.1:8000/admin/data-rubah-bentuk/detail/".$formBentuk->id;
+        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->id;
 
         $data = FormBentuk::find($formBentuk->id);
 

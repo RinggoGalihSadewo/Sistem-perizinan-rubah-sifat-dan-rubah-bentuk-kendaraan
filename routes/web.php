@@ -32,6 +32,7 @@ Route::post('/masuk', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/qr-code/perizinan-rubah-sifat/{formSifat}', [QrCodeController::class, 'detailValidSifat']);
+Route::get('/qr-code/perizinan-rubah-bentuk/{formBentuk}', [QrCodeController::class, 'detailValidBentuk']);
 
 Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 
