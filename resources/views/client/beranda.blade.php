@@ -88,7 +88,7 @@
                                 Username
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('username') is-invalid @enderror" id="" name="username">
+                                <input type="text" class="form-control @error('username') is-invalid @enderror" id="" name="username" value="{{old('username')}}">
                                 @error('username')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -124,7 +124,7 @@
                                 Nama Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('namaPerusahaan') is-invalid @enderror" id="" name="namaPerusahaan">
+                                <input type="text" class="form-control @error('namaPerusahaan') is-invalid @enderror" id="" name="namaPerusahaan" value="{{old('namaPerusahaan')}}">
                                 @error('namaPerusahaan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -142,7 +142,7 @@
                                 Nama Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="" name="namaPemilik">
+                                <input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="" name="namaPemilik" value="{{old('namaPemilik')}}">
                                 @error('namaPemilik')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -188,7 +188,7 @@
                                 No. NPWP Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control  @error('npwp') is-invalid @enderror" id="" name="npwp">
+                                <input type="text" class="form-control  @error('npwp') is-invalid @enderror" id="" name="npwp" value="{{old('npwp')}}">
                                 @error('npwp')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -207,7 +207,7 @@
                                 Alamat Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <textarea class="form-control @error('alamat') is-invalid @enderror" id="" style="height: 120px;" name="alamat"></textarea>
+                                <textarea class="form-control @error('alamat') is-invalid @enderror" id="" style="height: 120px;" name="alamat" value="{{old('alamat')}}"></textarea>
                                 @error('alamat')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -243,7 +243,7 @@
                                 Email
                             </div>
                             <div class="col-sm-6">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="" name="email" value="{{old('email')}}">
                                 @error('email')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -261,7 +261,7 @@
                                 No. Hp
                             </div>
                             <div class="col-sm-6">
-                                <input type="noHp" class="form-control @error('noHp') is-invalid @enderror" id="" name="noHp">
+                                <input type="noHp" class="form-control @error('noHp') is-invalid @enderror" id="" name="noHp" value="{{old('noHp')}}">
                                 @error('noHp')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
