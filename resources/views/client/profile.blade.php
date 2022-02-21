@@ -48,11 +48,9 @@
         <section id="myProfile">
             <div class="myProfile">
                 @if (session('status'))
-                    <br>
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
-                    <br>
                 @endif
                 <div class="row">
                     <div class="col-4">
