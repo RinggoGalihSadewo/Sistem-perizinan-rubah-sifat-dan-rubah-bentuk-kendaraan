@@ -31,6 +31,8 @@ Route::post('/laporan', [UserController::class, 'storeLaporan']);
 Route::post('/masuk', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
+Route::get('/qr-code/perizinan-rubah-sifat/{formSifat}', [QrCodeController::class, 'detailValidSifat']);
+
 Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 
 Route::middleware(['auth'])->group( function(){

@@ -20,12 +20,18 @@ class QrCodeController extends Controller
 
     public function lihatSuratSifat(FormSifat $formSifat)
     {   
-        $url = "http://127.0.0.1:8000/admin/data-rubah-sifat/detail/".$formSifat->id;
+        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->id;
 
         $data = FormSifat::find($formSifat->id);
 
         $qr = QrCode::size(100)->generate($url);
         return view('admin.suratSifat', compact('qr', 'data'));
+    }
+
+    public function detailValidSifat(FormSifat $formSifat)
+    {
+        $data = FormSifat::find($formSifat->id);
+        return view('client.validSifat', compact('data'));
     }
 
     public function viewBentuk(FormBentuk $formBentuk)
