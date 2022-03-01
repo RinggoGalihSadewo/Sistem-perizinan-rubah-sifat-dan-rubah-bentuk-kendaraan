@@ -285,7 +285,7 @@
                             <div class="col-12">
                                 <button class="btn" type="submit" style="background: #22577E;">DAFTAR</button>
                             </div>
-                        </center>
+                        </center>   
 
                     </form>
                 </div>

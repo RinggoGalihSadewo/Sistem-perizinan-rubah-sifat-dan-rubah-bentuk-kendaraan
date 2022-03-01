@@ -50,19 +50,6 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-          aria-controls="collapseTable">
-          <i class="fas fa-user-tie"></i>
-          <span>Data Pejabat</span>
-        </a>
-        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
-            <a class="collapse-item" href="datatables.html">DataTables</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable2" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-file-signature"></i>
@@ -105,6 +92,12 @@
         <a class="nav-link collapsed" href="{{url('/admin/laporan')}}">
           <i class="fas fa-file"></i>
           <span>Laporan</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/pengumuman')}}">
+          <i class="fas fa-bell"></i>
+          <span>Pengumuman</span>
         </a>
       </li>
 
@@ -188,6 +181,7 @@
                         <td>
                           <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
                           <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
+                          <a href="/admin/data-rubah-sifat/pesan/{{$d->id}}" class="btn btn-sm btn-warning">Kirim Pesan</a>
                           <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                         </td>
                       </tr>

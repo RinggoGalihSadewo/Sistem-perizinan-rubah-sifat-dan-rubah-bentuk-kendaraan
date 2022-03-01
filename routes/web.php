@@ -10,6 +10,7 @@ use App\Http\Controllers\ValidasiBentukController;
 use App\Http\Controllers\GenerateQRController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\NotifikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,8 @@ Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
 Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
 Route::get('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'viewEditSifat']);
 Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
+Route::get('/admin/data-rubah-sifat/pesan/{formSifat}', [NotifikasiController::class, 'pesanSifat']);
+Route::post('/admin/data-rubah-sifat', [NotifikasiController::class, 'storePesanSifat']);
 Route::get('/download-berkas-surat-permohonan/{namaFile}', [AdminController::class, 'berkasPermohonan']);
 Route::get('/download-berkas-surat-pernyataan/{namaFile}', [AdminController::class, 'berkasPernyataan']);
 
@@ -71,7 +74,8 @@ Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
 Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::class, 'detailRubahBentuk']);
 Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'viewEditBentuk']);
 Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
-
+Route::get('/admin/data-rubah-bentuk/pesan/{formBentuk}', [NotifikasiController::class, 'pesanBentuk']);
+Route::post('/admin/data-rubah-bentuk', [NotifikasiController::class, 'storePesanBentuk']);
 Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
 Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);
 Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
@@ -101,3 +105,6 @@ Route::get('/admin/validasi/rubah-bentuk/sekretaris/{formBentuk}', [ValidasiBent
 Route::get('/admin/validasi/rubah-bentuk/kepala-dinas/{formBentuk}', [ValidasiBentukController::class, 'kepalaDinas']);
 
 Route::get('/admin/laporan', [AdminController::class, 'laporan']);
+
+Route::get('/admin/pengumuman', [NotifikasiController::class, 'pengumuman']);
+Route::post('/admin/pengumuman', [NotifikasiController::class, 'storePengumuman']);

@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data Pengguna</title>
+  <title>Pesan Perizinan</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -29,22 +29,22 @@
       <div class="sidebar-heading">
         Menu
       </div>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{url('/admin/dashboard')}}">
           <i class="fas fa-users"></i>
           <span>Data Pengguna</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
-          aria-controls="collapseForm">
+          aria-controls="collapseForm"> 
           <i class="fas fa-file-alt"></i>
           <span>Data Jenis Surat</span>
         </a>
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
-            <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item active" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>
@@ -92,7 +92,7 @@
           <i class="fas fa-file"></i>
           <span>Laporan</span>
         </a>
-      </li>
+      </li>      
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{url('/admin/pengumuman')}}">
           <i class="fas fa-bell"></i>
@@ -144,53 +144,41 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Pengguna</h1>
+            <h1 class="h3 mb-0 text-gray-800">Kirim Pesan</h1>
           </div>
 
-          <div class="row">
+         <div class="row">
             <div class="col-lg-12 mb-4">
 
-              @if (session('status'))
-                  <div class="alert alert-success">
-                      {{ session('status') }}
-                  </div>
-              @endif
-            
-              <!-- Simple Tables -->
-              <div class="card">
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Username</th>
-                        <th>Nama Perusahaan</th>
-                        <th>NPWP</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($users as $key => $user)
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$user->username}}</td>
-                        <td>{{$user->nama_perusahaan}}</td>
-                        <td>{{$user->npwp}}</td>
-                        <td>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-primary">Detail</a>
-                          <a href="/admin/dashboard/edit/{{$user->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-danger">Hapus</a>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-                <div class="card-footer"></div>
+            @endif
+
+            <form action="/admin/data-rubah-bentuk" method="post" enctype="multipart/form-data">
+              @csrf 
+              <input type="email" hidden="true" class="form-control" id="inputEmail1" name="email" value="{{$data->user->email}}">
+              <div class="form-group">
+                <label for="inputEmail1" class="col-form-label">Judul</label>
+                <div>
+                  <input type="text" class="form-control" id="inputEmail1" placeholder="Masukan judul" name="judul">
+                </div>
+              </div>                  
+              <div class="form-group">
+                <label for="inputEmail3" class="col-form-label">Pesan</label>
+                <div>
+                  <textarea class="form-control" id="inputEmail3" placeholder="Masukan pesan" style="height: 300px;" name="isi"></textarea>
+                </div>
               </div>
-            </div>
-          </div>
-          <!--Row-->
+              <div class="form-group">
+                <div class="custom-file">
+                  <input type="file" class="form-control" id="customFile" name="file">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+              
 
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
@@ -217,6 +205,7 @@
         </div>
         <!---Container Fluid-->
       </div>
+    </div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
