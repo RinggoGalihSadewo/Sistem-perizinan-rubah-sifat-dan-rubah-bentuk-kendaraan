@@ -18,12 +18,10 @@ class CreateBerkasBentukTable extends Migration
             $table->foreignId('form_bentuk_id')
             ->references('id')->on('form_bentuk')
             ->onDelete('cascade');
-            $table->string('foto_sebelum');
-            $table->string('foto_sesudah');
-            // $table->string('stnk');
-            // $table->string('bpkb');
-            // $table->string('ktp');
-            // $table->string('buku_uji');
+            $table->string('foto_depan');
+            $table->string('foto_belakang');
+            $table->string('foto_kiri');
+            $table->string('foto_kanan');
             $table->timestamps();
         });
     }

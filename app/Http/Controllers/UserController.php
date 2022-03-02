@@ -217,8 +217,6 @@ class UserController extends Controller
             'noMesin' => 'required',
             'bpkb' => 'required',
             'noUji' => 'required',
-            'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
-            'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
 
         ],
         [
@@ -235,24 +233,19 @@ class UserController extends Controller
             'noMesin.required' => 'No. Mesin wajib di isi',
             'bpkb' => 'No. BPKB wajib di isi',
             'noUji' => 'No. Uji wajib di isi',
-            'fotoSebelum.required' => 'Wajib masukan foto',
-            'fotoSebelum.image' => 'Foto harus berupa gambar',
-            'fotoSebelum.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            'fotoSebelum.max' => 'Ukuran gambar maksimal 2MB',
-            'fotoSesudah.required' => 'Wajib masukan foto',
-            'fotoSesudah.image' => 'Foto harus berupa gambar',
-            'fotoSesudah.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            'fotoSesudah.max' => 'Ukuran gambar maksimal 2MB',
   
         ]
         );
 
-        $nameFotoSebelum = $request->fotoSebelum->getClientOriginalName();
-        $nameFotoSesudah = $request->fotoSesudah->getClientOriginalName();
+        $nameFotoDepan = $request->depan->getClientOriginalName();
+        $nameFotoBelakang = $request->belakang->getClientOriginalName();
+        $nameFotoKiri = $request->kiri->getClientOriginalName();
+        $nameFotoKanan = $request->kanan->getClientOriginalName();
 
-        $fotoSebelum = $request->fotoSebelum->storeAs(('Perizinan_Bentuk/Foto_Sebelum'), $nameFotoSebelum);
-
-        $fotoSesudah = $request->fotoSesudah->storeAs(('Perizinan_Bentuk/Foto_Sesudah'), $nameFotoSesudah); 
+        $fotoDepan = $request->depan->storeAs(('Perizinan_Bentuk/Foto_Depan'), $nameFotoDepan);
+        $fotoBelakang = $request->belakang->storeAs(('Perizinan_Bentuk/Foto_Belakang'), $nameFotoBelakang);
+        $fotoKiri = $request->kiri->storeAs(('Perizinan_Bentuk/Foto_Kiri'), $nameFotoKiri);
+        $fotoKanan = $request->kanan->storeAs(('Perizinan_Bentuk/Foto_Kanan'), $nameFotoKanan);
 
         $FormBentuk = new FormBentuk;
 
@@ -277,8 +270,11 @@ class UserController extends Controller
         $BerkasBentuk = new BerkasBentuk;
 
         $BerkasBentuk->form_bentuk_id = $FormBentuk->id;
-        $BerkasBentuk->foto_sebelum = $fotoSebelum;
-        $BerkasBentuk->foto_sesudah = $fotoSesudah;
+        $BerkasBentuk->foto_depan = $fotoDepan;
+        $BerkasBentuk->foto_belakang = $fotoBelakang;
+        $BerkasBentuk->foto_kiri = $fotoKiri;
+        $BerkasBentuk->foto_kanan = $fotoKanan;
+
         $BerkasBentuk->save();
 
         $TrackBentuk = new TrackSuratBentuk;
