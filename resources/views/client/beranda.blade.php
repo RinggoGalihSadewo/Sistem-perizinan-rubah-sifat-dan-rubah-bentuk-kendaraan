@@ -348,9 +348,39 @@
                     </form>
         </section>
 
-        <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
-Development by  IF’18 ITERA</footer>
-    </div>
+        <div class="footer-clean">
+        <footer>
+
+        <div style="display: flex;">
+            <div id="kolom1" style="background-color: #1E6091;">
+                <h4 style="padding-left: 10px;">DINAS PERHUBUNGAN PROVINSI LAMPUNG</h4>
+                <ul class="menu" style="font-size: 15px;">
+                <p> Dishub Provinsi Lampung adalah Penyelenggaraan urusan pemerintah bidang kebijakan perhubungan atau transportasi untuk wilayah provinsi Lampung.
+                    Fungsi dari Dinas Perhubungan adalah merumuskan kebijakan bidang perhubungan dalam wilayah kerjanya, kebijakan teknis bidang perhubungan, penyelenggaraan administrasi termasuk perizinan angkutan perhubungan, evaluasi dan laporan terkait bidang perhubungan. </p>
+            </div>
+            
+            <div id="kolomdua"  style="background-color: #1E6091; ">
+                <div id="kolom2">
+                <h5>KONTAK KAMI</h5>
+                <img src="/img/logo/location.png" alt=""><p>Jl.Cut Mutiah No. 76 Teluk Betung,Bandar Lampung</p>
+                <img src="/img/logo/telfon.png" alt=""><p>(0721) 470209</p>
+                <img src="/img/logo/email.png" alt=""><p><a href="#dishubprovlampung@gmail.com">dishubprovlampung@gmail.com</p>
+            </div>
+
+            <div id="kolomtiga"  style="background-color: #1E6091; ">
+                <div id="kolom3">
+                <h5>TEMUI KAMI</h5>
+                <a href="https://www.facebook.com/pages/category/Community/Dinas-Perhubungan-Provinsi-Lampung-313932275317805/"><img src="/img/logo/facebook.png" alt=""><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/dishublampung1"><img src="/img/logo/twitter.png" alt=""><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/dishubprovlampung?utm_medium=copy_link"><img src="/img/logo/instagram.png" alt=""><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC6t_6KNVrQZQlYdzSk-J7SA/videos"><img src="/img/logo/youtube.png" alt=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+            <span class="copyright_text">©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
+                     Development by  IF’18 ITERA</span>
+        </footer>
+    
 
 
     <!-- Google Maps API -->

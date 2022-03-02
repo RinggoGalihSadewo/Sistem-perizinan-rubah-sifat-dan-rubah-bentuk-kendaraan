@@ -92,6 +92,7 @@
                                 <select class="form-select" name="jenisPerizinan">
                                     <option>Perubahan Sifat (HITAM)</option>
                                     <option>Penetapan Sifat (KUNING)</option>
+                                    <option>Perubahan Sifat (HITAM) BBN</option>
                                     <option>Perubahan Sifat (HITAM KE KUNING)</option>
                                 </select>
                             </div>

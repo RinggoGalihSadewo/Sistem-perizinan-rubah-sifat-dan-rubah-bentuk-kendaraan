@@ -24,7 +24,7 @@ use App\Http\Controllers\NotifikasiController;
 */
 
 Route::get('/', [UserController::class, 'index']);
-
+Route::get('/halaman-beranda', [UserController::class, 'halamanBeranda']);
 Route::post('/', [LoginController::class, 'registrasi']);
 
 Route::get('/masuk', [UserController::class, 'masuk'])->name('login');
