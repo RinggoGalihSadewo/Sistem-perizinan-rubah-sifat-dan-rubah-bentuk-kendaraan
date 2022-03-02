@@ -297,16 +297,16 @@
                 <h2 class="text-center fw-bold text-white">Petunjuk Proses Perizinan</h2> 
                 <div class="row text-center mt-5">
                     <div class="col-xl-3">
-                        <img src="/img/tataCara/tata1.png" alt="">
+                        <img src="/img/tataCara/tataCara1.png" alt="">
                     </div>
                     <div class="col-xl-3">
-                        <img src="/img/tataCara/tata2.png" alt="">
+                        <img src="/img/tataCara/tataCara2.png" alt="">
                     </div>
                     <div class="col-xl-3">
-                        <img src="/img/tataCara/tata3.png" alt="">
+                        <img src="/img/tataCara/tataCara3.png" alt="">
                     </div>
                     <div class="col-xl-3">
-                        <img src="/img/tataCara/tata4.png" alt="">
+                        <img src="/img/tataCara/tataCara4.png" alt="">
                     </div>
                 </div>  
             </div>
