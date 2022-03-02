@@ -44,18 +44,6 @@
             </nav>
         </section>
 
-<!--         <section id="penjelasan">
-            <div class="row d-flex">
-                <div class="col-5">
-                    <img src="/img/logo/perizinan.png" alt="">
-                </div>
-                <div class="col-7 textPenjelasan">
-                <img src="/img/logo/text-perizinan.png" alt="" >
-                <p class="mt-4 text-center">E-Perizinan Rubah Sifat dan Rubah Bentuk Kendaraan adalah sistem pelayanan online berbasis website yang disediakan oleh Dinas Perhubungan Provinsi Lampung dimana memiliki manfaat bagi masyarakat atau client yang ingin melakukan perizinan mengenai rubah sifat ataupun rubah bentuk kendaraan dengan hanya membuka website tersebut dan jika surat perizinan sudah selesai akan langsung bisa di download surat tersebut karena dikirimkan melalui email pribadi, sehingga akan menghemat waktu dan tenaga.</p>
-                </div>
-            </div>
-        </section> -->
-
         <section id="perizinan">
             <div class="formPerizinan">
                 <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH BENTUK</h4>
@@ -223,25 +211,25 @@
                                 <input type="text" class="form-control" id="" name="noUji">
                             </div>
                         </div>
-                        
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Foto Sebelum
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fotoSebelum">
-                            </div>
-                        </div>
 
                         <br>
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Sesudah
+                                Foto Sesudah Dibentuk 4 sisi
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fotoSesudah">
+                                <label>Sisi depan</label>
+                                <input type="file" class="form-control" id="" name="depan" placeholder="Sisi depan">
+                                <br>
+                                <label>Sisi kiri</label>
+                                <input type="file" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
+                                <br>
+                                <label>Sisi kanan</label>
+                                <input type="file" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
+                                <br>
+                                <label>Sisi belakang</label>
+                                <input type="file" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
                             </div>
                         </div>
 

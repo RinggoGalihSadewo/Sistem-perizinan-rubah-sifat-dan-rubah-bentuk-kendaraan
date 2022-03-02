@@ -89,8 +89,9 @@
                                 Jenis Perubahan Sifat
                             </div>
                             <div class="col-sm-6">
-                                <select class="form-select" name="jenisPerizinan">
+                                <select class="form-select" name="jenisPerizinan" id="jenis" onChange="update()">
                                     <option>Perubahan Sifat (HITAM)</option>
+                                    <option>Perubahan Sifat (HITAM) BBN</option>
                                     <option>Penetapan Sifat (KUNING)</option>
                                     <option>Perubahan Sifat (HITAM KE KUNING)</option>
                                 </select>
@@ -99,13 +100,20 @@
 
                         <br>
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Nama Pemilik
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="namaPemilik">
-                            </div>
+                        <div class="row" id="namaPemilik">
+
+                        </div>
+
+                        <div class="row" id="namaPemilikLama">
+
+                        </div>
+
+                        <div id="br">
+
+                        </div>
+
+                        <div class="row" id="namaPemilikBaru">
+
                         </div>
 
                         <br>
@@ -319,21 +327,47 @@
             </div>
         </section>
 
- 
+                             
+                            
 
         <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
 Development by  IF’18 ITERA</footer>
     </div>
 
+    <script>
+        function update(){
+            var select = document.getElementById('jenis');
+            var value = select.options[select.selectedIndex].value;
 
-    <!-- Google Maps API -->
+            if(value === "Perubahan Sifat (HITAM)"){
+                document.getElementById('br').innerHTML = "";
+                document.getElementById('namaPemilikLama').innerHTML = "";
+                document.getElementById('namaPemilikBaru').innerHTML = "";
+                document.getElementById('namaPemilik').innerHTML = "<div class='col-sm-6'>Nama Pemilik</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilik'></div>";
+            }
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Hns7ZUFLMCxdRg6W_UZRl07Tcgv4h34&callback=initAutocomplete&libraries=places&v=weekly"
-      async
-    ></script>
+            else if(value === "Perubahan Sifat (HITAM) BBN"){
+                document.getElementById('namaPemilik').innerHTML = "";
+                document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama'></div>";
+                document.getElementById('br').innerHTML = "<br>";
+                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>"
+            }
 
-    <script type="text/javascript"></script>
+            else if (value === "Penetapan Sifat (KUNING)"){
+                document.getElementById('namaPemilik').innerHTML = "";
+                document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama'></div>";
+                document.getElementById('br').innerHTML = "<br>";
+                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>"
+            }
+            else if (value === "Perubahan Sifat (HITAM KE KUNING)"){
+                document.getElementById('namaPemilik').innerHTML = "";
+                document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama'></div>";
+                document.getElementById('br').innerHTML = "<br>";
+                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>"             
+            }   
+        }   
+        update();
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -79,11 +79,15 @@ Route::post('/admin/data-rubah-bentuk', [NotifikasiController::class, 'storePesa
 Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
 Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);
 Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
+Route::get('/admin/data-qr-code/rubah-sifat/kirim-surat/{formSifat}', [NotifikasiController::class, 'suratSifat']);
+Route::post('/admin/data-qr-code/rubah-sifat', [NotifikasiController::class, 'storeSuratSifat']);
 
 
 Route::get('/admin/data-qr-code/rubah-bentuk', [QrCodeController::class, 'viewBentuk']);
 Route::get('/admin/data-qr-code/rubah-bentuk/lihat-surat/{formBentuk}', [QrCodeController::class, 'lihatSuratBentuk']);
 Route::get('/admin/data-qr-code/rubah-bentuk/download-surat/{formBentuk}', [PdfController::class, 'generateBentuk']);
+Route::get('/admin/data-qr-code/rubah-bentuk/kirim-surat/{formBentuk}', [NotifikasiController::class, 'suratBentuk']);
+Route::post('/admin/data-qr-code/rubah-bentuk', [NotifikasiController::class, 'storeSuratBentuk']);
 
 Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
 Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);

@@ -80,4 +80,46 @@ class NotifikasiController extends Controller
         
         return redirect('/admin/data-rubah-bentuk')->with('status', 'Berhasil mengirimkan pesan');
     }
+
+    public function suratSifat($formSifat)
+    {
+        $data = FormSifat::find($formSifat);
+        return view('admin.kirimSuratSifat', compact('data'));
+    }
+
+    public function storeSuratSifat(Request $request)
+    {
+        $details = [
+            'email' => $request->email,
+            'title' => $request->judul,
+            'body' => $request->isi,
+            'file' => $request->file('file')
+
+        ];
+
+        Mail::to($details['email'])->send(new \App\Mail\Pengumuman($details));
+        
+        return redirect('/admin/data-qr-code/rubah-sifat')->with('status', 'Berhasil mengirimkan pesan');
+    }
+
+        public function suratBentuk($formBentuk)
+    {
+        $data = FormBentuk::find($formBentuk);
+        return view('admin.kirimSuratBentuk', compact('data'));
+    }
+
+    public function storeSuratBentuk(Request $request)
+    {
+        $details = [
+            'email' => $request->email,
+            'title' => $request->judul,
+            'body' => $request->isi,
+            'file' => $request->file('file')
+
+        ];
+
+        Mail::to($details['email'])->send(new \App\Mail\Pengumuman($details));
+        
+        return redirect('/admin/data-qr-code/rubah-bentuk')->with('status', 'Berhasil mengirimkan pesan');
+    }
 }

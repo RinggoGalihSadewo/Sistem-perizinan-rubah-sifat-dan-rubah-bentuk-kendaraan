@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data QR Code Rubah Sifat</title>
+  <title>Kirim Surat</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -56,8 +56,8 @@
         </a>
         <div id="collapseTable2" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="{{url('/admin/data-qr-code/rubah-sifat')}}">Rubah Sifat</a>
-            <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-sifat')}}">Rubah Sifat</a>
+            <a class="collapse-item active" href="{{url('/admin/data-qr-code/rubah-bentuk')}}">Rubah Bentuk</a>
           </div>
         </div>
       </li>
@@ -144,56 +144,46 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data QR Code Rubah Sifat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Kirim Surat</h1>
           </div>
 
-          <div class="row">
+         <div class="row">
             <div class="col-lg-12 mb-4">
 
             @if (session('status'))
-              <div class="alert alert-success">
-                  {{ session('status') }}
-              </div>
-            @endif
-              
-              <!-- Simple Tables -->
-              <div class="card">
-
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>No Kendaraan</th>
-                        <th>Nomor Surat</th>
-                        <th>Email</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      @if(isset($d->qrSifat['qr_valid']))
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
-                        <td>{{isset($d->qrSifat['no_surat']) ? $d->qrSifat['no_surat'] : ''}}</td>
-                        <td>{{$d->user->email}}</td>
-                        <td>
-                          <a href="/admin/data-qr-code/rubah-sifat/download-surat/{{$d->id}}" class="btn btn-sm btn-primary">Download</a>
-                          <a href="/admin/data-qr-code/rubah-sifat/lihat-surat/{{$d->id}}" class="btn btn-sm btn-warning">Lihat Surat</a>
-                          <a href="/admin/data-qr-code/rubah-sifat/kirim-surat/{{$d->id}}" class="btn btn-sm btn-success">Kirim Via Email</a>
-                        </td>
-                      </tr>
-                      @endif
-                      @endforeach
-                    </tbody>
-                  </table>
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-                <div class="card-footer"></div>
+            @endif
+
+            <form action="/admin/data-qr-code/rubah-bentuk" method="post" enctype="multipart/form-data">
+              @csrf 
+              <input type="email" hidden="true" class="form-control" id="inputEmail1" name="email" value="{{$data->user->email}}">
+              <div class="form-group">
+                <label for="inputEmail1" class="col-form-label">Judul</label>
+                <div>
+                  <input type="text" class="form-control" id="inputEmail1" placeholder="Masukan judul" name="judul">
+                </div>
               </div>
-            </div>
-          </div>
-          <!--Row-->
+              <div class="form-group">
+                <div>
+                  <input type="email" hidden="true" class="form-control" id="inputEmail1" name="email"value="{{$data->user->email}}">
+                </div>
+              </div>                  
+              <div class="form-group">
+                <label for="inputEmail3" class="col-form-label">Pesan</label>
+                <div>
+                  <textarea class="form-control" id="inputEmail3" placeholder="Masukan pesan" style="height: 300px;" name="isi"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="custom-file">
+                  <input type="file" class="form-control" id="customFile" name="file">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+              
 
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
@@ -220,6 +210,7 @@
         </div>
         <!---Container Fluid-->
       </div>
+    </div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">

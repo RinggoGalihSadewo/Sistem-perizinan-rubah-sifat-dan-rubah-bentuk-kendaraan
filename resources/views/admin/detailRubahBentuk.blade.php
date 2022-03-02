@@ -148,7 +148,7 @@
           </div>
 
           <div class="row">
-            <div class="col-lg-12 mb-4">
+            <div class="col-lg-6 mb-4">
               <p>Nomor kendaraan : {{$formBentuk->nomor_kendaraan}}</p>
               <p>Nama pemilik lama : {{$formBentuk->nama_pemilik_lama}}</p>
               <p>Nama pemilik lama : {{$formBentuk->nama_pemilik_baru}}</p>
@@ -161,9 +161,13 @@
               <p>No Landasan : {{$formBentuk->no_landasan}}</p>
               <p>No Mesin : {{$formBentuk->no_mesin}}</p>
               <p>No BPKB : {{$formBentuk->no_bpkb}}</p>
-              <p>No Uji : {{$formBentuk->no_uji}}</p>
-              <p>Foto Sebelumnya : </p><img src="/storage/{{$foto[0]->foto_sebelum}}" width="200px" height="200px">
-              <p>Foto Sesudah : </p><img src="/storage/{{$foto[0]->foto_sesudah}}" width="200px" height="200px">
+              <p>No Uji : {{$formBentuk->no_uji}}</p>                           
+          </div>
+          <div class="col-lg-6 mb-4">
+              <p>Foto Depan : </p><img src="/storage/{{$foto[0]->foto_depan}}" width="200px" height="200px">
+              <p>Foto Belakang : </p><img src="/storage/{{$foto[0]->foto_belakang}}" width="200px" height="200px">
+              <p>Foto Kiri : </p><img src="/storage/{{$foto[0]->foto_kiri}}" width="200px" height="200px">
+              <p>Foto Kanan : </p><img src="/storage/{{$foto[0]->foto_kanan}}" width="200px" height="200px"> 
           </div>
           <!--Row-->
 
