@@ -93,11 +93,11 @@ class UserController extends Controller
 
     public function storeSifat(Request $request)
     {
+        dd($request->all());
         $validatedData = $request->validate([
 
             'noKendaraan' => 'required',
             'jenisPerizinan' => 'required',
-            'namaPemilik' => 'required',
             'alamat' => 'required',
             'merk' => 'required',
             'jenis' => 'required',
@@ -112,7 +112,6 @@ class UserController extends Controller
         [
             'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
             'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
-            'namaPemilik.required' => 'Nama Pemilik wajib di isi',
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
             'jenis.required' => 'Jenis wajib di isi',
@@ -131,19 +130,82 @@ class UserController extends Controller
         $nameFcStnk = $request->file('fcStnk')->getClientOriginalName();
         $nameFcBpkb = $request->file('fcBpkb')->getClientOriginalName();
         $nameFcBukuUji = $request->file('fcBukuUji')->getClientOriginalName();
-        $nameEmpatSisi = $request->file('empatSisi')->getClientOriginalName();
-        $nameAkteNotaris = $request->file('akteNotaris')->getClientOriginalName();
-        $nameKbli = $request->file('kbli')->getClientOriginalName();
+
+        if($request->file('fcKTP') == null){
+            $nameFcKTP = "";
+        }
+
+        else {
+            $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();            
+        }
+
+        $nameFaktur = $request->file('faktur')->getClientOriginalName();
+        $nameSerut = $request->file('serut')->getClientOriginalName();
+        $nameDocPerusahaan = $request->file('docPerusahaan')->getClientOriginalName();
+        $nameSuratBengkel = $request->file('bengkel')->getClientOriginalName();
+        $nameDimensi = $request->file('dimensi')->getClientOriginalName();
+        $nameFotoDepan = $request->depan->getClientOriginalName();
+        $nameFotoBelakang = $request->belakang->getClientOriginalName();
+        $nameFotoKiri = $request->kiri->getClientOriginalName();
+        $nameFotoKanan = $request->kanan->getClientOriginalName();
+
+        if($request->akteNotaris == null){
+            $nameAkteNotaris = "";
+        }
+
+        else {
+            $nameAkteNotaris = $request->akteNotaris->getClientOriginalName();           
+        }
+
+        if($request->kbli == null){
+            $nameKbli = "";
+        }
+
+        else {
+            $nameKbli = $request->file('kbli')->getClientOriginalName();           
+        }
+
+
 
         $suratPermohonan = $request->file('suratPermohonan')->storeAs(('Perizinan_Sifat/Surat_Permohonan'), $nameSuratPermohonan);
         $suratPernyataan = $request->file('suratPernyataan')->storeAs(('Perizinan_Sifat/Surat_Pernyataan'), $nameSuratPernyataan);
         $fcStnk = $request->file('fcStnk')->storeAs(('Perizinan_Sifat/FC_STNK'), $nameFcStnk);
         $fcBpkb = $request->file('fcBpkb')->storeAs(('Perizinan_Sifat/FC_BPKB'), $nameFcBpkb);
         $bukuUji = $request->file('fcBukuUji')->storeAs(('Perizinan_Sifat/FC_Buku_Uji'), $nameFcBukuUji);
-        $empatSisi = $request->file('empatSisi')->storeAs(('Perizinan_Sifat/Foto_Kendaraan_Empat_Sisi'), $nameEmpatSisi);
-        $akteNotaris = $request->file('akteNotaris')->storeAs(('Perizinan_Sifat/Akte_Notaris'), $nameAkteNotaris);
-        $kbli = $request->file('kbli')->storeAs(('Perizinan_Sifat/KBLI'), $nameKbli);
+        $dimensi = $request->file('dimensi')->storeAs(('Perizinan_Sifat/Dimensi_Kendaraan'), $nameDimensi);
 
+        if($request->file('ktp') == null){
+            $ktp = "";
+        }
+
+        else{
+            $ktp = $request->file('fcKTP')->storeAs(('Perizinan_Sifat/FC_KTP'), $namefcKTP);    
+        }
+        
+        $faktur = $request->file('faktur')->storeAs(('Perizinan_Sifat/Faktur'), $nameFaktur);
+        $serut = $request->file('serut')->storeAs(('Perizinan_Sifat/Serut'), $nameSerut);
+        $DocPerusahaan = $request->file('docPerusahaan')->storeAs(('Perizinan_Sifat/Doc_Perusahaan'), $nameDocPerusahaan);
+        $bengkel = $request->file('bengkel')->storeAs(('Perizinan_Sifat/Surat_Bengkel'), $nameSuratBengkel);
+        $fotoDepan = $request->depan->storeAs(('Perizinan_Sifat/Foto_Depan'), $nameFotoDepan);
+        $fotoBelakang = $request->belakang->storeAs(('Perizinan_Sifat/Foto_Belakang'), $nameFotoBelakang);
+        $fotoKiri = $request->kiri->storeAs(('Perizinan_Sifat/Foto_Kiri'), $nameFotoKiri);
+        $fotoKanan = $request->kanan->storeAs(('Perizinan_Sifat/Foto_Kanan'), $nameFotoKanan);
+
+        if($request->akteNotaris == null){
+            $akteNotaris = "";
+        }
+
+        else{
+            $akteNotaris = $request->file('akteNotaris')->storeAs(('Perizinan_Sifat/Akte_Notaris'), $nameAkteNotaris);           
+        }
+
+        if($request->kbli == null){
+            $kbli = "";
+        }
+
+        else{
+            $kbli = $request->file('kbli')->storeAs(('Perizinan_Sifat/KBLI'), $nameKbli); 
+        }
 
 
         $formSifat = new FormSifat;
@@ -152,6 +214,8 @@ class UserController extends Controller
         $formSifat->nomor_kendaraan = $request->noKendaraan;
         $formSifat->jenis_perubahan = $request->jenisPerizinan;
         $formSifat->nama_pemilik = $request->namaPemilik;
+        $formSifat->nama_pemilik_lama = $request->namaPemilikLama;
+        $formSifat->nama_pemilik_baru = $request->namaPemilikBaru;
         $formSifat->alamat = $request->alamat;
         $formSifat->merk = $request->merk;
         $formSifat->jenis = $request->jenis;
@@ -171,9 +235,18 @@ class UserController extends Controller
         $BerkasSifat->surat_pernyataan = $nameSuratPernyataan;
         $BerkasSifat->fc_stnk = $nameFcStnk;
         $BerkasSifat->fc_bpkb = $nameFcBpkb;
+        $BerkasSifat->fc_ktp = $ktp;
+        $BerkasSifat->dimensi_kendaraan = $dimensi;
         $BerkasSifat->fc_buku_uji = $nameFcBukuUji;
-        $BerkasSifat->foto_empat_sisi_kendaraan = $nameEmpatSisi;
-        $BerkasSifat->akte_notaris = $nameAkteNotaris;
+        $BerkasSifat->foto_faktur = $faktur;
+        $BerkasSifat->foto_serut = $serut;
+        $BerkasSifat->surat_bengkel = $bengkel;
+        $BerkasSifat->doc_perusahaan = $DocPerusahaan;
+        $BerkasSifat->foto_depan = $fotoDepan;
+        $BerkasSifat->foto_belakang = $fotoBelakang;
+        $BerkasSifat->foto_kiri = $fotoKiri;
+        $BerkasSifat->foto_kanan = $fotoKanan;
+        $BerkasSifat->akte_notaris = $akteNotaris;
         $BerkasSifat->kbli = $nameKbli;
         $BerkasSifat->save();
 

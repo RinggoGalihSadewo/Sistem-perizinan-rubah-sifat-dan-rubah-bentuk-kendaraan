@@ -93,7 +93,6 @@
                                     <option>Perubahan Sifat (HITAM)</option>
                                     <option>Perubahan Sifat (HITAM) BBN</option>
                                     <option>Penetapan Sifat (KUNING)</option>
-                                    <option>Perubahan Sifat (HITAM) BBN</option>
                                     <option>Perubahan Sifat (HITAM KE KUNING)</option>
                                 </select>
                             </div>
@@ -262,6 +261,14 @@
 
                         <br>
 
+                        <div class="row" id="ktp">
+
+                        </div>
+
+                        <div id="br2">
+                            
+                        </div>
+
                         <div class="row">
                             <div class="col-sm-6">
                                 Foto FC. BPKB
@@ -286,10 +293,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Kendaraan empat sisi
+                                Foto Faktur
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="empatSisi">
+                                <input type="file" class="form-control" id="" name="faktur">
                             </div>
                         </div>
 
@@ -297,10 +304,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Akte Notaris
+                                Foto Serut
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="akteNotaris">
+                                <input type="file" class="form-control" id="" name="serut">
                             </div>
                         </div>
 
@@ -308,14 +315,74 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                NIB / SIUP / TDP dengan KBLI yang sudah ditentukan
+                                Dokumen Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="kbli">
+                                <input type="file" class="form-control" id="" name="docPerusahaan">
                             </div>
                         </div>
 
                         <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Dimensi Kendaraan
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="dimensi">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Surat Keterangan Bengkel
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" id="" name="bengkel">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Foto Sesudah Dibentuk 4 sisi
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Sisi depan</label>
+                                <input type="file" class="form-control" id="" name="depan" placeholder="Sisi depan">
+                                <br>
+                                <label>Sisi kiri</label>
+                                <input type="file" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
+                                <br>
+                                <label>Sisi kanan</label>
+                                <input type="file" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
+                                <br>
+                                <label>Sisi belakang</label>
+                                <input type="file" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row" id="notaris">
+
+                        </div>
+
+                        <div id="br3">
+
+                        </div>
+
+                        <div class="row" id="kbli">
+
+                        </div>
+
+                        <div id="br4">
+
+                        </div>
+
                         <center>
                             <div class="col-12">
                                 <button class="btn" type="submit" style="background: #22577E;">KIRIM</button>
@@ -327,9 +394,6 @@
                 </div>
             </div>
         </section>
-
-                             
-                            
 
         <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
 Development by  IF’18 ITERA</footer>
@@ -344,27 +408,51 @@ Development by  IF’18 ITERA</footer>
                 document.getElementById('br').innerHTML = "";
                 document.getElementById('namaPemilikLama').innerHTML = "";
                 document.getElementById('namaPemilikBaru').innerHTML = "";
+                document.getElementById('ktp').innerHTML = "";
+                document.getElementById('br2').innerHTML = "";
+                document.getElementById('br3').innerHTML = "";
+                document.getElementById('br4').innerHTML = "";
+                document.getElementById('notaris').innerHTML = "";
                 document.getElementById('namaPemilik').innerHTML = "<div class='col-sm-6'>Nama Pemilik</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilik'></div>";
+                document.getElementById('kbli').innerHTML = "";
             }
 
             else if(value === "Perubahan Sifat (HITAM) BBN"){
                 document.getElementById('namaPemilik').innerHTML = "";
                 document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama'></div>";
                 document.getElementById('br').innerHTML = "<br>";
-                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>"
+                document.getElementById('br2').innerHTML = "<br>";
+                document.getElementById('br3').innerHTML = "";
+                document.getElementById('br4').innerHTML = "";
+                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>";
+                document.getElementById('ktp').innerHTML = "                            <div class='col-sm-6'>Foto FC. KTP</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='fcKTP'></div>";
+                document.getElementById('notaris').innerHTML = "";
+                document.getElementById('kbli').innerHTML = "";
             }
 
             else if (value === "Penetapan Sifat (KUNING)"){
                 document.getElementById('namaPemilik').innerHTML = "";
+                document.getElementById('ktp').innerHTML = "";
                 document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama'></div>";
                 document.getElementById('br').innerHTML = "<br>";
-                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>"
+                document.getElementById('br2').innerHTML = "";
+                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>";
+                document.getElementById('notaris').innerHTML = "<div class='col-sm-6'>Akte Notaris</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='akteNotaris'></div>";
+                document.getElementById('kbli').innerHTML = "<div class='col-sm-6'>NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='kbli'></div>";
+                document.getElementById('br3').innerHTML = "<br>";
+                document.getElementById('br4').innerHTML = "<br>";
             }
             else if (value === "Perubahan Sifat (HITAM KE KUNING)"){
                 document.getElementById('namaPemilik').innerHTML = "";
+                document.getElementById('ktp').innerHTML = "";
                 document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama'></div>";
                 document.getElementById('br').innerHTML = "<br>";
-                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>"             
+                document.getElementById('br2').innerHTML = "";
+                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru'></div>";
+                document.getElementById('notaris').innerHTML = "<div class='col-sm-6'>Akte Notaris</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='akteNotaris'></div>";
+                document.getElementById('kbli').innerHTML = "<div class='col-sm-6'>NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='kbli'></div>";  
+                document.getElementById('br3').innerHTML = "<br>";    
+                document.getElementById('br4').innerHTML = "<br>";       
             }   
         }   
         update();

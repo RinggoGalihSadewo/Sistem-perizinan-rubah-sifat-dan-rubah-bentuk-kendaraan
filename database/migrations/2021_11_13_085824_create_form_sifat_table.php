@@ -22,6 +22,8 @@ class CreateFormSifatTable extends Migration
             $table->string('nomor_kendaraan');
             $table->string('jenis_perubahan');
             $table->string('nama_pemilik');
+            $table->string('nama_pemilik_lama');
+            $table->string('nama_pemilik_baru');
             $table->string('alamat');
             $table->string('merk');
             $table->string('jenis');

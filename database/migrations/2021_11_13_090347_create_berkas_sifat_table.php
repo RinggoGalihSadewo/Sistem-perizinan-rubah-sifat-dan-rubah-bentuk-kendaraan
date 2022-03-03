@@ -22,8 +22,17 @@ class CreateBerkasSifatTable extends Migration
             $table->string('surat_pernyataan');
             $table->string('fc_stnk');
             $table->string('fc_bpkb');
+            $table->string('fc_ktp');
+            $table->string('dimensi_kendaraan');
             $table->string('fc_buku_uji');
-            $table->string('foto_empat_sisi_kendaraan');
+            $table->string('foto_faktur');
+            $table->string('foto_serut');
+            $table->string('doc_perusahaan');
+            $table->string('surat_bengkel');
+            $table->string('foto_depan');
+            $table->string('foto_belakang');
+            $table->string('foto_kiri');
+            $table->string('foto_kanan');
             $table->string('akte_notaris');
             $table->string('kbli');
             $table->timestamps();
