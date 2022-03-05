@@ -304,7 +304,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Serut
+                                Foto SRUT (Sertifikasi Registrasi Uji Tipe)
                             </div>
                             <div class="col-sm-6">
                                 <input type="file" class="form-control" id="" name="serut">
