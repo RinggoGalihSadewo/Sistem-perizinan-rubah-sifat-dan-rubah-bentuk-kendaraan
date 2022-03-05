@@ -179,10 +179,109 @@
     @endforeach
     @endif
 
-        <footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
-Development by  IF’18 ITERA</footer>
-    </div>
+    <!-- Footer -->
 
+    <footer
+            class="text-center text-lg-start text-white"
+            style="background-color: #1E6091"
+            >
+        <!-- Grid container -->
+        <div class="container-fluid p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-1 col-lg-1 col-xl-1 mx-auto mt-1">
+                    <img src="/img/logo/dishub.png" alt="" width="85px" height="85px">
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" >
+                <h6 class="text-uppercase mb-4 font-weight-bold" style="margin-left: -70px">
+                <b>DINAS PERHUBUNGAN PROVINSI LAMPUNG</b>
+                </h6>
+                <p style="text-align: justify; margin-left: -70px">
+                Dishub Provinsi Lampung adalah Penyelenggaraan urusan pemerintah bidang kebijakan perhubungan atau transportasi untuk wilayah provinsi Lampung. Fungsi dari Dinas Perhubungan adalah merumuskan kebijakan bidang perhubungan dalam wilayah kerjanya, kebijakan teknis bidang perhubungan, penyelenggaraan administrasi termasuk perizinan angkutan perhubungan, evaluasi dan laporan terkait bidang perhubungan.
+                </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold"><b>KONTAK KAMI</b></h6>
+                <p><i class="fas fa-map-marker-alt mr-3"></i> Jl. Cut Mutiah No.76 Teluk Betung, Bandar Lampung</p>
+                <p><i class="fas fa-phone mr-3"></i> (0721) 470209</p>
+                <p><i class="fas fa-envelope mr-3"></i> dishubprovlampung@gmail.com</p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" />
+            
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold"><b>TEMUI KAMI</b></h6>
+
+                <div class="d-flex">
+                <!-- Facebook -->
+                <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #3b5998; "
+                href="https://www.facebook.com/pages/category/Community/Dinas-Perhubungan-Provinsi-Lampung-313932275317805/"
+                role="button"
+                ><i class="fab fa-facebook-f"></i
+                ></a>
+
+                <!-- Twitter -->
+                <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #55acee"
+                href="https://twitter.com/dishublampung1"
+                role="button"
+                ><i class="fab fa-twitter"></i
+                ></a>
+
+                <!-- Instagram -->
+                <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #ac2bac"
+                href="https://instagram.com/dishubprovlampung?utm_medium=copy_link"
+                role="button"
+                ><i class="fab fa-instagram"></i
+                ></a>
+                
+                <!-- Youtube -->
+                <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #dd4b39; color: white; padding-top: -10px;"
+                href="https://youtube.com/c/ACNEntertainment"
+                role="button"
+                ><img src="/img/logo/youtube.png" alt="" width="20px" height="20px"></a> 
+            </div>
+            </div>
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div
+            class="text-center p-3"
+            style="background-color: #22577E; width: 100%; position: absolute; bottom: 0;"
+            >
+        © Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk Online. All Rights Reserved Development by IF'18 ITERA
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!-- Footer -->
+            
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 
     <!-- Google Maps API -->
 
