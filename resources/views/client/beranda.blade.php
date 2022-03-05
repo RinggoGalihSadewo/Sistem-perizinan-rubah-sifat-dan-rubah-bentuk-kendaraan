@@ -355,17 +355,20 @@
           style="background-color: #1E6091"
           >
     <!-- Grid container -->
-    <div class="container p-4 pb-0">
+    <div class="container-fluid p-4 pb-0">
       <!-- Section: Links -->
       <section class="">
         <!--Grid row-->
         <div class="row">
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">
+          <div class="col-md-1 col-lg-1 col-xl-1 mx-auto mt-1">
+                <img src="/img/logo/dishub.png" alt="" width="85px" height="85px">
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" >
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="margin-left: -30px">
               DINAS PERHUBUNGAN PROVINSI LAMPUNG
             </h6>
-            <p>
+            <p style="text-align: justify; margin-left: -30px">
               Dishub Provinsi Lampung adalah Penyelenggaraan urusan pemerintah bidang kebijakan perhubungan atau transportasi untuk wilayah provinsi Lampung. Fungsi dari Dinas Perhubungan adalah merumuskan kebijakan bidang perhubungan dalam wilayah kerjanya, kebijakan teknis bidang perhubungan, penyelenggaraan administrasi termasuk perizinan angkutan perhubungan, evaluasi dan laporan terkait bidang perhubungan.
             </p>
           </div>
@@ -390,11 +393,12 @@
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">TEMUI KAMI</h6>
 
+            <div class="d-flex">
             <!-- Facebook -->
             <a
                class="btn btn-primary btn-floating m-1"
-               style="background-color: #3b5998"
-               href="#!"
+               style="background-color: #3b5998; "
+               href="#facebook"
                role="button"
                ><i class="fab fa-facebook-f"></i
               ></a>
@@ -403,7 +407,7 @@
             <a
                class="btn btn-primary btn-floating m-1"
                style="background-color: #55acee"
-               href="#!"
+               href="#twitter"
                role="button"
                ><i class="fab fa-twitter"></i
               ></a>
@@ -412,7 +416,7 @@
             <a
                class="btn btn-primary btn-floating m-1"
                style="background-color: #ac2bac"
-               href="#!"
+               href="#instagram"
                role="button"
                ><i class="fab fa-instagram"></i
               ></a>
@@ -420,11 +424,11 @@
             <!-- Youtube -->
             <a
                class="btn btn-primary btn-floating m-1"
-               style="background-color: #dd4b39"
-               href="#!"
+               style="background-color: #dd4b39; color: white; padding-top: -10px;"
+               href="#youtube"
                role="button"
-               ><i class="fab fa-youtube"></i
-              ></a>
+               ><img src="/img/logo/youtube.png" alt="" width="20px" height="20px"></a> 
+          </div>
           </div>
         </div>
         <!--Grid row-->
@@ -436,7 +440,7 @@
     <!-- Copyright -->
     <div
          class="text-center p-3"
-         style="background-color: #22577E"
+         style="background-color: #22577E; width: 100%; position: absolute; bottom: 0;"
          >
       © Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk Online. All Rights Reserved Development by IF'18 ITERA
     </div>
@@ -444,7 +448,9 @@
   </footer>
 
   <!-- Footer -->
-    
+        
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 
 
     <!-- Google Maps API -->

@@ -26,6 +26,10 @@ class UserController extends Controller
     {
         return view('client.beranda');
     }
+    public function halamanBeranda()
+    {
+        return view('client.halamanBeranda');
+    }
 
     public function masuk()
     {

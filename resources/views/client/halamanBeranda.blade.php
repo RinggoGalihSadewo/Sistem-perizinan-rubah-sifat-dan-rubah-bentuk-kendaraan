@@ -2,14 +2,16 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <   <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="/css/client/style.css">
+    <link rel="stylesheet" href="/css/client/layout.css">
+    <link rel="stylesheet" href="/css/client/beranda/slider.css">
 
     <script src="/js/index.js"></script>
 
@@ -17,18 +19,27 @@
   </head>
   <body>
 
+<!-- Slider -->
+
 <div class="slider" style="margin-top: 110px; ">
     <div id="my-carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
         <ol class="carousel-indicators">
-            <li data-target="#my-carousel" data-slide-to="0" class="active"></li>          
+            <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#my-carousel" data-slide-to="1"></li>
+            <li data-target="#my-carousel" data-slide-to="2"></li>           
         </ol>
         <center>
         <div class="carousel-inner">
             <div class="carousel-item active" data-interval="5000">
-                <img class="d-block w-100" src="/img/slides/pejabat.JPG" alt="" width="1300" height="550" style="object-fit: cover; object-position: 80% 90%;">
+                <img class="d-block w-100" src="/img/slider2.JPG" alt="" width="1300" height="550" style="object-fit: cover; object-position: 80% 90%;">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/img/blur2.JPEG" alt="" width="1300" height="550" style="object-fit: cover; ">
+            </div>   
+            <div class="carousel-item" data-interval="5000">
+                <img class="d-block w-100" src="/img/blur1.JPEG" alt="" width="1300" height="550" style="object-fit: cover; object-position: 80% 100%;">
             </div>
         </div>
-
         <a class="carousel-control-prev" href="#my-carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -50,6 +61,8 @@
         <p>Joko Widodo, 16 Agustus 2018</p>
     </div>
 
+    <div class="parallax-window" data-parallax="scroll" data-image-src="/img/a.jpg" data-speed="0"></div>
+
     <center>
     <div class="mt-5" data-aos="fade-right">
     <h4>Alamat GPS Dinas Perhubungan Provinsi Lampung</h4>
@@ -64,17 +77,8 @@
 
 </div>
 
-<footer> ©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
-Development by  IF’18 ITERA</footer>
-    </div>
-
-
-    <!-- Google Maps API -->
-
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4Hns7ZUFLMCxdRg6W_UZRl07Tcgv4h34&callback=initAutocomplete&libraries=places&v=weekly"
-      async
-    ></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -87,6 +91,6 @@ Development by  IF’18 ITERA</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 
-  </body>
+</body>
   
 </html>

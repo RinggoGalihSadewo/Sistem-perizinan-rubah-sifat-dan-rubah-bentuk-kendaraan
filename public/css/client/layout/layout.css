@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0; 
+    /*background-color: #4366A3;*/
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*overflow-x: hidden;*/
+}
+.wrapper{
+    width: 100%;
+}
+.header{
+    background-color: #4366A3;
+    width: 100%;
+    height: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;   
+    border-bottom: 3px solid #CCAC02;
+    padding: 20px;
+}
+nav a h3{
+    /* margin-left: 40px; */
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+}
+.logo1{
+    width: 50px;
+    height: 50px;
+}
+.logo2{
+    width: 50px;
+    height: 50px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.navbar{
+    padding-right: 30px;
+    padding-left: 20px; 
+    margin-left: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 12px;
+    z-index: 99;        
+}
+nav a{
+    transition: 0.2s;
+}
+nav ul li a:hover{
+    background-color: #CCAC02;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    margin-left:10px; 
+    margin-right: 10px; 
+}
+a .beranda{
+    background-color: #799664;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    text-align: center;
+    color: black;
+}
+.slider{
+    margin-top: -1px;
+}
+/*.penjelasan{
+    width: 100%;
+    height: 341px;
+    background-color: #4366A3;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    padding-top: 30px; 
+    box-sizing: border-box;
+    border-top: 3px solid #CCAC02;
+    border-bottom: 3px solid #CCAC02;
+    margin-top: 50px; 
+}*/
+.parallax-window {
+    min-height: 500px;
+    background: transparent;
+}
+footer{
+    border-top: 3px solid #CCAC02;
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: #000000;
+}
+footer .f2 img{
+    width: 15px;
+    height: 15px;
+}
+footer .f1{
+    text-align: center; 
+    margin-top: 15px;
+    font-size: 20px;
+}
+footer .f2{
+    margin-top: 25px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 10px;
+    text-align: center;
+}
+footer .f2 .f2p{
+    margin-right: 0px;
+}
+footer .f3{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 23px;
+    color: white;
+}
+
+.penjelasan{
+    width: 100%;
+    height: auto;
+    background-color: #4366A3;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    padding: 20px;
+    padding-top: 30px; 
+    box-sizing: border-box;
+    border-top: 3px solid #CCAC02;
+    border-bottom: 3px solid #CCAC02;
+    margin-top: 50px; 
+}
+
+/*CSS Hasil Form*/
+.hasil{
+    width: 100%;
+    height: 900px;
+    border: 1px solid black;
+    margin: 20px auto;
+    position: relative;
+    overflow-y: auto; 
+    box-shadow: 3px 3px 10px gray;
+    transition: 0.3s;
+}
+.hasil:hover{
+    box-shadow: 5px 5px 10px gray;
+    animation-name: downtoUp;
+    transition: 0.3s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.headerHasil{
+    display: flex;
+    height: auto;
+    border-bottom: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.lampiran{
+    height: auto;
+    box-sizing: border-box;
+    padding: 60px;
+    font-size: 12px;
+    border-bottom: 1px
+}
+.isiLampiran{
+    height: auto;
+    padding: 60px;
+    font-size: 12px;
+    position: absolute;
+    margin-top: 0px;
+}
+.paraf{
+    position: absolute;
+    right: 0px;
+    font-size: 12px;
+    padding: 60px;
+    bottom: -40%;
+    text-align: center;
+    /*display: none;*/
+}
+
+@keyframes downtoUp{
+  from {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+  75%{
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 992px){
+
+    *{
+        font-family: 'Poppins', sans-serif;
+        padding: 0;
+        margin: 0; 
+        /*background-color: #4366A3;*/
+    }
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        /*overflow-x: hidden;*/
+    }
+    .wrapper{
+        width: 100%;
+    }
+    .header{
+        background-color: #4366A3;
+        width: 100%;
+        height: 135px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;   
+        border-bottom: 3px solid #CCAC02;
+    }
+    nav a h3{
+        /* margin-left: 40px; */
+        font-style: normal;
+        font-size: 25px;
+        padding-left: 10px;
+        text-align: center;
+        
+    }
+    .logo1{
+        margin-right: 0px;
+        width: 55px;
+        height: 55px;
+    }
+    .logo2{
+        margin-left: 5px;
+        width: 55px;
+        height: 55px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .navbar{
+        padding-right: 20px;
+        padding-left: 20px; 
+        margin-left: 0px;
+        width: 100%;
+        height: 80px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        z-index: 99;
+    }
+    nav a{
+        transition: 0.2s;
+    }
+    nav ul li a:hover{
+        background-color: #CCAC02;
+        text-decoration: none;
+        color: white;
+        border-radius: 3px;
+    }
+    a .beranda{
+        background-color: #799664;
+        width: 150px;
+        height: 150px;
+        border-radius: 15px;
+        text-align: center;
+        color: black;
+    }
+    .penjelasan{
+        width: 100%;
+        height: 370px;
+        background-color: #4366A3;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        padding: 20px;
+        padding-top: 30px; 
+        box-sizing: border-box;
+        border-top: 3px solid #CCAC02;
+        border-bottom: 3px solid #CCAC02;
+        margin-top: 50px; 
+    }
+    .parallax-window {
+        min-height: 500px;
+        background: transparent;
+    }
+    footer{
+        border-top: 3px solid #CCAC02;
+        margin-top: 50px;
+        width: 100%;
+        height: 300px;
+        background-color: #000000;
+        padding: 20px;
+    }
+    footer .f1{
+        text-align: center; 
+        margin-top: 15px;
+        font-size: 24px;
+    }
+    footer .f2{
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 16px;
+    }
+    footer .f2 .f2p{
+        margin-right: 150px;
+        font-size: 14px;
+    }
+    footer .f3{
+        text-align: center;
+        font-size: 18px;
+        margin-top: 23px;
+        color: white;
+    }
+
+    /*CSS Hasil Form*/
+    .hasil{
+        width: 651px;
+        height: 900px;
+        border: 1px solid black;
+        margin: 20px auto;
+        position: relative;
+        transition: 0.3s; 
+    }
+
+    .hasil:hover{
+        animation-name: downtoUp;
+        transition: 0.3s;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        box-shadow: 3px 3px 10px gray;
+    }
+    .headerHasil{
+        display: flex;
+        height: auto;
+        border-bottom: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .lampiran{
+        height: auto;
+        position: absolute;
+        right: 0px;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 12px;
+        border-bottom: 1px
+    }
+    .isiLampiran{
+        height: auto;
+        padding: 60px;
+        font-size: 12px;
+        position: absolute;
+        margin-top: 100px;
+    }
+    .paraf{
+        position: absolute;
+        right: 0px;
+        font-size: 12px;
+        padding: 60px;
+        bottom: -100px;
+        text-align: center;
+        display: inline-block;
+    }
+
+}
