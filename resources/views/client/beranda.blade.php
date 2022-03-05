@@ -348,38 +348,102 @@
                     </form>
         </section>
 
-        <div class="footer-clean">
-        <footer>
+<!-- Footer -->
 
-        <div style="display: flex;">
-            <div id="kolom1" style="background-color: #1E6091;">
-                <h4 style="padding-left: 10px;">DINAS PERHUBUNGAN PROVINSI LAMPUNG</h4>
-                <ul class="menu" style="font-size: 15px;">
-                <p> Dishub Provinsi Lampung adalah Penyelenggaraan urusan pemerintah bidang kebijakan perhubungan atau transportasi untuk wilayah provinsi Lampung.
-                    Fungsi dari Dinas Perhubungan adalah merumuskan kebijakan bidang perhubungan dalam wilayah kerjanya, kebijakan teknis bidang perhubungan, penyelenggaraan administrasi termasuk perizinan angkutan perhubungan, evaluasi dan laporan terkait bidang perhubungan. </p>
-            </div>
+<footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #1E6091"
+          >
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">
+              DINAS PERHUBUNGAN PROVINSI LAMPUNG
+            </h6>
+            <p>
+              Dishub Provinsi Lampung adalah Penyelenggaraan urusan pemerintah bidang kebijakan perhubungan atau transportasi untuk wilayah provinsi Lampung. Fungsi dari Dinas Perhubungan adalah merumuskan kebijakan bidang perhubungan dalam wilayah kerjanya, kebijakan teknis bidang perhubungan, penyelenggaraan administrasi termasuk perizinan angkutan perhubungan, evaluasi dan laporan terkait bidang perhubungan.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">KONTAK KAMI</h6>
+            <p><i class="fas fa-map-marker-alt mr-3"></i> Jl. Cut Mutiah No.76 Teluk Betung, Bandar Lampung</p>
+            <p><i class="fas fa-phone mr-3"></i> (0721) 470209</p>
+            <p><i class="fas fa-envelope mr-3"></i> dishubprovlampung@gmail.com</p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
+          
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">TEMUI KAMI</h6>
+
+            <!-- Facebook -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #3b5998"
+               href="#!"
+               role="button"
+               ><i class="fab fa-facebook-f"></i
+              ></a>
+
+            <!-- Twitter -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #55acee"
+               href="#!"
+               role="button"
+               ><i class="fab fa-twitter"></i
+              ></a>
+
+            <!-- Instagram -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #ac2bac"
+               href="#!"
+               role="button"
+               ><i class="fab fa-instagram"></i
+              ></a>
             
-            <div id="kolomdua"  style="background-color: #1E6091; ">
-                <div id="kolom2">
-                <h5>KONTAK KAMI</h5>
-                <img src="/img/logo/location.png" alt=""><p>Jl.Cut Mutiah No. 76 Teluk Betung,Bandar Lampung</p>
-                <img src="/img/logo/telfon.png" alt=""><p>(0721) 470209</p>
-                <img src="/img/logo/email.png" alt=""><p><a href="#dishubprovlampung@gmail.com">dishubprovlampung@gmail.com</p>
-            </div>
-
-            <div id="kolomtiga"  style="background-color: #1E6091; ">
-                <div id="kolom3">
-                <h5>TEMUI KAMI</h5>
-                <a href="https://www.facebook.com/pages/category/Community/Dinas-Perhubungan-Provinsi-Lampung-313932275317805/"><img src="/img/logo/facebook.png" alt=""><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/dishublampung1"><img src="/img/logo/twitter.png" alt=""><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/dishubprovlampung?utm_medium=copy_link"><img src="/img/logo/instagram.png" alt=""><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/channel/UC6t_6KNVrQZQlYdzSk-J7SA/videos"><img src="/img/logo/youtube.png" alt=""><i class="fab fa-instagram"></i></a>
-            </div>
+            <!-- Youtube -->
+            <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #dd4b39"
+               href="#!"
+               role="button"
+               ><i class="fab fa-youtube"></i
+              ></a>
+          </div>
         </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
 
-            <span class="copyright_text">©️ Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk  Online. All Rights Reserved
-                     Development by  IF’18 ITERA</span>
-        </footer>
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: #22577E"
+         >
+      © Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk Online. All Rights Reserved Development by IF'18 ITERA
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <!-- Footer -->
     
 
 
