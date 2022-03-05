@@ -26,6 +26,9 @@ nav{
     background-color: #22577E;
     height: auto;
 }
+.navbar-nav a:hover {
+  background-color : #95D1CC;
+} 
 .carousel-inner{
     height: 600px;
 }
