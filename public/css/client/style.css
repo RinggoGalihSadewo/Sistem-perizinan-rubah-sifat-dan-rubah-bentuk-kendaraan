@@ -49,6 +49,9 @@ nav{
   padding: 10px;
   border-radius: 50%;
 }
+.form-control:focus{
+  outline: none;
+}
 #pendaftaran{
     background: #ffffff;
     padding: 60px;

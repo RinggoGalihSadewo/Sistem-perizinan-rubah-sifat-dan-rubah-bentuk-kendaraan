@@ -97,37 +97,36 @@ class UserController extends Controller
 
     public function storeSifat(Request $request)
     {
-        dd($request->all());
-        $validatedData = $request->validate([
+        // $validatedData = $request->validate([
 
-            'noKendaraan' => 'required',
-            'jenisPerizinan' => 'required',
-            'alamat' => 'required',
-            'merk' => 'required',
-            'jenis' => 'required',
-            'model' => 'required',
-            'warna' => 'required',
-            'tahun' => 'required',
-            'silinder' => 'required',
-            'noLandasan' => 'required',
-            'noMesin' => 'required',
-            'bpkb' => 'required',
-        ],
-        [
-            'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
-            'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
-            'alamat.required' => 'Alamat wajib di isi',
-            'merk.required' => 'merk wajib di isi',
-            'jenis.required' => 'Jenis wajib di isi',
-            'model.required' => 'Model wajib di isi',
-            'warna.required' => 'Warna wajib di isi',
-            'tahun.required' => 'Tahun wajib di isi',
-            'silinder.required' => 'Silinder wajib di isi',
-            'noLandasan.required' => 'No. Landasan wajib di isi',
-            'noMesin.required' => 'No. Mesin wajib di isi',
-            'bpkb' => 'No. BPKB wajib di isi',
-        ]
-        );
+        //     'noKendaraan' => 'required',
+        //     'jenisPerizinan' => 'required',
+        //     'alamat' => 'required',
+        //     'merk' => 'required',
+        //     'jenis' => 'required',
+        //     'model' => 'required',
+        //     'warna' => 'required',
+        //     'tahun' => 'required',
+        //     'silinder' => 'required',
+        //     'noLandasan' => 'required',
+        //     'noMesin' => 'required',
+        //     'bpkb' => 'required',
+        // ],
+        // [
+        //     'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
+        //     'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
+        //     'alamat.required' => 'Alamat wajib di isi',
+        //     'merk.required' => 'merk wajib di isi',
+        //     'jenis.required' => 'Jenis wajib di isi',
+        //     'model.required' => 'Model wajib di isi',
+        //     'warna.required' => 'Warna wajib di isi',
+        //     'tahun.required' => 'Tahun wajib di isi',
+        //     'silinder.required' => 'Silinder wajib di isi',
+        //     'noLandasan.required' => 'No. Landasan wajib di isi',
+        //     'noMesin.required' => 'No. Mesin wajib di isi',
+        //     'bpkb' => 'No. BPKB wajib di isi',
+        // ]
+        // );
 
         $nameSuratPermohonan = $request->file('suratPermohonan')->getClientOriginalName();
         $nameSuratPernyataan = $request->file('suratPernyataan')->getClientOriginalName();
@@ -237,8 +236,8 @@ class UserController extends Controller
         $BerkasSifat->form_sifat_id = $formSifat->id;
         $BerkasSifat->surat_permohonan = $nameSuratPermohonan;
         $BerkasSifat->surat_pernyataan = $nameSuratPernyataan;
-        $BerkasSifat->fc_stnk = $nameFcStnk;
-        $BerkasSifat->fc_bpkb = $nameFcBpkb;
+        $BerkasSifat->fc_stnk = $fcStnk;
+        $BerkasSifat->fc_bpkb = $fcBpkb;
         $BerkasSifat->fc_ktp = $ktp;
         $BerkasSifat->dimensi_kendaraan = $dimensi;
         $BerkasSifat->fc_buku_uji = $nameFcBukuUji;

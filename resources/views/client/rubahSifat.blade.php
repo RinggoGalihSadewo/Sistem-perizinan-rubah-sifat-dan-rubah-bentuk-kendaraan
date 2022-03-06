@@ -78,7 +78,7 @@
                                 Nomor Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noKendaraan">
+                                <input type="text" class="form-control a" id="" name="noKendaraan">
                             </div>
                         </div>
 
@@ -101,11 +101,11 @@
                         <br>
 
                         <div class="row" id="namaPemilik">
-
+                            <div class="col-sm-6">Nama Pemilik</div><div class="col-sm-6"><input type="text" class="form-control" id="iNamaPemilik" name="namaPemilik" ></div>
                         </div>
 
                         <div class="row" id="namaPemilikLama">
-
+                            <div class="col-sm-6">Nama Pemilik Lama</div><div class="col-sm-6"><input type="text" class="form-control" id="iNamaPemilikLama" name="namaPemilikLama"></div>
                         </div>
 
                         <div id="br">
@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="row" id="namaPemilikBaru">
-
+                            <div class="col-sm-6">Nama Pemilik Baru</div><div class="col-sm-6"><input type="text" class="form-control inpNamaPemilikBaru" id="iNamaPemilikBaru" name="namaPemilikBaru"></div>
                         </div>
 
                         <br>
@@ -262,7 +262,7 @@
                         <br>
 
                         <div class="row" id="ktp">
-
+                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control" id="iKtp" name="fcKTP"></div>
                         </div>
 
                         <div id="br2">
@@ -368,7 +368,7 @@
                         <br>
 
                         <div class="row" id="notaris">
-
+                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control" id="iNotaris" name="akteNotaris"></div>
                         </div>
 
                         <div id="br3">
@@ -376,7 +376,7 @@
                         </div>
 
                         <div class="row" id="kbli">
-
+                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control" id="iKbli" name="kbli"></div>
                         </div>
 
                         <div id="br4">
@@ -499,71 +499,7 @@
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 
-    <script>
-        function update(){
-            var select = document.getElementById('jenis');
-            var value = select.options[select.selectedIndex].value;
-
-            if(value === "Perubahan Sifat (HITAM)"){
-                document.getElementById('br').innerHTML = "";
-                document.getElementById('namaPemilikLama').innerHTML = "";
-                document.getElementById('namaPemilikBaru').innerHTML = "";
-                document.getElementById('ktp').innerHTML = "";
-                document.getElementById('br2').innerHTML = "";
-                document.getElementById('br3').innerHTML = "";
-                document.getElementById('br4').innerHTML = "";
-                document.getElementById('notaris').innerHTML = "";
-                document.getElementById('namaPemilik').innerHTML = "<div class='col-sm-6'>Nama Pemilik</div><div class='col-sm-6'><input type='text' class='form-control' id='namePemilik' name='namaPemilik' ></div>";
-                document.getElementById('kbli').innerHTML = "";
-            }
-
-            else if(value === "Perubahan Sifat (HITAM) BBN"){
-                
-                document.getElementById('namaPemilik').innerHTML = "";
-                document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama' value='{{old('namaPemilikLama')}}' onblur='sss'></div>";
-                document.getElementById('br').innerHTML = "<br>";
-                document.getElementById('br2').innerHTML = "<br>";
-                document.getElementById('br3').innerHTML = "";
-                document.getElementById('br4').innerHTML = "";
-                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru' value='{{old('namaPemilikBaru')}}'></div>";
-                document.getElementById('ktp').innerHTML = "                            <div class='col-sm-6'>Foto FC. KTP</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='fcKTP'></div>";
-                document.getElementById('notaris').innerHTML = "";
-                document.getElementById('kbli').innerHTML = "";
-            }
-
-            else if (value === "Penetapan Sifat (KUNING)"){
-                document.getElementById('namaPemilik').innerHTML = "";
-                document.getElementById('ktp').innerHTML = "";
-                document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama' value='{{old('namaPemilikLama')}}'></div>";
-                document.getElementById('br').innerHTML = "<br>";
-                document.getElementById('br2').innerHTML = "";
-                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru' value='{{old('namaPemilikBaru')}}'></div>";
-                document.getElementById('notaris').innerHTML = "<div class='col-sm-6'>Akte Notaris</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='akteNotaris' value='{{old('akteNotaris')}}'></div>";
-                document.getElementById('kbli').innerHTML = "<div class='col-sm-6'>NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='kbli' value='{{old('kbli')}}'></div>";
-                document.getElementById('br3').innerHTML = "<br>";
-                document.getElementById('br4').innerHTML = "<br>";
-            }
-            else if (value === "Perubahan Sifat (HITAM KE KUNING)"){
-                document.getElementById('namaPemilik').innerHTML = "";
-                document.getElementById('ktp').innerHTML = "";
-                document.getElementById('namaPemilikLama').innerHTML = "<div class='col-sm-6'>Nama Pemilik Lama</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikLama' value='{{old('namaPemilikLama')}}'></div>";
-                document.getElementById('br').innerHTML = "<br>";
-                document.getElementById('br2').innerHTML = "";
-                document.getElementById('namaPemilikBaru').innerHTML = "<div class='col-sm-6'>Nama Pemilik Baru</div><div class='col-sm-6'><input type='text' class='form-control' id=' name='namaPemilikBaru' value='{{old('namaPemilikBaru')}}'></div>";
-                document.getElementById('notaris').innerHTML = "<div class='col-sm-6'>Akte Notaris</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='akteNotaris' value='{{old('akteNotaris')}}'></div>";
-                document.getElementById('kbli').innerHTML = "<div class='col-sm-6'>NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class='col-sm-6'><input type='file' class='form-control' id=' name='kbli' value='{{old('kbli')}}'></div>";  
-                document.getElementById('br3').innerHTML = "<br>";    
-                document.getElementById('br4').innerHTML = "<br>";       
-            }   
-        }   
-        update();
-
-        function updateReload()
-        {
-            var select = document.getElementById('jenis');
-            var value = select.options[select.selectedIndex].value="ss";
-        }
-    </script>
+        <script src="/js/FormSifat2.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
