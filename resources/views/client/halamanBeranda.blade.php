@@ -135,9 +135,11 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold"><b>KONTAK KAMI</b></h6>
+            <div style="text-align: left;">
             <p><i class="fas fa-map-marker-alt mr-3"></i> Jl. Cut Mutiah No.76 Teluk Betung, Bandar Lampung</p>
             <p><i class="fas fa-phone mr-3"></i> (0721) 470209</p>
             <p><i class="fas fa-envelope mr-3"></i> dishubprovlampung@gmail.com</p>
+            </div>
           </div>
           <!-- Grid column -->
 

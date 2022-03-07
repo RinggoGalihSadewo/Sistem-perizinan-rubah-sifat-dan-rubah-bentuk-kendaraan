@@ -78,7 +78,7 @@
                                 Nomor Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control a" id="" name="noKendaraan">
+                                <input type="text" class="form-control" id="" name="noKendaraan">
                             </div>
                         </div>
 
