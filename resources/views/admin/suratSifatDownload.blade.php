@@ -245,7 +245,7 @@
               <tr>
                 <td>TANGGAL</td>
                 <td>:</td>
-                <td>{{$data->created_at}}</td>
+                <td>{{strToupper($date)}}<td>
               </tr>
               <tr>
                 <td>KEPALA DINAS</td>

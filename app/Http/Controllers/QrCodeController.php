@@ -8,6 +8,7 @@ use App\Models\FormSifat;
 use App\Models\FormBentuk;
 
 use QrCode;
+use Carbon\Carbon;
 
 class QrCodeController extends Controller
 {
@@ -22,10 +23,12 @@ class QrCodeController extends Controller
     {   
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->id;
 
+        $date = Carbon::now()->format("d M Y");
+
         $data = FormSifat::find($formSifat->id);
 
         $qr = QrCode::size(100)->generate($url);
-        return view('admin.suratSifat', compact('qr', 'data'));
+        return view('admin.suratSifat', compact('qr', 'data', 'date'));
     }
 
     public function detailValidSifat(FormSifat $formSifat)
@@ -52,7 +55,9 @@ class QrCodeController extends Controller
 
         $data = FormBentuk::find($formBentuk->id);
 
+        $date = Carbon::now()->format("d M Y");
+
         $qr = QrCode::size(100)->generate($url);
-        return view('admin.suratBentuk', compact('qr', 'data'));
+        return view('admin.suratBentuk', compact('qr', 'data', 'date'));
     }
 }
