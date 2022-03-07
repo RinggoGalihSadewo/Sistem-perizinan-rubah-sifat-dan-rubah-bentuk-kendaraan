@@ -12,6 +12,7 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "nesbot/carbon": "^2.57",
         "simplesoftwareio/simple-qrcode": "^4.2"
     },
     "require-dev": {

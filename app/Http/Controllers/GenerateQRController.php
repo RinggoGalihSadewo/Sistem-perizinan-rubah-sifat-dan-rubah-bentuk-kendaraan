@@ -9,7 +9,7 @@ use App\Models\FormSifat;
 use App\Models\FormBentuk;
 use App\Models\QrSifat;
 use App\Models\QrBentuk;
-
+use Carbon\Carbon;
 
 class GenerateQRController extends Controller
 {
@@ -27,6 +27,13 @@ class GenerateQRController extends Controller
         $qr = new QrSifat;
         $qr->form_sifat_id = $formSifat->id;
         $qr->no_surat = $request->noSurat;
+        if($request->catatan == null){
+            $qr->catatan = "-";
+        }
+        elseif($request->catatan){
+            $qr->catatan = $request->catatan;
+        }
+        $qr->masa = Carbon::now()->addMonth(3)->format("d M Y");
         $qr->qr_valid = $valid;
         $qr->save();
 
@@ -46,6 +53,13 @@ class GenerateQRController extends Controller
         $qr = new QrBentuk;
         $qr->form_bentuk_id = $formBentuk->id;
         $qr->no_surat = $request->noSurat;
+        if($request->catatan == null){
+            $qr->catatan = "-";
+        }
+        elseif($request->catatan){
+            $qr->catatan = $request->catatan;
+        }
+        $qr->masa = Carbon::now()->addMonth(6)->format("d M Y");
         $qr->qr_valid = $valid;
         $qr->save();
 

@@ -150,7 +150,13 @@
           <div class="row">
             <div class="col-lg-6 mb-4">
               <p>Nomor kendaraan : {{$formSifat->nomor_kendaraan}}</p>
+              <p>Jenis perubahan sifat : {{$formSifat->jenis_perubahan}}</p>
+              @if($formSifat->jenis_perubahan == "Perubahan Sifat (HITAM)")
               <p>Nama pemilik : {{$formSifat->nama_pemilik}}</p>
+              @elseif($formSifat->jenis_perubahan == "Perubahan Sifat (HITAM) BBN" || $formSifat->jenis_perubahan == "Penetapan Sifat (KUNING)" || $formSifat->jenis_perubahan == "Perubahan Sifat (HITAM KE KUNING)")
+              <p>Nama pemilik lama : {{$formSifat->nama_pemilik_lama}}</p>
+              <p>Nama pemilik baru : {{$formSifat->nama_pemilik_baru}}</p>
+              @endif
               <p>Alamat : {{$formSifat->alamat}}</p>
               <p>Merk : {{$formSifat->merk}}</p>
               <p>Jenis : {{$formSifat->jenis}}</p>
@@ -165,13 +171,30 @@
             <div class="col-lg-6 mb-4">
               <p>Surat Permohonan : <a href="/download-berkas-surat-permohonan/{{$berkas[0]->surat_permohonan}}"><button class="btn btn-primary">Download</button></a></p>
               <p>Surat Pernyataan : <a href="/download-berkas-surat-pernyataan/{{$berkas[0]->surat_pernyataan}}"><button class="btn btn-primary">Download</button></a></p>
-              <p>Foto FC. STNK : /storage/{{$berkas[0]->fc_stnk}} <br> <img src="{{ asset('storage/'.$berkas[0]->fc_stnk) }}" width="200px" height="200px"></p>
-              <p>Foto FC. BPKB : {{$berkas[0]->fc_bpkb}} <br> <img src="/storage/Perizinan_Sifat/FC_BPKB/{{$berkas[0]->fc_bpkb}}" width="200px" height="200px"></p>
-              <p>Foto FC. Buku Uji : {{$berkas[0]->fc_buku_uji}} <br> <img src="/storage/Perizinan_Sifat/FC_Buku_Uji/{{$berkas[0]->fc_buku_uji}}" width="200px" height="200px"></p>
-              <p>Foto Empat Sisi Kendaaran : {{$berkas[0]->foto_empat_sisi_kendaraan}} <br> <img src="/storage/Perizinan_Sifat/Foto_Kendaraan_Empat_Sisi/{{$berkas[0]->foto_empat_sisi_kendaraan}}" width="200px" height="200px"></p>
-              <p>Akte Notaris : {{$berkas[0]->akte_notaris}} <br> <img src="/storage/Perizinan_Sifat/Akte_Notaris/{{$berkas[0]->akte_notaris}}" width="200px" height="200px"></p>
-              <p>NIB / SIUP / TDP : {{$berkas[0]->kbli}} <br> <img src="/storage/Perizinan_Sifat/KBLI/{{$berkas[0]->kbli}}" width="200px" height="200px"></p>
-
+              <p>Foto FC. STNK : {{$berkas[0]->fc_stnk}} <br> <img src="/storage/{{$berkas[0]->fc_stnk}}" width="200px" height="200px"></p>
+              @if($formSifat->jenis_perubahan == "Perubahan Sifat (HITAM) BBN")
+                <p>Foto FC. KTP : {{$berkas[0]->fc_ktp}} <br> <img src="/storage/{{$berkas[0]->fc_ktp}}" width="200px" height="200px"></p>
+              @endif
+              <p>Foto FC. BPKB : {{$berkas[0]->fc_bpkb}} <br> <img src="/storage/{{$berkas[0]->fc_bpkb}}" width="200px" height="200px"></p>
+              <p>Foto FC. Buku Uji : {{$berkas[0]->fc_buku_uji}} <br> <img src="/storage/{{$berkas[0]->fc_buku_uji}}" width="200px" height="200px"></p>
+              <p>Foto Faktur Kendaraan : {{$berkas[0]->foto_faktur}} <br> <img src="/storage/{{$berkas[0]->foto_faktur}}" width="200px" height="200px"></p>
+              <p>Foto SRUT (Sertifikasi Registrasi Uji Tipe) : {{$berkas[0]->foto_serut}} <br> <img src="/storage/{{$berkas[0]->foto_serut}}" width="200px" height="200px"></p>
+              <p>Dokumen Perusahaan : {{$berkas[0]->doc_perusahaan}} <br> <img src="/storage/{{$berkas[0]->doc_perusahaan}}" width="200px" height="200px"></p>
+              <p>Dimensi Kendaraan : {{$berkas[0]->dimensi_kendaraan}} <br> <img src="/storage/{{$berkas[0]->dimensi_kendaraan}}" width="200px" height="200px"></p>
+              <p>Surat Keterangan Bengkel : {{$berkas[0]->surat_bengkel}} <br> <img src="/storage/{{$berkas[0]->surat_bengkel}}" width="200px" height="200px"></p>
+              <div class="row">
+                <div class="col-12">
+                <p>Foto Kendaraan 4 sisi : </p>
+                <p>Foto Depan : {{$berkas[0]->foto_depan}} <br> <img src="/storage/{{$berkas[0]->foto_depan}}" width="200px" height="200px"></p>
+                <p>Foto Belakang : {{$berkas[0]->foto_belakang}} <br> <img src="/storage/{{$berkas[0]->foto_belakang}}" width="200px" height="200px"></p>
+                <p>Foto Kanan : {{$berkas[0]->foto_kanan}} <br> <img src="/storage/{{$berkas[0]->foto_kanan}}" width="200px" height="200px"></p>
+                <p>Foto Kiri : {{$berkas[0]->foto_kiri}} <br> <img src="/storage/{{$berkas[0]->foto_kiri}}" width="200px" height="200px"></p>
+                </div>
+              </div>
+              @if($formSifat->jenis_perubahan == "Penetapan Sifat (KUNING)" || $formSifat->jenis_perubahan == "Perubahan Sifat (HITAM KE KUNING)")
+              <p>Akte Notaris : {{$berkas[0]->akte_notaris}} <br> <img src="/storage/{{$berkas[0]->akte_notaris}}" width="200px" height="200px"></p>
+              <p>KBLI : {{$berkas[0]->kbli}} <br> <img src="/storage/{{$berkas[0]->kbli}}" width="200px" height="200px"></p>
+              @endif
             </div>
           </div>
           <!--Row-->

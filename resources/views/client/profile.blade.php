@@ -58,7 +58,6 @@
                         @csrf
                         @method('patch')
                         @if($data[0]->foto_profile == "default.png")
-                        <p>/storage/profile/{{$data[0]->foto_profile}}</p>
                         <img src="/storage/profile/{{$data[0]->foto_profile}}" class="img-rounded">
                         <input type="file" name="profile" class="mt-3 form-control">
                         @else

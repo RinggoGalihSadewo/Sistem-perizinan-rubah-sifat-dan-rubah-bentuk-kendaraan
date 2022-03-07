@@ -167,6 +167,7 @@
                         <th>No</th>
                         <th>Nomor Kendaraan</th>
                         <th>Nomor Surat</th>
+                        <th>Catatan Surat</th>
                         <th>Generate QR Code</th>
                       </tr>
                     </thead>
@@ -185,6 +186,12 @@
                             
                           </div>
                           
+                        </td>
+                        <td>
+                          <div class="form-group d-flex">
+                            <input type="text" class="form-control" id="exampleInputEmail2"  name="catatan" placeholder="Masukan catatan surat" style="width:200px;">
+                            
+                          </div>
                         </td>
                         <td>
                             <button class="btn btn-success ml-3">Generate</button>

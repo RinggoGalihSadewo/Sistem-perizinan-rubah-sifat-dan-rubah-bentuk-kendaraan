@@ -300,7 +300,7 @@
                                 Masa Berlaku S.K
                               </td>
                               <td>:</td>
-                              <td style="color:red">REVISI</td>
+                              <td>{{$data->qrBentuk->masa}}</td>
                           </tr>
                         </table>
                       </td>
@@ -308,7 +308,11 @@
                     <tr>
                       <td></td>
                       <td></td>
-                      <td>Catatan : <span style="color:red;">ADA CATATAN TAMBAHAN DISINI </span>Surat Keterangan ini hanya berlaku sebagai syarat untuk penerbitan STNK dan BPKB kendaraan</td>                      
+                      @if($data->qrBentuk->catatan != "-")
+                      <td>Catatan : {{$data->qrBentuk->catatan}}, Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+                      @elseif($data->qrBentuk->catatan == "-")
+                      <td>Catatan : Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+                      @endif
                     </tr>
                   </table>
 

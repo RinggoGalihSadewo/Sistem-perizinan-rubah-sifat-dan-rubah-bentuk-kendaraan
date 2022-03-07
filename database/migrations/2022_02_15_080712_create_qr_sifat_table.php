@@ -19,6 +19,8 @@ class CreateQrSifatTable extends Migration
             ->references('id')->on('form_sifat')
             ->onDelete('cascade');
             $table->string('no_surat');
+            $table->string('catatan');
+            $table->string('masa');
             $table->string('qr_valid');
             $table->timestamps();
         });

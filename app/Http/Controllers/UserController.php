@@ -97,6 +97,7 @@ class UserController extends Controller
 
     public function storeSifat(Request $request)
     {
+
         // $validatedData = $request->validate([
 
         //     'noKendaraan' => 'required',
@@ -142,6 +143,7 @@ class UserController extends Controller
             $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();            
         }
 
+        // $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();
         $nameFaktur = $request->file('faktur')->getClientOriginalName();
         $nameSerut = $request->file('serut')->getClientOriginalName();
         $nameDocPerusahaan = $request->file('docPerusahaan')->getClientOriginalName();
@@ -184,7 +186,7 @@ class UserController extends Controller
         else{
             $ktp = $request->file('fcKTP')->storeAs(('Perizinan_Sifat/FC_KTP'), $namefcKTP);    
         }
-        
+
         $faktur = $request->file('faktur')->storeAs(('Perizinan_Sifat/Faktur'), $nameFaktur);
         $serut = $request->file('serut')->storeAs(('Perizinan_Sifat/Serut'), $nameSerut);
         $DocPerusahaan = $request->file('docPerusahaan')->storeAs(('Perizinan_Sifat/Doc_Perusahaan'), $nameDocPerusahaan);
@@ -240,7 +242,7 @@ class UserController extends Controller
         $BerkasSifat->fc_bpkb = $fcBpkb;
         $BerkasSifat->fc_ktp = $ktp;
         $BerkasSifat->dimensi_kendaraan = $dimensi;
-        $BerkasSifat->fc_buku_uji = $nameFcBukuUji;
+        $BerkasSifat->fc_buku_uji = $bukuUji;
         $BerkasSifat->foto_faktur = $faktur;
         $BerkasSifat->foto_serut = $serut;
         $BerkasSifat->surat_bengkel = $bengkel;
@@ -250,7 +252,7 @@ class UserController extends Controller
         $BerkasSifat->foto_kiri = $fotoKiri;
         $BerkasSifat->foto_kanan = $fotoKanan;
         $BerkasSifat->akte_notaris = $akteNotaris;
-        $BerkasSifat->kbli = $nameKbli;
+        $BerkasSifat->kbli = $kbli;
         $BerkasSifat->save();
 
         $TrackSifat = new TrackSuratSifat;

@@ -102,14 +102,33 @@
                     <td>:</td>
                     <td>{{$data->nomor_kendaraan}}</td>
                 </tr>
-                <tr>
-                    <td>-</td>
-                    <td>
-                      Nama Pemilik
-                    </td>
-                    <td>:</td>
-                    <td>{{$data->nama_pemilik}}</td>
-                </tr>                     
+                @if($data->jenis_perubahan == "Perubahan Sifat (HITAM)")
+                  <tr>
+                      <td>-</td>
+                      <td>
+                        Nama Pemilik
+                      </td>
+                      <td>:</td>
+                      <td>{{$data->nama_pemilik}}</td>
+                  </tr> 
+                @elseif($data->jenis_perubahan == "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan == "Penetapan Sifat (KUNING)" || $data->jenis_perubahan == "Perubahan Sifat (HITAM KE KUNING)")
+                  <tr>
+                      <td>-</td>
+                      <td>
+                        Nama Pemilik Lama
+                      </td>
+                      <td>:</td>
+                      <td>{{$data->nama_pemilik_lama}}</td>
+                  </tr>
+                  <tr>
+                      <td>-</td>
+                      <td>
+                        Nama Pemilik Baru
+                      </td>
+                      <td>:</td>
+                      <td>{{$data->nama_pemilik_baru}}</td>
+                  </tr>  
+                @endif                       
                 <tr>
                     <td>-</td>
                     <td>
@@ -177,7 +196,7 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      No.Mesin
+                      No. Mesin
                     </td>
                     <td>:</td>
                     <td>{{$data->no_mesin}}</td>
@@ -185,7 +204,7 @@
                 <tr>
                     <td>-</td>
                     <td>
-                      Nomor Kendaraan
+                      No. BPKB
                     </td>
                     <td>:</td>
                     <td>{{$data->no_bpkb}}</td>
@@ -196,15 +215,19 @@
                       Masa Berlaku s/d
                     </td>
                     <td>:</td>
-                    <td style="color:red;">REVISI</td>
+                    <td>{{$data->qrSifat->masa}}</td>
                 </tr>
               </table>
             </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td>Catatan : Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+          <td></td>
+          <td></td>
+          @if($data->qrSifat->catatan != "-")
+          <td>Catatan : {{$data->qrSifat->catatan}}, Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+          @elseif($data->qrSifat->catatan == "-")
+          <td>Catatan : Surat Keterangan ini hanya berlaku untuk Perpanjangan Masa Berlaku STNK Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</td>
+          @endif
           </tr>
         </table>
 

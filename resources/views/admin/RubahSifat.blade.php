@@ -166,7 +166,7 @@
                       <tr>
                         <th>No</th>
                         <th>Nama Perusahaan</th>
-                        <th>Nama Pemilik</th>
+                        <th>Jenis Perubahan</th>
                         <th>Nomor Kendaraan</th>
                         <th>Aksi</th>
                       </tr>
@@ -176,7 +176,7 @@
                       <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$d->user->nama_perusahaan}}</td>
-                        <td>{{$d->nama_pemilik}}</td>
+                        <td>{{$d->jenis_perubahan}}</td>
                         <td>{{$d->nomor_kendaraan}}</td>
                         <td>
                           <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>

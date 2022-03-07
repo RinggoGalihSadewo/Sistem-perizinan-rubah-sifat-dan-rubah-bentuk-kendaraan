@@ -348,7 +348,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Sesudah Dibentuk 4 sisi
+                                Foto Kendaraan 4 Sisi
                             </div>
                             <div class="col-sm-6">
                                 <label>Sisi depan</label>
