@@ -83,7 +83,7 @@ class LoginController extends Controller
             'password.required' => 'password wajib di isi'
         ]);
 
-        if (Auth::attempt($credentials, $ingat)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/perizinan-rubah-sifat');

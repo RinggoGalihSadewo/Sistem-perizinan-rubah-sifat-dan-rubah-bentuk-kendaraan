@@ -27,12 +27,6 @@ html, body {
     border-bottom: 3px solid #CCAC02;
     padding: 20px;
 }
-nav a h3{
-    /* margin-left: 40px; */
-    font-style: normal;
-    font-size: 15px;
-    text-align: center;
-}
 .logo1{
     width: 50px;
     height: 50px;
@@ -44,30 +38,6 @@ nav a h3{
 a{
     text-decoration: none;
     color: black;
-}
-.navbar{
-    padding-right: 30px;
-    padding-left: 20px; 
-    margin-left: 0px;
-    width: 100%;
-    height: 80px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    font-size: 12px;
-    z-index: 99;        
-}
-nav a{
-    transition: 0.2s;
-}
-nav ul li a:hover{
-    background-color: #CCAC02;
-    text-decoration: none;
-    color: white;
-    border-radius: 3px;
-    margin-left:10px; 
-    margin-right: 10px; 
 }
 a .beranda{
     background-color: #799664;
@@ -99,7 +69,6 @@ a .beranda{
     background: transparent;
 }
 footer{
-    border-top: 3px solid #CCAC02;
     margin-top: 50px;
     width: 100%;
     height: auto;
@@ -136,16 +105,14 @@ footer .f3{
 .penjelasan{
     width: 100%;
     height: auto;
-    background-color: #4366A3;
+    background-color: #22577E;
     text-align: center;
     color: white;
     font-size: 15px;
     padding: 20px;
     padding-top: 30px; 
     box-sizing: border-box;
-    border-top: 3px solid #CCAC02;
-    border-bottom: 3px solid #CCAC02;
-    margin-top: 50px; 
+    margin-top: 0px; 
 }
 
 /*CSS Hasil Form*/
@@ -243,14 +210,6 @@ footer .f3{
         color: white;   
         border-bottom: 3px solid #CCAC02;
     }
-    nav a h3{
-        /* margin-left: 40px; */
-        font-style: normal;
-        font-size: 25px;
-        padding-left: 10px;
-        text-align: center;
-        
-    }
     .logo1{
         margin-right: 0px;
         width: 55px;
@@ -265,27 +224,6 @@ footer .f3{
         text-decoration: none;
         color: black;
     }
-    .navbar{
-        padding-right: 20px;
-        padding-left: 20px; 
-        margin-left: 0px;
-        width: 100%;
-        height: 80px;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        z-index: 99;
-    }
-    nav a{
-        transition: 0.2s;
-    }
-    nav ul li a:hover{
-        background-color: #CCAC02;
-        text-decoration: none;
-        color: white;
-        border-radius: 3px;
-    }
     a .beranda{
         background-color: #799664;
         width: 150px;
@@ -297,15 +235,13 @@ footer .f3{
     .penjelasan{
         width: 100%;
         height: 370px;
-        background-color: #4366A3;
+        background-color: #22577E;
         text-align: center;
         color: white;
         font-size: 20px;
         padding: 20px;
         padding-top: 30px; 
         box-sizing: border-box;
-        border-top: 3px solid #CCAC02;
-        border-bottom: 3px solid #CCAC02;
         margin-top: 50px; 
     }
     .parallax-window {
@@ -313,7 +249,6 @@ footer .f3{
         background: transparent;
     }
     footer{
-        border-top: 3px solid #CCAC02;
         margin-top: 50px;
         width: 100%;
         height: 300px;

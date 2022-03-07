@@ -25,7 +25,6 @@ use App\Http\Controllers\LoginAdminController;
 */
 
 Route::get('/', [UserController::class, 'index']);
-Route::get('/halaman-beranda', [UserController::class, 'halamanBeranda']);
 Route::post('/', [LoginController::class, 'registrasi']);
 
 Route::get('/masuk', [UserController::class, 'masuk'])->name('login');
@@ -40,6 +39,7 @@ Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 
 Route::middleware(['auth'])->group( function(){
 
+    Route::get('/beranda', [UserController::class, 'halamanBeranda']);
     Route::get('/profile', [UserController::class, 'profile']);
     Route::patch('/profile', [UserController::class, 'editProfile']);
 
