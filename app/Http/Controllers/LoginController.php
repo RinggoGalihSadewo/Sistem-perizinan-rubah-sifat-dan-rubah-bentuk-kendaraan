@@ -73,7 +73,6 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $ingat = $request->remember ? true : false;
 
         $credentials = $request->validate([
             'username' => ['required'],

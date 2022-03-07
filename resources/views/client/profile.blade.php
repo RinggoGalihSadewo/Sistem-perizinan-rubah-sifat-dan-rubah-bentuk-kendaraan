@@ -72,7 +72,7 @@
                                 Nama Pemilik
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" name="nama" value="{{$data[0]->nama_pemilik}}">
+                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data[0]->nama_pemilik}}">
                             </div>
                         </div>
                         <br>
@@ -81,7 +81,7 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" name="alamat" value="{{$data[0]->alamat}}">
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="{{$data[0]->alamat}}">
                             </div>
                         </div>
                         <br>  
@@ -90,7 +90,7 @@
                                 Email
                             </div>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="" name="email" value="{{$data[0]->email}}">
+                                <input type="email" class="form-control" id="email" name="email" value="{{$data[0]->email}}">
                             </div>
                         </div>
                         <br>             
@@ -99,12 +99,12 @@
                                 No. HP
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" name="noHp" value="{{$data[0]->no_hp}}">
+                                <input type="text" class="form-control" id="noHp" name="noHp" value="{{$data[0]->no_hp}}">
                             </div>
                         </div>
                         <br>
-                        <button type="submit" class="btn light" style="background: #E5E5E5; margin-right: 0px">BATAL</button>
-                        <button type="submit" class="btn" style="background: #22577E; margin-right: 0px">UBAH PROFILE</button>                                                       
+                        <a href="" id="batal" class="btn light" style="background: #E5E5E5; margin-right: 0px" onclick="batal()">BATAL</a>            
+                        <button type="submit" class="btn" style="background: #22577E; margin-left: 7px">UBAH PROFILE</button>                                                       
                         </form>
                     </div>
                 </div>
@@ -214,6 +214,15 @@
                 
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
+
+        <script>
+            function batal(){
+                document.getElementById('nama').value = "{{$data[0]->nama_pemilik}}";
+                document.getElementById('alamat').value = "{{$data[0]->alamat}}";
+                document.getElementById('email').value = "{{$data[0]->email}}";
+                document.getElementById('noHp').value = "{{$data[0]->no_hp}}";
+            }
+        </script>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

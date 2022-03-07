@@ -11,6 +11,7 @@ use App\Http\Controllers\GenerateQRController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\LoginAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,3 +113,5 @@ Route::get('/admin/laporan', [AdminController::class, 'laporan']);
 
 Route::get('/admin/pengumuman', [NotifikasiController::class, 'pengumuman']);
 Route::post('/admin/pengumuman', [NotifikasiController::class, 'storePengumuman']);
+
+Route::get('/login', [LoginAdminController::class, 'index']);
