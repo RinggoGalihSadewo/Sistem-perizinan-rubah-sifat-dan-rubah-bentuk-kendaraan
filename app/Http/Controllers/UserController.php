@@ -135,12 +135,12 @@ class UserController extends Controller
         $nameFcBpkb = $request->file('fcBpkb')->getClientOriginalName();
         $nameFcBukuUji = $request->file('fcBukuUji')->getClientOriginalName();
 
-        if($request->file('fcKTP') == null){
-            $nameFcKTP = "";
+        if($request->ktp == null){
+            $nameKtp = "";
         }
 
         else {
-            $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();            
+            $nameKtp = $request->ktp->getClientOriginalName();            
         }
 
         // $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();
@@ -179,12 +179,12 @@ class UserController extends Controller
         $bukuUji = $request->file('fcBukuUji')->storeAs(('Perizinan_Sifat/FC_Buku_Uji'), $nameFcBukuUji);
         $dimensi = $request->file('dimensi')->storeAs(('Perizinan_Sifat/Dimensi_Kendaraan'), $nameDimensi);
 
-        if($request->file('ktp') == null){
+        if($request->ktp == null){
             $ktp = "";
         }
 
         else{
-            $ktp = $request->file('fcKTP')->storeAs(('Perizinan_Sifat/FC_KTP'), $namefcKTP);    
+            $ktp = $request->file('ktp')->storeAs(('Perizinan_Sifat/FC_KTP'), $nameKtp);    
         }
 
         $faktur = $request->file('faktur')->storeAs(('Perizinan_Sifat/Faktur'), $nameFaktur);

@@ -262,7 +262,7 @@
                         <br>
 
                         <div class="row" id="ktp">
-                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control" id="iKtp" name="fcKTP"></div>
+                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control" id="iKtp" name="ktp"></div>
                         </div>
 
                         <div id="br2">
