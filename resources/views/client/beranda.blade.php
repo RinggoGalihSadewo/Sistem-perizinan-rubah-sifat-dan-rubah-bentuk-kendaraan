@@ -10,6 +10,7 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/client/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script src="/js/index.js"></script>
 
@@ -17,7 +18,7 @@
   </head>
   <body>
 
-    <div class="container-sm-fluid">
+    <div class="container-sm-fluid" data-aos="fade">
         <section id="navbar">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
@@ -67,7 +68,7 @@
 
         <section id="pendaftaran">
             <div class="pendaftaran">
-                <h2 class="text-center fw-bold text-dark">Pendaftaran Akun</h2>
+                <h2 class="text-center fw-bold text-dark" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">Pendaftaran Akun</h2>
                 
                 @if (session('status'))
                     <br>
@@ -79,7 +80,7 @@
                 <div class="ilus1 d-none d-lg-flex">
                     <img src="/img/tataCara/1.png" alt="">    
                 </div>
-                <div class="formDaftar mt-5">
+                <div class="formDaftar mt-5" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">
                     <form action="{{url('/')}}" method="post">
                         @csrf
 
@@ -292,27 +293,27 @@
             </div>
         </section>
 
-        <section id="tataCara">
+        <section id="tataCara" data-aos="fade">
             <div class="tataCara">
-                <h2 class="text-center fw-bold text-white">Petunjuk Proses Perizinan</h2> 
+                <h2 class="text-center fw-bold text-white" data-aos="fade">Petunjuk Proses Perizinan</h2> 
                 <div class="row text-center mt-5">
-                    <div class="col-xl-3">
+                    <div class="col-sm-6 col-xl-3" data-aos="slide-left" data-aos-offset="200" data-aos-duration="700">
                         <img src="/img/tataCara/tataCara1.png" alt="">
                     </div>
-                    <div class="col-xl-3">
+                    <div class="col-sm-6 col-xl-3" data-aos="slide-right" data-aos-offset="200" data-aos-duration="700">
                         <img src="/img/tataCara/tataCara2.png" alt="">
                     </div>
-                    <div class="col-xl-3">
+                    <div class="col-sm-6 col-xl-3" data-aos="slide-left" data-aos-offset="200" data-aos-duration="700">
                         <img src="/img/tataCara/tataCara3.png" alt="">
                     </div>
-                    <div class="col-xl-3">
+                    <div class="col-sm-6 col-xl-3" data-aos="slide-right" data-aos-offset="200" data-aos-duration="700">
                         <img src="/img/tataCara/tataCara4.png" alt="">
                     </div>
                 </div>  
             </div>
         </section>
 
-        <section id="layananPengaduan">
+        <section id="layananPengaduan" data-aos="slide-left" data-aos-offset="200" data-aos-duration="700">
             <div class="layananPengaduan">
             @if (session('laporan'))
                 <div class="alert alert-success">
@@ -353,7 +354,7 @@
 <footer
           class="text-center text-lg-start text-white"
           style="background-color: #1E6091"
-          >
+          data-aos="slide-up" data-aos-offset="200" data-aos-duration="700">
     <!-- Grid container -->
     <div class="container-fluid p-4 pb-0">
       <!-- Section: Links -->
@@ -361,14 +362,14 @@
         <!--Grid row-->
         <div class="row">
           <!-- Grid column -->
-          <div class="col-md-1 col-lg-1 col-xl-1 mx-auto mt-1">
+          <div class="col-md-2 col-lg-1 col-xl-1 mx-auto mt-1">
                 <img src="/img/logo/dishub.png" alt="" width="85px" height="85px">
           </div>
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" >
-            <h6 class="text-uppercase mb-4 font-weight-bold" style="margin-left: -70px">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="margin-left: 0px">
               <b>DINAS PERHUBUNGAN PROVINSI LAMPUNG</b>
             </h6>
-            <p style="text-align: justify; margin-left: -70px">
+            <p style="text-align: justify; margin-left: 0px">
               Dishub Provinsi Lampung adalah Penyelenggaraan urusan pemerintah bidang kebijakan perhubungan atau transportasi untuk wilayah provinsi Lampung. Fungsi dari Dinas Perhubungan adalah merumuskan kebijakan bidang perhubungan dalam wilayah kerjanya, kebijakan teknis bidang perhubungan, penyelenggaraan administrasi termasuk perizinan angkutan perhubungan, evaluasi dan laporan terkait bidang perhubungan.
             </p>
           </div>
@@ -378,7 +379,7 @@
           <hr class="w-100 clearfix d-md-none" />
 
           <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 contact">
             <h6 class="text-uppercase mb-4 font-weight-bold"><b>KONTAK KAMI</b></h6>
             <p><i class="fas fa-map-marker-alt mr-3"></i> Jl. Cut Mutiah No.76 Teluk Betung, Bandar Lampung</p>
             <p><i class="fas fa-phone mr-3"></i> (0721) 470209</p>
@@ -439,8 +440,8 @@
 
     <!-- Copyright -->
     <div
-         class="text-center p-3"
-         style="background-color: #22577E; width: 100%; position: absolute; bottom: 0;"
+         class="text-center p-3 footer2"
+         style="background-color: #22577E; width: 100%;"
          >
       © Copyright Pelayanan Perizinan Rubah Sifat dan Rubah Bentuk Online. All Rights Reserved Development by IF'18 ITERA
     </div>
@@ -451,6 +452,11 @@
         
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 
     <!-- Google Maps API -->

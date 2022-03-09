@@ -78,13 +78,22 @@ nav{
     font-style: bold;
     color: white;
 }
+.btnProfile{
+  margin-right: 3%;
+  position: absolute;
+  right: 0;
+}
+.btnCancel{
+  position: absolute;
+  right: 1;
+}
 .ilus1{
     position: absolute;
     bottom: 0;
 }
 .tataCara{
     background-color: #22577E;
-    padding: 60px;
+    padding: 60px 0px 60px 0px;
 }
 
 .layananPengaduan{
@@ -181,6 +190,11 @@ footer{
   bottom: 0;
 } */
 
+.wave{
+  width:1800px; 
+  height:600px;
+}
+
 .login-form{
   background-color: #FFFFFF;
   border-radius: 20px;
@@ -191,6 +205,11 @@ footer{
   right: 7%;
   top: 10%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.daftar{
+  text-decoration: none;
+  color:#1E6091;
 }
 
 .forgot-form{
@@ -281,6 +300,11 @@ footer{
 
 .textPenjelasan{
   margin-top: 5%;
+}
+
+footer .footer2{
+  position: absolute;
+  bottom: 0;
 }
 
 @media only screen and (max-width:992px){
@@ -386,7 +410,7 @@ footer{
 
 .card {
     margin: auto;
-    width: 38%;
+    width: auto;
     max-width: 600px;
     padding: 4vh 0;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -473,6 +497,7 @@ footer{
 .footer .row {
     margin: 0
 }
+
 
 #progressbar {
     margin-bottom: 3vh;
@@ -699,6 +724,7 @@ footer{
 
 .myProfile{
     width: 75%;
+    position: relative;
     background-color: #fff;
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -716,10 +742,23 @@ footer{
     padding: 10%;
 }
 
-
+@media only screen and (max-width:576px){
+  .btnProfile{
+    width: auto;
+    padding: 5px 10px 5px 10px;
+    margin-right: 7.5%;
+  }
+  .btnCancel{
+    width: auto;
+    padding: 5px 10px 5px 10px;
+  }
+}
 
 @media only screen and (max-width:992px){
   
+  nav h2{
+    padding-top: 5%;
+  }
   #pendaftaran{
     padding: 60px 0px 60px 0px;
   }
@@ -737,5 +776,58 @@ footer{
   .formPengaduan{
     width: 100%;
   }
+  .carousel-inner{
+    height: auto;
+  }
+  footer{
+    font-size: 12px;
+    text-align: center;
+  }
+  footer .footer2{
+    position: relative;
+    margin-top: 100px;
+  }
 
+  /* Login */
+
+  .waveUp img {
+    height: 100vh;
+  }
+
+  .wave{
+    display: none;
+  }
+
+  .logo{
+    margin-top: 20%;
+  }
+
+  .login-form{
+    width: auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 30%;
+    padding: 30px 0 30px 0;
+  }
+  .input-login{
+    width: 90%;
+  }
+  .foto{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  .myProfile{
+    width: 100%;
+    height: auto;
+    padding-bottom: 20%;
+    display: flex;
+  }
+
+  .btnProfile{
+  }
+  .btnCancel{
+
+  }
 }

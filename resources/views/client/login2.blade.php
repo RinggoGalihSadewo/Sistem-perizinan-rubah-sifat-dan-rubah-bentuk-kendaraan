@@ -10,25 +10,33 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/client/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <title>Masuk</title>
   </head>
   <body>
         
-        <div class="waveUp" style="z-index:-999;">    
-            <img src="/img/logo/wave1.png" alt="" width="1800px" height="600px">
+        <div class="waveUp" style="z-index:-999;" data-aos="fade">    
+            <img class="wave"src="/img/logo/wave1.png" alt="">
         </div>
 
-        <div class="ilus1 d-none d-lg-flex">
+        <div class="ilus1 d-none d-lg-flex" data-aos="slide-right">
             <img src="/img/tataCara/login.svg" alt="">    
         </div>
 
-        <div class="login-form">
+        <div class="logo d-lg-none" data-aos="fade">
+        <center>
+            <img src="/img/logo/dishub.png" alt="" width="100px" height="100px">
+        </center>
+        </div>
+
+        <div class="login-form" data-aos="slide-left">
             <h4 class="fw-bold text-center">Masuk</h4>
 
             <form action="{{url('/masuk')}}" method="post">
                 @csrf
                 <center>
+                <div>
                     <!-- <img src="/img/logo/username.png" alt=""> -->
                 <input type="text" class="input-login mt-3 @error('username') is-invalid @enderror" placeholder="username" name="username">
                 @error('username')
@@ -44,6 +52,7 @@
                     <div class="alert alert-danger" role="alert">
                         {{ $message }}	
                     </div>
+                </div>
                 </div>
                 @enderror
 <!--                 <div class="row mt-4">
@@ -61,9 +70,21 @@
                 <button type="submit" class="btn text-white mt-4 fw-bold" style="background: #22577E; height: 50px;">Masuk</button>
                 </center>
             </form>
+
+            <center class="mt-4">
+                <a href="/#pendaftaran" class="daftar">Belum punya akun ? yuk daftar akun</a>
+            </center>
+        
         </div>
+        
+        
 
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script> 
 
     <!-- Optional JavaScript; choose one of the two! -->
 
