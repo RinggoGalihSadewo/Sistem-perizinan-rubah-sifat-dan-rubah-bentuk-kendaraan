@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>RuangAdmin - Login</title>
+  <title>Login - Admin</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -27,9 +27,9 @@
               <div class="col-lg-12">
                 <div class="login-form">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Login Admin</h1>
                   </div>
-                  <form class="user" method="POST">
+                  <form class="user" method="POST" action="/login">
                     @csrf
                     <div class="form-group">
                       <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
@@ -49,8 +49,7 @@
                       <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </div>
                     <hr>
-                  </form>
-                  <hr>
+                  </form> 
                 </div>
               </div>
             </div>

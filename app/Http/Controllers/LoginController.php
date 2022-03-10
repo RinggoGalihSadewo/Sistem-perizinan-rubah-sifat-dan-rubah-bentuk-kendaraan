@@ -13,10 +13,14 @@ class LoginController extends Controller
     //
     public function registrasi(Request $request)
     {
+
+        if($request->password === $request->konPassword){
+        
         $validatedData = $request->validate([
 
             'username' => 'required',
             'password' => 'required',
+            'konPassword' => 'required',
             'namaPerusahaan' => 'required',
             'namaPemilik' => 'required',
             'kabupaten' => 'required',
@@ -31,6 +35,7 @@ class LoginController extends Controller
         [
             'username.required' => 'username wajib di isi',
             'password.required' => 'password wajib di isi',
+            'konPassword.required' => 'konfirmasi password wajib di isi',
             'namaPerusahaan.required' => 'nama perusahaan wajib di isi',
             'namaPemilik.required' => 'nama pemilik wajib di isi',
             'kabupaten.required' => 'kabupaten wajib di isi',
@@ -51,6 +56,7 @@ class LoginController extends Controller
 
         $user->username = $request->username;
         $user->password = $password;
+        $user->role = "Pengguna";
         $user->nama_perusahaan = $request->namaPerusahaan;
         $user->nama_pemilik = $request->namaPemilik;
         $user->kabupaten = $request->kabupaten;
@@ -69,6 +75,18 @@ class LoginController extends Controller
         $map->save();
 
         return redirect('/')->with('status', 'Pendaftaran Akun Berhasil !');
+
+        }
+
+        elseif($request->password !== $request->konPassword){
+            $validatedData = $request->validate([
+                'konPassword' => 'same:$request->password',        
+            ],
+            [
+                'konPassword.same' => 'Konfirmasi password tidak sesuai dengan isi password'
+            ]
+            );
+        }
     }
 
     public function authenticate(Request $request)

@@ -44,11 +44,15 @@
         </a>
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin','rs-staff','rs-kasi','rs-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item active" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin','rb-kasi','rb-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
+      @canany(['superadmin','rs-admin','rb-admin','sekretaris','kepala-dinas'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable2" aria-expanded="true"
           aria-controls="collapseTable">
@@ -57,11 +61,16 @@
         </a>
         <div id="collapseTable2" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
+      @endcan
+      @canany(['superadmin','rs-admin','rb-admin'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGeQR" aria-expanded="true"
           aria-controls="collapseGeQR">
@@ -70,11 +79,15 @@
         </a>
         <div id="collapseGeQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin'])
             <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin'])
             <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
+      @endcanany
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVaQR" aria-expanded="true"
           aria-controls="collapseVaQR">
@@ -83,8 +96,11 @@
         </a>
         <div id="collapseVaQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin','rs-staff','rs-kasi','rs-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/validasi/rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin','rb-kasi','rb-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/validasi/rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
@@ -94,13 +110,14 @@
           <span>Laporan</span>
         </a>
       </li>
+      @canany(['superadmin','rs-admin','rb-admin','sekretaris','kepala-dinas'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{url('/admin/pengumuman')}}">
           <i class="fas fa-bell"></i>
           <span>Pengumuman</span>
         </a>
       </li>
-
+      @endcanany
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -116,23 +133,11 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="/img/boy.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
+                <span class="ml-2 d-none d-lg-inline text-white small">{{auth()->user()->username}}</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout-admin">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -140,7 +145,7 @@
             </li>
           </ul>
         </nav>
-        <!-- Topbar -->
+      <!-- Topbar -->
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
@@ -180,9 +185,11 @@
                         <td>{{$d->nomor_kendaraan}}</td>
                         <td>
                           <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
+                          @canany(['superadmin','rs-admin'])
                           <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
                           <a href="/admin/data-rubah-sifat/pesan/{{$d->id}}" class="btn btn-sm btn-warning">Kirim Pesan</a>
                           <a href="#" class="btn btn-sm btn-danger">Hapus</a>
+                          @endcanany
                         </td>
                       </tr>
                       @endforeach

@@ -37,17 +37,21 @@
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
-          aria-controls="collapseForm"> 
+          aria-controls="collapseForm">
           <i class="fas fa-file-alt"></i>
           <span>Data Jenis Surat</span>
         </a>
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin','rs-staff','rs-kasi','rs-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin','rb-kasi','rb-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
+      @canany(['superadmin','rs-admin','rb-admin','sekretaris','kepala-dinas'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable2" aria-expanded="true"
           aria-controls="collapseTable">
@@ -56,11 +60,16 @@
         </a>
         <div id="collapseTable2" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-qr-code/rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
+      @endcan
+      @canany(['superadmin','rs-admin','rb-admin'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGeQR" aria-expanded="true"
           aria-controls="collapseGeQR">
@@ -69,11 +78,15 @@
         </a>
         <div id="collapseGeQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin'])
             <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin'])
             <a class="collapse-item" href="{{url('/admin/generate-qrcode-rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
+      @endcanany
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVaQR" aria-expanded="true"
           aria-controls="collapseVaQR">
@@ -82,8 +95,11 @@
         </a>
         <div id="collapseVaQR" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            @canany(['superadmin','rs-admin','rs-staff','rs-kasi','rs-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item active" href="{{url('/admin/validasi/rubah-sifat')}}">Rubah Sifat</a>
+            @elsecanany(['superadmin','rb-admin','rb-kasi','rb-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/validasi/rubah-bentuk')}}">Rubah Bentuk</a>
+            @endcanany
           </div>
         </div>
       </li>
@@ -93,12 +109,14 @@
           <span>Laporan</span>
         </a>
       </li>
+      @canany(['superadmin','rs-admin','rb-admin','sekretaris','kepala-dinas'])
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{url('/admin/pengumuman')}}">
           <i class="fas fa-bell"></i>
           <span>Pengumuman</span>
         </a>
-      </li>      
+      </li>
+      @endcanany
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -114,23 +132,11 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="/img/boy.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
+                <span class="ml-2 d-none d-lg-inline text-white small">{{auth()->user()->username}}</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout-admin">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -138,7 +144,7 @@
             </li>
           </ul>
         </nav>
-        <!-- Topbar -->
+      <!-- Topbar -->
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
@@ -171,36 +177,57 @@
                     <td>{{$loop->iteration}}</td>
                     <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
                     <td>
+                      
                       @if($d->trackSuratSifat['staff_angkutan'] == "Belum Validasi")
+                      @canany(['rs-staff','superadmin','rs-admin'])
                       <a href="/admin/validasi/rubah-sifat/staff-angkutan/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratSifat['staff_angkutan']}}</a>
-                      @else
+                      @elsecanany(['rs-kasi','rs-kabid','sekretaris','kepala-dinas'])
+                      <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Staff !')">{{$d->trackSuratSifat['staff_angkutan']}}</a>
+                      @endcanany
+                      @elseif($d->trackSuratSifat['staff_angkutan'] == "Sudah Validasi")
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['staff_angkutan']}}</a>
                       @endif
                     </td>
                     <td>
                       @if($d->trackSuratSifat['kasi_angkutan'] == "Belum Validasi")
+                      @canany(['rs-kasi','superadmin','rs-admin'])
                       <a href="/admin/validasi/rubah-sifat/kasi-angkutan/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratSifat['kasi_angkutan']}}</a>
+                      @elsecanany(['rs-staff','rs-kabid','sekretaris','kepala-dinas'])
+                      <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kasi !')">{{$d->trackSuratSifat['kasi_angkutan']}}</a>
+                      @endcanany
                       @else
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kasi_angkutan']}}</a>
                       @endif                      
                     </td>
                     <td>
                       @if($d->trackSuratSifat['kabid_lla'] == "Belum Validasi")
+                      @canany(['rs-kabid','superadmin','rs-admin'])
                       <a href="/admin/validasi/rubah-sifat/kabid-lla/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratSifat['kabid_lla']}}</a>
+                      @elsecanany(['rs-staff','rs-kasi','sekretaris','kepala-dinas'])
+                      <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kabid !')">{{$d->trackSuratSifat['kabid_lla']}}</a>
+                      @endcanany
                       @else
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kabid_lla']}}</a>
                       @endif                      
                     </td>
                     <td>
                       @if($d->trackSuratSifat['sekretariat'] == "Belum Validasi")
+                      @canany(['sekretaris','superadmin','rs-admin'])
                       <a href="/admin/validasi/rubah-sifat/sekretariat/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratSifat['sekretariat']}}</a>
+                      @elsecanany(['rs-staff','rs-kasi','rs-kabid','kepala-dinas'])
+                      <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Sekretariat !')">{{$d->trackSuratSifat['sekretariat']}}</a>
+                      @endcanany
                       @else
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['sekretariat']}}</a>
                       @endif              
                     </td>
                     <td>
                       @if($d->trackSuratSifat['kepala_dinas'] == "Belum Validasi")
+                      @canany(['kepala-dinas','superadmin','rs-admin'])
                       <a href="/admin/validasi/rubah-sifat/kepala-dinas/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratSifat['kepala_dinas']}}</a>
+                      @elsecanany(['rs-staff','rs-kasi','rs-kabid','sekretaris'])
+                      <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kepala Dinas !')">{{$d->trackSuratSifat['kepala_dinas']}}</a>
+                      @endcanany
                       @else
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kepala_dinas']}}</a>
                       @endif

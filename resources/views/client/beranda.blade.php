@@ -77,6 +77,13 @@
                     </div>
                 @endif
 
+                @if (session('gagal'))
+                    <br>
+                    <div class="alert alert-danger">
+                        {{ session('gagal') }}
+                    </div>
+                @endif
+
                 <div class="ilus1 d-none d-lg-flex">
                     <img src="/img/tataCara/1.png" alt="">    
                 </div>
@@ -109,6 +116,24 @@
                             <div class="col-sm-6">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="" name="password">
                                 @error('password')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                               Konfirmasi Password
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control @error('konPassword') is-invalid @enderror" id="" name="konPassword">
+                                @error('konPassword')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}	
@@ -162,7 +187,7 @@
                             </div>
                             <div class="col-sm-6">
                             <select class="form-select" aria-label="Default select example" name="kabupaten">
-                                <option selected>Pilih Kabupaten/Kota</option>
+                                <option value="Kota Bandar Lampung">Kota Bandar Lampung</option>
                                 <option value="Kabupaten Lampung Barat">Kabupaten Lampung Barat</option>
                                 <option value="Kabupaten Tanggamus">Kabupaten Tanggamus</option>
                                 <option value="Kabupaten Lampung Selatan">Kabupaten Lampung Selatan</option>
@@ -176,7 +201,6 @@
                                 <option value="Kabupaten Mesuji">Kabupaten Mesuji</option>
                                 <option value="Kabupaten Tulang Bawang Barat">Kabupaten Tulang Bawang Barat</option>
                                 <option value="Kabupaten Pesisir Barat">Kabupaten Pesisir Barat</option>
-                                <option value="Kota Bandar Lampung">Kota Bandar Lampung</option>
                                 <option value="Kota Metro">Kota Metro</option>
                             </select>
                             </div>

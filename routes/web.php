@@ -55,63 +55,70 @@ Route::middleware(['auth'])->group( function(){
 
 });
 
+Route::get('/login', [LoginAdminController::class, 'index'])->name('login-admin');
+Route::post('/login', [LoginAdminController::class, 'authenticate']);
 
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
-Route::get('/admin/dashboard/edit/{user}', [AdminController::class, 'viewEditIndex']);
-Route::patch('/admin/dashboard/edit/{user}', [AdminController::class, 'storeEditIndex']);
+Route::middleware(['admin'])->group( function(){
+    
+    
+    Route::get('/admin/dashboard', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
+    Route::get('/admin/dashboard/edit/{user}', [AdminController::class, 'viewEditIndex']);
+    Route::patch('/admin/dashboard/edit/{user}', [AdminController::class, 'storeEditIndex']);
 
-Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
-Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
-Route::get('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'viewEditSifat']);
-Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
-Route::get('/admin/data-rubah-sifat/pesan/{formSifat}', [NotifikasiController::class, 'pesanSifat']);
-Route::post('/admin/data-rubah-sifat', [NotifikasiController::class, 'storePesanSifat']);
-Route::get('/download-berkas-surat-permohonan/{namaFile}', [AdminController::class, 'berkasPermohonan']);
-Route::get('/download-berkas-surat-pernyataan/{namaFile}', [AdminController::class, 'berkasPernyataan']);
-
-
-Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
-Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::class, 'detailRubahBentuk']);
-Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'viewEditBentuk']);
-Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
-Route::get('/admin/data-rubah-bentuk/pesan/{formBentuk}', [NotifikasiController::class, 'pesanBentuk']);
-Route::post('/admin/data-rubah-bentuk', [NotifikasiController::class, 'storePesanBentuk']);
-Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
-Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);
-Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
-Route::get('/admin/data-qr-code/rubah-sifat/kirim-surat/{formSifat}', [NotifikasiController::class, 'suratSifat']);
-Route::post('/admin/data-qr-code/rubah-sifat', [NotifikasiController::class, 'storeSuratSifat']);
+    Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
+    Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
+    Route::get('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'viewEditSifat']);
+    Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
+    Route::get('/admin/data-rubah-sifat/pesan/{formSifat}', [NotifikasiController::class, 'pesanSifat']);
+    Route::post('/admin/data-rubah-sifat', [NotifikasiController::class, 'storePesanSifat']);
+    Route::get('/download-berkas-surat-permohonan/{namaFile}', [AdminController::class, 'berkasPermohonan']);
+    Route::get('/download-berkas-surat-pernyataan/{namaFile}', [AdminController::class, 'berkasPernyataan']);
 
 
-Route::get('/admin/data-qr-code/rubah-bentuk', [QrCodeController::class, 'viewBentuk']);
-Route::get('/admin/data-qr-code/rubah-bentuk/lihat-surat/{formBentuk}', [QrCodeController::class, 'lihatSuratBentuk']);
-Route::get('/admin/data-qr-code/rubah-bentuk/download-surat/{formBentuk}', [PdfController::class, 'generateBentuk']);
-Route::get('/admin/data-qr-code/rubah-bentuk/kirim-surat/{formBentuk}', [NotifikasiController::class, 'suratBentuk']);
-Route::post('/admin/data-qr-code/rubah-bentuk', [NotifikasiController::class, 'storeSuratBentuk']);
+    Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
+    Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::class, 'detailRubahBentuk']);
+    Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'viewEditBentuk']);
+    Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
+    Route::get('/admin/data-rubah-bentuk/pesan/{formBentuk}', [NotifikasiController::class, 'pesanBentuk']);
+    Route::post('/admin/data-rubah-bentuk', [NotifikasiController::class, 'storePesanBentuk']);
+    Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
+    Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);
+    Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
+    Route::get('/admin/data-qr-code/rubah-sifat/kirim-surat/{formSifat}', [NotifikasiController::class, 'suratSifat']);
+    Route::post('/admin/data-qr-code/rubah-sifat', [NotifikasiController::class, 'storeSuratSifat']);
 
-Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
-Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);
 
-Route::get('/admin/generate-qrcode-rubah-bentuk', [GenerateQRController::class, 'viewGenerateRubahBentuk']);
-Route::post('/admin/generate-qrcode-rubah-bentuk/{formBentuk}', [GenerateQRController::class, 'generateBentuk']);
+    Route::get('/admin/data-qr-code/rubah-bentuk', [QrCodeController::class, 'viewBentuk']);
+    Route::get('/admin/data-qr-code/rubah-bentuk/lihat-surat/{formBentuk}', [QrCodeController::class, 'lihatSuratBentuk']);
+    Route::get('/admin/data-qr-code/rubah-bentuk/download-surat/{formBentuk}', [PdfController::class, 'generateBentuk']);
+    Route::get('/admin/data-qr-code/rubah-bentuk/kirim-surat/{formBentuk}', [NotifikasiController::class, 'suratBentuk']);
+    Route::post('/admin/data-qr-code/rubah-bentuk', [NotifikasiController::class, 'storeSuratBentuk']);
 
-Route::get('/admin/validasi/rubah-sifat', [ValidasiSifatController::class, 'index']);
-Route::get('/admin/validasi/rubah-sifat/staff-angkutan/{formSifat}', [ValidasiSifatController::class, 'staff']);
-Route::get('/admin/validasi/rubah-sifat/kasi-angkutan/{formSifat}', [ValidasiSifatController::class, 'kasi']);
-Route::get('/admin/validasi/rubah-sifat/kabid-lla/{formSifat}', [ValidasiSifatController::class, 'kabid']);
-Route::get('/admin/validasi/rubah-sifat/sekretariat/{formSifat}', [ValidasiSifatController::class, 'sekretariat']);
-Route::get('/admin/validasi/rubah-sifat/kepala-dinas/{formSifat}', [ValidasiSifatController::class, 'kepalaDinas']);
+    Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
+    Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);
 
-Route::get('/admin/validasi/rubah-bentuk', [ValidasiBentukController::class, 'index']);
-Route::get('/admin/validasi/rubah-bentuk/kasi/{formBentuk}', [ValidasiBentukController::class, 'kasi']);
-Route::get('/admin/validasi/rubah-bentuk/kabid/{formBentuk}', [ValidasiBentukController::class, 'kabid']);
-Route::get('/admin/validasi/rubah-bentuk/sekretaris/{formBentuk}', [ValidasiBentukController::class, 'sekretaris']);
-Route::get('/admin/validasi/rubah-bentuk/kepala-dinas/{formBentuk}', [ValidasiBentukController::class, 'kepalaDinas']);
+    Route::get('/admin/generate-qrcode-rubah-bentuk', [GenerateQRController::class, 'viewGenerateRubahBentuk']);
+    Route::post('/admin/generate-qrcode-rubah-bentuk/{formBentuk}', [GenerateQRController::class, 'generateBentuk']);
 
-Route::get('/admin/laporan', [AdminController::class, 'laporan']);
+    Route::get('/admin/validasi/rubah-sifat', [ValidasiSifatController::class, 'index']);
+    Route::get('/admin/validasi/rubah-sifat/staff-angkutan/{formSifat}', [ValidasiSifatController::class, 'staff']);
+    Route::get('/admin/validasi/rubah-sifat/kasi-angkutan/{formSifat}', [ValidasiSifatController::class, 'kasi']);
+    Route::get('/admin/validasi/rubah-sifat/kabid-lla/{formSifat}', [ValidasiSifatController::class, 'kabid']);
+    Route::get('/admin/validasi/rubah-sifat/sekretariat/{formSifat}', [ValidasiSifatController::class, 'sekretariat']);
+    Route::get('/admin/validasi/rubah-sifat/kepala-dinas/{formSifat}', [ValidasiSifatController::class, 'kepalaDinas']);
 
-Route::get('/admin/pengumuman', [NotifikasiController::class, 'pengumuman']);
-Route::post('/admin/pengumuman', [NotifikasiController::class, 'storePengumuman']);
+    Route::get('/admin/validasi/rubah-bentuk', [ValidasiBentukController::class, 'index']);
+    Route::get('/admin/validasi/rubah-bentuk/kasi/{formBentuk}', [ValidasiBentukController::class, 'kasi']);
+    Route::get('/admin/validasi/rubah-bentuk/kabid/{formBentuk}', [ValidasiBentukController::class, 'kabid']);
+    Route::get('/admin/validasi/rubah-bentuk/sekretaris/{formBentuk}', [ValidasiBentukController::class, 'sekretaris']);
+    Route::get('/admin/validasi/rubah-bentuk/kepala-dinas/{formBentuk}', [ValidasiBentukController::class, 'kepalaDinas']);
 
-Route::get('/login', [LoginAdminController::class, 'index']);
+    Route::get('/admin/laporan', [AdminController::class, 'laporan']);
+
+    Route::get('/admin/pengumuman', [NotifikasiController::class, 'pengumuman']);
+    Route::post('/admin/pengumuman', [NotifikasiController::class, 'storePengumuman']);
+
+    Route::get('/logout-admin', [LoginAdminController::class, 'logout']);
+
+});
