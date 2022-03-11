@@ -185,6 +185,9 @@
                         <th>Nama Perusahaan</th>
                         <th>Jenis Perubahan</th>
                         <th>Nomor Kendaraan</th>
+                        @canany(['superadmin','rs-admin'])
+                        <th>Konfirmasi</th>
+                        @endcanany
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -195,11 +198,21 @@
                         <td>{{$d->user->nama_perusahaan}}</td>
                         <td>{{$d->jenis_perubahan}}</td>
                         <td>{{$d->nomor_kendaraan}}</td>
+                        @canany(['superadmin','rs-admin'])
                         <td>
+                          @if($d->konfirmasi === "Diterima")
+                          <a href="#" class="btn btn-sm btn-success">Sudah Diterima</a>
+                          @elseif($d->konfirmasi === "Ditolak")
+                          <a href="/admin/data-rubah-sifat/konfirmasi/{{$d->id}}" class="btn btn-sm btn-danger">Ditolak</a>
+                          @elseif($d->konfirmasi === "Ditolak" || $d->konfirmasi === "Menunggu")
+                          <a href="/admin/data-rubah-sifat/konfirmasi/{{$d->id}}" class="btn btn-sm btn-warning">Lakukan Konfirmasi</a>
+                          @endif
+                        <td>
+                        @endcanany
                           <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
                           @canany(['superadmin','rs-admin'])
                           <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="/admin/data-rubah-sifat/pesan/{{$d->id}}" class="btn btn-sm btn-warning">Kirim Pesan</a>
+                          <!-- <a href="/admin/data-rubah-sifat/pesan/{{$d->id}}" class="btn btn-sm btn-warning">Kirim Pesan</a> -->
                           <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                           @endcanany
                         </td>

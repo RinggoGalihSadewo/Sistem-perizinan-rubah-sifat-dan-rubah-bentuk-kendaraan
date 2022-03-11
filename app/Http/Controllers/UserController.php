@@ -95,6 +95,356 @@ class UserController extends Controller
         return view('client.alur', compact('data', 'data2'));
     }
 
+    public function perbaikanSifat(FormSifat $formSifat)
+    {
+        $data = FormSifat::find($formSifat);
+        
+        return view('client.perbaikanRubahSifat', compact('data'));
+    }
+
+    public function storePerbaikanSifat(FormSifat $formSifat, Request $request, BerkasSifat $berkasSifat)
+    {
+
+       // $validatedData = $request->validate([
+
+        //     'noKendaraan' => 'required',
+        //     'jenisPerizinan' => 'required',
+        //     'alamat' => 'required',
+        //     'merk' => 'required',
+        //     'jenis' => 'required',
+        //     'model' => 'required',
+        //     'warna' => 'required',
+        //     'tahun' => 'required',
+        //     'silinder' => 'required',
+        //     'noLandasan' => 'required',
+        //     'noMesin' => 'required',
+        //     'bpkb' => 'required',
+        // ],
+        // [
+        //     'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
+        //     'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
+        //     'alamat.required' => 'Alamat wajib di isi',
+        //     'merk.required' => 'merk wajib di isi',
+        //     'jenis.required' => 'Jenis wajib di isi',
+        //     'model.required' => 'Model wajib di isi',
+        //     'warna.required' => 'Warna wajib di isi',
+        //     'tahun.required' => 'Tahun wajib di isi',
+        //     'silinder.required' => 'Silinder wajib di isi',
+        //     'noLandasan.required' => 'No. Landasan wajib di isi',
+        //     'noMesin.required' => 'No. Mesin wajib di isi',
+        //     'bpkb' => 'No. BPKB wajib di isi',
+        // ]
+        // );
+
+        $nameSuratPermohonan = $request->file('suratPermohonan')->getClientOriginalName();
+        $nameSuratPernyataan = $request->file('suratPernyataan')->getClientOriginalName();
+        $nameFcStnk = $request->file('fcStnk')->getClientOriginalName();
+        $nameFcBpkb = $request->file('fcBpkb')->getClientOriginalName();
+        $nameFcBukuUji = $request->file('fcBukuUji')->getClientOriginalName();
+
+        if($request->ktp == null){
+            $nameKtp = "";
+        }
+
+        else {
+            $nameKtp = $request->ktp->getClientOriginalName();            
+        }
+
+        // $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();
+        $nameFaktur = $request->file('faktur')->getClientOriginalName();
+        $nameSerut = $request->file('serut')->getClientOriginalName();
+        $nameDocPerusahaan = $request->file('docPerusahaan')->getClientOriginalName();
+        $nameSuratBengkel = $request->file('bengkel')->getClientOriginalName();
+        $nameDimensi = $request->file('dimensi')->getClientOriginalName();
+        $nameFotoDepan = $request->depan->getClientOriginalName();
+        $nameFotoBelakang = $request->belakang->getClientOriginalName();
+        $nameFotoKiri = $request->kiri->getClientOriginalName();
+        $nameFotoKanan = $request->kanan->getClientOriginalName();
+
+        if($request->akteNotaris == null){
+            $nameAkteNotaris = "";
+        }
+
+        else {
+            $nameAkteNotaris = $request->akteNotaris->getClientOriginalName();           
+        }
+
+        if($request->kbli == null){
+            $nameKbli = "";
+        }
+
+        else {
+            $nameKbli = $request->file('kbli')->getClientOriginalName();           
+        }
+
+
+
+        $suratPermohonan = $request->file('suratPermohonan')->storeAs(('Perizinan_Sifat/Surat_Permohonan'), $nameSuratPermohonan);
+        $suratPernyataan = $request->file('suratPernyataan')->storeAs(('Perizinan_Sifat/Surat_Pernyataan'), $nameSuratPernyataan);
+        $fcStnk = $request->file('fcStnk')->storeAs(('Perizinan_Sifat/FC_STNK'), $nameFcStnk);
+        $fcBpkb = $request->file('fcBpkb')->storeAs(('Perizinan_Sifat/FC_BPKB'), $nameFcBpkb);
+        $bukuUji = $request->file('fcBukuUji')->storeAs(('Perizinan_Sifat/FC_Buku_Uji'), $nameFcBukuUji);
+        $dimensi = $request->file('dimensi')->storeAs(('Perizinan_Sifat/Dimensi_Kendaraan'), $nameDimensi);
+
+        if($request->ktp == null){
+            $ktp = "";
+        }
+
+        else{
+            $ktp = $request->file('ktp')->storeAs(('Perizinan_Sifat/FC_KTP'), $nameKtp);    
+        }
+
+        $faktur = $request->file('faktur')->storeAs(('Perizinan_Sifat/Faktur'), $nameFaktur);
+        $serut = $request->file('serut')->storeAs(('Perizinan_Sifat/Serut'), $nameSerut);
+        $DocPerusahaan = $request->file('docPerusahaan')->storeAs(('Perizinan_Sifat/Doc_Perusahaan'), $nameDocPerusahaan);
+        $bengkel = $request->file('bengkel')->storeAs(('Perizinan_Sifat/Surat_Bengkel'), $nameSuratBengkel);
+        $fotoDepan = $request->depan->storeAs(('Perizinan_Sifat/Foto_Depan'), $nameFotoDepan);
+        $fotoBelakang = $request->belakang->storeAs(('Perizinan_Sifat/Foto_Belakang'), $nameFotoBelakang);
+        $fotoKiri = $request->kiri->storeAs(('Perizinan_Sifat/Foto_Kiri'), $nameFotoKiri);
+        $fotoKanan = $request->kanan->storeAs(('Perizinan_Sifat/Foto_Kanan'), $nameFotoKanan);
+
+        if($request->akteNotaris == null){
+            $akteNotaris = "";
+        }
+
+        else{
+            $akteNotaris = $request->file('akteNotaris')->storeAs(('Perizinan_Sifat/Akte_Notaris'), $nameAkteNotaris);           
+        }
+
+        if($request->kbli == null){
+            $kbli = "";
+        }
+
+        else{
+            $kbli = $request->file('kbli')->storeAs(('Perizinan_Sifat/KBLI'), $nameKbli); 
+        }
+
+        
+        if($request->jenisPerizinan === "Perubahan Sifat (HITAM)"){
+            
+            FormSifat::where('id', $request->id)
+            ->update([
+                'user_id' => Auth::user()->id,
+                'nomor_kendaraan' => $request->noKendaraan,
+                'jenis_perubahan' => $request->jenisPerizinan,
+                'nama_pemilik' => $request->namaPemilik,
+                'alamat' => $request->alamat,
+                'merk' => $request->merk,
+                'jenis' => $request->jenis,
+                'model' => $request->model,
+                'warna' => $request->warna,
+                'tahun' => $request->tahun,
+                'isi_silinder' => $request->silinder,
+                'no_landasan' => $request->noLandasan,
+                'no_mesin' => $request->noMesin,
+                'no_bpkb' => $request->bpkb,
+                'konfirmasi' => "Menunggu",
+                'pesan_konfirmasi' => "-",        
+            ]);
+
+            BerkasSifat::where('form_sifat_id', $request->id)
+            ->update([
+                'surat_permohonan' => $nameSuratPermohonan,
+                'surat_pernyataan' => $nameSuratPernyataan,
+                'fc_stnk' => $fcStnk,
+                'fc_bpkb' => $fcBpkb,
+                'dimensi_kendaraan' => $dimensi,
+                'fc_buku_uji' => $bukuUji,
+                'foto_faktur' => $faktur,
+                'foto_serut' => $serut,
+                'surat_bengkel' => $bengkel,
+                'doc_perusahaan' => $DocPerusahaan,
+                'foto_depan' => $fotoDepan,
+                'foto_belakang' => $fotoBelakang,
+                'foto_kiri' => $fotoKiri,
+                'foto_kanan' => $fotoKanan,
+            ]);
+
+            return redirect('/alur-kordinasi')->with('status', 'Berhasil memperbaiki surat');
+
+        }
+
+        elseif($request->jenisPerizinan === "Perubahan Sifat (HITAM) BBN"){
+            
+            FormSifat::where('id', $request->id)
+            ->update([
+                'user_id' => Auth::user()->id,
+                'nomor_kendaraan' => $request->noKendaraan,
+                'jenis_perubahan' => $request->jenisPerizinan,
+                'nama_pemilik_lama' => $request->namaPemilikLama,
+                'nama_pemilik_baru' => $request->namaPemilikBaru,
+                'alamat' => $request->alamat,
+                'merk' => $request->merk,
+                'jenis' => $request->jenis,
+                'model' => $request->model,
+                'warna' => $request->warna,
+                'tahun' => $request->tahun,
+                'isi_silinder' => $request->silinder,
+                'no_landasan' => $request->noLandasan,
+                'no_mesin' => $request->noMesin,
+                'no_bpkb' => $request->bpkb,
+                'konfirmasi' => "Menunggu",
+                'pesan_konfirmasi' => "-",        
+            ]);
+
+            BerkasSifat::where('form_sifat_id', $request->id)
+            ->update([
+                'surat_permohonan' => $nameSuratPermohonan,
+                'surat_pernyataan' => $nameSuratPernyataan,
+                'fc_stnk' => $fcStnk,
+                'fc_ktp' => $ktp,
+                'fc_bpkb' => $fcBpkb,
+                'dimensi_kendaraan' => $dimensi,
+                'fc_buku_uji' => $bukuUji,
+                'foto_faktur' => $faktur,
+                'foto_serut' => $serut,
+                'surat_bengkel' => $bengkel,
+                'doc_perusahaan' => $DocPerusahaan,
+                'foto_depan' => $fotoDepan,
+                'foto_belakang' => $fotoBelakang,
+                'foto_kiri' => $fotoKiri,
+                'foto_kanan' => $fotoKanan,
+            ]);
+
+            return redirect('/alur-kordinasi')->with('status', 'Berhasil memperbaiki surat');
+
+        }
+
+        elseif($request->jenisPerizinan === "Penetapan Sifat (KUNING)" || $request->jenisPerizinan === "Perubahan Sifat (HITAM KE KUNING)"){
+            
+            FormSifat::where('id', $request->id)
+            ->update([
+                'user_id' => Auth::user()->id,
+                'nomor_kendaraan' => $request->noKendaraan,
+                'jenis_perubahan' => $request->jenisPerizinan,
+                'nama_pemilik_lama' => $request->namaPemilikLama,
+                'nama_pemilik_baru' => $request->namaPemilikBaru,
+                'alamat' => $request->alamat,
+                'merk' => $request->merk,
+                'jenis' => $request->jenis,
+                'model' => $request->model,
+                'warna' => $request->warna,
+                'tahun' => $request->tahun,
+                'isi_silinder' => $request->silinder,
+                'no_landasan' => $request->noLandasan,
+                'no_mesin' => $request->noMesin,
+                'no_bpkb' => $request->bpkb,
+                'konfirmasi' => "Menunggu",
+                'pesan_konfirmasi' => "-",        
+            ]);
+
+            BerkasSifat::where('form_sifat_id', $request->id)
+            ->update([
+                'surat_permohonan' => $nameSuratPermohonan,
+                'surat_pernyataan' => $nameSuratPernyataan,
+                'fc_stnk' => $fcStnk,
+                'fc_bpkb' => $fcBpkb,
+                'dimensi_kendaraan' => $dimensi,
+                'fc_buku_uji' => $bukuUji,
+                'foto_faktur' => $faktur,
+                'foto_serut' => $serut,
+                'surat_bengkel' => $bengkel,
+                'doc_perusahaan' => $DocPerusahaan,
+                'foto_depan' => $fotoDepan,
+                'foto_belakang' => $fotoBelakang,
+                'foto_kiri' => $fotoKiri,
+                'foto_kanan' => $fotoKanan,
+                'akte_notaris' => $akteNotaris,
+                'kbli' => $kbli,
+            ]);
+
+            return redirect('/alur-kordinasi')->with('status', 'Berhasil memperbaiki surat');
+        }
+
+    }
+
+    public function perbaikanBentuk(FormBentuk $formBentuk)
+    {
+        $data = FormBentuk::find($formBentuk);
+        
+        return view('client.perbaikanRubahBentuk', compact('data'));
+    }
+
+    public function storePerbaikanBentuk(FormBentuk $formBentuk, Request $request, BerkasBentuk $berkasBentuk)
+    {
+        $validatedData = $request->validate([
+
+            'noKendaraan' => 'required',
+            'namaPemilikLama' => 'required',
+            'namaPemilikBaru' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'silinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'bpkb' => 'required',
+            'noUji' => 'required',
+
+        ],
+        [
+            'noKendaraan .required' => 'No. Kendaraan  wajib di isi',
+            'namaPemilikLama.required' => 'Nama pemilik lama wajib di isi',
+            'namaPemilikBaru.required' => 'Nama pemilik baru wajib di isi',
+            'alamat.required' => 'Alamat wajib di isi',
+            'merk.required' => 'merk wajib di isi',
+            'jenis.required' => 'Jenis wajib di isi',
+            'warna.required' => 'Warna wajib di isi',
+            'tahun.required' => 'Tahun wajib di isi',
+            'silinder.required' => 'Silinder wajib di isi',
+            'noLandasan.required' => 'No. Landasan wajib di isi',
+            'noMesin.required' => 'No. Mesin wajib di isi',
+            'bpkb' => 'No. BPKB wajib di isi',
+            'noUji' => 'No. Uji wajib di isi',
+  
+        ]
+        );
+
+        $nameFotoDepan = $request->depan->getClientOriginalName();
+        $nameFotoBelakang = $request->belakang->getClientOriginalName();
+        $nameFotoKiri = $request->kiri->getClientOriginalName();
+        $nameFotoKanan = $request->kanan->getClientOriginalName();
+
+        $fotoDepan = $request->depan->storeAs(('Perizinan_Bentuk/Foto_Depan'), $nameFotoDepan);
+        $fotoBelakang = $request->belakang->storeAs(('Perizinan_Bentuk/Foto_Belakang'), $nameFotoBelakang);
+        $fotoKiri = $request->kiri->storeAs(('Perizinan_Bentuk/Foto_Kiri'), $nameFotoKiri);
+        $fotoKanan = $request->kanan->storeAs(('Perizinan_Bentuk/Foto_Kanan'), $nameFotoKanan);
+
+        FormBentuk::where('id', $request->id)
+        ->update([
+            'user_id' => Auth::user()->id,
+            'nomor_kendaraan' => $request->noKendaraan,
+            'perubahan_bentuk' => $request->perubahanBentuk,
+            'nama_pemilik_lama' => $request->namaPemilikLama,
+            'nama_pemilik_baru' => $request->namaPemilikBaru,
+            'alamat' => $request->alamat,
+            'merk' => $request->merk,
+            'jenis' => $request->jenis,
+            'warna' => $request->warna,
+            'tahun' => $request->tahun,
+            'volume_silinder' => $request->silinder,
+            'no_landasan' => $request->noLandasan,
+            'no_mesin' => $request->noMesin,
+            'no_bpkb' => $request->bpkb,
+            'no_uji' => $request->noUji,
+            'konfirmasi' => "Menunggu",
+            'pesan_konfirmasi' => "-",
+        ]);
+
+        BerkasBentuk::where('form_bentuk_id', $request->id)
+                ->update([
+                    'foto_depan' => $fotoDepan,
+                    'foto_belakang' => $fotoBelakang,
+                    'foto_kiri' => $fotoKiri,
+                    'foto_kanan' => $fotoKanan,
+                ]);
+
+        return redirect('/alur-kordinasi')->with('status', 'Berhasil memperbaiki surat');
+
+    }
+
     public function storeSifat(Request $request)
     {
 
@@ -231,6 +581,8 @@ class UserController extends Controller
         $formSifat->no_landasan = $request->noLandasan;
         $formSifat->no_mesin = $request->noMesin;
         $formSifat->no_bpkb = $request->bpkb;
+        $formSifat->konfirmasi = "Menunggu";
+        $formSifat->pesan_konfirmasi = "-";
         $formSifat->save();
 
         $BerkasSifat = new BerkasSifat;
@@ -342,6 +694,8 @@ class UserController extends Controller
         $FormBentuk->no_mesin = $request->noMesin;
         $FormBentuk->no_bpkb = $request->bpkb;
         $FormBentuk->no_uji = $request->noUji;
+        $FormBentuk->konfirmasi = "Menunggu";
+        $FormBentuk->pesan_konfirmasi = "-";
 
         $FormBentuk->save();
 

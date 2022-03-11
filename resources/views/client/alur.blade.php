@@ -47,16 +47,37 @@
 
     <br><br>
 
+    @if (session('status'))
+        <div class="alert alert-success text-center">
+            {{ session('status') }}
+        </div>
+        <br>
+    @endif
+
     @if($data->count() == 1)
     <div class="col-sm-12" data-aos="slide-left" data-aos-offset="200" data-aos-duration="700">
     <div class="card mb-4">
         <div class="title">Surat Perizinan Rubah Sifat</div>
         <div class="info">
             <div class="row">
-                <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$data[0]->created_at}}</span> </div>
-                <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">1</span> </div>
+            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$data[0]->created_at}}</span> </div>
+            @if($data[0]->konfirmasi === "Menunggu")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
+            @elseif($data[0]->konfirmasi === "Ditolak")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
+            <div class="row">
+                <div class="col-12">
+                <span id="heading">Pesan Ditolak</span>
+                    <p>{{$data[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$data[0]->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                </div>
+            <br>  
             </div>
-            <br>
+            
+            @elseif($data2[0]->konfirmasi === "Diterima")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
+            @endif
+        </div>
+        <br>
             <div class="row">
                 <span>Nomor Kendaraan : {{$data[0]->nomor_kendaraan}}</span>
             </div>
@@ -102,10 +123,10 @@
             <div class="row">
                 @if(isset($data[0]->qrSifat['qr_valid']))
                 <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$data[0]->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
                 @else
                 <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
                 @endif
             </div>
         </div>
@@ -127,10 +148,24 @@
         <div class="title">Surat Perizinan Rubah Sifat</div>
         <div class="info">
             <div class="row">
-                <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
-                <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$n}}</span> </div>
+            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
+            @if($d->konfirmasi === "Menunggu")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
+            @elseif($d->konfirmasi === "Ditolak")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
+            <div class="row">
+                <div class="col-12">
+                <span id="heading">Pesan Ditolak</span>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                </div>
+            <br>  
             </div>
-            <br>
+            
+            @elseif($data2[0]->konfirmasi === "Diterima")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
+            @endif
+        </div>
+        <br>
             <div class="row">
                 <span>Nomor Kendaraan : {{$d->nomor_kendaraan}}</span>
             </div>
@@ -176,10 +211,10 @@
             <div class="row">
                 @if(isset($d->qrSifat['qr_valid']))
                 <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$d->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
                 @else
                 <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
                 @endif
             </div>
         </div>
@@ -192,10 +227,24 @@
         <div class="title">Surat Perizinan Rubah Sifat</div>
         <div class="info">
             <div class="row">
-                <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
-                <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$n}}</span> </div>
+            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
+            @if($d->konfirmasi === "Menunggu")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
+            @elseif($d->konfirmasi === "Ditolak")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
+            <div class="row">
+                <div class="col-12">
+                <span id="heading">Pesan Ditolak</span>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                </div>
+            <br>  
             </div>
-            <br>
+            
+            @elseif($d->konfirmasi === "Diterima")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
+            @endif
+        </div>
+        <br>
             <div class="row">
                 <span>Nomor Kendaraan : {{$d->nomor_kendaraan}}</span>
             </div>
@@ -241,10 +290,10 @@
             <div class="row">
                 @if(isset($d->qrSifat['qr_valid']))
                 <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$d->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
                 @else
                 <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
                 @endif
             </div>
         </div>
@@ -269,7 +318,21 @@
     <div class="info">
         <div class="row">
             <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$data2[0]->created_at}}</span> </div>
-            <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">1</span> </div>
+            @if($data2[0]->konfirmasi === "Menunggu")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
+            @elseif($data2[0]->konfirmasi === "Ditolak")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
+            <div class="row">
+                <div class="col-12">
+                <span id="heading">Pesan Ditolak</span>
+                    <p>{{$data2[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$data2[0]->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                </div>
+            <br>  
+            </div>
+            
+            @elseif($data2[0]->konfirmasi === "Diterima")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
+            @endif
         </div>
         <br>
         <div class="row">
@@ -311,10 +374,10 @@
         <div class="row">
         @if(isset($data2[0]->qrBentuk['qr_valid']))
             <a href="/alur-kordinasi/rubah-bentuk/download-surat/{{$data2[0]->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+            *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
             @else
             <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+            *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
         @endif
         </div>
     </div>
@@ -335,8 +398,22 @@
     <div class="title">Surat Perizinan Rubah Bentuk</div>
     <div class="info">
         <div class="row">
-            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
-            <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$n}}</span> </div>
+        <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
+            @if($d->konfirmasi === "Menunggu")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
+            @elseif($d->konfirmasi === "Ditolak")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
+            <div class="row">
+                <div class="col-12">
+                <span id="heading">Pesan Ditolak</span>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                </div>
+            <br>  
+            </div>
+            
+            @elseif($data2[0]->konfirmasi === "Diterima")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
+            @endif
         </div>
         <br>
         <div class="row">
@@ -378,10 +455,10 @@
         <div class="row">
         @if(isset($d->qrBentuk['qr_valid']))
             <a href="/alur-kordinasi/rubah-bentuk/download-surat/{{$d->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+            *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
             @else
             <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-            *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+            *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
         @endif
         </div>
     </div>
@@ -393,8 +470,22 @@
     <div class="title">Surat Perizinan Rubah Bentuk</div>
     <div class="info">
         <div class="row">
-            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
-            <div class="col-5 pull-right"> <span id="heading">Order No.</span><br> <span id="details">{{$n}}</span> </div>
+        <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$d->created_at}}</span> </div>
+            @if($d->konfirmasi === "Menunggu")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
+            @elseif($d->konfirmasi === "Ditolak")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
+            <div class="row">
+                <div class="col-12">
+                <span id="heading">Pesan Ditolak</span>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                </div>
+            <br>  
+            </div>
+            
+            @elseif($data2[0]->konfirmasi === "Diterima")
+            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
+            @endif
         </div>
         <br>
         <div class="row">
@@ -436,10 +527,10 @@
         <div class="row">
         @if(isset($d->qrBentuk['qr_valid']))
         <a href="/alur-kordinasi/rubah-bentuk/download-surat/{{$d->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-        *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+        *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
         @else
         <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-        *Surat hanya bisa didownload ketika surat sudah melewati proses validasi oleh petugas perizinan
+        *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
         @endif
         </div>
     </div>

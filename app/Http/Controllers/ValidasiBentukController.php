@@ -12,7 +12,7 @@ class ValidasiBentukController extends Controller
     //
     public function index(FormBentuk $formBentuk)
     {
-        $data = FormBentuk::all();
+        $data = FormBentuk::where('konfirmasi', 'Diterima')->get();
         return view('admin.validBentuk', compact('data'));
     }
 

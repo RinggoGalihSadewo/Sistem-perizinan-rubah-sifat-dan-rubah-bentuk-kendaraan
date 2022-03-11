@@ -34,6 +34,8 @@ class CreateFormSifatTable extends Migration
             $table->string('no_landasan');
             $table->string('no_mesin');
             $table->string('no_bpkb');
+            $table->string('konfirmasi');
+            $table->string('pesan_konfirmasi');
             // $table->string('keterangan');
             // $table->string('masa_berlaku');
             $table->timestamps();

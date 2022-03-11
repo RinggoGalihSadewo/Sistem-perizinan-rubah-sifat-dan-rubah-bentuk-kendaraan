@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Data Rubah Bentuk</title>
+  <title>Konfirmasi Penerimaan</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -34,8 +34,7 @@
           <i class="fas fa-users"></i>
           <span>Data Pengguna</span>
         </a>
-      </li>
-      <li class="nav-item active">
+        <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
           <i class="fas fa-file-alt"></i>
@@ -129,7 +128,7 @@
         </a>
       </li>
       @endcanany
-    </ul>
+    </ul> 
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
@@ -161,70 +160,45 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Data Rubah Bentuk</h1>
+            <h1 class="h3 mb-0 text-gray-800">Konfirmasi Surat</h1>
           </div>
 
-          <div class="row">
+         <div class="row">
             <div class="col-lg-12 mb-4">
 
-              @if (session('status'))
-                  <div class="alert alert-success">
-                      {{ session('status') }}
-                  </div>
-              @endif
-              
-              <!-- Simple Tables -->
-              <div class="card">
-
-                <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Perusahaan</th>
-                        <th>Nama Pemilik Lama</th>
-                        <th>No. Kendaraan</th>
-                        @canany(['superadmin','rb-admin'])
-                        <th>Konfirmasi</th>
-                        @endcanany
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($data as $d)
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$d->user->nama_perusahaan}}</td>
-                        <td>{{$d->nama_pemilik_lama}}</td>
-                        <td>{{$d->nomor_kendaraan}}</td>
-                        <td>
-                          @if($d->konfirmasi === "Diterima")
-                          <a href="#" class="btn btn-sm btn-success">Sudah Diterima</a>
-                          @elseif($d->konfirmasi === "Ditolak")
-                          <a href="/admin/data-rubah-bentuk/konfirmasi/{{$d->id}}" class="btn btn-sm btn-danger">Ditolak</a>
-                          @elseif($d->konfirmasi === "Ditolak" || $d->konfirmasi === "Menunggu")
-                          <a href="/admin/data-rubah-bentuk/konfirmasi/{{$d->id}}" class="btn btn-sm btn-warning">Lakukan Konfirmasi</a>
-                          @endif
-                        </td>
-                        <td>
-                          <a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
-                          @canany(['superadmin','rb-admin'])
-                          <a href="/admin/data-rubah-bentuk/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="/admin/data-rubah-bentuk/pesan/{{$d->id}}" class="btn btn-sm btn-warning">Kirim Pesan</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
-                          @endcanany
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-                <div class="card-footer"></div>
-              </div>
-            </div>
-          </div>
-          <!--Row-->
+            @endif
 
+            <form action="/admin/data-rubah-bentuk/konfirmasi/{{$data->id}}" method="post" enctype="multipart/form-data" novalidate>
+              @csrf 
+              <input type="text" hidden class="form-control" id="inputEmail1" name="id" value="{{$data->id}}">
+              <div class="form-group">
+                <label for="inputEmail1" class="col-form-label">Konfirmasi</label>
+                <select name="konfirmasi" id="konfirmasi" class="form-control" onchange="update()">
+                  <option value="Menunggu">Menunggu</option>
+                  <option value="Ditolak" class="form-control">Ditolak</option>
+                  <option value="Diterima" class="form-control">Diterima</option>
+                </select>
+              </div>                  
+              <div class="form-group" id="divPesan">
+                <label for="pesan" class="col-form-label">Pesan (wajib)</label>
+                <div>
+                  <textarea class="form-control @error('pesan') is-invalid @enderror" id="pesan" placeholder="Masukan pesan" style="height: 300px;" name="pesan"></textarea>
+                  @error('pesan')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}  
+                        </div>
+                    </div>
+                  @enderror
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+              
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">
@@ -250,6 +224,7 @@
         </div>
         <!---Container Fluid-->
       </div>
+    </div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -268,6 +243,24 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
+  <script>
+    function update(){
+      var select = document.getElementById('konfirmasi');
+      var value = select.options[select.selectedIndex].value;
+
+      if(value === "Diterima" || value === "Menunggu"){
+        document.getElementById('divPesan').style.display = "none";
+        document.getElementById('pesan').value = "-";
+      }
+
+      else if(value === "Ditolak"){
+        document.getElementById('divPesan').style.display = "block";
+        document.getElementById('pesan').value = "";
+      }
+    } 
+    update();
+  </script>
 
   <script src="/vendors/jquery/jquery.min.js"></script>
   <script src="/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>

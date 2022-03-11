@@ -44,6 +44,10 @@ Route::middleware(['auth'])->group( function(){
     Route::patch('/profile', [UserController::class, 'editProfile']);
 
     Route::get('/alur-kordinasi', [UserController::class, 'alurKordinasi']);
+    Route::get('/alur-kordinasi/perbaikan-surat-sifat/{formSifat}', [UserController::class, 'perbaikanSifat']);
+    Route::post('/alur-kordinasi/perbaikan-surat-sifat/{formSifat}', [UserController::class, 'storePerbaikanSifat']);
+    Route::get('/alur-kordinasi/perbaikan-surat-bentuk/{formBentuk}', [UserController::class, 'perbaikanBentuk']);
+    Route::post('/alur-kordinasi/perbaikan-surat-bentuk/{formBentuk}', [UserController::class, 'storePerbaikanBentuk']);
     Route::get('/alur-kordinasi/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);
     Route::get('/alur-kordinasi/rubah-bentuk/download-surat/{formBentuk}', 'App\Http\Controllers\PdfController@generateBentuk');
 
@@ -67,6 +71,8 @@ Route::middleware(['admin'])->group( function(){
     Route::patch('/admin/dashboard/edit/{user}', [AdminController::class, 'storeEditIndex']);
 
     Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
+    Route::get('/admin/data-rubah-sifat/konfirmasi/{formSifat}', [AdminController::class, 'konfirmSifat']);
+    Route::post('/admin/data-rubah-sifat/konfirmasi/{formSifat}', [AdminController::class, 'storeKonfirmSifat']);
     Route::get('/admin/data-rubah-sifat/detail/{formSifat}', [AdminController::class, 'detailRubahSifat']);
     Route::get('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'viewEditSifat']);
     Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
@@ -77,6 +83,8 @@ Route::middleware(['admin'])->group( function(){
 
 
     Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
+    Route::get('/admin/data-rubah-bentuk/konfirmasi/{formBentuk}', [AdminController::class, 'konfirmBentuk']);
+    Route::post('/admin/data-rubah-bentuk/konfirmasi/{formBentuk}', [AdminController::class, 'storeKonfirmBentuk']);
     Route::get('/admin/data-rubah-bentuk/detail/{formBentuk}', [AdminController::class, 'detailRubahBentuk']);
     Route::get('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'viewEditBentuk']);
     Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);

@@ -94,6 +94,32 @@ class AdminController extends Controller
         return view('admin.RubahSifat', compact('data'));
     }
 
+    public function konfirmSifat(FormSifat $formSifat)
+    {
+        $data = FormSifat::find($formSifat->id);
+        return view('admin.konfirmSifat', compact('data'));
+    }
+
+    public function storeKonfirmSifat(FormSifat $formSifat, Request $request)
+    {
+       
+        $validatedData = $request->validate([
+            'pesan' => 'required',        
+        ],
+        [
+            'pesan.required' => 'Pesan wajib di isi'
+        ]
+        );
+        
+        FormSifat::where('id', $request->id)
+            ->update([
+                'konfirmasi' => $request->konfirmasi,
+                'pesan_konfirmasi' => $request->pesan,
+            ]);
+
+        return redirect('/admin/data-rubah-sifat/')->with('status', 'Berhasil melakukan konfirmasi perizinan');
+    }
+
     public function detailRubahSifat(FormSifat $formSifat)
     {
         $berkas = BerkasSifat::where('form_sifat_id', $formSifat->id)->get();
@@ -186,6 +212,31 @@ class AdminController extends Controller
     {
         $data = FormBentuk::with('user')->get();
         return view('admin.RubahBentuk', compact('data'));
+    }
+
+    public function konfirmBentuk(FormBentuk $formBentuk)
+    {
+        $data = FormBentuk::find($formBentuk->id);
+        return view('admin.konfirmBentuk', compact('data'));
+    }
+
+    public function storeKonfirmBentuk(FormBentuk $formBentuk, Request $request)
+    {
+        $validatedData = $request->validate([
+            'pesan' => 'required',        
+        ],
+        [
+            'pesan.required' => 'Pesan wajib di isi'
+        ]
+        );
+        
+        FormBentuk::where('id', $request->id)
+            ->update([
+                'konfirmasi' => $request->konfirmasi,
+                'pesan_konfirmasi' => $request->pesan,
+            ]);
+
+        return redirect('/admin/data-rubah-bentuk/')->with('status', 'Berhasil melakukan konfirmasi perizinan');
     }
 
     public function detailRubahBentuk(FormBentuk $formBentuk)
