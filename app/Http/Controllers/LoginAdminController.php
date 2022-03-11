@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 class LoginAdminController extends Controller
 {
     //
@@ -25,11 +27,12 @@ class LoginAdminController extends Controller
         ]);
 
         if (\Auth::attempt($credentials)) {
+            
             $request->session()->regenerate();
-
             return redirect()->intended('/admin/dashboard');
+          
         }
-
+        
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);

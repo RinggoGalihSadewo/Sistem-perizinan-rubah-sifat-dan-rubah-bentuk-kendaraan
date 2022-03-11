@@ -61,7 +61,7 @@ Route::post('/login', [LoginAdminController::class, 'authenticate']);
 Route::middleware(['admin'])->group( function(){
     
     
-    Route::get('/admin/dashboard', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('adminDashboard');
     Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
     Route::get('/admin/dashboard/edit/{user}', [AdminController::class, 'viewEditIndex']);
     Route::patch('/admin/dashboard/edit/{user}', [AdminController::class, 'storeEditIndex']);
