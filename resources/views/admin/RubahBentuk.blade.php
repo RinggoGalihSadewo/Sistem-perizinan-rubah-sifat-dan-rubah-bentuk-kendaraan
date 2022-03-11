@@ -197,6 +197,7 @@
                         <td>{{$d->user->nama_perusahaan}}</td>
                         <td>{{$d->nama_pemilik_lama}}</td>
                         <td>{{$d->nomor_kendaraan}}</td>
+                        @canany(['superadmin','rb-admin'])
                         <td>
                           @if($d->konfirmasi === "Diterima")
                           <a href="#" class="btn btn-sm btn-success">Sudah Diterima</a>
@@ -205,7 +206,9 @@
                           @elseif($d->konfirmasi === "Ditolak" || $d->konfirmasi === "Menunggu")
                           <a href="/admin/data-rubah-bentuk/konfirmasi/{{$d->id}}" class="btn btn-sm btn-warning">Lakukan Konfirmasi</a>
                           @endif
+                         
                         </td>
+                        @endcanany
                         <td>
                           <a href="/admin/data-rubah-bentuk/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
                           @canany(['superadmin','rb-admin'])

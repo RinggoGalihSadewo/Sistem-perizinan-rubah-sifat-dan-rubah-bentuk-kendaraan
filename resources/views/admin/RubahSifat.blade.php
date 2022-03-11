@@ -207,8 +207,9 @@
                           @elseif($d->konfirmasi === "Ditolak" || $d->konfirmasi === "Menunggu")
                           <a href="/admin/data-rubah-sifat/konfirmasi/{{$d->id}}" class="btn btn-sm btn-warning">Lakukan Konfirmasi</a>
                           @endif
-                        <td>
+                        </td>
                         @endcanany
+                        <td>
                           <a href="/admin/data-rubah-sifat/detail/{{$d->id}}" class="btn btn-sm btn-primary">Detail</a>
                           @canany(['superadmin','rs-admin'])
                           <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
