@@ -58,8 +58,27 @@
                 </div>
             </div>
         </section> -->
+        <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">
+        <section id="perizinan" style="margin-top: -30px; padding-bottom: 0px;">
+        <div class="formPerizinan">
+        <h5 class="text-left fw-bold">Download Ketentuan Surat</h5>
+        
+        <div>
+        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-surat-permohonan" class="downloadSurat"> Surat Permohonan</a>
+        </div>
+        <div>
+        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-surat-pernyataan" class="downloadSurat">  Surat Pernyataan</a>
+        </div>
+        <div>
+        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-surat-dimensi-kendaraan" class="downloadSurat">  Surat Dimensi Kendaraan</a>
+        </div>
+        <div>
+        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-persyaratan-perizinan" class="downloadSurat"> Persyaratan Perizinan</a>
+        </div>
 
-        <section id="perizinan" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">
+        </div>
+        </section>
+        <section id="perizinan" style="padding-top: 0px;">
             <div class="formPerizinan">
                 <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH SIFAT</h4>
 
@@ -395,6 +414,7 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Footer -->
 

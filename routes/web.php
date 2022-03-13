@@ -52,8 +52,13 @@ Route::middleware(['auth'])->group( function(){
     Route::get('/alur-kordinasi/rubah-bentuk/download-surat/{formBentuk}', 'App\Http\Controllers\PdfController@generateBentuk');
 
     Route::get('/perizinan-rubah-sifat', [UserController::class, 'rubahSifat']);
+    Route::get('/perizinan-rubah-sifat/download-surat-permohonan', [UserController::class, 'sifatSuratPermohonan']);
+    Route::get('/perizinan-rubah-sifat/download-surat-pernyataan', [UserController::class, 'sifatSuratPernyataan']);
+    Route::get('/perizinan-rubah-sifat/download-surat-dimensi-kendaraan', [UserController::class, 'sifatDimensi']);
+    Route::get('/perizinan-rubah-sifat/download-persyaratan-perizinan', [UserController::class, 'sifatPersyaratan']);
+    
     Route::post('/perizinan-rubah-sifat', [UserController::class, 'storeSifat']);
-
+    
     Route::get('/perizinan-rubah-bentuk', [UserController::class, 'rubahBentuk']);
     Route::post('/perizinan-rubah-bentuk', [UserController::class, 'storeBentuk']);
 

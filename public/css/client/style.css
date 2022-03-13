@@ -124,6 +124,11 @@ footer{
     text-align: center;
 }
 
+.downloadSurat{
+  text-decoration: none;
+  color: black;
+}
+
 
 /* Login Client */
 

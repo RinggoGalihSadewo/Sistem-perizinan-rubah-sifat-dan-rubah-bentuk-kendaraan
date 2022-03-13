@@ -36,6 +36,30 @@ class UserController extends Controller
         return view('client.login2');
     }
 
+    public function sifatSuratPermohonan()
+    {
+        $path = storage_path('app/public/Persyaratan_Sifat/SURAT_PERMOHONAN.docx');
+        return response()->download($path);
+    }
+
+    public function sifatSuratPernyataan()
+    {
+        $path = storage_path('app/public/Persyaratan_Sifat/SURAT PERNYATAAN.docx');
+        return response()->download($path);
+    }
+
+    public function sifatDimensi()
+    {
+        $path = storage_path('app/public/Persyaratan_Sifat/form dimensi kendaraan baru.pdf');
+        return response()->download($path);
+    }
+
+    public function sifatPersyaratan()
+    {
+        $path = storage_path('app/public/Persyaratan_Sifat/PERSYARATAN RUBAH SIFAT.pdf');
+        return response()->download($path);
+    }
+
     public function storeLaporan(Request $request)
     {
         Laporan::create([
