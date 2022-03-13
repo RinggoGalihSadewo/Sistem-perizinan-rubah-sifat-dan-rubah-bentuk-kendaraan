@@ -767,6 +767,9 @@ footer .footer2{
   #pendaftaran{
     padding: 60px 0px 60px 0px;
   }
+  #perizinan{
+    margin-top: 25px;
+  }
   .formDaftar{
     width: 100%;
   }

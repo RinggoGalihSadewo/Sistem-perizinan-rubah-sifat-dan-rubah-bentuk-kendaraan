@@ -28,7 +28,6 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link active" aria-current="page" href="{{url('/beranda')}}">Beranda</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Form Surat Perizinan
@@ -64,16 +63,16 @@
         <h5 class="text-left fw-bold">Download Ketentuan Surat</h5>
         
         <div>
-        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-surat-permohonan" class="downloadSurat"> Surat Permohonan</a>
+        <a href="/perizinan-rubah-sifat/download-surat-permohonan" class="downloadSurat"><img src="/img/logo/download-solid.svg" alt="" width="15px" height="15px"> Surat Permohonan</a>
         </div>
         <div>
-        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-surat-pernyataan" class="downloadSurat">  Surat Pernyataan</a>
+        <a href="/perizinan-rubah-sifat/download-surat-pernyataan" class="downloadSurat"><img src="/img/logo/download-solid.svg" alt="" width="15px" height="15px"> Surat Pernyataan</a>
         </div>
         <div>
-        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-surat-dimensi-kendaraan" class="downloadSurat">  Surat Dimensi Kendaraan</a>
+        <a href="/perizinan-rubah-sifat/download-surat-dimensi-kendaraan" class="downloadSurat"><img src="/img/logo/download-solid.svg" alt="" width="15px" height="15px"> Surat Dimensi Kendaraan</a>
         </div>
         <div>
-        <i class="fa-solid fa-download"></i> <a href="/perizinan-rubah-sifat/download-persyaratan-perizinan" class="downloadSurat"> Persyaratan Perizinan</a>
+        <a href="/perizinan-rubah-sifat/download-persyaratan-perizinan" class="downloadSurat"><img src="/img/logo/download-solid.svg" alt="" width="15px" height="15px"> Persyaratan Perizinan</a>
         </div>
 
         </div>
@@ -519,6 +518,7 @@
                 
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
+        
 
         <script src="/js/FormSifat2.js"></script>
 
