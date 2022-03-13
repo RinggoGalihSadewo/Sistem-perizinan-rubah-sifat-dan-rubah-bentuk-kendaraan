@@ -97,7 +97,14 @@
                                 Nomor Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noKendaraan">
+                                <input type="text" class="form-control @error('noKendaraan') is-invalid @enderror" id="" name="noKendaraan">
+                                @error('noKendaraan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -120,11 +127,27 @@
                         <br>
 
                         <div class="row" id="namaPemilik">
-                            <div class="col-sm-6">Nama Pemilik</div><div class="col-sm-6"><input type="text" class="form-control" id="iNamaPemilik" name="namaPemilik" ></div>
+                            <div class="col-sm-6">Nama Pemilik</div><div class="col-sm-6"><input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="iNamaPemilik" name="namaPemilik" >
+                            @error('namaPemilik')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
                         </div>
 
                         <div class="row" id="namaPemilikLama">
-                            <div class="col-sm-6">Nama Pemilik Lama</div><div class="col-sm-6"><input type="text" class="form-control" id="iNamaPemilikLama" name="namaPemilikLama"></div>
+                            <div class="col-sm-6">Nama Pemilik Lama</div><div class="col-sm-6"><input type="text" class="form-control @error('namaPemilikLama') is-invalid @enderror" id="iNamaPemilikLama" name="namaPemilikLama">
+                            @error('namaPemilikLama')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
                         </div>
 
                         <div id="br">
@@ -132,7 +155,15 @@
                         </div>
 
                         <div class="row" id="namaPemilikBaru">
-                            <div class="col-sm-6">Nama Pemilik Baru</div><div class="col-sm-6"><input type="text" class="form-control inpNamaPemilikBaru" id="iNamaPemilikBaru" name="namaPemilikBaru"></div>
+                            <div class="col-sm-6">Nama Pemilik Baru</div><div class="col-sm-6"><input type="text" class="form-control inpNamaPemilikBaru @error('namaPemilikBaru') is-invalid @enderror" id="iNamaPemilikBaru" name="namaPemilikBaru">
+                            @error('namaPemilikBaru')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
                         </div>
 
                         <br>
@@ -142,7 +173,14 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="alamat">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="" name="alamat">
+                                @error('alamat')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
             
@@ -153,7 +191,14 @@
                                 Merk / Type
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="merk">
+                                <input type="text" class="form-control @error('merk') is-invalid @enderror" id="" name="merk">
+                                @error('merk')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -164,7 +209,14 @@
                                 Jenis
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="jenis">
+                                <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="" name="jenis">
+                                @error('jenis')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -175,7 +227,14 @@
                                 Model
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="model">
+                                <input type="text" class="form-control @error('model') is-invalid @enderror" id="" name="model">
+                                @error('model')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -186,7 +245,14 @@
                                 Warna
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="warna">
+                                <input type="text" class="form-control @error('warna') is-invalid @enderror" id="" name="warna">
+                                @error('warna')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         
@@ -197,7 +263,14 @@
                                 Tahun Pembuatan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="tahun">
+                                <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="" name="tahun">
+                                @error('tahun')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         
@@ -208,7 +281,14 @@
                                 Isi Silinder
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="silinder">
+                                <input type="text" class="form-control @error('silinder') is-invalid @enderror" id="" name="silinder">
+                                @error('silinder')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -219,7 +299,14 @@
                                 No. Landasan / Rangka
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noLandasan">
+                                <input type="text" class="form-control @error('noLandasan') is-invalid @enderror" id="" name="noLandasan">
+                                @error('noLandasan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -230,7 +317,14 @@
                                 No. Mesin
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noMesin">
+                                <input type="text" class="form-control @error('noMesin') is-invalid @enderror" id="" name="noMesin">
+                                @error('noMesin')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -241,7 +335,14 @@
                                 No. BPKB
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="bpkb">
+                                <input type="text" class="form-control @error('bpkb') is-invalid @enderror" id="" name="bpkb">
+                                @error('bpkb')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -252,7 +353,14 @@
                                 Surat Permohonan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="suratPermohonan">
+                                <input type="file" class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan">
+                                @error('suratPermohonan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -263,7 +371,14 @@
                                 Surat Pernyataan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="suratPernyataan">
+                                <input type="file" class="form-control @error('suratPernyataan') is-invalid @enderror" id="" name="suratPernyataan">
+                                @error('suratPernyataan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -274,14 +389,29 @@
                                 Foto FC. STNK
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fcStnk">
+                                <input type="file" class="form-control @error('fcStnk') is-invalid @enderror" id="" name="fcStnk">
+                                @error('fcStnk')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
                         <br>
 
                         <div class="row" id="ktp">
-                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control" id="iKtp" name="ktp"></div>
+                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control @error('ktp') is-invalid @enderror" id="iKtp" name="ktp">
+                            @error('ktp')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
                         </div>
 
                         <div id="br2">
@@ -293,7 +423,14 @@
                                 Foto FC. BPKB
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fcBpkb">
+                                <input type="file" class="form-control @error('fcBpkb') is-invalid @enderror" id="" name="fcBpkb">
+                                @error('fcBpkb')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -304,7 +441,14 @@
                                 Foto FC. Buku Uji (KIR)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="fcBukuUji">
+                                <input type="file" class="form-control @error('fcBukuUji') is-invalid @enderror" id="" name="fcBukuUji">
+                                @error('fcBukuUji')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -315,7 +459,14 @@
                                 Foto Faktur Kendaraan 
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="faktur">
+                                <input type="file" class="form-control @error('faktur') is-invalid @enderror" id="" name="faktur">
+                                @error('faktur')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -326,7 +477,14 @@
                                 Foto SRUT (Sertifikasi Registrasi Uji Tipe)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="serut">
+                                <input type="file" class="form-control @error('serut') is-invalid @enderror" id="" name="serut">
+                                @error('serut')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -337,7 +495,14 @@
                                 Dokumen Perusahaan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="docPerusahaan">
+                                <input type="file" class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan">
+                                @error('docPerusahaan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -348,7 +513,14 @@
                                 Dimensi Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="dimensi">
+                                <input type="file" class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi">
+                                @error('dimensi')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -359,7 +531,14 @@
                                 Surat Keterangan Bengkel
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="" name="bengkel">
+                                <input type="file" class="form-control @error('bengkel') is-invalid @enderror" id="" name="bengkel">
+                                @error('bengkel')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -371,23 +550,59 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Sisi depan</label>
-                                <input type="file" class="form-control" id="" name="depan" placeholder="Sisi depan">
+                                <input type="file" class="form-control @error('depan') is-invalid @enderror" id="" name="depan" placeholder="Sisi depan">
+                                @error('depan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <br>
                                 <label>Sisi kiri</label>
-                                <input type="file" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
+                                <input type="file" class="form-control @error('kiri') is-invalid @enderror" id="" name="kiri" placeholder="Sisi kiri">
+                                @error('kiri')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <br>
                                 <label>Sisi kanan</label>
-                                <input type="file" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
+                                <input type="file" class="form-control @error('kanan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan">
+                                @error('kanan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <br>
                                 <label>Sisi belakang</label>
-                                <input type="file" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
+                                <input type="file" class="form-control @error('belakang') is-invalid @enderror" id="" name="belakang" placeholder="Sisi belakang">
+                                @error('belakang')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
                         <br>
 
                         <div class="row" id="notaris">
-                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control" id="iNotaris" name="akteNotaris"></div>
+                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control @error('akteNotaris') is-invalid @enderror" id="iNotaris" name="akteNotaris">
+                            @error('akteNotaris')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
                         </div>
 
                         <div id="br3">
@@ -395,7 +610,15 @@
                         </div>
 
                         <div class="row" id="kbli">
-                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control" id="iKbli" name="kbli"></div>
+                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control @error('kbli') is-invalid @enderror" id="iKbli" name="kbli">
+                            @error('kbli')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
                         </div>
 
                         <div id="br4">

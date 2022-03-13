@@ -26,8 +26,6 @@ class LoginController extends Controller
             'kabupaten' => 'required',
             'npwp' => 'required',
             'alamat' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
             'email' => 'required|email',
             'noHp' => 'required',            
 
@@ -41,8 +39,6 @@ class LoginController extends Controller
             'kabupaten.required' => 'kabupaten wajib di isi',
             'npwp.required' => 'npwp wajib di isi',
             'alamat.required' => 'alamat wajib di isi',
-            'lat.required' => 'masukan nilai lattitude',
-            'lng.required' => 'masukan nilai longtitude',
             'email.required' => 'email wajib di isi',
             'email.email' => 'harap masukan email sesuai dengan formatnya',
             'noHP.required' => 'no hp wajib di isi',
