@@ -47,13 +47,13 @@
             </div>
             <div class="carousel-inner" >
                 <div class="carousel-item active">
-                <img src="/img/slides/slides1_1 1.png" class="d-block w-100" alt="...">
+                <img src="/img/blur1.JPEG" class="d-block w-100 imgS" alt="..." width="1300" height="600" style="object-fit: cover; object-position: 80% 90%;">
                 </div>
                 <div class="carousel-item">
-                <img src="/img/slides/slides1_1 1.png" class="d-block w-100" alt="..." >
+                <img src="img/blur2.JPEG" class="d-block w-100 imgS" alt="..." width="1300" height="600" style="object-fit: cover; object-position: 80% 90%;">
                 </div>
                 <div class="carousel-item">
-                <img src="/img/slides/slides1_1 1.png" class="d-block w-100" alt="..." >
+                <img src="/img/slider2.JPG" class="d-block w-100 imgS" alt="..." width="1300" height="600" style="object-fit: cover; object-position: 80% 90%;">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

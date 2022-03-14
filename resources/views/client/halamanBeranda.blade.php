@@ -59,13 +59,13 @@
         <center>
         <div class="carousel-inner">
             <div class="carousel-item active" data-interval="5000">
-                <img class="d-block w-100" src="/img/slider2.JPG" alt="" width="1300" height="550" style="object-fit: cover; object-position: 80% 90%;">
+                <img class="d-block w-100" src="/img/slider2.JPG" alt="" width="1300" height="600" style="object-fit: cover; object-position: 80% 90%;">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="/img/blur2.JPEG" alt="" width="1300" height="550" style="object-fit: cover; ">
+                <img class="d-block w-100" src="/img/blur2.JPEG" alt="" width="1300" height="600" style="object-fit: cover; ">
             </div>   
             <div class="carousel-item" data-interval="5000">
-                <img class="d-block w-100" src="/img/blur1.JPEG" alt="" width="1300" height="550" style="object-fit: cover; object-position: 80% 100%;">
+                <img class="d-block w-100" src="/img/blur1.JPEG" alt="" width="1300" height="600" style="object-fit: cover; object-position: 80% 100%;">
             </div>
         </div>
         <a class="carousel-control-prev" href="#my-carousel" role="button" data-slide="prev">

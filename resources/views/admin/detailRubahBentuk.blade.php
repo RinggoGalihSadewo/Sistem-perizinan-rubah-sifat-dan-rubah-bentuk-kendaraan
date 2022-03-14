@@ -182,10 +182,10 @@
               <p>No Uji : {{$formBentuk->no_uji}}</p>                           
           </div>
           <div class="col-lg-6 mb-4">
-              <p>Foto Depan : </p><img src="/storage/{{$foto[0]->foto_depan}}" width="200px" height="200px">
-              <p>Foto Belakang : </p><img src="/storage/{{$foto[0]->foto_belakang}}" width="200px" height="200px">
-              <p>Foto Kiri : </p><img src="/storage/{{$foto[0]->foto_kiri}}" width="200px" height="200px">
-              <p>Foto Kanan : </p><img src="/storage/{{$foto[0]->foto_kanan}}" width="200px" height="200px"> 
+              <p>Foto Depan : </p><img src="/storage/{{$foto[0]->foto_depan}}" width="400px" height="400px">
+              <p>Foto Belakang : </p><img src="/storage/{{$foto[0]->foto_belakang}}" width="400px" height="400px">
+              <p>Foto Kiri : </p><img src="/storage/{{$foto[0]->foto_kiri}}" width="400px" height="400px">
+              <p>Foto Kanan : </p><img src="/storage/{{$foto[0]->foto_kanan}}" width="400px" height="400px"> 
           </div>
           <!--Row-->
 
