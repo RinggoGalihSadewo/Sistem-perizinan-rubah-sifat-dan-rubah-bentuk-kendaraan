@@ -14,6 +14,8 @@
 
     <script src="/js/index.js"></script>
 
+  </head>
+
     <title>Perizinan Kendaraan</title>
   </head>
   <body>
