@@ -97,7 +97,7 @@
                                 Nomor Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('noKendaraan') is-invalid @enderror" id="" name="noKendaraan">
+                                <input type="text" class="form-control @error('noKendaraan') is-invalid @enderror" id="" name="noKendaraan" value="{{old('noKendaraan')}}">
                                 @error('noKendaraan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -115,11 +115,11 @@
                                 Jenis Perubahan Sifat
                             </div>
                             <div class="col-sm-6">
-                                <select class="form-select" name="jenisPerizinan" id="jenis" onClick="update()">
-                                    <option>Perubahan Sifat (HITAM)</option>
-                                    <option>Perubahan Sifat (HITAM) BBN</option>
-                                    <option>Penetapan Sifat (KUNING)</option>
-                                    <option>Perubahan Sifat (HITAM KE KUNING)</option>
+                                <select class="form-select" name="jenisPerizinan" id="jenis" onClick="update()" value="{{old('jenisPerizinan')}}">
+                                    <option value="Perubahan Sifat (HITAM)">Perubahan Sifat (HITAM)</option>
+                                    <option value="Perubahan Sifat (HITAM) BBN">Perubahan Sifat (HITAM) BBN</option>
+                                    <option value="Penetapan Sifat (KUNING)">Penetapan Sifat (KUNING)</option>
+                                    <option value="Perubahan Sifat (HITAM KE KUNING)">Perubahan Sifat (HITAM KE KUNING)</option>
                                 </select>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                         <br>
 
                         <div class="row" id="namaPemilik">
-                            <div class="col-sm-6">Nama Pemilik</div><div class="col-sm-6"><input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="iNamaPemilik" name="namaPemilik" >
+                            <div class="col-sm-6">Nama Pemilik</div><div class="col-sm-6"><input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="iNamaPemilik" name="namaPemilik" value="{{old('namaPemilik')}}">
                             @error('namaPemilik')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="row" id="namaPemilikLama">
-                            <div class="col-sm-6">Nama Pemilik Lama</div><div class="col-sm-6"><input type="text" class="form-control @error('namaPemilikLama') is-invalid @enderror" id="iNamaPemilikLama" name="namaPemilikLama">
+                            <div class="col-sm-6">Nama Pemilik Lama</div><div class="col-sm-6"><input type="text" class="form-control @error('namaPemilikLama') is-invalid @enderror" id="iNamaPemilikLama" name="namaPemilikLama" value="{{old('namaPemilikLama')}}">
                             @error('namaPemilikLama')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
@@ -155,7 +155,7 @@
                         </div>
 
                         <div class="row" id="namaPemilikBaru">
-                            <div class="col-sm-6">Nama Pemilik Baru</div><div class="col-sm-6"><input type="text" class="form-control inpNamaPemilikBaru @error('namaPemilikBaru') is-invalid @enderror" id="iNamaPemilikBaru" name="namaPemilikBaru">
+                            <div class="col-sm-6">Nama Pemilik Baru</div><div class="col-sm-6"><input type="text" class="form-control inpNamaPemilikBaru @error('namaPemilikBaru') is-invalid @enderror" id="iNamaPemilikBaru" name="namaPemilikBaru" value="{{old('namaPemilikBaru')}}">
                             @error('namaPemilikBaru')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
@@ -173,7 +173,7 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="" name="alamat">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="" name="alamat" value="{{old('alamat')}}">
                                 @error('alamat')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -191,7 +191,7 @@
                                 Merk / Type
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('merk') is-invalid @enderror" id="" name="merk">
+                                <input type="text" class="form-control @error('merk') is-invalid @enderror" id="" name="merk" value="{{old('merk')}}">
                                 @error('merk')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -209,7 +209,7 @@
                                 Jenis
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="" name="jenis">
+                                <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="" name="jenis" value="{{old('jenis')}}">
                                 @error('jenis')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -227,7 +227,7 @@
                                 Model
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('model') is-invalid @enderror" id="" name="model">
+                                <input type="text" class="form-control @error('model') is-invalid @enderror" id="" name="model" value="{{old('model')}}">
                                 @error('model')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -245,7 +245,7 @@
                                 Warna
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('warna') is-invalid @enderror" id="" name="warna">
+                                <input type="text" class="form-control @error('warna') is-invalid @enderror" id="" name="warna" value="{{old('warna')}}">
                                 @error('warna')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -263,7 +263,7 @@
                                 Tahun Pembuatan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="" name="tahun">
+                                <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="" name="tahun" value="{{old('tahun')}}">
                                 @error('tahun')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -281,7 +281,7 @@
                                 Isi Silinder
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('silinder') is-invalid @enderror" id="" name="silinder">
+                                <input type="text" class="form-control @error('silinder') is-invalid @enderror" id="" name="silinder" value="{{old('silinder')}}">
                                 @error('silinder')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -299,7 +299,7 @@
                                 No. Landasan / Rangka
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('noLandasan') is-invalid @enderror" id="" name="noLandasan">
+                                <input type="text" class="form-control @error('noLandasan') is-invalid @enderror" id="" name="noLandasan" value="{{old('noLandasan')}}">
                                 @error('noLandasan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -317,7 +317,7 @@
                                 No. Mesin
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('noMesin') is-invalid @enderror" id="" name="noMesin">
+                                <input type="text" class="form-control @error('noMesin') is-invalid @enderror" id="" name="noMesin" value="{{old('noMesin')}}">
                                 @error('noMesin')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -335,7 +335,7 @@
                                 No. BPKB
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('bpkb') is-invalid @enderror" id="" name="bpkb">
+                                <input type="text" class="form-control @error('bpkb') is-invalid @enderror" id="" name="bpkb" value="{{old('bpkb')}}">
                                 @error('bpkb')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -350,10 +350,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Surat Permohonan
+                                Surat Permohonan (docx/pdf)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan">
+                                <input type="file" class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan" value="{{old('suratPermohonan')}}">
                                 @error('suratPermohonan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -368,11 +368,47 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Surat Pernyataan
+                                Surat Pernyataan (docx/pdf)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('suratPernyataan') is-invalid @enderror" id="" name="suratPernyataan">
+                                <input type="file" class="form-control @error('suratPernyataan') is-invalid @enderror" id="" name="suratPernyataan" value="{{old('suratPernyataan')}}">
                                 @error('suratPernyataan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                        <div class="col-sm-6">
+                            Dokumen Perusahaan (docx/pdf)
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="file" class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan" value="{{old('docPerusahaan')}}">
+                            @error('docPerusahaan')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Dimensi Kendaraan (docx/pdf)
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi" value="{{old('dimensi')}}">
+                                @error('dimensi')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}	
@@ -389,7 +425,7 @@
                                 Foto FC. STNK
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('fcStnk') is-invalid @enderror" id="" name="fcStnk">
+                                <input type="file" class="form-control @error('fcStnk') is-invalid @enderror" id="" name="fcStnk" value="{{old('fcStnk')}}">
                                 @error('fcStnk')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -403,7 +439,7 @@
                         <br>
 
                         <div class="row" id="ktp">
-                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control @error('ktp') is-invalid @enderror" id="iKtp" name="ktp">
+                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control @error('ktp') is-invalid @enderror" id="iKtp" name="ktp" value="{{old('ktp')}}">
                             @error('ktp')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
@@ -423,7 +459,7 @@
                                 Foto FC. BPKB
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('fcBpkb') is-invalid @enderror" id="" name="fcBpkb">
+                                <input type="file" class="form-control @error('fcBpkb') is-invalid @enderror" id="" name="fcBpkb" value="{{old('fcBpkb')}}">
                                 @error('fcBpkb')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -441,7 +477,7 @@
                                 Foto FC. Buku Uji (KIR)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('fcBukuUji') is-invalid @enderror" id="" name="fcBukuUji">
+                                <input type="file" class="form-control @error('fcBukuUji') is-invalid @enderror" id="" name="fcBukuUji" value="{{old('fcBukuUji')}}">
                                 @error('fcBukuUji')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -456,10 +492,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Foto Faktur Kendaraan 
+                                Foto Faktur Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('faktur') is-invalid @enderror" id="" name="faktur">
+                                <input type="file" class="form-control @error('faktur') is-invalid @enderror" id="" name="faktur" value="{{old('faktur')}}">
                                 @error('faktur')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -477,7 +513,7 @@
                                 Foto SRUT (Sertifikasi Registrasi Uji Tipe)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('serut') is-invalid @enderror" id="" name="serut">
+                                <input type="file" class="form-control @error('serut') is-invalid @enderror" id="" name="serut" value="{{old('srut')}}">
                                 @error('serut')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -492,46 +528,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Dokumen Perusahaan
+                               Foto Surat Keterangan Bengkel
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan">
-                                @error('docPerusahaan')
-                                <div class="invalid-feedback">
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}	
-                                    </div>
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Dimensi Kendaraan
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi">
-                                @error('dimensi')
-                                <div class="invalid-feedback">
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}	
-                                    </div>
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Surat Keterangan Bengkel
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control @error('bengkel') is-invalid @enderror" id="" name="bengkel">
+                                <input type="file" class="form-control @error('bengkel') is-invalid @enderror" id="" name="bengkel" value="{{old('bengkel')}}">
                                 @error('bengkel')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -550,7 +550,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Sisi depan</label>
-                                <input type="file" class="form-control @error('depan') is-invalid @enderror" id="" name="depan" placeholder="Sisi depan">
+                                <input type="file" class="form-control @error('depan') is-invalid @enderror" id="" name="depan" placeholder="Sisi depan" value="{{old('depan')}}">
                                 @error('depan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -560,7 +560,7 @@
                                 @enderror
                                 <br>
                                 <label>Sisi kiri</label>
-                                <input type="file" class="form-control @error('kiri') is-invalid @enderror" id="" name="kiri" placeholder="Sisi kiri">
+                                <input type="file" class="form-control @error('kiri') is-invalid @enderror" id="" name="kiri" placeholder="Sisi kiri" value="{{old('kiri')}}">
                                 @error('kiri')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -570,7 +570,7 @@
                                 @enderror
                                 <br>
                                 <label>Sisi kanan</label>
-                                <input type="file" class="form-control @error('kanan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan">
+                                <input type="file" class="form-control @error('kanan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan" value="{{old('kanan')}}">
                                 @error('kanan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -580,7 +580,7 @@
                                 @enderror
                                 <br>
                                 <label>Sisi belakang</label>
-                                <input type="file" class="form-control @error('belakang') is-invalid @enderror" id="" name="belakang" placeholder="Sisi belakang">
+                                <input type="file" class="form-control @error('belakang') is-invalid @enderror" id="" name="belakang" placeholder="Sisi belakang" value="{{old('belakang')}}">
                                 @error('belakang')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -594,7 +594,7 @@
                         <br>
 
                         <div class="row" id="notaris">
-                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control @error('akteNotaris') is-invalid @enderror" id="iNotaris" name="akteNotaris">
+                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control @error('akteNotaris') is-invalid @enderror" id="iNotaris" name="akteNotaris" value="{{old('akteNotaris')}}">
                             @error('akteNotaris')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
@@ -610,7 +610,7 @@
                         </div>
 
                         <div class="row" id="kbli">
-                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control @error('kbli') is-invalid @enderror" id="iKbli" name="kbli">
+                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control @error('kbli') is-invalid @enderror" id="iKbli" name="kbli" value="{{old('kbli')}}">
                             @error('kbli')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">

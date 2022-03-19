@@ -64,7 +64,14 @@
                                 Nomor Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noKendaraan">
+                                <input type="text" class="form-control @error('noKendaraan') is-invalid @enderror" id="" name="noKendaraan" value="{{old('noKendaraan')}}">
+                                @error('noKendaraan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -75,8 +82,15 @@
                                 Perubahan Bentuk
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="perubahanBentuk">
+                                <input type="text" class="form-control @error('perubahanBentuk') is-invalid @enderror" id="" name="perubahanBentuk" value="{{old('perubahanBentuk')}}">
                                 <small>*Contoh: Truck Tangki Menjadi Mobil Barang Bak Terbuka</small>
+                                @error('perubahanBentuk')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -87,7 +101,14 @@
                                 Nama Pemilik Lama
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="namaPemilikLama">
+                                <input type="text" class="form-control @error('namaPemilikLama') is-invalid @enderror" id="" name="namaPemilikLama" value="{{old('namaPemilikLama')}}">
+                                @error('namaPemilikLama')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -98,7 +119,14 @@
                                 Nama Pemilik Baru 
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="namaPemilikBaru">
+                                <input type="text" class="form-control @error('namaPemilikBaru') is-invalid @enderror" id="" name="namaPemilikBaru" value="{{old('namaPemilikBaru')}}">
+                                @error('namaPemilikBaru')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
             
@@ -109,7 +137,14 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="alamat">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="" name="alamat" value="{{old('alamat')}}">
+                                @error('alamat')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -120,7 +155,14 @@
                                 Merk / Type
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="merk">
+                                <input type="text" class="form-control @error('merk') is-invalid @enderror" id="" name="merk" value="{{old('merk')}}">
+                                @error('merk')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -131,7 +173,14 @@
                                 Jenis
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="jenis">
+                                <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="" name="jenis" value="{{old('jenis')}}">
+                                @error('jenis')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -142,7 +191,14 @@
                                 Warna
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="warna">
+                                <input type="text" class="form-control @error('warna') is-invalid @enderror" id="" name="warna" value="{{old('warna')}}">
+                                @error('warna')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         
@@ -153,7 +209,14 @@
                                 Tahun Pembuatan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="tahun">
+                                <input type="text" class="form-control @error('tahun') is-invalid @enderror" id="" name="tahun" value="{{old('tahun')}}">
+                                @error('tahun')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         
@@ -164,7 +227,14 @@
                                 Volume Silinder
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="silinder">
+                                <input type="text" class="form-control @error('silinder') is-invalid @enderror" id="" name="silinder" value="{{old('silinder')}}">
+                                @error('silinder')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -175,7 +245,14 @@
                                 No. Landasan / Rangka
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noLandasan">
+                                <input type="text" class="form-control @error('noLandasan') is-invalid @enderror" id="" name="noLandasan" value="{{old('noLandasan')}}">
+                                @error('noLandasan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -186,7 +263,14 @@
                                 No. Mesin
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noMesin">
+                                <input type="text" class="form-control @error('noMesin') is-invalid @enderror" id="" name="noMesin" value="{{old('noMesin')}}">
+                                @error('noMesin')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -197,9 +281,17 @@
                                 No. BPKB
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="bpkb">
+                                <input type="text" class="form-control @error('bpkb') is-invalid @enderror" id="" name="bpkb" value="{{old('bpkb')}}">
+                                @error('bpkb')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
+                        
 
                         <br>
 
@@ -208,7 +300,14 @@
                                 No. Uji Kendaraan
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="noUji">
+                                <input type="text" class="form-control @error('noUji') is-invalid @enderror" id="" name="noUji" value="{{old('noUji')}}">
+                                @error('noUji')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -220,16 +319,44 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Sisi depan</label>
-                                <input type="file" class="form-control" id="" name="depan" placeholder="Sisi depan">
+                                <input type="file" class="form-control @error('depan') is-invalid @enderror" id="" name="depan" placeholder="Sisi depan" value="{{old('depan')}}">
+                                @error('depan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <br>
                                 <label>Sisi kiri</label>
-                                <input type="file" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
+                                <input type="file" class="form-control @error('kiri') is-invalid @enderror" id="" name="kiri" placeholder="Sisi kiri" value="{{old('kiri')}}">
+                                @error('kiri')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <br>
                                 <label>Sisi kanan</label>
-                                <input type="file" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
+                                <input type="file" class="form-control @error('noKendaraan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan" value="{{old('kanan')}}">
+                                @error('noMesin')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <br>
                                 <label>Sisi belakang</label>
-                                <input type="file" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
+                                <input type="file" class="form-control @error('belakang') is-invalid @enderror" id="" name="belakang" placeholder="Sisi belakang" value="{{old('belakang')}}">
+                                @error('belakang')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 

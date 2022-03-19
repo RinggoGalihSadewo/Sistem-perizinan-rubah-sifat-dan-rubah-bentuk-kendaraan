@@ -188,10 +188,11 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php $i=1;?>
                       @foreach($data as $d)
                       @if(isset($d->qrSifat['qr_valid']))
                       <tr>
-                        <td>{{$loop->iteration}}</td>
+                        <td><?= $i ?></td>
                         <td><a href="/admin/data-rubah-sifat/detail/{{$d->id}}">{{$d->nomor_kendaraan}}</a></td>
                         <td>{{isset($d->qrSifat['no_surat']) ? $d->qrSifat['no_surat'] : ''}}</td>
                         <td>{{$d->user->email}}</td>
@@ -201,6 +202,7 @@
                           <a href="/admin/data-qr-code/rubah-sifat/kirim-surat/{{$d->id}}" class="btn btn-sm btn-success">Kirim Via Email</a>
                         </td>
                       </tr>
+                      <?php $i++;?>
                       @endif
                       @endforeach
                     </tbody>

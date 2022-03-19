@@ -222,16 +222,16 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Sisi depan</label>
-                                <input type="file" class="form-control" id="" name="depan" placeholder="Sisi depan">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="depan" placeholder="Sisi depan">
                                 <br>
                                 <label>Sisi kiri</label>
-                                <input type="file" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
                                 <br>
                                 <label>Sisi kanan</label>
-                                <input type="file" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
                                 <br>
                                 <label>Sisi belakang</label>
-                                <input type="file" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
                             </div>
                         </div>
 

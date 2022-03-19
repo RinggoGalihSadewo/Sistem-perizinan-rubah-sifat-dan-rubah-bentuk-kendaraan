@@ -26,16 +26,16 @@ class LoginAdminController extends Controller
             'password.required' => 'password wajib di isi'
         ]);
 
-        if (\Auth::attempt($credentials)) {
+        $role = ['superadmin','rs-admin','rs-staff','rs-kasi','rs-kabid','sekretaris','kepala-dinas','rb-admin','rb-kasi','rb-kabid'];
+
+        if (\Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => $role])) {
             
             $request->session()->regenerate();
             return redirect()->intended('/admin/dashboard');
           
         }
         
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return redirect('/login')->with('status', 'Username atau password anda salah !');
     }
 
     public function logout(Request $request)

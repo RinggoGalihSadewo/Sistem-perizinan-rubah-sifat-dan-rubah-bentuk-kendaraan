@@ -33,6 +33,12 @@
         <div class="login-form" data-aos="slide-left">
             <h4 class="fw-bold text-center">Masuk</h4>
 
+            @if (session('status'))
+            <div class="alert alert-danger mt-4 text-center">
+                {{ session('status') }}
+            </div>
+            @endif
+
             <form action="{{url('/masuk')}}" method="post">
                 @csrf
                 <center>

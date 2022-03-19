@@ -169,9 +169,10 @@
             <div class="card mb-4">
             <div class="card-body">
 
-                <form action="/admin/data-rubah-bentuk/edit/{{$formBentuk->id}}" method="post">
+                <form action="/admin/data-rubah-bentuk/edit/{{$formBentuk->id}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
+                <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="{{$formBentuk->id}}" hidden>
                 <div class="form-group">
                     <label for="exampleInputEmail1">No. Kendaraan</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name="noKendaraan" value="{{$formBentuk->nomor_kendaraan}}">
@@ -224,6 +225,23 @@
                     <label for="exampleInputEmail13">No. Uji</label>
                     <input type="text" class="form-control" id="exampleInputEmail13" name="noUji" value="{{$formBentuk->no_uji}}">
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        Foto Sesudah Dibentuk 4 sisi
+                        <label>Sisi depan</label>
+                        <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="depan" placeholder="Sisi depan">
+                        <br>
+                        <label>Sisi kiri</label>
+                        <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="kiri" placeholder="Sisi kiri">
+                        <br>
+                        <label>Sisi kanan</label>
+                        <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="kanan" placeholder="Sisi kanan">
+                        <br>
+                        <label>Sisi belakang</label>
+                        <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="" name="belakang" placeholder="Sisi belakang">
+                    </div>
+                </div>
+                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

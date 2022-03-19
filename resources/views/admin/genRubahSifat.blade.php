@@ -216,8 +216,9 @@
 
                         </form>
                       </tr>
-                      @endif
+                      
                       <?php $i++;?>
+                      @endif
                       @endforeach
                     </tbody>
                   </table>

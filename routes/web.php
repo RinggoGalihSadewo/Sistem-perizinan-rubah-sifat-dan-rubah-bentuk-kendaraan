@@ -95,6 +95,7 @@ Route::middleware(['admin'])->group( function(){
     Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
     Route::get('/admin/data-rubah-bentuk/pesan/{formBentuk}', [NotifikasiController::class, 'pesanBentuk']);
     Route::post('/admin/data-rubah-bentuk', [NotifikasiController::class, 'storePesanBentuk']);
+    
     Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
     Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);
     Route::get('/admin/data-qr-code/rubah-sifat/download-surat/{formSifat}', [PdfController::class, 'generateSifat']);

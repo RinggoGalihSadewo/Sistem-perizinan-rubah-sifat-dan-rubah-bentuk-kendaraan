@@ -29,6 +29,13 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Login Admin</h1>
                   </div>
+
+                  @if (session('status'))
+                  <div class="alert alert-danger">
+                      {{ session('status') }}
+                  </div>
+                  @endif
+
                   <form class="user" method="POST" action="/login">
                     @csrf
                     <div class="form-group">

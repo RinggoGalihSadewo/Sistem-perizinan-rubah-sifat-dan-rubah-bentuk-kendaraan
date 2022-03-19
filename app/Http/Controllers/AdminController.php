@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Map;
@@ -40,29 +41,31 @@ class AdminController extends Controller
     {
         $validatedData = $request->validate([
 
-            'namaPerusahaan' => 'required',
-            'namaPemilik' => 'required',
-            'kabupaten' => 'required',
-            'npwp' => 'required',
-            'alamat' => 'required',
-            // 'lat' => 'required',
-            // 'lng' => 'required',
-            'email' => 'required|email',
-            'noHp' => 'required',            
+            'username' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'password' => 'required',
+            'konPassword' => 'required',
+            'namaPerusahaan' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilik' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'kabupaten' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'npwp' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
+            'noHp' => 'required|integer|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
 
         ],
         [
+            'username.required' => 'username wajib di isi',
+            'password.required' => 'password wajib di isi',
+            'konPassword.required' => 'konfirmasi password wajib di isi',
             'namaPerusahaan.required' => 'nama perusahaan wajib di isi',
             'namaPemilik.required' => 'nama pemilik wajib di isi',
             'kabupaten.required' => 'kabupaten wajib di isi',
             'npwp.required' => 'npwp wajib di isi',
             'alamat.required' => 'alamat wajib di isi',
-            // 'lat.required' => 'masukan nilai lattitude',
-            // 'lng.required' => 'masukan nilai longtitude',
             'email.required' => 'email wajib di isi',
             'email.email' => 'harap masukan email sesuai dengan formatnya',
             'noHP.required' => 'no hp wajib di isi',
-  
+            'noHp.Integer' => 'harap masukan angka',
         ]
         );
 
@@ -135,53 +138,180 @@ class AdminController extends Controller
     public function storeEditSifat(FormSifat $formSifat, Request $request, User $user)
     {
 
-        
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required',
-            'namaPemilik' => 'required',
-            'alamat' => 'required',
-            'merk' => 'required',
-            'jenis' => 'required',
-            'model' => 'required',
-            'warna' => 'required',
-            'tahun' => 'required',
-            'isiSilinder' => 'required',
-            'noLandasan' => 'required',
-            'noMesin' => 'required',
-            'noBpkb' => 'required',
-            // 'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
-            // 'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
-
+            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'jenisPerizinan' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilik' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikLama' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikBaru' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'merk' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'jenis' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'model' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'silinder' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;:{}]+/',
+            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;:{}]+/',
+            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;:{}]+/',
+            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;:{}]+/',
+            'suratPermohonan' => 'required|mimes:docx,pdf',
+            'suratPernyataan' => 'required|mimes:docx,pdf',
+            'fcStnk' => 'required|mimes:jpg,png,jpeg',
+            'ktp' => 'mimes:jpg,png,jpeg',
+            'fcBpkb' => 'required|mimes:jpg,png,jpeg',
+            'fcBukuUji' => 'required|mimes:jpg,png,jpeg',
+            'faktur' => 'required|mimes:jpg,png,jpeg',
+            'serut' => 'required|mimes:jpg,png,jpeg',
+            'docPerusahaan' => 'required|mimes:docx,pdf',
+            'dimensi' => 'required|mimes:docx,pdf',
+            'bengkel' => 'required|mimes:jpg,png,jpeg',
+            'depan' => 'required|mimes:jpg,png,jpeg',
+            'kiri' => 'required|mimes:jpg,png,jpeg',
+            'kanan' => 'required|mimes:jpg,png,jpeg',
+            'belakang' => 'required|mimes:jpg,png,jpeg',
+            'akteNotaris' => 'mimes:jpg,png,jpeg',
+            'kbli' => 'mimes:jpg,png,jpeg',
         ],
         [
             'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
-            'namaPemilik.required' => 'Nama Pemilik wajib di isi',
+            'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
+            'namaPemilik.required' => 'Nama pemilik wajib di isi',
+            'namaPemilikLama.required' => 'Nama pemilik lama wajib di isi',
+            'namaPemilikBaru.required' => 'Nama pemilik baru wajib di isi',
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
             'jenis.required' => 'Jenis wajib di isi',
             'model.required' => 'Model wajib di isi',
             'warna.required' => 'Warna wajib di isi',
             'tahun.required' => 'Tahun wajib di isi',
-            'isiSilinder.required' => 'Isi Silinder wajib di isi',
+            'silinder.required' => 'Silinder wajib di isi',
             'noLandasan.required' => 'No. Landasan wajib di isi',
             'noMesin.required' => 'No. Mesin wajib di isi',
-            'noBpkb.required' => 'No. BPKB wajib di isi',
-            // 'fotoSebelum.required' => 'Wajib masukan foto',
-            // 'fotoSebelum.image' => 'Foto harus berupa gambar',
-            // 'fotoSebelum.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            // 'fotoSebelum.max' => 'Ukuran gambar maksimal 2MB',
-            // 'fotoSesudah.required' => 'Wajib masukan foto',
-            // 'fotoSesudah.image' => 'Foto harus berupa gambar',
-            // 'fotoSesudah.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            // 'fotoSesudah.max' => 'Ukuran gambar maksimal 2MB',
-  
+            'bpkb.required' => 'No. BPKB wajib di isi',
+            'suratPermohonan.required' => 'Surat permohonan wajib di isi',
+            'suratPermohonan.mimes' => 'Harap masukan dokumen bertipe docx/pdf',
+            'suratPernyataan.required' => 'Surat pernyataan wajib di isi',
+            'suratPernyataan.mimes' => 'Harap masukan dokumen bertipe docx/pdf',
+            'fcStnk.required' => 'Foto FC STNK wajib di isi',
+            'fcStnk.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'ktp.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'fcBpkb.required' => 'Foto FC BPKB wajib di isi',
+            'fcBpkb.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'fcBukuUji.required' => 'Foto buku uji wajib di isi',
+            'fcBukuUji.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'faktur.required' => 'Foto faktur kendaraan wajib di isi',
+            'faktur.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'serut.required' => 'Foto sertifikasi registrasi uji tipe wajib di isi',
+            'serut.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'docPerusahaan.required' => 'Dokumen perusahaan wajib di isi',
+            'docPerusahaan.mimes' => 'Harap masukan dokumen bertipe docx/pdf',
+            'dimensi.required' => 'Surat dimensi kendaraan wajib di isi',
+            'dimensi.mimes' => 'Harap masukan dokumen bertipe docx/pdf',
+            'bengkel.required' => 'Foto surat keterangan bengkel wajib di isi',
+            'bengkel.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
+            'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
+            'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
+            'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
+            'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'akteNotaris.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kbli.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
         ]
         );
 
-        FormSifat::where('id', $formSifat->id)
+        $nameSuratPermohonan = $request->file('suratPermohonan')->getClientOriginalName();
+        $nameSuratPernyataan = $request->file('suratPernyataan')->getClientOriginalName();
+        $nameFcStnk = $request->file('fcStnk')->getClientOriginalName();
+        $nameFcBpkb = $request->file('fcBpkb')->getClientOriginalName();
+        $nameFcBukuUji = $request->file('fcBukuUji')->getClientOriginalName();
+
+        if($request->ktp == null){
+            $nameKtp = "";
+        }
+
+        else {
+            $nameKtp = $request->ktp->getClientOriginalName();            
+        }
+
+        // $nameFcKTP = $request->file('fcKTP')->getClientOriginalName();
+        $nameFaktur = $request->file('faktur')->getClientOriginalName();
+        $nameSerut = $request->file('serut')->getClientOriginalName();
+        $nameDocPerusahaan = $request->file('docPerusahaan')->getClientOriginalName();
+        $nameSuratBengkel = $request->file('bengkel')->getClientOriginalName();
+        $nameDimensi = $request->file('dimensi')->getClientOriginalName();
+        $nameFotoDepan = $request->depan->getClientOriginalName();
+        $nameFotoBelakang = $request->belakang->getClientOriginalName();
+        $nameFotoKiri = $request->kiri->getClientOriginalName();
+        $nameFotoKanan = $request->kanan->getClientOriginalName();
+
+        if($request->akteNotaris == null){
+            $nameAkteNotaris = "";
+        }
+
+        else {
+            $nameAkteNotaris = $request->akteNotaris->getClientOriginalName();           
+        }
+
+        if($request->kbli == null){
+            $nameKbli = "";
+        }
+
+        else {
+            $nameKbli = $request->file('kbli')->getClientOriginalName();           
+        }
+
+
+
+        $suratPermohonan = $request->file('suratPermohonan')->storeAs(('Perizinan_Sifat/Surat_Permohonan'), $nameSuratPermohonan);
+        $suratPernyataan = $request->file('suratPernyataan')->storeAs(('Perizinan_Sifat/Surat_Pernyataan'), $nameSuratPernyataan);
+        $fcStnk = $request->file('fcStnk')->storeAs(('Perizinan_Sifat/FC_STNK'), $nameFcStnk);
+        $fcBpkb = $request->file('fcBpkb')->storeAs(('Perizinan_Sifat/FC_BPKB'), $nameFcBpkb);
+        $bukuUji = $request->file('fcBukuUji')->storeAs(('Perizinan_Sifat/FC_Buku_Uji'), $nameFcBukuUji);
+        $dimensi = $request->file('dimensi')->storeAs(('Perizinan_Sifat/Dimensi_Kendaraan'), $nameDimensi);
+
+        if($request->ktp == null){
+            $ktp = "";
+        }
+
+        else{
+            $ktp = $request->file('ktp')->storeAs(('Perizinan_Sifat/FC_KTP'), $nameKtp);    
+        }
+
+        $faktur = $request->file('faktur')->storeAs(('Perizinan_Sifat/Faktur'), $nameFaktur);
+        $serut = $request->file('serut')->storeAs(('Perizinan_Sifat/Serut'), $nameSerut);
+        $DocPerusahaan = $request->file('docPerusahaan')->storeAs(('Perizinan_Sifat/Doc_Perusahaan'), $nameDocPerusahaan);
+        $bengkel = $request->file('bengkel')->storeAs(('Perizinan_Sifat/Surat_Bengkel'), $nameSuratBengkel);
+        $fotoDepan = $request->depan->storeAs(('Perizinan_Sifat/Foto_Depan'), $nameFotoDepan);
+        $fotoBelakang = $request->belakang->storeAs(('Perizinan_Sifat/Foto_Belakang'), $nameFotoBelakang);
+        $fotoKiri = $request->kiri->storeAs(('Perizinan_Sifat/Foto_Kiri'), $nameFotoKiri);
+        $fotoKanan = $request->kanan->storeAs(('Perizinan_Sifat/Foto_Kanan'), $nameFotoKanan);
+
+        if($request->akteNotaris == null){
+            $akteNotaris = "";
+        }
+
+        else{
+            $akteNotaris = $request->file('akteNotaris')->storeAs(('Perizinan_Sifat/Akte_Notaris'), $nameAkteNotaris);           
+        }
+
+        if($request->kbli == null){
+            $kbli = "";
+        }
+
+        else{
+            $kbli = $request->file('kbli')->storeAs(('Perizinan_Sifat/KBLI'), $nameKbli); 
+        }
+
+        if($request->jenisPerizinan === "Perubahan Sifat (HITAM)"){
+            
+            FormSifat::where('id', $request->id)
             ->update([
                 'nomor_kendaraan' => $request->noKendaraan,
+                'jenis_perubahan' => $request->jenisPerizinan,
                 'nama_pemilik' => $request->namaPemilik,
                 'alamat' => $request->alamat,
                 'merk' => $request->merk,
@@ -193,9 +323,121 @@ class AdminController extends Controller
                 'no_landasan' => $request->noLandasan,
                 'no_mesin' => $request->noMesin,
                 'no_bpkb' => $request->noBpkb,
-        ]);
+                'konfirmasi' => "Menunggu",
+                'pesan_konfirmasi' => "-",        
+            ]);
 
-        return redirect('/admin/data-rubah-sifat')->with('status', 'Data berhasil di edit');
+            BerkasSifat::where('form_sifat_id', $request->id)
+            ->update([
+                'surat_permohonan' => $nameSuratPermohonan,
+                'surat_pernyataan' => $nameSuratPernyataan,
+                'fc_stnk' => $fcStnk,
+                'fc_bpkb' => $fcBpkb,
+                'dimensi_kendaraan' => $dimensi,
+                'fc_buku_uji' => $bukuUji,
+                'foto_faktur' => $faktur,
+                'foto_serut' => $serut,
+                'surat_bengkel' => $bengkel,
+                'doc_perusahaan' => $DocPerusahaan,
+                'foto_depan' => $fotoDepan,
+                'foto_belakang' => $fotoBelakang,
+                'foto_kiri' => $fotoKiri,
+                'foto_kanan' => $fotoKanan,
+            ]);
+
+            return redirect('/admin/data-rubah-sifat')->with('status', 'Data berhasil di edit');
+
+        }
+
+        elseif($request->jenisPerizinan === "Perubahan Sifat (HITAM) BBN"){
+            
+            FormSifat::where('id', $request->id)
+            ->update([
+                'nomor_kendaraan' => $request->noKendaraan,
+                'jenis_perubahan' => $request->jenisPerizinan,
+                'nama_pemilik_lama' => $request->namaPemilikLama,
+                'nama_pemilik_baru' => $request->namaPemilikBaru,
+                'alamat' => $request->alamat,
+                'merk' => $request->merk,
+                'jenis' => $request->jenis,
+                'model' => $request->model,
+                'warna' => $request->warna,
+                'tahun' => $request->tahun,
+                'isi_silinder' => $request->isiSilinder,
+                'no_landasan' => $request->noLandasan,
+                'no_mesin' => $request->noMesin,
+                'no_bpkb' => $request->noBpkb,
+                'konfirmasi' => "Menunggu",
+                'pesan_konfirmasi' => "-",        
+            ]);
+
+            BerkasSifat::where('form_sifat_id', $request->id)
+            ->update([
+                'surat_permohonan' => $nameSuratPermohonan,
+                'surat_pernyataan' => $nameSuratPernyataan,
+                'fc_stnk' => $fcStnk,
+                'fc_ktp' => $ktp,
+                'fc_bpkb' => $fcBpkb,
+                'dimensi_kendaraan' => $dimensi,
+                'fc_buku_uji' => $bukuUji,
+                'foto_faktur' => $faktur,
+                'foto_serut' => $serut,
+                'surat_bengkel' => $bengkel,
+                'doc_perusahaan' => $DocPerusahaan,
+                'foto_depan' => $fotoDepan,
+                'foto_belakang' => $fotoBelakang,
+                'foto_kiri' => $fotoKiri,
+                'foto_kanan' => $fotoKanan,
+            ]);
+
+            return redirect('/admin/data-rubah-sifat')->with('status', 'Data berhasil di edit');
+
+        }
+
+        elseif($request->jenisPerizinan === "Penetapan Sifat (KUNING)" || $request->jenisPerizinan === "Perubahan Sifat (HITAM KE KUNING)"){
+            
+            FormSifat::where('id', $request->id)
+            ->update([
+                'nomor_kendaraan' => $request->noKendaraan,
+                'jenis_perubahan' => $request->jenisPerizinan,
+                'nama_pemilik_lama' => $request->namaPemilikLama,
+                'nama_pemilik_baru' => $request->namaPemilikBaru,
+                'alamat' => $request->alamat,
+                'merk' => $request->merk,
+                'jenis' => $request->jenis,
+                'model' => $request->model,
+                'warna' => $request->warna,
+                'tahun' => $request->tahun,
+                'isi_silinder' => $request->isiSilinder,
+                'no_landasan' => $request->noLandasan,
+                'no_mesin' => $request->noMesin,
+                'no_bpkb' => $request->noBpkb,
+                'konfirmasi' => "Menunggu",
+                'pesan_konfirmasi' => "-",        
+            ]);
+
+            BerkasSifat::where('form_sifat_id', $request->id)
+            ->update([
+                'surat_permohonan' => $nameSuratPermohonan,
+                'surat_pernyataan' => $nameSuratPernyataan,
+                'fc_stnk' => $fcStnk,
+                'fc_bpkb' => $fcBpkb,
+                'dimensi_kendaraan' => $dimensi,
+                'fc_buku_uji' => $bukuUji,
+                'foto_faktur' => $faktur,
+                'foto_serut' => $serut,
+                'surat_bengkel' => $bengkel,
+                'doc_perusahaan' => $DocPerusahaan,
+                'foto_depan' => $fotoDepan,
+                'foto_belakang' => $fotoBelakang,
+                'foto_kiri' => $fotoKiri,
+                'foto_kanan' => $fotoKanan,
+                'akte_notaris' => $akteNotaris,
+                'kbli' => $kbli,
+            ]);
+            return redirect('/admin/data-rubah-sifat')->with('status', 'Data berhasil di edit');
+        }
+        
     }
 
     public function berkasPermohonan($namaFile)
@@ -249,50 +491,61 @@ class AdminController extends Controller
     {
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required',
-            'namaPemilikLama' => 'required',
-            'namaPemilikBaru' => 'required',
-            'alamat' => 'required',
-            'merk' => 'required',
-            'jenis' => 'required',
-            'warna' => 'required',
-            'tahun' => 'required',
-            'volumeSilinder' => 'required',
-            'noLandasan' => 'required',
-            'noMesin' => 'required',
-            'noBpkb' => 'required',
-            'noUji' => 'required',
-            // 'fotoSebelum' => 'required|image|mimes:jpeg,png,jpg,svg',
-            // 'fotoSesudah' => 'required|image|mimes:jpeg,png,jpg,svg'            
+            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikLama' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikBaru' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'perubahanBentuk' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=>.,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'merk' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'jenis' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'silinder' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'noUji' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'depan' => 'required|mimes:jpg,png,jpeg',
+            'belakang' => 'required|mimes:jpg,png,jpeg',
+            'kanan' => 'required|mimes:jpg,png,jpeg',
+            'kiri' => 'required|mimes:jpg,png,jpeg',
 
         ],
         [
-            'noKendaraan .required' => 'No. Kendaraan  wajib di isi',
+            'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
             'namaPemilikLama.required' => 'Nama pemilik lama wajib di isi',
             'namaPemilikBaru.required' => 'Nama pemilik baru wajib di isi',
+            'perubahanBentuk.required' => 'Perubahan bentuk wajib di isi',
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
             'jenis.required' => 'Jenis wajib di isi',
             'warna.required' => 'Warna wajib di isi',
             'tahun.required' => 'Tahun wajib di isi',
-            'volumeSilinder.required' => 'Volume Silinder wajib di isi',
+            'silinder.required' => 'Silinder wajib di isi',
             'noLandasan.required' => 'No. Landasan wajib di isi',
             'noMesin.required' => 'No. Mesin wajib di isi',
-            'noBpkb' => 'No. BPKB wajib di isi',
-            'noUji' => 'No. Uji wajib di isi',
-            'fotoSebelum.required' => 'Wajib masukan foto',
-            'fotoSebelum.image' => 'Foto harus berupa gambar',
-            'fotoSebelum.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            'fotoSebelum.max' => 'Ukuran gambar maksimal 2MB',
-            'fotoSesudah.required' => 'Wajib masukan foto',
-            'fotoSesudah.image' => 'Foto harus berupa gambar',
-            'fotoSesudah.mimes' => 'File foto yang di dukung jpeg,png,jpg,svg',
-            'fotoSesudah.max' => 'Ukuran gambar maksimal 2MB',
-  
+            'bpkb.required' => 'No. BPKB wajib di isi',
+            'noUji.required' => 'No. Uji wajib di isi',
+            'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
+            'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
+            'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
+            'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
         ]
         );
 
+        $nameFotoDepan = $request->depan->getClientOriginalName();
+        $nameFotoBelakang = $request->belakang->getClientOriginalName();
+        $nameFotoKiri = $request->kiri->getClientOriginalName();
+        $nameFotoKanan = $request->kanan->getClientOriginalName();
 
+        $fotoDepan = $request->depan->storeAs(('Perizinan_Bentuk/Foto_Depan'), $nameFotoDepan);
+        $fotoBelakang = $request->belakang->storeAs(('Perizinan_Bentuk/Foto_Belakang'), $nameFotoBelakang);
+        $fotoKiri = $request->kiri->storeAs(('Perizinan_Bentuk/Foto_Kiri'), $nameFotoKiri);
+        $fotoKanan = $request->kanan->storeAs(('Perizinan_Bentuk/Foto_Kanan'), $nameFotoKanan);
 
         FormBentuk::where('id', $formBentuk->id)
         ->update([
@@ -309,7 +562,16 @@ class AdminController extends Controller
             "no_mesin" => $request->noMesin,
             "no_bpkb" => $request->noBpkb,
             "no_uji" => $request->noUji,
+            'konfirmasi' => "Menunggu",
+            'pesan_konfirmasi' => "-",  
+         ]);
 
+         BerkasBentuk::where('form_bentuk_id', $request->id)
+         ->update([
+             'foto_depan' => $fotoDepan,
+             'foto_belakang' => $fotoBelakang,
+             'foto_kiri' => $fotoKiri,
+             'foto_kanan' => $fotoKanan,
          ]);
 
          return redirect('/admin/data-rubah-bentuk')->with('status', 'Data berhasil di edit');

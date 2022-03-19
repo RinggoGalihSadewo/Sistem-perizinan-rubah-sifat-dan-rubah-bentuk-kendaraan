@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -334,10 +334,10 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Surat Permohonan
+                                Surat Permohonan (docx/pdf)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan" value="{{$data[0]->surat_permohonan}}">
                                 @error('suratPermohonan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -352,11 +352,47 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Surat Pernyataan
+                                Surat Pernyataan (docx/pdf)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('suratPernyataan') is-invalid @enderror" id="" name="suratPernyataan">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('suratPernyataan') is-invalid @enderror" id="" name="suratPernyataan" value="{{old('suratPernyataan')}}" value="{{$data[0]->surat_pernyataan}}">
                                 @error('suratPernyataan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Dokumen Perusahaan (docx/pdf)
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan" value="{{$data[0]->doc_perusahaan}}">
+                                @error('docPerusahaan')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                Dimensi Kendaraan (docx/pdf)
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi" value="{{$data[0]->dimensi_kendaraan}}">
+                                @error('dimensi')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}	
@@ -373,10 +409,10 @@
                                 Foto FC. STNK
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('fcStnk') is-invalid @enderror" id="" name="fcStnk">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('fcStnk') is-invalid @enderror" id="" name="fcStnk">
                                 @error('fcStnk')
                                 <div class="invalid-feedback">
-                                    <div class="alert alert-danger" role="alert">
+                                    <div class="alert alert-danger" role="alert" value="{{$data[0]->fc_stnk}}">
                                         {{ $message }}	
                                     </div>
                                 </div>
@@ -388,7 +424,7 @@
 
                         @if($data[0]->jenis_perubahan === "Perubahan Sifat (HITAM) BBN")
                         <div class="row" id="ktp">
-                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" class="form-control" id="iKtp" name="ktp"></div>
+                            <div class="col-sm-6">Foto FC. KTP</div><div class="col-sm-6"><input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="iKtp" name="ktp" value="{{$data[0]->fc_ktp}}"></div>
                         </div>
 
                         <div id="br2">
@@ -401,7 +437,7 @@
                                 Foto FC. BPKB
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('fcBpkb') is-invalid @enderror" id="" name="fcBpkb">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('fcBpkb') is-invalid @enderror" id="" name="fcBpkb" value="{{$data[0]->fc_bpkb}}">
                                 @error('fcBpkb')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -419,7 +455,7 @@
                                 Foto FC. Buku Uji (KIR)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('fcBukuUji') is-invalid @enderror" id="" name="fcBukuUji">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('fcBukuUji') is-invalid @enderror" id="" name="fcBukuUji" value="{{$data[0]->fc_buku_uji}}">
                                 @error('fcBukuUji')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -437,7 +473,7 @@
                                 Foto Faktur Kendaraan 
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('faktur') is-invalid @enderror" id="" name="faktur">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('faktur') is-invalid @enderror" id="" name="faktur" value="{{$data[0]->foto_faktur}}">
                                 @error('faktur')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -455,44 +491,8 @@
                                 Foto SRUT (Sertifikasi Registrasi Uji Tipe)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('serut') is-invalid @enderror" id="" name="serut">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('serut') is-invalid @enderror" id="" name="serut" value="{{$data[0]->foto_serut}}">
                                 @error('serut')
-                                <div class="invalid-feedback">
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}	
-                                    </div>
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Dokumen Perusahaan
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan">
-                                @error('docPerusahaan')
-                                <div class="invalid-feedback">
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}	
-                                    </div>
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                Dimensi Kendaraan
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi">
-                                @error('dimensi')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}	
@@ -509,7 +509,7 @@
                                 Surat Keterangan Bengkel
                             </div>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control @error('bengkel') is-invalid @enderror" id="" name="bengkel">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('bengkel') is-invalid @enderror" id="" name="bengkel" value="{{$data[0]->surat_bengkel}}">
                                 @error('bengkel')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -528,7 +528,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Sisi depan</label>
-                                <input type="file" class="form-control @error('depan') is-invalid @enderror" id="" name="depan" placeholder="Sisi depan">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('depan') is-invalid @enderror" id="" name="depan" placeholder="Sisi depan" value="{{$data[0]->foto_depan}}">
                                 @error('depan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -538,7 +538,7 @@
                                 @enderror
                                 <br>
                                 <label>Sisi kiri</label>
-                                <input type="file" class="form-control @error('kiri') is-invalid @enderror" id="" name="kiri" placeholder="Sisi kiri">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('kiri') is-invalid @enderror" id="" name="kiri" placeholder="Sisi kiri" value="{{$data[0]->foto_kiri}}">
                                 @error('kiri')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -548,7 +548,7 @@
                                 @enderror
                                 <br>
                                 <label>Sisi kanan</label>
-                                <input type="file" class="form-control @error('kanan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('kanan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan" value="{{$data[0]->foto_kanan}}">
                                 @error('kanan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -558,7 +558,7 @@
                                 @enderror
                                 <br>
                                 <label>Sisi belakang</label>
-                                <input type="file" class="form-control @error('belakang') is-invalid @enderror" id="" name="belakang" placeholder="Sisi belakang">
+                                <input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control @error('belakang') is-invalid @enderror" id="" name="belakang" placeholder="Sisi belakang" value="{{$data[0]->foto_belakang}}">
                                 @error('belakang')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -573,7 +573,7 @@
 
                         @if($data[0]->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data[0]->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
                         <div class="row" id="notaris">
-                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control" id="iNotaris" name="akteNotaris"></div>
+                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="iNotaris" name="akteNotaris" value="{{$data[0]->akte_notaris}}"></div>
                         </div>
 
                         <div id="br3">
@@ -581,7 +581,7 @@
                         </div>
 
                         <div class="row" id="kbli">
-                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control" id="iKbli" name="kbli"></div>
+                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" required oninvalid="this.setCustomValidity('Wajib di isi')" oninput="this.setCustomValidity('')" class="form-control" id="iKbli" name="kbli" value="{{$data[0]->kbli}}"></div>
                         </div>
 
                         @endif

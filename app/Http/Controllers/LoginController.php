@@ -18,16 +18,16 @@ class LoginController extends Controller
         
         $validatedData = $request->validate([
 
-            'username' => 'required',
+            'username' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
             'password' => 'required',
             'konPassword' => 'required',
-            'namaPerusahaan' => 'required',
-            'namaPemilik' => 'required',
-            'kabupaten' => 'required',
-            'npwp' => 'required',
-            'alamat' => 'required',
-            'email' => 'required|email',
-            'noHp' => 'required',            
+            'namaPerusahaan' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilik' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'kabupaten' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'npwp' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
+            'noHp' => 'required|integer|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
 
         ],
         [
@@ -42,7 +42,7 @@ class LoginController extends Controller
             'email.required' => 'email wajib di isi',
             'email.email' => 'harap masukan email sesuai dengan formatnya',
             'noHP.required' => 'no hp wajib di isi',
-  
+            'noHp.Integer' => 'harap masukan angka',
         ]
         );
 
@@ -97,15 +97,13 @@ class LoginController extends Controller
             'password.required' => 'password wajib di isi'
         ]);
 
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => "Pengguna"])) {
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => "pengguna"])) {
             $request->session()->regenerate();
 
             return redirect()->intended('/perizinan-rubah-sifat');
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return redirect('/masuk')->with('status', 'Username atau password anda salah !');
     }
 
     public function logout(Request $request)
