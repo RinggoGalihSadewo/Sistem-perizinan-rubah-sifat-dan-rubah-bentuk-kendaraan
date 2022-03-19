@@ -43,7 +43,7 @@
                 </div>
             </nav>
         </section>
-
+        <a href="#" class="ignielToTop"></a>
         <section id="perizinan" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">
             <div class="formPerizinan">
                 <h4 class="text-center fw-bold">FORM SURAT PERIZINAN RUBAH BENTUK</h4>

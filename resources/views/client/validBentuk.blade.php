@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/css/client/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
+
     <title>Data Validasi Perizinan Rubah Bentuk</title>
   </head>
   <body>
@@ -33,7 +36,7 @@
                 </div>
             </nav>
         </section>
-
+        <a href="#" class="ignielToTop"></a>
     <div class="valid">
         <center>
 
@@ -48,7 +51,6 @@
           <table class="table align-items-center table-bordered text-center">
             <thead class="thead-light text-white" bgColor="#22577E">
               <tr>
-                <th>Nama Pemilik</th>
                 <th>Nomor Kendaraan</th>
                 <th>Kasi</th>
                 <th>Kabid</th>
@@ -58,7 +60,6 @@
             </thead>
             <tbody>
               <tr>
-                <td>{{$data->nama_pemilik_lama}}</td>
                 <td>{{$data->nomor_kendaraan}}</td>
                 <td>
                   <p class="badge bg-success">{{$data->trackSuratBentuk['kasi']}}</p>

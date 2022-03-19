@@ -35,6 +35,10 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/qr-code/perizinan-rubah-sifat/{formSifat}', [QrCodeController::class, 'detailValidSifat']);
 Route::get('/qr-code/perizinan-rubah-bentuk/{formBentuk}', [QrCodeController::class, 'detailValidBentuk']);
 
+Route::get('/perizinan-rubah-sifat/kepala-dinas/{formSifat}', [QrCodeController::class, 'sifatKepalaDinas']);
+
+Route::get('/perizinan-rubah-bentuk/kepala-dinas/{formBentuk}', [QrCodeController::class, 'sifatKepalaDinas2']);
+
 Route::get('/lupa-kata-sandi', [UserController::class, 'forgotPassword']);
 
 Route::middleware(['auth'])->group( function(){

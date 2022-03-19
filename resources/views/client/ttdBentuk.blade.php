@@ -11,19 +11,16 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/client/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 
-    <title>Data Validasi Perizinan Rubah Sifat</title>
+    <title>Tanda Tangan Digital Kepala Dinas</title>
   </head>
   <body>
 
-  <div class="container-sm-fluid">
-         <section id="navbar">
+  <div class="container-sm-fluid" data-aos="fade">
+        <section id="navbar">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand d-flex" href="#"><img src="/img/logo/dishub.png" alt=""><h2 style="margin-top:5%; margin-left: 5%;">E-Perizinan</h2></a>
+                <a class="navbar-brand d-flex" href="#"><img src="/img/logo/dishub.png" alt=""><h2 style="margin-top:5%; margin-left: 5%;">E-Perizinan</h2></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -36,56 +33,21 @@
                 </div>
             </nav>
         </section>
+        <br><br>
         <a href="#" class="ignielToTop"></a>
-    <div class="valid">
-        <center>
-
-        <p>Surat permohonan perizinan rubah sifat oleh sdr. <b>{{$data->nama_pemilik}}</b> dengan Nomor Kendaraan {{$data->nomor_kendaraan}} ini sudah disetujui oleh semua koordinator</p>
-        <p>Berikut adalah data validasi perizinan yang sah pada surat permohonan ini : </p>
-
-        <br>
-
-        </center>
-        
-        <div class="table-responsive tableValid" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">
-          <table class="table align-items-center table-bordered text-center">
-            <thead class="thead-light text-white" bgColor="#22577E">
-              <tr>
-                <th>Nomor Kendaraan</th>
-                <th>Staff Angkutan</th>
-                <th>Kasi Angkutan</th>
-                <th>Kabid LLA</th>
-                <th>Sekretariat</th>
-                <th>Kepala Dinas</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{$data->nomor_kendaraan}}</td>
-                <td>
-                  <p class="badge bg-success">{{$data->trackSuratSifat['staff_angkutan']}}</p>
-                </td>
-                <td>
-                  <p class="badge bg-success">{{$data->trackSuratSifat['kasi_angkutan']}}</p>        
-                </td>
-                <td>
-                  <p class="badge bg-success">{{$data->trackSuratSifat['kabid_lla']}}</p>                      
-                </td>
-                <td>
-                  <p class="badge bg-success">{{$data->trackSuratSifat['sekretariat']}}</p>              
-                </td>
-                <td>
-                  <p class="badge bg-success">{{$data->trackSuratSifat['kepala_dinas']}}</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item"><h4>Verifikasi Tanda Tangan Elektronik</h4><h5>Dinas Perhubungan Provinsi Lampung</h5></li>
+            <li class="list-group-item">Nama Dokumen : {{$data->nomor_kendaraan}}_Perizinan Rubah Bentuk</li>
+            <li class="list-group-item">Nomer Surat : {{$data->qrBentuk->no_surat}}</li>
+            <li class="list-group-item">Telah Ditanda tangani oleh : BAMBANG SUMBOGO, SE,. MM</li>
+            <li class="list-group-item">Di tanda tangani pada tanggal : {{$data->qrBentuk->created_at}}</li>
+            <li class="list-group-item">Keterangan dokumen : Perizinan Rubah Bentuk dengan nomor kendaraan {{$data->nomor_kendaraan}}</li>
+            <li class="list-group-item">Adalah benar dan tercatat pada perizinan rubah bentuk</li>
+        </ul>
         </div>
-
-    </div>
-          
-
-
+        <br><br><br>
+    <!-- Footer -->
 
     <footer
           class="text-center text-lg-start text-white"
@@ -183,12 +145,16 @@
     </div>
     <!-- Copyright -->
   </footer>
-    </div>
+
+    <!-- Footer -->
+            
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/dfa1cbbb7b.js" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
-    </script>    
+        AOS.init();
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

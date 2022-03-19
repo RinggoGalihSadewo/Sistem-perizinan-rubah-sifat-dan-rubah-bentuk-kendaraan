@@ -190,8 +190,8 @@
                       <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b>Perubahan Bentuk.</b></td>
                     </tr>
                     <tr>
-                      <td>Mengigat</td>
-                      <td>:</td>
+                      <td valign="top">Mengigat</td>
+                      <td valign="top">:</td>
                       <td>
                         <ol start="1">
                           <li>Undang-Undang No. 22 Tahun 2009 Tentang Lalu Lintas dan Angkutan Jalan;</li>
@@ -203,8 +203,8 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Menerangkan</td>
-                      <td>:</td>
+                      <td valign="top">Menerangkan</td>
+                      <td valign="top">:</td>
                       <td>Memberikan Surat Keterangan Perubahan Bentuk dari <b>{{$data->perubahan_bentuk}}</b> kepada <b>Sdr. {{$data->nama_pemilik_baru}}</b> yang beralamat di {{$data->alamat}}. Pemilik/Pemohon menjamin keselamatan (Safety) dari Kendaraan yang telah di Rubah Bentuk dengan data kendaraan sebagai berikut :
                       <br>
                         <table border="0" cellpadding="5">
@@ -336,7 +336,7 @@
 
                   <p>Demikian surat keterangan ini diberikan untuk dapat dipergunakan seperlunya.</p>
 
-                  <div class="paraf d-flex"> 
+                  <div class="paraf d-flex" style="margin-top:140px"> 
                     <div class="qr">
                       {{$qr}} 
                     </div>
@@ -356,12 +356,14 @@
                           <td>KEPALA DINAS</td>
                         </tr>
                         <tr>
+                           <!-- <td>{{$qr2}}</td> -->
                         </tr>
                       </table>
-                      <br>
-                      <br>
                       <div style="margin-left: 1%;">
-                        <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+                        <div>
+                          <img src="/img/ttd kadis.jpeg" alt="" width="240px"> 
+                        </div>
+                        <!-- <b><u>BAMBANG SUMBOGO, SE,. MM</u></b> -->
                         <p>
                           Pembina Utama Muda
                           <br>

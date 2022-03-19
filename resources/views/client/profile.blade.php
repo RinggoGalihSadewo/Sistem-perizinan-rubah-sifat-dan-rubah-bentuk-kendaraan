@@ -43,7 +43,7 @@
                 </div>
             </nav>
         </section>
-
+        <a href="#" class="ignielToTop"></a>
 
         <section id="myProfile" data-aos="slide-up" data-aos-offset="200" data-aos-duration="700">
             <div class="myProfile pb-lg-5">

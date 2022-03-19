@@ -189,9 +189,9 @@
                       <td>:</td>
                       <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b>Perubahan Sifat.</b></td>
                     </tr>
-                    <tr>
-                      <td>Mengigat</td>
-                      <td>:</td>
+                    <tr>           
+                      <td valign="top">Mengingat</td>
+                      <td valign="top">:</td>
                       <td>
                         <ol start="1">
                           <li>Undang-Undang No. 22 Tahun 2009 Tentang Lalu Lintas dan Angkutan Jalan;</li>
@@ -205,8 +205,8 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Menerangkan</td>
-                      <td>:</td>
+                      <td valign="top">Menerangkan</td>
+                      <td valign="top">:</td>
                       <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
                       <br>
                         <table border="0" cellpadding="5">
@@ -347,7 +347,7 @@
                     </tr>
                   </table>
 
-                  <div class="paraf d-flex"> 
+                  <div class="paraf d-flex" style="margin-top:80px"> 
                     <div class="qr">
                       {{$qr}} 
                     </div>
@@ -367,12 +367,14 @@
                           <td>KEPALA DINAS</td>
                         </tr>
                         <tr>
+                        <!-- <td>{{$qr2}}</td> -->
                         </tr>
                       </table>
-                      <br>
-                      <br>
                       <div style="margin-left: 1%;">
-                        <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+                        <div>
+                          <img src="/img/ttd kadis.jpeg" alt="" width="240px"> 
+                        </div>
+                        <!-- <b><u>BAMBANG SUMBOGO, SE,. MM</u></b> -->
                         <p>
                           Pembina Utama Muda
                           <br>

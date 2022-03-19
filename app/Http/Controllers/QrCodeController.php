@@ -23,12 +23,16 @@ class QrCodeController extends Controller
     {   
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->id;
 
+        $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->id;
+
         $date = Carbon::now()->format("d M Y");
 
         $data = FormSifat::find($formSifat->id);
 
         $qr = QrCode::size(100)->generate($url);
-        return view('admin.suratSifat', compact('qr', 'data', 'date'));
+        $qr2 = QrCode::size(100)->generate($url2);
+
+        return view('admin.suratSifat', compact('qr', 'data', 'date', 'qr2'));
     }
 
     public function detailValidSifat(FormSifat $formSifat)
@@ -53,11 +57,25 @@ class QrCodeController extends Controller
     {   
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->id;
 
+        $url2 = "http://127.0.0.1:8000/perizinan-rubah-bentuk/kepala-dinas/".$formBentuk->id;
+
         $data = FormBentuk::find($formBentuk->id);
 
         $date = Carbon::now()->format("d M Y");
 
         $qr = QrCode::size(100)->generate($url);
-        return view('admin.suratBentuk', compact('qr', 'data', 'date'));
+        $qr2 = QrCode::size(100)->generate($url2);
+
+        return view('admin.suratBentuk', compact('qr', 'data', 'date', 'qr2'));
+    }
+
+    public function sifatKepalaDinas(FormSifat $formSifat){
+        $data = FormSifat::find($formSifat->id);
+        return view('client.ttdSifat', compact('data'));
+    }
+
+    public function sifatKepalaDinas2(FormBentuk $formBentuk){
+        $data = FormBentuk::find($formBentuk->id);
+        return view('client.ttdBentuk', compact('data'));
     }
 }
