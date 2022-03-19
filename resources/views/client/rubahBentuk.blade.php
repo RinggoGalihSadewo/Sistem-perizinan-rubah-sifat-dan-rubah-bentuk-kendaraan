@@ -83,6 +83,13 @@
                             </div>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control @error('perubahanBentuk') is-invalid @enderror" id="" name="perubahanBentuk" value="{{old('perubahanBentuk')}}">
+                                @error('perubahanBentuk')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <small>*Contoh: Truck Tangki Menjadi Mobil Barang Bak Terbuka</small>
                             </div>
                         </div>
@@ -332,8 +339,8 @@
                                 @enderror
                                 <br>
                                 <label>Sisi kanan</label>
-                                <input type="file" class="form-control @error('noKendaraan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan" value="{{old('kanan')}}">
-                                @error('noMesin')
+                                <input type="file" class="form-control @error('kanan') is-invalid @enderror" id="" name="kanan" placeholder="Sisi kanan" value="{{old('kanan')}}">
+                                @error('kanan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}	

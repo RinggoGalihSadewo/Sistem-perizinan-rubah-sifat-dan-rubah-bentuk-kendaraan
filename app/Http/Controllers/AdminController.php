@@ -140,21 +140,6 @@ class AdminController extends Controller
 
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required',
-            'jenisPerizinan' => 'required',
-            'namaPemilik' => 'required',
-            'namaPemilikLama' => 'required',
-            'namaPemilikBaru' => 'required',
-            'alamat' => 'required',
-            'merk' => 'required',
-            'jenis' => 'required',
-            'model' => 'required',
-            'warna' => 'required',
-            'tahun' => 'required',
-            'silinder' => 'required',
-            'noLandasan' => 'required',
-            'noMesin' => 'required',
-            'bpkb' => 'required',
             'suratPermohonan' => 'required',
             'suratPernyataan' => 'required',
             'fcStnk' => 'required',
@@ -171,18 +156,6 @@ class AdminController extends Controller
             'belakang' => 'required',
         ],
         [
-            'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
-            'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
-            'alamat.required' => 'Alamat wajib di isi',
-            'merk.required' => 'merk wajib di isi',
-            'jenis.required' => 'Jenis wajib di isi',
-            'model.required' => 'Model wajib di isi',
-            'warna.required' => 'Warna wajib di isi',
-            'tahun.required' => 'Tahun wajib di isi',
-            'silinder.required' => 'Silinder wajib di isi',
-            'noLandasan.required' => 'No. Landasan wajib di isi',
-            'noMesin.required' => 'No. Mesin wajib di isi',
-            'bpkb.required' => 'No. BPKB wajib di isi',
             'suratPermohonan.required' => 'Surat permohonan wajib di isi',
             'suratPernyataan.required' => 'Surat pernyataan wajib di isi',
             'fcStnk.required' => 'Foto FC STNK wajib di isi',
@@ -198,7 +171,7 @@ class AdminController extends Controller
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
         ]
-        );
+        ); 
 
         $nameSuratPermohonan = $request->file('suratPermohonan')->getClientOriginalName();
         $nameSuratPernyataan = $request->file('suratPernyataan')->getClientOriginalName();

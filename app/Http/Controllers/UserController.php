@@ -412,10 +412,10 @@ class UserController extends Controller
             'noMesin' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
             'bpkb' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
             'noUji' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'depan' => 'required|mimes:jpg,png,jpeg',
-            'belakang' => 'required|mimes:jpg,png,jpeg',
-            'kanan' => 'required|mimes:jpg,png,jpeg',
-            'kiri' => 'required|mimes:jpg,png,jpeg',
+            'depan' => 'required',
+            'belakang' => 'required',
+            'kanan' => 'required',
+            'kiri' => 'required',
 
         ],
         [
@@ -434,12 +434,12 @@ class UserController extends Controller
             'bpkb.required' => 'No. BPKB wajib di isi',
             'noUji.required' => 'No. Uji wajib di isi',
             'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
-            'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
-            'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
-            'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
-            'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
         ]
         );
@@ -721,10 +721,10 @@ class UserController extends Controller
             'noMesin' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
             'bpkb' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
             'noUji' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'depan' => 'required|mimes:jpg,png,jpeg',
-            'belakang' => 'required|mimes:jpg,png,jpeg',
-            'kanan' => 'required|mimes:jpg,png,jpeg',
-            'kiri' => 'required|mimes:jpg,png,jpeg',
+            'depan' => 'required',
+            'belakang' => 'required',
+            'kanan' => 'required',
+            'kiri' => 'required',
 
         ],
         [
@@ -743,12 +743,12 @@ class UserController extends Controller
             'bpkb.required' => 'No. BPKB wajib di isi',
             'noUji.required' => 'No. Uji wajib di isi',
             'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
-            'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
-            'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
-            'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
-            'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            // 'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
         ]
         );
