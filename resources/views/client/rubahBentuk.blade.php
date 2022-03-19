@@ -84,13 +84,6 @@
                             <div class="col-sm-6">
                                 <input type="text" class="form-control @error('perubahanBentuk') is-invalid @enderror" id="" name="perubahanBentuk" value="{{old('perubahanBentuk')}}">
                                 <small>*Contoh: Truck Tangki Menjadi Mobil Barang Bak Terbuka</small>
-                                @error('perubahanBentuk')
-                                <div class="invalid-feedback">
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ $message }}	
-                                    </div>
-                                </div>
-                                @enderror
                             </div>
                         </div>
 

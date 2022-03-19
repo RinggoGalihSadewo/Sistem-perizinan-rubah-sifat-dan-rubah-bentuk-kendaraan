@@ -27,7 +27,7 @@ class LoginController extends Controller
             'npwp' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
             'alamat' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
             'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
-            'noHp' => 'required|integer|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
+            'noHp' => 'required|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
 
         ],
         [
@@ -42,7 +42,6 @@ class LoginController extends Controller
             'email.required' => 'email wajib di isi',
             'email.email' => 'harap masukan email sesuai dengan formatnya',
             'noHP.required' => 'no hp wajib di isi',
-            'noHp.Integer' => 'harap masukan angka',
         ]
         );
 

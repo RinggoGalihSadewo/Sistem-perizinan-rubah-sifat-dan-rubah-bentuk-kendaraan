@@ -386,7 +386,7 @@
 
                         <div class="row">
                         <div class="col-sm-6">
-                            Dokumen Perusahaan (docx/pdf)
+                            Foto Dokumen Perusahaan
                         </div>
                         <div class="col-sm-6">
                             <input type="file" class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan" value="{{old('docPerusahaan')}}">
@@ -404,7 +404,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Dimensi Kendaraan (docx/pdf)
+                                Foto Dimensi Kendaraan
                             </div>
                             <div class="col-sm-6">
                                 <input type="file" class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi" value="{{old('dimensi')}}">

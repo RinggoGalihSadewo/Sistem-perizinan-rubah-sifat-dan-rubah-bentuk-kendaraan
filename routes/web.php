@@ -83,9 +83,9 @@ Route::middleware(['admin'])->group( function(){
     Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
     Route::get('/admin/data-rubah-sifat/pesan/{formSifat}', [NotifikasiController::class, 'pesanSifat']);
     Route::post('/admin/data-rubah-sifat', [NotifikasiController::class, 'storePesanSifat']);
+
     Route::get('/download-berkas-surat-permohonan/{namaFile}', [AdminController::class, 'berkasPermohonan']);
     Route::get('/download-berkas-surat-pernyataan/{namaFile}', [AdminController::class, 'berkasPernyataan']);
-
 
     Route::get('/admin/data-rubah-bentuk', [AdminController::class, 'rubahBentuk']);
     Route::get('/admin/data-rubah-bentuk/konfirmasi/{formBentuk}', [AdminController::class, 'konfirmBentuk']);
