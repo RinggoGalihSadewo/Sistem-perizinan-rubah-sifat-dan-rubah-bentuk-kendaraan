@@ -174,7 +174,7 @@
               </div>
               @endif
 
-              <form action="/admin/generate-qrcode-rubah-sifat/cari" method="POST">
+              <form action="/admin-generate-qrcode-rubah-sifat/cari" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-sm-6"><h1 class="h3 mb-0 text-gray-800">Generate QR Code Rubah Sifat</h1></div>

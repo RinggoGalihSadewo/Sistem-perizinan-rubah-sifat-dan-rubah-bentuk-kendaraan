@@ -173,7 +173,7 @@
               </div>
               @endif
 
-              <form action="/admin/generate-qrcode-rubah-bentuk/cari" method="POST">
+              <form action="/admin-generate-qrcode-rubah-bentuk/cari" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-sm-6"><h1 class="h3 mb-0 text-gray-800">Generate QR Code Rubah Bentuk</h1></div>
@@ -183,6 +183,8 @@
                     </div>
                 </div>
                 </form>
+
+                <br>
 
               <!-- Simple Tables -->
               <div class="card">

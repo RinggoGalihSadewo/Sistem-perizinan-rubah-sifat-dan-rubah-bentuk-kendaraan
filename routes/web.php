@@ -125,11 +125,11 @@ Route::middleware(['admin'])->group( function(){
 
     Route::get('/admin/generate-qrcode-rubah-sifat', [GenerateQRController::class, 'viewGenerateRubahSifat']);
     Route::post('/admin/generate-qrcode-rubah-sifat/{formSifat}', [GenerateQRController::class, 'generateSifat']);
-    Route::post('/admin/generate-qrcode-rubah-sifat/cari', [SearchController::class, 'genQrSifat']);
+    Route::post('/admin-generate-qrcode-rubah-sifat/cari', [SearchController::class, 'genQrSifat']);
 
     Route::get('/admin/generate-qrcode-rubah-bentuk', [GenerateQRController::class, 'viewGenerateRubahBentuk']);
     Route::post('/admin/generate-qrcode-rubah-bentuk/{formBentuk}', [GenerateQRController::class, 'generateBentuk']);
-    Route::post('/admin/generate-qrcode-rubah-bentuk/cari', [SearchController::class, 'genQrBentuk']);
+    Route::post('/admin-generate-qrcode-rubah-bentuk/cari', [SearchController::class, 'genQrBentuk']);
 
     Route::get('/admin/validasi/rubah-sifat', [ValidasiSifatController::class, 'index']);
     Route::get('/admin/validasi/rubah-sifat/staff-angkutan/{formSifat}', [ValidasiSifatController::class, 'staff']);
