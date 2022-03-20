@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use App\Models\User;
 use App\Models\Map;
@@ -145,9 +146,10 @@ class UserController extends Controller
         return view('client.alur', compact('data', 'data2'));
     }
 
-    public function perbaikanSifat(FormSifat $formSifat)
+    public function perbaikanSifat($formSifat)
     {
-        $data = FormSifat::find($formSifat);
+        
+        $data = FormSifat::where('slug', $formSifat)->get();
         
         return view('client.perbaikanRubahSifat', compact('data'));
     }
@@ -439,9 +441,9 @@ class UserController extends Controller
 
     }
 
-    public function perbaikanBentuk(FormBentuk $formBentuk)
+    public function perbaikanBentuk($formBentuk)
     {
-        $data = FormBentuk::find($formBentuk);
+        $data = FormBentuk::where('slug', $formBentuk)->get();
         
         return view('client.perbaikanRubahBentuk', compact('data'));
     }
@@ -709,6 +711,7 @@ class UserController extends Controller
         $formSifat->no_bpkb = $request->bpkb;
         $formSifat->konfirmasi = "Menunggu";
         $formSifat->pesan_konfirmasi = "-";
+        $formSifat->slug = Str::random(20);
         $formSifat->save();
 
         $BerkasSifat = new BerkasSifat;
@@ -835,6 +838,7 @@ class UserController extends Controller
         $FormBentuk->no_uji = $request->noUji;
         $FormBentuk->konfirmasi = "Menunggu";
         $FormBentuk->pesan_konfirmasi = "-";
+        $FormBentuk->slug = Str::random(20);
 
         $FormBentuk->save();
 

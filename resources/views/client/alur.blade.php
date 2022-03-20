@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-12">
                 <span id="heading">Pesan Ditolak</span>
-                    <p>{{$data[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$data[0]->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                    <p>{{$data[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$data[0]->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
                 </div>
             <br>  
             </div>
@@ -155,7 +155,7 @@
             <div class="row">
                 <div class="col-12">
                 <span id="heading">Pesan Ditolak</span>
-                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$d->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
                 </div>
             <br>  
             </div>
@@ -234,7 +234,7 @@
             <div class="row">
                 <div class="col-12">
                 <span id="heading">Pesan Ditolak</span>
-                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$d->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
                 </div>
             <br>  
             </div>
@@ -324,7 +324,7 @@
             <div class="row">
                 <div class="col-12">
                 <span id="heading">Pesan Ditolak</span>
-                    <p>{{$data2[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$data2[0]->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                    <p>{{$data2[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$data2[0]->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
                 </div>
             <br>  
             </div>
@@ -405,7 +405,7 @@
             <div class="row">
                 <div class="col-12">
                 <span id="heading">Pesan Ditolak</span>
-                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$d->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
                 </div>
             <br>  
             </div>
@@ -477,7 +477,7 @@
             <div class="row">
                 <div class="col-12">
                 <span id="heading">Pesan Ditolak</span>
-                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$d->id}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
+                    <p>{{$d->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-bentuk/{{$d->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
                 </div>
             <br>  
             </div>

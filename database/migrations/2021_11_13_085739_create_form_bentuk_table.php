@@ -34,6 +34,7 @@ class CreateFormBentukTable extends Migration
             $table->string('no_uji');
             $table->string('konfirmasi');
             $table->string('pesan_konfirmasi');
+            $table->string('slug');
             $table->timestamps();
         });
     }
