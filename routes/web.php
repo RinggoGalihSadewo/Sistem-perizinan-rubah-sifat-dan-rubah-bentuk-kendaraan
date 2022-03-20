@@ -12,6 +12,7 @@ use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\DeleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,8 @@ Route::middleware(['admin'])->group( function(){
     Route::get('/admin/dashboard/detail/{user}', [AdminController::class, 'show']);
     Route::get('/admin/dashboard/edit/{user}', [AdminController::class, 'viewEditIndex']);
     Route::patch('/admin/dashboard/edit/{user}', [AdminController::class, 'storeEditIndex']);
+    Route::get('/admin/dashboard/hapus/{user}', [DeleteController::class, 'pengguna']);
+
 
     Route::get('/admin/data-rubah-sifat', [AdminController::class, 'rubahSifat']);
     Route::get('/admin/data-rubah-sifat/konfirmasi/{formSifat}', [AdminController::class, 'konfirmSifat']);
@@ -87,6 +90,7 @@ Route::middleware(['admin'])->group( function(){
     Route::patch('/admin/data-rubah-sifat/edit/{formSifat}', [AdminController::class, 'storeEditSifat']);
     Route::get('/admin/data-rubah-sifat/pesan/{formSifat}', [NotifikasiController::class, 'pesanSifat']);
     Route::post('/admin/data-rubah-sifat', [NotifikasiController::class, 'storePesanSifat']);
+    Route::get('/admin/data-rubah-sifat/hapus/{formSifat}', [DeleteController::class, 'sifat']);
 
     Route::get('/download-berkas-surat-permohonan/{namaFile}', [AdminController::class, 'berkasPermohonan']);
     Route::get('/download-berkas-surat-pernyataan/{namaFile}', [AdminController::class, 'berkasPernyataan']);
@@ -99,6 +103,7 @@ Route::middleware(['admin'])->group( function(){
     Route::patch('/admin/data-rubah-bentuk/edit/{formBentuk}', [AdminController::class, 'storeEditBentuk']);
     Route::get('/admin/data-rubah-bentuk/pesan/{formBentuk}', [NotifikasiController::class, 'pesanBentuk']);
     Route::post('/admin/data-rubah-bentuk', [NotifikasiController::class, 'storePesanBentuk']);
+    Route::get('/admin/data-rubah-bentuk/hapus/{formBentuk}', [DeleteController::class, 'bentuk']);
     
     Route::get('/admin/data-qr-code/rubah-sifat', [QrCodeController::class, 'viewSifat']);
     Route::get('/admin/data-qr-code/rubah-sifat/lihat-surat/{formSifat}', [QrCodeController::class, 'lihatSuratSifat']);

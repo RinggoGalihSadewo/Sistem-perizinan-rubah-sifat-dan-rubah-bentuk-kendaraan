@@ -214,7 +214,7 @@
                           @canany(['superadmin','rs-admin'])
                           <a href="/admin/data-rubah-sifat/edit/{{$d->id}}" class="btn btn-sm btn-success">Edit</a>
                           <a href="/admin/data-rubah-sifat/pesan/{{$d->id}}" class="btn btn-sm btn-warning">Kirim Pesan</a>
-                          <a href="#" class="btn btn-sm btn-danger">Hapus</a>
+                          <a href="/admin/data-rubah-sifat/hapus/{{$d->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Ingin menghapus data ini ?');">Hapus</a>
                           @endcanany
                         </td>
                       </tr>

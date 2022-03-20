@@ -197,7 +197,7 @@
                           <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-primary">Detail</a>
                           @can('superadmin')
                           <a href="/admin/dashboard/edit/{{$user->id}}" class="btn btn-sm btn-success">Edit</a>
-                          <a href="/admin/dashboard/detail/{{$user->id}}" class="btn btn-sm btn-danger">Hapus</a>
+                          <a href="/admin/dashboard/hapus/{{$user->id}}" class="btn btn-sm btn-danger" onclick="return confirm('Ingin menghapus data ini ?');">Hapus</a>
                           @endcanany
                         </td>
                       </tr>

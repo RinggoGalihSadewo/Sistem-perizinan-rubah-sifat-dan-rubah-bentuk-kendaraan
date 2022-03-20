@@ -72,13 +72,7 @@
         <section id="pendaftaran">
             <div class="pendaftaran">
                 <h2 class="text-center fw-bold text-dark" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">Pendaftaran Akun</h2>
-                
-                @if (session('status'))
-                    <br>
-                    <div class="alert alert-success">
-                        {{ session('status') }}
-                    </div>
-                @endif
+            
 
                 @if (session('gagal'))
                     <br>
@@ -91,6 +85,14 @@
                     <img src="/img/tataCara/1.png" alt="">    
                 </div>
                 <div class="formDaftar mt-5" data-aos="fade-up" data-aos-offset="200" data-aos-duration="700">
+
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    <br>
+                @endif
+
                     <form action="{{url('/')}}" method="post">
                         @csrf
 

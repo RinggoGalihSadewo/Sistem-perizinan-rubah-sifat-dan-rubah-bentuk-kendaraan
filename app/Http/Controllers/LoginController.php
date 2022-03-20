@@ -24,6 +24,8 @@ class LoginController extends Controller
             'namaPerusahaan' => 'required|not_regex:/[`~!@#$%^&*()+=><?;{}]+/',
             'namaPemilik' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
             'kabupaten' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'lat' => 'required',
+            'lng' => 'required',
             'npwp' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;:{}]+/',
             'alamat' => 'required|not_regex:/[`~!@#$%^&*()+=><?;:{}]+/',
             'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
