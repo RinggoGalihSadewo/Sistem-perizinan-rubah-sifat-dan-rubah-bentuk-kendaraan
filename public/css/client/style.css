@@ -26,6 +26,9 @@ nav{
     background-color: #22577E;
     height: auto;
 }
+.perbaiki:hover{
+  color:white;
+}
 /* Back To Top */
 .ignielToTop {
   width:50px; 

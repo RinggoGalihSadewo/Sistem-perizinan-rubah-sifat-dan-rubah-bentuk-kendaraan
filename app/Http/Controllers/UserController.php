@@ -157,6 +157,21 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
 
+            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'jenisPerizinan' => 'required|not_regex:/[`~!@#$%^&*+=>.,<?;:{}]+/',
+            'namaPemilik' => 'not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikLama' => 'not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikBaru' => 'not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()+=><?;:{}]+/',
+            'merk' => 'required|not_regex:/[`~!@#$%^&*()+=->,<?;:{}]+/',
+            'jenis' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'model' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'silinder' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
             'suratPermohonan' => 'required',
             'suratPernyataan' => 'required',
             'fcStnk' => 'required',
@@ -173,6 +188,18 @@ class UserController extends Controller
             'belakang' => 'required',
         ],
         [
+            'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
+            'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
+            'alamat.required' => 'Alamat wajib di isi',
+            'merk.required' => 'merk wajib di isi',
+            'jenis.required' => 'Jenis wajib di isi',
+            'model.required' => 'Model wajib di isi',
+            'warna.required' => 'Warna wajib di isi',
+            'tahun.required' => 'Tahun wajib di isi',
+            'silinder.required' => 'Silinder wajib di isi',
+            'noLandasan.required' => 'No. Landasan wajib di isi',
+            'noMesin.required' => 'No. Mesin wajib di isi',
+            'bpkb.required' => 'No. BPKB wajib di isi',
             'suratPermohonan.required' => 'Surat permohonan wajib di isi',
             'suratPernyataan.required' => 'Surat pernyataan wajib di isi',
             'fcStnk.required' => 'Foto FC STNK wajib di isi',
@@ -278,7 +305,7 @@ class UserController extends Controller
             
             FormSifat::where('id', $request->id)
             ->update([
-                'user_id' => Auth::user()->id,
+                // 'user_id' => Auth::user()->id,
                 'nomor_kendaraan' => $request->noKendaraan,
                 'jenis_perubahan' => $request->jenisPerizinan,
                 'nama_pemilik' => $request->namaPemilik,
@@ -322,7 +349,7 @@ class UserController extends Controller
             
             FormSifat::where('id', $request->id)
             ->update([
-                'user_id' => Auth::user()->id,
+                // 'user_id' => Auth::user()->id,
                 'nomor_kendaraan' => $request->noKendaraan,
                 'jenis_perubahan' => $request->jenisPerizinan,
                 'nama_pemilik_lama' => $request->namaPemilikLama,
@@ -368,7 +395,7 @@ class UserController extends Controller
             
             FormSifat::where('id', $request->id)
             ->update([
-                'user_id' => Auth::user()->id,
+                // 'user_id' => Auth::user()->id,
                 'nomor_kendaraan' => $request->noKendaraan,
                 'jenis_perubahan' => $request->jenisPerizinan,
                 'nama_pemilik_lama' => $request->namaPemilikLama,
@@ -482,7 +509,7 @@ class UserController extends Controller
 
         FormBentuk::where('id', $request->id)
         ->update([
-            'user_id' => Auth::user()->id,
+            // 'user_id' => Auth::user()->id,
             'nomor_kendaraan' => $request->noKendaraan,
             'perubahan_bentuk' => $request->perubahanBentuk,
             'nama_pemilik_lama' => $request->namaPemilikLama,
@@ -518,21 +545,21 @@ class UserController extends Controller
         
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required',
-            'jenisPerizinan' => 'required',
-            'namaPemilik' => 'required',
-            'namaPemilikLama' => 'required',
-            'namaPemilikBaru' => 'required',
-            'alamat' => 'required',
-            'merk' => 'required',
-            'jenis' => 'required',
-            'model' => 'required',
-            'warna' => 'required',
-            'tahun' => 'required',
-            'silinder' => 'required',
-            'noLandasan' => 'required',
-            'noMesin' => 'required',
-            'bpkb' => 'required',
+            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'jenisPerizinan' => 'required|not_regex:/[`~!@#$%^&*+=>.,<?;:{}]+/',
+            'namaPemilik' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikLama' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPemilikBaru' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()+=><?;:{}]+/',
+            'merk' => 'required|not_regex:/[`~!@#$%^&*()+=->,<?;:{}]+/',
+            'jenis' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'model' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'silinder' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
             'suratPermohonan' => 'required',
             'suratPernyataan' => 'required',
             'fcStnk' => 'required',
