@@ -26,7 +26,7 @@ class PdfController extends Controller
 
         $date = Carbon::now()->format("d M Y");
         
-        $url = "http://127.0.0.1:8000/admin/data-rubah-sifat/detail/".$formSifat->id;
+        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->id;
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->id;
 
         $qr = base64_encode(QrCode::format('png')->size(120)->generate($url));
@@ -46,7 +46,7 @@ class PdfController extends Controller
 
         $date = Carbon::now()->format("d M Y");
         
-        $url = "http://127.0.0.1:8000/admin/data-rubah-bentuk/detail/".$formBentuk->id;
+        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->id;
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-bentuk/kepala-dinas/".$formBentuk->id;
 
         $qr = base64_encode(QrCode::format('png')->size(120)->generate($url));

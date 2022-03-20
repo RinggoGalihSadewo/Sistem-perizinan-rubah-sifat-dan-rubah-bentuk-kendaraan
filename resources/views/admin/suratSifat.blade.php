@@ -349,7 +349,8 @@
 
                   <div class="paraf d-flex" style="margin-top:80px"> 
                     <div class="qr">
-                      {{$qr}} 
+                    <!-- <img src="data:image/png;base64, {{$qr}}"> -->
+                     {{$qr}}
                     </div>
                     <div class="subParaf">
                       <table border="0" cellpadding="5">
