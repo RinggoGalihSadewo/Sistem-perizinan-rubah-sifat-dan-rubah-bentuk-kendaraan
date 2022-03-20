@@ -70,7 +70,7 @@
           <tr>
             <td></td>
             <td>:</td>
-            <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b>Perubahan Bentuk.</b></td>
+            <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b> Perubahan Bentuk.</b></td>
           </tr>
           <tr>
             <td valign="top">Mengigat</td>
@@ -224,7 +224,7 @@
             <img src="data:image/png;base64, {{$qr}}">
           </div>
           <div class="subParaf">
-            <table border="0" cellpadding="5">
+            <table border="0" cellpadding="0">
               <tr>
                 <td>DIKELUARKAN DI</td>
                 <td>:</td>
@@ -241,10 +241,10 @@
               <tr>
               </tr>
             </table>
-            <br>
-            <br>
             <div style="margin-left: 1%;">
-              <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+            <img src="data:image/png;base64, {{$qr2}}">
+            <!-- <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px">  -->
+              <!-- <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p> -->
               <p>
                 Pembina Utama Muda
                 <br>

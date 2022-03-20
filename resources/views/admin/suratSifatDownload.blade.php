@@ -69,15 +69,15 @@
           </tr>
           <br>
           <tr>
-            <td>Menimbang</td>
-            <td>:</td>
-            <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b>Perubahan Sifat.</b></td>
+            <td valign="top">Menimbang</td>
+            <td valign="top">:</td>
+            <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b> Perubahan Sifat.</b></td>
           </tr>
           <tr>
             <td valign="top">Mengigat</td>
             <td valign="top">:</td>
-            <td>
-              <ol start="1">
+            <td valign="top">
+              <ol start="1" valign="top">
                 <li>Undang-Undang No. 22 Tahun 2009 Tentang Lalu Lintas dan Angkutan Jalan;</li>
                 <li>Peraturan Pemerintah No. 55 Tahun 2012 Tentang Kendaraan dan Pengemudi;</li>
                 <li>Peraturan Pemerintah No. 74 Tahun 2014 Tentang Angkutan Jalan;</li>
@@ -236,7 +236,7 @@
             <img src="data:image/png;base64, {{$qr}}">
           </div>
           <div class="subParaf">
-            <table border="0" cellpadding="5">
+            <table border="0" cellpadding="0">
               <tr>
                 <td>DIKELUARKAN DI</td>
                 <td>:</td>
@@ -253,10 +253,13 @@
               <tr>
               </tr>
             </table>
-            <br>
-            <br>
+            <!-- <br>
+            <br> -->
             <div style="margin-left: 1%;">
-              <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+            <img src="data:image/png;base64, {{$qr2}}">
+                <!-- <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px">  -->
+              
+              <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p>
               <p>
                 Pembina Utama Muda
                 <br>
