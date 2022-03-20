@@ -62,6 +62,16 @@ class UserController extends Controller
 
     public function storeLaporan(Request $request)
     {
+
+        $request->validate([
+            'kritik' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;{}]+/',
+            'saran' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;{}]+/'
+        ],
+        [
+            'kritik.required' => 'Kritik wajib di isi',
+            'saran.required' => 'Saran wajib di isi'
+        ]);
+
         Laporan::create([
             'kritik' => $request->kritik,
             'saran' => $request->saran

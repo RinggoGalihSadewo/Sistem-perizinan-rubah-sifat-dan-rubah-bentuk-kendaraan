@@ -209,7 +209,7 @@
                       @endcanany
                       @else
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kasi_angkutan']}}</a>
-                      @endif                      
+                      @endif             
                     </td>
                     <td>
                       @if($d->trackSuratSifat['kabid_lla'] == "Belum Validasi")

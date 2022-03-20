@@ -19,6 +19,7 @@ class ValidasiSifatController extends Controller
 
     public function staff(TrackSuratSifat $trackSuratSifat, FormSifat $formSifat)
     {
+
         $valid = "Sudah Validasi";
 
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)

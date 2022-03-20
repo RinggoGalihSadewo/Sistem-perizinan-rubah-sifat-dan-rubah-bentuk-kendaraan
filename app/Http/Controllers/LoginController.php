@@ -18,14 +18,14 @@ class LoginController extends Controller
         
         $validatedData = $request->validate([
 
-            'username' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'username' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
             'password' => 'required',
             'konPassword' => 'required',
-            'namaPerusahaan' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'namaPerusahaan' => 'required|not_regex:/[`~!@#$%^&*()+=><?;{}]+/',
             'namaPemilik' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
             'kabupaten' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'npwp' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'alamat' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
+            'npwp' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()+=><?;:{}]+/',
             'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
             'noHp' => 'required|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
 
@@ -41,7 +41,7 @@ class LoginController extends Controller
             'alamat.required' => 'alamat wajib di isi',
             'email.required' => 'email wajib di isi',
             'email.email' => 'harap masukan email sesuai dengan formatnya',
-            'noHP.required' => 'no hp wajib di isi',
+            'noHp.required' => 'no hp wajib di isi',
         ]
         );
 

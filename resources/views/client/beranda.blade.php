@@ -289,7 +289,7 @@
                                 No. Hp
                             </div>
                             <div class="col-sm-6">
-                                <input type="noHp" class="form-control @error('noHp') is-invalid @enderror" id="" name="noHp" value="{{old('noHp')}}">
+                                <input type="text" class="form-control @error('noHp') is-invalid @enderror" id="" name="noHp" value="{{old('noHp')}}">
                                 @error('noHp')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -358,7 +358,14 @@
                                 Kritik
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="form-control mt-2" id="" style="height: 120px;" name="kritik"></textarea>
+                                <textarea class="form-control mt-2 @error('kritik') is-invalid @enderror" id="" style="height: 120px;" name="kritik"></textarea>
+                                @error('kritik')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row mt-4">
@@ -366,7 +373,14 @@
                                 Saran
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="form-control mt-2" id="" style="height: 120px;" name="saran"></textarea>
+                                <textarea class="form-control mt-2 @error('saran') is-invalid @enderror" id="" style="height: 120px;" name="saran"></textarea>
+                                @error('saran')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                                 <center>
                                 <button class="btn mt-5" type="submit" style="background: #fff; color: #22577E;">KIRIM</button>
                                 </center>   
