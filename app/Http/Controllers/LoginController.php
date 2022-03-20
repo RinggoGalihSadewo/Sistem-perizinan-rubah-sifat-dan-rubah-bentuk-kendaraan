@@ -19,8 +19,8 @@ class LoginController extends Controller
         $validatedData = $request->validate([
 
             'username' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'password' => 'required',
-            'konPassword' => 'required',
+            'password' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'konPassword' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
             'namaPerusahaan' => 'required|not_regex:/[`~!@#$%^&*()+=><?;{}]+/',
             'namaPemilik' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
             'kabupaten' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
@@ -88,8 +88,8 @@ class LoginController extends Controller
     {
 
         $credentials = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
+            'username' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'password' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
         ],
         [
             'username.required' => 'username wajib di isi',

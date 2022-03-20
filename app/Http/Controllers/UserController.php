@@ -97,7 +97,23 @@ class UserController extends Controller
     }
 
     public function editProfile(User $user, Request $request)
-    {   
+    {
+        $validatedData = $request->validate([
+
+            'nama' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'alamat' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
+            'noHp' => 'required|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
+
+        ],
+        [
+            'nama.required' => 'Nama wajib di isi',
+            'alamat.required' => 'Alamat wajib di isi',
+            'email.required' => 'Email wajib di isi',
+            'email.email' => 'harap masukan email sesuai dengan formatnya',
+            'noHp.required' => 'No hp wajib di isi'
+        ]);   
+
         if($request->profile == null)
         {
             $foto = $request->nullProfile;
@@ -702,8 +718,8 @@ class UserController extends Controller
         $TrackSifat->kepala_dinas = $valid;
 
         $TrackSifat->save();
-
-        return redirect('/perizinan-rubah-sifat')->with('status', 'Pengisian form perizinan berhasil');
+        
+        return redirect('/alur-kordinasi')->with('status', 'Pengisian form perizinan rubah bentuk berhasil');
 
     }
 
@@ -817,7 +833,7 @@ class UserController extends Controller
 
         $TrackBentuk->save();
 
-        return redirect('/perizinan-rubah-bentuk')->with('status', 'Pengisian form perizinan berhasil');
+        return redirect('/alur-kordinasi')->with('status', 'Pengisian form perizinan rubah bentuk berhasil');
 
     }
 

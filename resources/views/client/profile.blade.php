@@ -76,7 +76,14 @@
                                 Nama Pemilik
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data[0]->nama_pemilik}}">
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{$data[0]->nama_pemilik}}">
+                                @error('nama')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <br>
@@ -85,7 +92,14 @@
                                 Alamat Pemilik
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="alamat" name="alamat" value="{{$data[0]->alamat}}">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{$data[0]->alamat}}">
+                                @error('alamat')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <br>  
@@ -94,7 +108,14 @@
                                 Email
                             </div>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="email" name="email" value="{{$data[0]->email}}">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{$data[0]->email}}">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <br>             
@@ -103,7 +124,14 @@
                                 No. HP
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="noHp" name="noHp" value="{{$data[0]->no_hp}}">
+                                <input type="text" class="form-control @error('noHp') is-invalid @enderror" id="noHp" name="noHp" value="{{$data[0]->no_hp}}">
+                                @error('noHp')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <br>
