@@ -21,9 +21,10 @@ class QrCodeController extends Controller
 
     public function lihatSuratSifat(FormSifat $formSifat)
     {   
-        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->id;
+        
+        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->slug;
 
-        $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->id;
+        $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->slug;
 
         $date = Carbon::now()->format("d M Y");
 
@@ -36,15 +37,17 @@ class QrCodeController extends Controller
         return view('admin.suratSifat', compact('qr', 'data', 'date', 'qr2'));
     }
 
-    public function detailValidSifat(FormSifat $formSifat)
+    public function detailValidSifat($formSifat)
     {
-        $data = FormSifat::find($formSifat->id);
+        // $data = FormSifat::find($formSifat->id);
+        $data = FormSifat::where('slug', $formSifat)->first();
         return view('client.validSifat', compact('data'));
     }
 
-    public function detailValidBentuk(FormBentuk $formBentuk)
+    public function detailValidBentuk($formBentuk)
     {
-        $data = FormBentuk::find($formBentuk->id);
+        // $data = FormBentuk::find($formBentuk->id);
+        $data = FormBentuk::where('slug', $formBentuk)->first();
         return view('client.validBentuk', compact('data'));
     }
 
@@ -56,9 +59,9 @@ class QrCodeController extends Controller
 
     public function lihatSuratBentuk(FormBentuk $formBentuk)
     {   
-        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->id;
+        $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->slug;
 
-        $url2 = "http://127.0.0.1:8000/perizinan-rubah-bentuk/kepala-dinas/".$formBentuk->id;
+        $url2 = "http://127.0.0.1:8000/perizinan-rubah-bentuk/kepala-dinas/".$formBentuk->slug;
 
         $data = FormBentuk::find($formBentuk->id);
 
@@ -70,13 +73,15 @@ class QrCodeController extends Controller
         return view('admin.suratBentuk', compact('qr', 'data', 'date', 'qr2'));
     }
 
-    public function sifatKepalaDinas(FormSifat $formSifat){
-        $data = FormSifat::find($formSifat->id);
+    public function sifatKepalaDinas($formSifat){
+        // $data = FormSifat::find($formSifat->id);
+        $data = FormSifat::where('slug', $formSifat)->first();
         return view('client.ttdSifat', compact('data'));
     }
 
-    public function sifatKepalaDinas2(FormBentuk $formBentuk){
-        $data = FormBentuk::find($formBentuk->id);
+    public function sifatKepalaDinas2($formBentuk){
+        // $data = FormBentuk::find($formBentuk->id);
+        $data = FormBentuk::where('slug', $formBentuk)->first();
         return view('client.ttdBentuk', compact('data'));
     }
 }
