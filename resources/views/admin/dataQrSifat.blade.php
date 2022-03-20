@@ -160,9 +160,9 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data QR Code Rubah Sifat</h1>
-          </div>
+          </div> -->
 
           <div class="row">
             <div class="col-lg-12 mb-4">
@@ -172,6 +172,19 @@
                   {{ session('status') }}
               </div>
             @endif
+
+            <form action="/admin/data-qr-code/rubah-sifat/cari" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-sm-6"><h1 class="h3 mb-0 text-gray-800">Data QR Code Rubah Sifat</h1></div>
+                    <div class="col-sm-6 d-inline">
+                        <input name="key" type="text" class="form-control" placeholder="Cari nomor kendaraan">
+                        <button class="btn btn-primary d-none">Cari</button>
+                    </div>
+                </div>
+                </form>
+
+                <br>
               
               <!-- Simple Tables -->
               <div class="card">
