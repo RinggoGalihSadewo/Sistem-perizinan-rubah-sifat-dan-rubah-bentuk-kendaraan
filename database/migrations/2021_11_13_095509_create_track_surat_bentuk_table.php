@@ -19,9 +19,13 @@ class CreateTrackSuratBentukTable extends Migration
             ->references('id')->on('form_bentuk')
             ->onDelete('cascade');
             $table->string('kasi');
+            $table->string('tgl_kasi');
             $table->string('kabid');
+            $table->string('tgl_kabid');
             $table->string('sekretaris');
+            $table->string('tgl_sekretaris');
             $table->string('kepala_dinas');
+            $table->string('tgl_kepala');
             $table->timestamps();
         });
     }

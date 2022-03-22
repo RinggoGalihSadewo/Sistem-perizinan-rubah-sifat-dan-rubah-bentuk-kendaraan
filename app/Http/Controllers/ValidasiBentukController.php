@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\TrackSuratBentuk;
 use App\Models\FormBentuk;
+use Carbon\Carbon;
 
 class ValidasiBentukController extends Controller
 {
@@ -22,7 +23,8 @@ class ValidasiBentukController extends Controller
 
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
-                'kasi' => $valid
+                'kasi' => $valid,
+                'tgl_kasi' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-bentuk')->with('status', 'Berhasil melakukan validasi');
@@ -34,7 +36,8 @@ class ValidasiBentukController extends Controller
 
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
-                'kabid' => $valid
+                'kabid' => $valid,
+                'tgl_kabid' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-bentuk')->with('status', 'Berhasil melakukan validasi');
@@ -46,7 +49,8 @@ class ValidasiBentukController extends Controller
 
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
-                'sekretaris' => $valid
+                'sekretaris' => $valid,
+                'tgl_sekretaris' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-bentuk')->with('status', 'Berhasil melakukan validasi');
@@ -58,7 +62,8 @@ class ValidasiBentukController extends Controller
 
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
-                'kepala_dinas' => $valid
+                'kepala_dinas' => $valid,
+                'tgl_kepala' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-bentuk')->with('status', 'Berhasil melakukan validasi');

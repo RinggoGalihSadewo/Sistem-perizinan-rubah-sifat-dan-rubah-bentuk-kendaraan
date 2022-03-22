@@ -212,6 +212,8 @@
                       @endcanany
                       @elseif($d->trackSuratSifat['staff_angkutan'] == "Sudah Validasi")
                       <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['staff_angkutan']}}</a>
+                      <br>
+                      <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_staff}}</div>
                       @endif
                     </td>
                     <td>

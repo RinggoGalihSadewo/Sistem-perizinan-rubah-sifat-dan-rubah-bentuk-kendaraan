@@ -19,10 +19,15 @@ class CreateTrackSuratSifatTable extends Migration
             ->references('id')->on('form_sifat')
             ->onDelete('cascade');
             $table->string('staff_angkutan');
+            $table->string('tgl_staff');
             $table->string('kasi_angkutan');
+            $table->string('tgl_kasi');
             $table->string('kabid_lla');
+            $table->string('tgl_kabid');
             $table->string('sekretariat');
+            $table->string('tgl_sekretariat');
             $table->string('kepala_dinas');
+            $table->string('tgl_kepala');
             $table->timestamps();
         });
     }

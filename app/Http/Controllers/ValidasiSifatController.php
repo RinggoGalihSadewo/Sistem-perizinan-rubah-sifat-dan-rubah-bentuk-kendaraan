@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\TrackSuratSifat;
 use App\Models\FormSifat;
+use Carbon\Carbon;
 
 class ValidasiSifatController extends Controller
 {
@@ -24,7 +25,8 @@ class ValidasiSifatController extends Controller
 
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
-                'staff_angkutan' => $valid
+                'staff_angkutan' => $valid,
+                'tgl_staff' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -36,7 +38,8 @@ class ValidasiSifatController extends Controller
 
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
-                'kasi_angkutan' => $valid
+                'kasi_angkutan' => $valid,
+                'tgl_kasi' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -48,7 +51,8 @@ class ValidasiSifatController extends Controller
 
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
-                'kabid_lla' => $valid
+                'kabid_lla' => $valid,
+                'tgl_kabid' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -60,7 +64,8 @@ class ValidasiSifatController extends Controller
 
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
-                'sekretariat' => $valid
+                'sekretariat' => $valid,
+                'tgl_sekretariat' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -72,7 +77,8 @@ class ValidasiSifatController extends Controller
 
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
-                'kepala_dinas' => $valid
+                'kepala_dinas' => $valid,
+                'tgl_kepala' => Carbon::now()->format("d M Y")
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');

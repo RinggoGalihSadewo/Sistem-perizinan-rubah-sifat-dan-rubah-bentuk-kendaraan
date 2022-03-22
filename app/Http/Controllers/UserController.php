@@ -742,10 +742,15 @@ class UserController extends Controller
 
         $TrackSifat->form_sifat_id = $formSifat->id;
         $TrackSifat->staff_angkutan = $valid;
+        $TrackSifat->tgl_staff = "-";
         $TrackSifat->kasi_angkutan = $valid;
+        $TrackSifat->tgl_kasi = "-";
         $TrackSifat->kabid_lla = $valid;
+        $TrackSifat->tgl_kabid = "-";
         $TrackSifat->sekretariat = $valid;
+        $TrackSifat->tgl_sekretariat = "-";
         $TrackSifat->kepala_dinas = $valid;
+        $TrackSifat->tgl_kepala = "-";
 
         $TrackSifat->save();
         
@@ -858,9 +863,13 @@ class UserController extends Controller
 
         $TrackBentuk->form_bentuk_id = $FormBentuk->id;
         $TrackBentuk->kasi = $valid;
+        $TrackBentuk->tgl_kasi = "-";
         $TrackBentuk->kabid = $valid;
+        $TrackBentuk->tgl_kabid = "-";
         $TrackBentuk->sekretaris = $valid;
+        $TrackBentuk->tgl_sekretaris = "-";
         $TrackBentuk->kepala_dinas = $valid;
+        $TrackBentuk->tgl_kepala = "-";
 
         $TrackBentuk->save();
 
