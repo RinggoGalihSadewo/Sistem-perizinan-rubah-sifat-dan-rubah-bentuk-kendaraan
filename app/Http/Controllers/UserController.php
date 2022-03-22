@@ -65,8 +65,8 @@ class UserController extends Controller
     {
 
         $request->validate([
-            'kritik' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;{}]+/',
-            'saran' => 'required|not_regex:/[`~!@#$%^&*()_+=><?;{}]+/'
+            'kritik' => 'required',
+            'saran' => 'required'
         ],
         [
             'kritik.required' => 'Kritik wajib di isi',
@@ -101,10 +101,10 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
 
-            'nama' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'alamat' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'email' => 'required|email|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',
-            'noHp' => 'required|not_regex:/[`~!#$%^&*()_+=->,<?;:{}]+/',            
+            'nama' => 'required',
+            'alamat' => 'required',
+            'email' => 'required|email',
+            'noHp' => 'required',            
 
         ],
         [
@@ -159,21 +159,20 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'jenisPerizinan' => 'required|not_regex:/[`~!@#$%^&*+=>.,<?;:{}]+/',
-            'namaPemilik' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'namaPemilikLama' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'namaPemilikBaru' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'alamat' => 'required|not_regex:/[`~!@#$%^&*+=><?;:{}]+/',
-            'merk' => 'required|not_regex://[`~!@#$%^&*+=>,<?;:{}]+/',
-            'jenis' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'model' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'silinder' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'jenisPerizinan' => 'required',
+            'namaPemilik' => 'required',
+            'namaPemilikLama' => 'required',
+            'namaPemilikBaru' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'model' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'silinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'bpkb' => 'required',
             'suratPermohonan' => 'required',
             'suratPernyataan' => 'required',
             'fcStnk' => 'required',
@@ -453,20 +452,20 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'namaPemilikLama' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'namaPemilikBaru' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'perubahanBentuk' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=>.,<?;:{}]+/',
-            'alamat' => 'required|not_regex:/[`~!@#$%^&*+=><?;:{}]+/',
-            'merk' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'jenis' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'silinder' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'noUji' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'noKendaraan' => 'required',
+            'namaPemilikLama' => 'required',
+            'namaPemilikBaru' => 'required',
+            'perubahanBentuk' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'silinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'bpkb' => 'required',
+            'noUji' => 'required',
             'depan' => 'required',
             'belakang' => 'required',
             'kanan' => 'required',
@@ -547,21 +546,21 @@ class UserController extends Controller
         
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'jenisPerizinan' => 'required|not_regex:/[`~!@#$%^&*+=>.,<?;:{}]+/',
-            'namaPemilik' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'namaPemilikLama' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'namaPemilikBaru' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'alamat' => 'required|not_regex:/[`~!@#$%^&*+=><?;:{}]+/',
-            'merk' => 'required|not_regex://[`~!@#$%^&*+=>,<?;:{}]+/',
-            'jenis' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'model' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'silinder' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
-            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()+=>,<?;:{}]+/',
+            'noKendaraan' => 'required',
+            'jenisPerizinan' => 'required',
+            'namaPemilik' => 'required',
+            'namaPemilikLama' => 'required',
+            'namaPemilikBaru' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'model' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'silinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'bpkb' => 'required',
             'suratPermohonan' => 'required',
             'suratPernyataan' => 'required',
             'fcStnk' => 'required',
@@ -578,6 +577,9 @@ class UserController extends Controller
             'belakang' => 'required',
         ],
         [
+            'namaPemilik.required' => 'Nama pemilik wajib di isi',
+            'namaPemilikLama.required' => 'Nama pemilik lama wajib di isi',
+            'namaPemilikBaru.required' => 'Nama pemilik baru wajib di isi',
             'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
             'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
             'alamat.required' => 'Alamat wajib di isi',
@@ -691,6 +693,8 @@ class UserController extends Controller
         }
 
 
+        if($request->jenisPerizinan === "Perubahan Sifat (HITAM)" || $request->jenisPerizinan === "Perubahan Sifat (HITAM) BBN" || $request->jenisPerizinan === "Penetapan Sifat (KUNING)" || $request->jenisPerizinan === "Perubahan Sifat (HITAM KE KUNING)") {
+
         $formSifat = new FormSifat;
 
         $formSifat->user_id = Auth::user()->id;
@@ -755,6 +759,12 @@ class UserController extends Controller
         $TrackSifat->save();
         
         return redirect('/alur-kordinasi')->with('status', 'Pengisian form perizinan rubah bentuk berhasil');
+        
+        }
+
+        else{
+            return redirect('/perizinan-rubah-sifat')->with('gagal', 'Harap pilih jenis perubahan yang tersedia !');
+        }
 
     }
 
@@ -768,20 +778,20 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
 
-            'noKendaraan' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'namaPemilikLama' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'namaPemilikBaru' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'perubahanBentuk' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=>.,<?;:{}]+/',
-            'alamat' => 'required|not_regex:/[`~!@#$%^&*+=><?;:{}]+/',
-            'merk' => 'required|not_regex:/[`~!@#$%^&*+=>,<?;:{}]+/',
-            'jenis' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'warna' => 'required|not_regex:/[0-9`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'tahun' => 'required|not_regex:/[`~!@#$%^&*()_+=->.,<?;:{}]+/',
-            'silinder' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'noLandasan' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'noMesin' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'bpkb' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
-            'noUji' => 'required|not_regex:/[`~!@#$%^&*()_+=>,<?;:{}]+/',
+            'noKendaraan' => 'required',
+            'namaPemilikLama' => 'required',
+            'namaPemilikBaru' => 'required',
+            'perubahanBentuk' => 'required',
+            'alamat' => 'required',
+            'merk' => 'required',
+            'jenis' => 'required',
+            'warna' => 'required',
+            'tahun' => 'required',
+            'silinder' => 'required',
+            'noLandasan' => 'required',
+            'noMesin' => 'required',
+            'bpkb' => 'required',
+            'noUji' => 'required',
             'depan' => 'required',
             'belakang' => 'required',
             'kanan' => 'required',

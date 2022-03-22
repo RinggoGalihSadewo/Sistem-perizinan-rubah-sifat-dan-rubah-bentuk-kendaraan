@@ -89,6 +89,13 @@
                     </div>
                 @endif
 
+                @if (session('gagal'))
+                    <br>
+                    <div class="alert alert-danger">
+                        {{ session('gagal') }}
+                    </div>
+                @endif
+
                 <div class="mt-5">
                     <form action="/perizinan-rubah-sifat" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -117,10 +124,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <select class="form-select" name="jenisPerizinan" id="jenis" onClick="update()" value="{{old('jenisPerizinan')}}">
-                                    <option value="Perubahan Sifat (HITAM)">Perubahan Sifat (HITAM)</option>
-                                    <option value="Perubahan Sifat (HITAM) BBN">Perubahan Sifat (HITAM) BBN</option>
-                                    <option value="Penetapan Sifat (KUNING)">Penetapan Sifat (KUNING)</option>
-                                    <option value="Perubahan Sifat (HITAM KE KUNING)">Perubahan Sifat (HITAM KE KUNING)</option>
+                                    <option value="Perubahan Sifat (HITAM)" {{old('jenisPerizinan') == 'Perubahan Sifat (HITAM)' ? 'selected' : '' }}>Perubahan Sifat (HITAM)</option>
+                                    <option value="Perubahan Sifat (HITAM) BBN" {{old('jenisPerizinan') == 'Perubahan Sifat (HITAM)' ? 'selected' : '' }}>Perubahan Sifat (HITAM) BBN</option>
+                                    <option value="Penetapan Sifat (KUNING)" {{old('jenisPerizinan') == 'Penetapan Sifat (KUNING)' ? 'selected' : '' }}>Penetapan Sifat (KUNING)</option>
+                                    <option value="Perubahan Sifat (HITAM KE KUNING)" {{old('jenisPerizinan') == 'Perubahan Sifat (HITAM KE KUNING)' ? 'selected' : '' }}>Perubahan Sifat (HITAM KE KUNING)</option>
                                 </select>
                             </div>
                         </div>
