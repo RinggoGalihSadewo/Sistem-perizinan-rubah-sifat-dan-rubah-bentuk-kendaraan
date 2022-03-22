@@ -370,7 +370,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Dokumen Perusahaan (docx/pdf)
+                                Dokumen Perusahaan
                             </div>
                             <div class="col-sm-6">
                                 <input type="file"  class="form-control @error('docPerusahaan') is-invalid @enderror" id="" name="docPerusahaan" value="{{$data[0]->doc_perusahaan}}">
@@ -388,7 +388,7 @@
 
                         <div class="row">
                             <div class="col-sm-6">
-                                Dimensi Kendaraan (docx/pdf)
+                                Dimensi Kendaraan
                             </div>
                             <div class="col-sm-6">
                                 <input type="file"  class="form-control @error('dimensi') is-invalid @enderror" id="" name="dimensi" value="{{$data[0]->dimensi_kendaraan}}">
