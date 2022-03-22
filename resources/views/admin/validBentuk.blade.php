@@ -208,7 +208,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kasi')">{{$d->trackSuratBentuk['kasi']}}</a>
                       @endcanany
                       @elseif($d->trackSuratBentuk['kasi'] == "Sudah Validasi")
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kasi']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kasi']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_kasi}}</div>
                       @endif
                     </td>
                     <td>
@@ -219,7 +220,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kabid')">{{$d->trackSuratBentuk['kabid']}}</a>
                       @endcanany
                       @elseif($d->trackSuratBentuk['kabid'] == "Sudah Validasi")
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kabid']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kabid']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_kabid}}</div>
                       @endif                      
                     </td>
                     <td>
@@ -230,18 +232,20 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Sekretaris')">{{$d->trackSuratBentuk['sekretaris']}}</a>
                       @endcanany
                       @else
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['sekretaris']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['sekretaris']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_sekretaris}}</div>
                       @endif                      
                     </td>
                     <td>
                       @if($d->trackSuratBentuk['kepala_dinas'] == "Belum Validasi")
                       @canany(['kepala-dinas','superadmin','rb-admin']) 
-                      <a href="/admin/validasi/rubah-bentuk/kepala-dinas/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
+                      <a href="/admin/validaspi/rubah-bentuk/kepala-dinas/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
                       @elsecanany(['rb-kasi','rb-kabid','sekretaris'])
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kepala Dinas')">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
                       @endcanany
                       @else
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kepala_dinas']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_kepala}}</div>
                       @endif              
                     </td>
                   </tr>

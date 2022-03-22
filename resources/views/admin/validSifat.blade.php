@@ -211,9 +211,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Staff !')">{{$d->trackSuratSifat['staff_angkutan']}}</a>
                       @endcanany
                       @elseif($d->trackSuratSifat['staff_angkutan'] == "Sudah Validasi")
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['staff_angkutan']}}</a>
-                      <br>
                       <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_staff}}</div>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['staff_angkutan']}}</a> -->
                       @endif
                     </td>
                     <td>
@@ -224,7 +223,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kasi !')">{{$d->trackSuratSifat['kasi_angkutan']}}</a>
                       @endcanany
                       @else
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kasi_angkutan']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kasi_angkutan']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_kasi}}</div>
                       @endif             
                     </td>
                     <td>
@@ -235,7 +235,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kabid !')">{{$d->trackSuratSifat['kabid_lla']}}</a>
                       @endcanany
                       @else
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kabid_lla']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kabid_lla']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_kabid}}</div>
                       @endif                      
                     </td>
                     <td>
@@ -246,7 +247,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Sekretariat !')">{{$d->trackSuratSifat['sekretariat']}}</a>
                       @endcanany
                       @else
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['sekretariat']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['sekretariat']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_sekretariat}}</div>
                       @endif              
                     </td>
                     <td>
@@ -257,7 +259,8 @@
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kepala Dinas !')">{{$d->trackSuratSifat['kepala_dinas']}}</a>
                       @endcanany
                       @else
-                      <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kepala_dinas']}}</a>
+                      <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kepala_dinas']}}</a> -->
+                      <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_kepala}}</div>
                       @endif
                     </td>
                   </tr>
