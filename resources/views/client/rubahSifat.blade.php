@@ -123,12 +123,19 @@
                                 Jenis Perubahan Sifat
                             </div>
                             <div class="col-sm-6">
-                                <select class="form-select" name="jenisPerizinan" id="jenis" onClick="update()" value="{{old('jenisPerizinan')}}">
+                                <select class="form-select @error('jenisPerizinan') is-invalid @enderror" name="jenisPerizinan" id="jenis" onClick="update()" value="{{old('jenisPerizinan')}}">
                                     <option value="Perubahan Sifat (HITAM)" {{old('jenisPerizinan') == 'Perubahan Sifat (HITAM)' ? 'selected' : '' }}>Perubahan Sifat (HITAM)</option>
                                     <option value="Perubahan Sifat (HITAM) BBN" {{old('jenisPerizinan') == 'Perubahan Sifat (HITAM)' ? 'selected' : '' }}>Perubahan Sifat (HITAM) BBN</option>
                                     <option value="Penetapan Sifat (KUNING)" {{old('jenisPerizinan') == 'Penetapan Sifat (KUNING)' ? 'selected' : '' }}>Penetapan Sifat (KUNING)</option>
                                     <option value="Perubahan Sifat (HITAM KE KUNING)" {{old('jenisPerizinan') == 'Perubahan Sifat (HITAM KE KUNING)' ? 'selected' : '' }}>Perubahan Sifat (HITAM KE KUNING)</option>
                                 </select>
+                                @error('jenisPerizinan')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
                             </div>
                         </div>
 

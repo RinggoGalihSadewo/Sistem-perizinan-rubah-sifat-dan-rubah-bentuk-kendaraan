@@ -21,7 +21,16 @@ class GenerateQRController extends Controller
     }
 
     public function generateSifat(FormSifat $formSifat, Request $request)
-    {
+    {   
+    
+        $validatedData = $request->validate([  
+            'noSurat' => 'required',
+        ],
+        [
+            'noSurat.required' => 'No surat wajib di isi',
+        ]
+        );
+
         $valid = bcrypt('valid');        
 
         $qr = new QrSifat;
@@ -48,6 +57,14 @@ class GenerateQRController extends Controller
 
     public function generateBentuk(FormBentuk $formBentuk, Request $request)
     {
+        $validatedData = $request->validate([  
+            'noSurat' => 'required',
+        ],
+        [
+            'noSurat.required' => 'No surat wajib di isi',
+        ]
+        );
+
         $valid = bcrypt('valid');        
 
         $qr = new QrBentuk;

@@ -547,7 +547,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
 
             'noKendaraan' => 'required',
-            'jenisPerizinan' => 'required',
+            'jenisPerizinan' => ['required', 'in:Perubahan Sifat (HITAM),Perubahan Sifat (HITAM) BBN,Penetapan Sifat (KUNING),Perubahan Sifat (HITAM KE KUNING)'],
             'namaPemilik' => 'required',
             'namaPemilikLama' => 'required',
             'namaPemilikBaru' => 'required',
@@ -606,6 +606,7 @@ class UserController extends Controller
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
+            'jenisPerizinan.in' => 'Jenis perizinan tidak tersedia'
         ]
         );
 
@@ -758,7 +759,7 @@ class UserController extends Controller
 
         $TrackSifat->save();
         
-        return redirect('/alur-kordinasi')->with('status', 'Pengisian form perizinan rubah bentuk berhasil');
+        return redirect('/alur-kordinasi')->with('status', 'Pengisian form perizinan rubah sifat berhasil');
         
         }
 

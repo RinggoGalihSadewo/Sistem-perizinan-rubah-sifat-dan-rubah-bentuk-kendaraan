@@ -35,7 +35,7 @@ class LoginAdminController extends Controller
           
         }
         
-        return redirect('/login')->with('status', 'Username atau password anda salah !');
+        return redirect('/login')->with('status', 'Admin tidak terdaftar !');
     }
 
     public function logout(Request $request)

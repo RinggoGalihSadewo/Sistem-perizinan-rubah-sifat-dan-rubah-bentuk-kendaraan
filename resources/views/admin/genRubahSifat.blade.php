@@ -211,9 +211,15 @@
                         <td>
                           <form action="/admin/generate-qrcode-rubah-sifat/{{$d->id}}"method="post">
                           @csrf
-                          <div class="form-group d-flex">
-                            <input type="text" class="form-control" id="exampleInputEmail1"  name="noSurat" placeholder="Masukan nomor surat" style="width:200px;">
-                            
+                          <div class="form-group">
+                            <input type="text" class="form-control @error('noSurat') is-invalid @enderror" id="exampleInputEmail1"  name="noSurat" placeholder="Masukan nomor surat" style="width:200px;">
+                            @error('noSurat')
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
                           </div>
                           
                         </td>
