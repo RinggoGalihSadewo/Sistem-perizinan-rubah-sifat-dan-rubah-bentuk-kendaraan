@@ -29,11 +29,15 @@ class NotifikasiController extends Controller
 
         ];
 
-        for($i=0;$i<User::count();$i++)
+        $n = User::where('role', 'pengguna')->count();
+        
+        for($i=0;$i<$n;$i++)
         {
-            $email = User::get('email');
+            $email = User::where('role', 'Pengguna')->get('email');
             Mail::to($email[$i]->email)->send(new \App\Mail\Pengumuman($details));
+            
         }
+        
         return redirect('/admin/pengumuman')->with('status', 'Berhasil mengirimkan pengumuman ke semua pengguna');
     }
 
