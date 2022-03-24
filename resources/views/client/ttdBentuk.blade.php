@@ -39,11 +39,11 @@
         <ul class="list-group">
             <li class="list-group-item"><h4>Verifikasi Tanda Tangan Elektronik</h4><h5>Dinas Perhubungan Provinsi Lampung</h5></li>
             <li class="list-group-item">Nama Dokumen : {{$data->nomor_kendaraan}}_Perizinan Rubah Bentuk</li>
-            <li class="list-group-item">Nomer Surat : {{$data->qrBentuk->no_surat}}</li>
+            <li class="list-group-item">Nomor Surat : {{$data->qrBentuk->no_surat}}</li>
             <li class="list-group-item">Telah Ditanda tangani oleh : BAMBANG SUMBOGO, SE,. MM</li>
             <li class="list-group-item">Di tanda tangani pada tanggal : {{$data->qrBentuk->created_at}}</li>
-            <li class="list-group-item">Keterangan dokumen : Perizinan Rubah Bentuk dengan nomor kendaraan {{$data->nomor_kendaraan}}</li>
-            <li class="list-group-item">Adalah benar dan tercatat pada perizinan rubah bentuk</li>
+            <li class="list-group-item">Keterangan dokumen : Perizinan Rubah Bentuk dengan nomor kendaraan {{$data->nomor_kendaraan}} Adalah benar dan tercatat pada perizinan rubah bentuk</li>
+            
         </ul>
         </div>
         <br><br><br>

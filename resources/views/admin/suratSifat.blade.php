@@ -212,7 +212,7 @@
                     <tr>
                       <td valign="top">Menerangkan</td>
                       <td valign="top">:</td>
-                      <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, 
+                      <td>Memberikan Surat Keterangan <b>{{$data->jenis_perubahan}}, 
                       @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)") 
                       Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
                       @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
@@ -378,14 +378,14 @@
                           <td>KEPALA DINAS</td>
                         </tr>
                         <tr>
-                        <!-- <td>{{$qr2}}</td> -->
+                        <td>{{$qr2}}</td>
                         </tr>
                       </table>
                       <div style="margin-left: 1%;">
                         <div>
-                          <img src="/img/ttd kadis.jpeg" alt="" width="240px"> 
+                          <!-- <img src="/img/ttd kadis.jpeg" alt="" width="240px">  -->
                         </div>
-                        <!-- <b><u>BAMBANG SUMBOGO, SE,. MM</u></b> -->
+                        <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
                         <p>
                           Pembina Utama Muda
                           <br>

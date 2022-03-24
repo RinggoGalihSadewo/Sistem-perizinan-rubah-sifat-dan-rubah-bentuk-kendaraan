@@ -26,7 +26,7 @@
     }
 
     .paraf{
-      margin: 15px auto;
+      margin: auto auto;
       width: auto;
       height: 230px;
       position: relative;
@@ -96,13 +96,13 @@
           <tr>
             <td valign="top">Menerangkan</td>
             <td valign="top">:</td>
-            <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, 
+            <td>Memberikan Surat Keterangan <b>{{$data->jenis_perubahan}}, 
             @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)") 
             Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
             @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
             Sdr. {{$data->nama_pemilik_lama}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
             @endif
-            <br><br>
+            <br>
               <table>
                 <tr>
                     <td>-</td>
