@@ -72,7 +72,7 @@
             <br>  
             </div>
             
-            @elseif($data2[0]->konfirmasi === "Diterima")
+            @elseif($data[0]->konfirmasi === "Diterima")
             <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
             @endif
         </div>
