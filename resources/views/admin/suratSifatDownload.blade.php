@@ -16,7 +16,7 @@
   <style type="text/css">
     .surat{
         background-color: white;
-        font-size: 13px;
+        font-size: 12px;
         width: 100%;
         height: auto;
         padding: 0px;
@@ -26,7 +26,7 @@
     }
 
     .paraf{
-      margin: -5px auto;
+      margin: 15px auto;
       width: auto;
       height: 230px;
       position: relative;
@@ -63,15 +63,20 @@
 
         <table border="0" cellpadding="" style="text-align: justify;"> 
           <tr>
-            <td>Membaca</td>
-            <td>:</td>
-            <td>Permohonan dari <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+            <td valign="top">Membaca</td>
+            <td valign="top">:</td>
+            <td>Permohonan dari 
+            @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)")
+            <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+            @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
+            <b>Sdr. {{$data->nama_pemilik_lama}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+            @endif
           </tr>
           <br>
           <tr>
             <td valign="top">Menimbang</td>
             <td valign="top">:</td>
-            <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b> Perubahan Sifat.</b></td>
+            <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b>Perubahan Sifat.</b></td>
           </tr>
           <tr>
             <td valign="top">Mengigat</td>
@@ -91,7 +96,12 @@
           <tr>
             <td valign="top">Menerangkan</td>
             <td valign="top">:</td>
-            <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+            <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, 
+            @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)") 
+            Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+            @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
+            Sdr. {{$data->nama_pemilik_lama}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+            @endif
             <br><br>
               <table>
                 <tr>
@@ -256,10 +266,10 @@
             <!-- <br>
             <br> -->
             <div style="margin-left: 1%;">
-            <!-- <img src="data:image/png;base64, {{$qr2}}"> -->
-                <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px"> 
+            <img src="data:image/png;base64, {{$qr2}}">
+                <!-- <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px">  -->
               
-              <!-- <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p> -->
+              <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p>
               <p>
                 Pembina Utama Muda
                 <br>

@@ -239,7 +239,7 @@
                     <td>
                       @if($d->trackSuratBentuk['kepala_dinas'] == "Belum Validasi")
                       @canany(['kepala-dinas','superadmin','rb-admin']) 
-                      <a href="/admin/validaspi/rubah-bentuk/kepala-dinas/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
+                      <a href="/admin/validasi/rubah-bentuk/kepala-dinas/{{$d->id}}" class="btn btn-sm btn-danger">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
                       @elsecanany(['rb-kasi','rb-kabid','sekretaris'])
                       <a href="#" class="btn btn-sm btn-danger" onclick="alert('Anda bukan Kepala Dinas')">{{$d->trackSuratBentuk['kepala_dinas']}}</a>
                       @endcanany

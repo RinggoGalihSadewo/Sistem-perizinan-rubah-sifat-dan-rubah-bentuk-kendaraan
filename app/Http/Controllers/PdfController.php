@@ -29,11 +29,11 @@ class PdfController extends Controller
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->slug;
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->slug;
 
-        $qr = base64_encode(QrCode::format('png')->size(120)->generate($url));
-        $qr2 = base64_encode(QrCode::format('png')->size(120)->generate($url2));
+        $qr = base64_encode(QrCode::format('png')->size(80)->generate($url));
+        $qr2 = base64_encode(QrCode::format('png')->size(80)->generate($url2));
         // $qr = QrCode::size(100)->generate($url);
 
-        $pdf = PDF::loadView('admin.suratSifatDownload', compact('data', 'qr', 'date', 'qr2'));
+        $pdf = PDF::loadView('admin.suratSifatDownload', compact('data', 'qr', 'date', 'qr2'))->setPaper('a4', 'potrait')->setWarnings(false);
 
         $no = $formSifat->nomor_kendaraan;
 
@@ -49,11 +49,11 @@ class PdfController extends Controller
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->slug;
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-bentuk/kepala-dinas/".$formBentuk->slug;
 
-        $qr = base64_encode(QrCode::format('png')->size(120)->generate($url));
-        $qr2 = base64_encode(QrCode::format('png')->size(120)->generate($url2));
+        $qr = base64_encode(QrCode::format('png')->size(80)->generate($url));
+        $qr2 = base64_encode(QrCode::format('png')->size(80)->generate($url2));
         // $qr = QrCode::size(100)->generate($url);
 
-        $pdf = PDF::loadView('admin.suratBentukDownload', compact('data', 'qr', 'date', 'qr2'));
+        $pdf = PDF::loadView('admin.suratBentukDownload', compact('data', 'qr', 'date', 'qr2'))->setPaper('a4', 'potrait')->setWarnings(false);;
 
         $no = $formBentuk->nomor_kendaraan;
 

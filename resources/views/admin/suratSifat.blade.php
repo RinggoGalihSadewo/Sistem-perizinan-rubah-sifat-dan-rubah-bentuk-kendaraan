@@ -180,9 +180,14 @@
 
                   <table border="0" cellpadding=""> 
                     <tr>
-                      <td>Membaca</td>
-                      <td>:</td>
-                      <td>Permohonan dari <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+                      <td valign="top">Membaca</td>
+                      <td valign="top">:</td>
+                      <td>Permohonan dari 
+                      @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)")
+                      <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+                      @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
+                      <b>Sdr. {{$data->nama_pemilik_lama}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+                      @endif
                     </tr>
                     <tr>
                       <td>Menimbang</td>
@@ -207,7 +212,12 @@
                     <tr>
                       <td valign="top">Menerangkan</td>
                       <td valign="top">:</td>
-                      <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+                      <td>Memberikan Surat Keterangan Perubahan Sifat dari <b>{{$data->jenis_perubahan}}, 
+                      @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)") 
+                      Sdr. {{$data->nama_pemilik}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+                      @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
+                      Sdr. {{$data->nama_pemilik_lama}}</b> yang beralamat di {{$data->alamat}}, dengan data kendaraan sebagai berikut:
+                      @endif
                       <br>
                         <table border="0" cellpadding="5">
                           <tr>

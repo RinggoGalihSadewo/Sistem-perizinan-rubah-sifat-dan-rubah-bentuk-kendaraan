@@ -17,7 +17,7 @@
     .surat{
         background-color: white;
         width: 100%;
-        font-size: 13px;
+        font-size: 12px;
         height: auto;
         padding: 0px;
         font-family: 'times new roman';
@@ -63,13 +63,13 @@
 
         <table border="0" cellpadding=""> 
           <tr>
-            <td>Membaca</td>
-            <td>:</td>
+            <td valign="top">Membaca</td>
+            <td valign="top">:</td>
             <td>Permohonan Rubah Bentuk dari <b>Sdr. {{$data->nama_pemilik_baru}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
           </tr>
           <tr>
             <td></td>
-            <td>:</td>
+            <td></td>
             <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b> Perubahan Bentuk.</b></td>
           </tr>
           <tr>
@@ -242,9 +242,9 @@
               </tr>
             </table>
             <div style="margin-left: 1%;">
-            <!-- <img src="data:image/png;base64, {{$qr2}}"> -->
-            <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px"> 
-              <!-- <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p> -->
+            <img src="data:image/png;base64, {{$qr2}}">
+            <!-- <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px">  -->
+              <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p>
               <p>
                 Pembina Utama Muda
                 <br>

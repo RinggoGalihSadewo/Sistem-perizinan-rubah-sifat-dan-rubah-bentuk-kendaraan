@@ -52,93 +52,11 @@
         </div>
         <br>
     @endif
-
-    @if($data->count() == 1)
-    <div class="col-sm-12" data-aos="slide-left" data-aos-offset="200" data-aos-duration="700">
-    <div class="card mb-4">
-        <div class="title">Surat Perizinan Rubah Sifat</div>
-        <div class="info">
-            <div class="row">
-            <div class="col-7"> <span id="heading">Waktu Perizinan</span><br> <span id="details">{{$data[0]->created_at}}</span> </div>
-            @if($data[0]->konfirmasi === "Menunggu")
-            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-secondary">Menunggu</span> </div>
-            @elseif($data[0]->konfirmasi === "Ditolak")
-            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-danger">Ditolak</span> </div>
-            <div class="row">
-                <div class="col-12">
-                <span id="heading">Pesan Ditolak</span>
-                    <p>{{$data[0]->pesan_konfirmasi}}<br> <br><a href="/alur-kordinasi/perbaikan-surat-sifat/{{$data[0]->slug}}" class="badge bg-success perbaiki" style="text-decoration: none;">Klik untuk perbaiki surat</a></p>
-                </div>
-            <br>  
-            </div>
-            
-            @elseif($data[0]->konfirmasi === "Diterima")
-            <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
-            @endif
-        </div>
-        <br>
-            <div class="row">
-                <span>Nomor Kendaraan : {{$data[0]->nomor_kendaraan}}</span>
-            </div>
-        </div>
-        <div class="tracking">
-            <div class="title">Alur Surat</div>
-        </div>
-        <div class="progress-track">
-            <ul id="progressbar">
-                
-                @if($data[0]->trackSuratSifat['staff_angkutan'] == "Belum Validasi")
-                    <li class="step0" id="step1">Staff Angkutan</li>
-                @else
-                    <li class="step0 active" id="step1">Staff Angkutan</li>
-                @endif
-
-                @if($data[0]->trackSuratSifat['kasi_angkutan'] == "Belum Validasi")
-                    <li class="step0 text-center" id="step2">Kasi Angkutan</li>
-                @else
-                    <li class="step0 active text-center" id="step2">Kasi Angkutan</li>
-                @endif
-
-                @if($data[0]->trackSuratSifat['kabid_lla'] == "Belum Validasi")
-                    <li class="step0 text-right" id="step3"><span style="margin-left: 40%;">Kabid LLA</span></li>
-                @else
-                    <li class="step0 active" id="step3"><span style="margin-left: 40%;">Kabid LLA</span></li>
-                @endif
-
-                @if($data[0]->trackSuratSifat['sekretariat'] == "Belum Validasi")
-                    <li class="step0 text-right" id="step4"><span style="margin-left: 35%;">Sekretariat</span></li>
-                @else
-                    <li class="step0 active text-right" id="step4"><span style="margin-left: 35%;">Sekretariat</span></li>
-                @endif
-
-                @if($data[0]->trackSuratSifat['kepala_dinas'] == "Belum Validasi")
-                    <li class="step0 text-right" id="step5"><span style="margin-left: 20%;">Kepala Dinas</span></li>
-                @else
-                    <li class="step0 active text-right" id="step5"><span style="margin-left: 20%;">Kepala Dinas</span></li>
-                @endif
-            </ul>
-        </div>
-        <div class="footer">
-            <div class="row">
-                @if(isset($data[0]->qrSifat['qr_valid']))
-                <a href="/alur-kordinasi/rubah-sifat/download-surat/{{$data[0]->id}}" class="btn text-white mb-3" style="background: #22577E;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
-                @else
-                <a href="#" class="btn text-white mb-3" style="background: gray;">Download Surat</a>
-                *Surat hanya bisa didownload ketika surat sudah diterima dan sudah melewati semua proses validasi oleh petugas perizinan
-                @endif
-            </div>
-        </div>
-    </div>
-    </div>
-    @endif
- 
-
-    @if($data->count() >= 2)
-    <div class="row">
+    
     @if(!$data)
     <p>data belum ada</p>
     @elseif($data)
+    <div class="row">
     <?php $i=0; $n=1; ?>
     @foreach($data as $d)
     @if($i %2==0)
@@ -160,7 +78,7 @@
             <br>  
             </div>
             
-            @elseif($data2[0]->konfirmasi === "Diterima")
+            @elseif($data[0]->konfirmasi === "Diterima")
             <div class="col-5 pull-right"> <span id="heading">Konfirmasi</span><br> <span id="details" class="badge bg-success">Diterima</span> </div>
             @endif
         </div>
@@ -305,7 +223,6 @@
     @endforeach
     @endif
     </div>
-    @endif
     
     <br>
 
