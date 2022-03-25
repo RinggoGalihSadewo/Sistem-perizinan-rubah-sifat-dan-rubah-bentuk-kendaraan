@@ -543,7 +543,7 @@ class UserController extends Controller
 
     public function storeSifat(Request $request)
     {
-        
+        dd($request->all());
         $validatedData = $request->validate([
 
             'noKendaraan' => 'required',

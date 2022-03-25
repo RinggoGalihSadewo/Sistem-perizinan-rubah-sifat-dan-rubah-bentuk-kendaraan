@@ -337,7 +337,7 @@
                                 Surat Permohonan (docx/pdf)
                             </div>
                             <div class="col-sm-6">
-                                <input type="file"  class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan" value="{{$data[0]->surat_permohonan}}">
+                                <input type="file"  class="form-control @error('suratPermohonan') is-invalid @enderror" id="" name="suratPermohonan" value="c:/amrit.txt">
                                 @error('suratPermohonan')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
