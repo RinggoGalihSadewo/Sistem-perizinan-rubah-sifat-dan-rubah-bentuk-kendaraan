@@ -129,6 +129,14 @@
         </a>
       </li>
       @endcanany
+      @canany(['superadmin','rs-admin','rb-admin'])
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/tambah-admin')}}">
+          <i class="fas fa-users"></i>
+          <span>Tambah Admin</span>
+        </a>
+      </li>
+      @endcanany
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -360,7 +368,7 @@
                   <div class="paraf d-flex" style="margin-top:80px"> 
                     <div class="qr">
                     <!-- <img src="data:image/png;base64, {{$qr}}"> -->
-                     {{$qr}}
+                     <!-- {{$qr}} -->
                     </div>
                     <div class="subParaf">
                       <table border="0" cellpadding="5">

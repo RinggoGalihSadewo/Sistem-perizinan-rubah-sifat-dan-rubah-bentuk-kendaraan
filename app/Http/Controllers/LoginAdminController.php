@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+
 
 class LoginAdminController extends Controller
 {
@@ -47,5 +50,29 @@ class LoginAdminController extends Controller
 
     	return redirect('/login');
 
+    }
+
+    public function viewTambahAdmin()
+    {
+        return view('admin.tambahAdmin');
+    }
+
+    public function storeTambahAdmin(User $user, Request $request)
+    {
+        User::create([
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'role' => $request->role,
+            'nama_perusahaan' => "-",
+            'nama_pemilik' => $request->namaPemilik,
+            'nama_perusahaan' => "-",
+            'kabupaten' => "-",
+            'npwp' => "-",
+            'alamat' => "-",
+            'email' => "-",
+            'no_hp' => "-",
+            'foto_profile' => "-"
+        ]);
+        return redirect('admin/tambah-admin')->with('status', 'Berhasil menambahkan admin !');
     }
 }

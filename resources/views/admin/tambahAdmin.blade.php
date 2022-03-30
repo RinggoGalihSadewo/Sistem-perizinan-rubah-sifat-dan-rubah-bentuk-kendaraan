@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/images/admin/logo/logo.png" rel="icon">
-  <title>Pesan Perizinan</title>
+  <title>Tambah Admin</title>
   <link href="/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/ruang-admin.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
           <span>Data Pengguna</span>
         </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
           <i class="fas fa-file-alt"></i>
@@ -45,11 +45,11 @@
           <div class="bg-white py-2 collapse-inner rounded">
             @canany(['superadmin','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
-            <a class="collapse-item active" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
             @elsecanany(['rs-admin','rs-staff','rs-kasi','rs-kabid','sekretaris','kepala-dinas'])
             <a class="collapse-item" href="{{url('/admin/data-rubah-sifat')}}">Rubah Sifat</a>
             @elsecanany(['superadmin','rb-admin','rb-kasi','rb-kabid','sekretaris','kepala-dinas'])
-            <a class="collapse-item active" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
+            <a class="collapse-item" href="{{url('/admin/data-rubah-bentuk')}}">Rubah Bentuk</a>
             @endcanany
           </div>
         </div>
@@ -130,7 +130,7 @@
       </li>
       @endcanany
       @canany(['superadmin','rs-admin','rb-admin'])
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="{{url('/admin/tambah-admin')}}">
           <i class="fas fa-users"></i>
           <span>Tambah Admin</span>
@@ -164,46 +164,56 @@
             </li>
           </ul>
         </nav>
-      <!-- Topbar -->
+        <!-- Topbar -->
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Kirim Pesan</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tambah Akun Admin</h1>
           </div>
 
-         <div class="row">
+          <div class="row">
             <div class="col-lg-12 mb-4">
 
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
+              @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                  </div>
+              @endif
 
-            <form action="/admin/data-rubah-bentuk" method="post" enctype="multipart/form-data">
-              @csrf 
-              <input type="email" hidden="true" class="form-control" id="inputEmail1" name="email" value="{{$data->user->email}}">
-              <div class="form-group">
-                <label for="inputEmail1" class="col-form-label">Judul</label>
-                <div>
-                  <input type="text" class="form-control" id="inputEmail1" placeholder="Masukan judul" name="judul">
+              <form action="/admin/tambah-admin" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Pemilik</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="namaPemilik" value="{{old('namaPemilik')}}">
                 </div>
-              </div>                  
-              <div class="form-group">
-                <label for="inputEmail3" class="col-form-label">Pesan</label>
-                <div>
-                  <textarea class="form-control" id="inputEmail3" placeholder="Masukan pesan" style="height: 300px;" name="isi"></textarea>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Username</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" name="username" value="{{old('username')}}">
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="custom-file">
-                  <input type="file" class="form-control" id="customFile" name="file">
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Jabatan</label>
+                    <select class="form-control" name="role">
+                      <option value="rs-staff">rs-staff</option>
+                      <option value="rs-kasi">rs-kasi</option>
+                      <option value="rs-kabid">rs-kabid</option>
+                      <!-- <option>sekretaris</option>
+                      <option>kepala dinas</option> -->
+                      <option value="rs-kasi">rb-kasi</option>
+                      <option value="rs-kabid">rb-kabid</option>
+                    </select>
                 </div>
-              </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
-            </form>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Password</label>
+                    <input type="password" class="form-control" id="exampleInputEmail3" name="password" value="{{old('password')}}">
+                </div>
+                <button class="btn btn-primary">Buat</button>
+              </form>
               
+ 
+            </div>
+          </div>
+          <!--Row-->
 
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
@@ -230,7 +240,6 @@
         </div>
         <!---Container Fluid-->
       </div>
-    </div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">

@@ -151,6 +151,9 @@ Route::middleware(['admin'])->group( function(){
     Route::get('/admin/pengumuman', [NotifikasiController::class, 'pengumuman']);
     Route::post('/admin/pengumuman', [NotifikasiController::class, 'storePengumuman']);
 
+    Route::get('/admin/tambah-admin', [LoginAdminController::class, 'viewTambahAdmin']);
+    Route::post('/admin/tambah-admin', [LoginAdminController::class, 'storeTambahAdmin']);
+
     Route::get('/logout-admin', [LoginAdminController::class, 'logout']);
 
 });

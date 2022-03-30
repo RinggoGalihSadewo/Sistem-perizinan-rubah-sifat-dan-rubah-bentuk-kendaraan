@@ -218,6 +218,14 @@
         </a>
       </li>
       @endcanany
+      @canany(['superadmin','rs-admin','rb-admin'])
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/admin/tambah-admin')}}">
+          <i class="fas fa-users"></i>
+          <span>Tambah Admin</span>
+        </a>
+      </li>
+      @endcanany
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
