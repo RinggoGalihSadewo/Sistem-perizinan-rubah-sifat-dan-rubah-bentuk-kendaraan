@@ -159,7 +159,8 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
 
-            // 'jenisPerizinan' => 'required',
+            // 'noKendaraan' => 'required',
+            'jenisPerizinan' => ['required', 'in:Perubahan Sifat (HITAM),Perubahan Sifat (HITAM) BBN,Penetapan Sifat (KUNING),Perubahan Sifat (HITAM KE KUNING)'],
             // 'namaPemilik' => 'required',
             // 'namaPemilikLama' => 'required',
             // 'namaPemilikBaru' => 'required',
@@ -173,22 +174,25 @@ class UserController extends Controller
             // 'noLandasan' => 'required',
             // 'noMesin' => 'required',
             // 'bpkb' => 'required',
-            'suratPermohonan' => 'required',
-            'suratPernyataan' => 'required',
-            'fcStnk' => 'required',
-            'fcBpkb' => 'required',
-            'fcBukuUji' => 'required',
-            'faktur' => 'required',
-            'serut' => 'required',
-            'docPerusahaan' => 'required',
-            'dimensi' => 'required',
-            'bengkel' => 'required',
-            'depan' => 'required',
-            'kiri' => 'required',
-            'kanan' => 'required',
-            'belakang' => 'required',
+            'suratPermohonan' => 'required|max:5024|mimes:docx,doc,pdf',
+            'suratPernyataan' => 'required|max:5024|mimes:docx,doc,pdf',
+            'fcStnk' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'fcBpkb' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'fcBukuUji' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'faktur' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'serut' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'docPerusahaan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'dimensi' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'bengkel' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'depan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kiri' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kanan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'belakang' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
         ],
         [
+            // 'namaPemilik.required' => 'Nama pemilik wajib di isi',
+            // 'namaPemilikLama.required' => 'Nama pemilik lama wajib di isi',
+            // 'namaPemilikBaru.required' => 'Nama pemilik baru wajib di isi',
             // 'noKendaraan.required' => 'No. Kendaraan  wajib di isi',
             // 'jenisPerizinan.required' => 'Jenis perubahan sifat wajib di isi',
             // 'alamat.required' => 'Alamat wajib di isi',
@@ -201,20 +205,64 @@ class UserController extends Controller
             // 'noLandasan.required' => 'No. Landasan wajib di isi',
             // 'noMesin.required' => 'No. Mesin wajib di isi',
             // 'bpkb.required' => 'No. BPKB wajib di isi',
+            
             'suratPermohonan.required' => 'Surat permohonan wajib di isi',
+            'suratPermohonan.max' => 'File tidak boleh melebihi 5 MB',
+            'suratPermohonan.mimes' => 'Tipe file harus docx/pdf',
+
             'suratPernyataan.required' => 'Surat pernyataan wajib di isi',
+            'suratPernyataan.max' => 'File tidak boleh melebihi 5 MB',
+            'suratPernyataan.mimes' => 'Tipe file harus docx/pdf',
+
             'fcStnk.required' => 'Foto FC STNK wajib di isi',
+            'fcStnk.max' => 'File tidak boleh melebihi 5 MB',
+            'fcStnk.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'fcBpkb.required' => 'Foto FC BPKB wajib di isi',
+            'fcBpkb.max' => 'File tidak boleh melebihi 5 MB',
+            'fcBpkb.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'fcBukuUji.required' => 'Foto buku uji wajib di isi',
+            'fcBukuUji.max' => 'File tidak boleh melebihi 5 MB',
+            'fcBukuUji.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'faktur.required' => 'Foto faktur kendaraan wajib di isi',
+            'faktur.max' => 'File tidak boleh melebihi 5 MB',
+            'faktur.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'serut.required' => 'Foto sertifikasi registrasi uji tipe wajib di isi',
+            'serut.max' => 'File tidak boleh melebihi 5 MB',
+            'serut.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'docPerusahaan.required' => 'Dokumen perusahaan wajib di isi',
+            'docPerusahaan.max' => 'File tidak boleh melebihi 5 MB',
+            'docPerusahaan.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'dimensi.required' => 'Surat dimensi kendaraan wajib di isi',
+            'dimensi.max' => 'File tidak boleh melebihi 5 MB',
+            'dimensi.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'bengkel.required' => 'Foto surat keterangan bengkel wajib di isi',
+            'bengkel.max' => 'File tidak boleh melebihi 5 MB',
+            'bengkel.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
+            'depan.max' => 'File tidak boleh melebihi 5 MB',
+            'depan.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
+            'kiri.max' => 'File tidak boleh melebihi 5 MB',
+            'kiri.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
+            'kanan.max' => 'File tidak boleh melebihi 5 MB',
+            'kanan.mimes' => 'Tipe file foto harus jpg/jpeg/png',            
+
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
+            'belakang.max' => 'File tidak boleh melebihi 5 MB',
+            'belakang.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
+            'jenisPerizinan.in' => 'Jenis perizinan tidak tersedia'
         ]
         );
 
@@ -466,10 +514,10 @@ class UserController extends Controller
             'noMesin' => 'required',
             'bpkb' => 'required',
             'noUji' => 'required',
-            'depan' => 'required',
-            'belakang' => 'required',
-            'kanan' => 'required',
-            'kiri' => 'required',
+            'depan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'belakang' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kanan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kiri' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
 
         ],
         [
@@ -488,15 +536,19 @@ class UserController extends Controller
             'bpkb.required' => 'No. BPKB wajib di isi',
             'noUji.required' => 'No. Uji wajib di isi',
             'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
-            // 'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
-            // 'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
-            // 'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
-            // 'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
+            'depan.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
+            'belakang.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
+            'kiri.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
+            'kanan.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
         ]
-        );        
+        );      
 
         $nameFotoDepan = $request->depan->getClientOriginalName();
         $nameFotoBelakang = $request->belakang->getClientOriginalName();
@@ -561,20 +613,20 @@ class UserController extends Controller
             'noLandasan' => 'required',
             'noMesin' => 'required',
             'bpkb' => 'required',
-            'suratPermohonan' => 'required',
-            'suratPernyataan' => 'required',
-            'fcStnk' => 'required',
-            'fcBpkb' => 'required',
-            'fcBukuUji' => 'required',
-            'faktur' => 'required',
-            'serut' => 'required',
-            'docPerusahaan' => 'required',
-            'dimensi' => 'required',
-            'bengkel' => 'required',
-            'depan' => 'required',
-            'kiri' => 'required',
-            'kanan' => 'required',
-            'belakang' => 'required',
+            'suratPermohonan' => 'required|max:5024|mimes:docx,doc,pdf',
+            'suratPernyataan' => 'required|max:5024|mimes:docx,doc,pdf',
+            'fcStnk' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'fcBpkb' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'fcBukuUji' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'faktur' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'serut' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'docPerusahaan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'dimensi' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'bengkel' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'depan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kiri' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kanan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'belakang' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
         ],
         [
             'namaPemilik.required' => 'Nama pemilik wajib di isi',
@@ -592,20 +644,63 @@ class UserController extends Controller
             'noLandasan.required' => 'No. Landasan wajib di isi',
             'noMesin.required' => 'No. Mesin wajib di isi',
             'bpkb.required' => 'No. BPKB wajib di isi',
+
             'suratPermohonan.required' => 'Surat permohonan wajib di isi',
+            'suratPermohonan.max' => 'File tidak boleh melebihi 5 MB',
+            'suratPermohonan.mimes' => 'Tipe file harus docx/pdf',
+
             'suratPernyataan.required' => 'Surat pernyataan wajib di isi',
+            'suratPernyataan.max' => 'File tidak boleh melebihi 5 MB',
+            'suratPernyataan.mimes' => 'Tipe file harus docx/pdf',
+
             'fcStnk.required' => 'Foto FC STNK wajib di isi',
+            'fcStnk.max' => 'File tidak boleh melebihi 5 MB',
+            'fcStnk.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'fcBpkb.required' => 'Foto FC BPKB wajib di isi',
+            'fcBpkb.max' => 'File tidak boleh melebihi 5 MB',
+            'fcBpkb.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'fcBukuUji.required' => 'Foto buku uji wajib di isi',
+            'fcBukuUji.max' => 'File tidak boleh melebihi 5 MB',
+            'fcBukuUji.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'faktur.required' => 'Foto faktur kendaraan wajib di isi',
+            'faktur.max' => 'File tidak boleh melebihi 5 MB',
+            'faktur.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'serut.required' => 'Foto sertifikasi registrasi uji tipe wajib di isi',
+            'serut.max' => 'File tidak boleh melebihi 5 MB',
+            'serut.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'docPerusahaan.required' => 'Dokumen perusahaan wajib di isi',
+            'docPerusahaan.max' => 'File tidak boleh melebihi 5 MB',
+            'docPerusahaan.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'dimensi.required' => 'Surat dimensi kendaraan wajib di isi',
+            'dimensi.max' => 'File tidak boleh melebihi 5 MB',
+            'dimensi.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'bengkel.required' => 'Foto surat keterangan bengkel wajib di isi',
+            'bengkel.max' => 'File tidak boleh melebihi 5 MB',
+            'bengkel.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
+            'depan.max' => 'File tidak boleh melebihi 5 MB',
+            'depan.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
+            'kiri.max' => 'File tidak boleh melebihi 5 MB',
+            'kiri.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
+            'kanan.max' => 'File tidak boleh melebihi 5 MB',
+            'kanan.mimes' => 'Tipe file foto harus jpg/jpeg/png',            
+
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
+            'belakang.max' => 'File tidak boleh melebihi 5 MB',
+            'belakang.mimes' => 'Tipe file foto harus jpg/jpeg/png',
+
             'jenisPerizinan.in' => 'Jenis perizinan tidak tersedia'
         ]
         );
@@ -793,10 +888,10 @@ class UserController extends Controller
             'noMesin' => 'required',
             'bpkb' => 'required',
             'noUji' => 'required',
-            'depan' => 'required',
-            'belakang' => 'required',
-            'kanan' => 'required',
-            'kiri' => 'required',
+            'depan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'belakang' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kanan' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
+            'kiri' => 'required|max:5024|mimes:jpg,jpeg,JPG,JPEG,png,PNG',
 
         ],
         [
@@ -815,13 +910,17 @@ class UserController extends Controller
             'bpkb.required' => 'No. BPKB wajib di isi',
             'noUji.required' => 'No. Uji wajib di isi',
             'depan.required' => 'Foto bagian depan kendaraan wajib di isi',
-            // 'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
-            // 'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'depan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kiri.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kiri.required' => 'Foto bagian kiri kendaraan wajib di isi',
-            // 'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'kanan.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'kanan.required' => 'Foto bagian kanan kendaraan wajib di isi',
-            // 'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
+            'belakang.mimes' => 'Harap masukan foto bertipe jpg/png/jpeg',
             'belakang.required' => 'Foto bagian belakang kendaraan wajib di isi',
+            'depan.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
+            'belakang.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
+            'kiri.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
+            'kanan.max' => 'Ukuran foto tidak boleh melebihi 5 MB',
         ]
         );
 
