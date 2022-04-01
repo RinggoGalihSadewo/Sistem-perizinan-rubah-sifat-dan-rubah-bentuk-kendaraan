@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\TrackSuratSifat;
 use App\Models\FormSifat;
@@ -26,7 +27,8 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'staff_angkutan' => $valid,
-                'tgl_staff' => Carbon::now()->format("d M Y")
+                'tgl_staff' => Carbon::now()->format("d M Y"),
+                'nama_staff' => Auth::user()->nama_pemilik
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -39,7 +41,8 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'kasi_angkutan' => $valid,
-                'tgl_kasi' => Carbon::now()->format("d M Y")
+                'tgl_kasi' => Carbon::now()->format("d M Y"),
+                'nama_kasi' => Auth::user()->nama_pemilik
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -52,7 +55,8 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'kabid_lla' => $valid,
-                'tgl_kabid' => Carbon::now()->format("d M Y")
+                'tgl_kabid' => Carbon::now()->format("d M Y"),
+                'nama_kabid' => Auth::user()->nama_pemilik
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -65,7 +69,8 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'sekretariat' => $valid,
-                'tgl_sekretariat' => Carbon::now()->format("d M Y")
+                'tgl_sekretariat' => Carbon::now()->format("d M Y"),
+                'nama_sekretariat' => Auth::user()->nama_pemilik
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');
@@ -78,7 +83,8 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'kepala_dinas' => $valid,
-                'tgl_kepala' => Carbon::now()->format("d M Y")
+                'tgl_kepala' => Carbon::now()->format("d M Y"),
+                'nama_kepala_dinas' => Auth::user()->nama_pemilik
         ]);
 
         return redirect('/admin/validasi/rubah-sifat')->with('status', 'Berhasil melakukan validasi');

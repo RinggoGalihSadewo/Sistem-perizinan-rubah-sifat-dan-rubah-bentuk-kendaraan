@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('superadmin');
         $user->role = "superadmin";
         $user->nama_perusahaan = "-";
-        $user->nama_pemilik = "-";
+        $user->nama_pemilik = "Super admin";
         $user->kabupaten = "-";
         $user->npwp = "-";
         $user->alamat = "-";
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('rs-admin');
         $user->role = "rs-admin";
         $user->nama_perusahaan = "-";
-        $user->nama_pemilik = "-";
+        $user->nama_pemilik = "rs - admin";
         $user->kabupaten = "-";
         $user->npwp = "-";
         $user->alamat = "-";
@@ -96,7 +96,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('sekretaris');
         $user->role = "sekretaris";
         $user->nama_perusahaan = "-";
-        $user->nama_pemilik = "-";
+        $user->nama_pemilik = "DR. Achmad Zoelkarnaen, ST, Msi.P.";
         $user->kabupaten = "-";
         $user->npwp = "-";
         $user->alamat = "-";
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('kepala-dinas');
         $user->role = "kepala-dinas";
         $user->nama_perusahaan = "-";
-        $user->nama_pemilik = "-";
+        $user->nama_pemilik = "Bambang Sumbogo, SE,MM.";
         $user->kabupaten = "-";
         $user->npwp = "-";
         $user->alamat = "-";
@@ -128,7 +128,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('rb-admin');
         $user->role = "rb-admin";
         $user->nama_perusahaan = "-";
-        $user->nama_pemilik = "-";
+        $user->nama_pemilik = "rs - bentuk";
         $user->kabupaten = "-";
         $user->npwp = "-";
         $user->alamat = "-";

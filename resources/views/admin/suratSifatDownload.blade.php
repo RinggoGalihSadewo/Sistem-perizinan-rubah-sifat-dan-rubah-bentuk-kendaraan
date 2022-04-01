@@ -266,10 +266,10 @@
             <!-- <br>
             <br> -->
             <div style="margin-left: 1%;">
-            <img src="data:image/png;base64, {{$qr2}}">
-                <!-- <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px">  -->
+            <!-- <img src="data:image/png;base64, {{$qr2}}"> -->
+                <img src="{{ storage_path('app/public/ttd kadis.jpeg') }}" alt=""  width="10px" height="10px"> 
               
-              <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p>
+              <!-- <p><b><u>BAMBANG SUMBOGO, SE,. MM</u></b></p> -->
               <p>
                 Pembina Utama Muda
                 <br>

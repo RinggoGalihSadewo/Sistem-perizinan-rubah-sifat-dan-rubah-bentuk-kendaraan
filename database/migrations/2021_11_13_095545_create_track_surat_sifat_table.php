@@ -20,14 +20,19 @@ class CreateTrackSuratSifatTable extends Migration
             ->onDelete('cascade');
             $table->string('staff_angkutan');
             $table->string('tgl_staff');
+            $table->string('nama_staff')->default('-');
             $table->string('kasi_angkutan');
             $table->string('tgl_kasi');
+            $table->string('nama_kasi')->default('-');
             $table->string('kabid_lla');
             $table->string('tgl_kabid');
+            $table->string('nama_kabid')->default('-');
             $table->string('sekretariat');
             $table->string('tgl_sekretariat');
+            $table->string('nama_sekretariat')->default('-');
             $table->string('kepala_dinas');
             $table->string('tgl_kepala');
+            $table->string('nama_kepala_dinas')->default('-');
             $table->timestamps();
         });
     }

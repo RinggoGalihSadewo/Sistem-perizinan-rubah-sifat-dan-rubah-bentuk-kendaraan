@@ -218,6 +218,8 @@
                       @elseif($d->trackSuratBentuk['kasi'] == "Sudah Validasi")
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kasi']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_kasi}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratBentuk->nama_kasi,25)}}</div>
                       @endif
                     </td>
                     <td>
@@ -230,6 +232,8 @@
                       @elseif($d->trackSuratBentuk['kabid'] == "Sudah Validasi")
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kabid']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_kabid}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratBentuk->nama_kabid,25)}}</div>
                       @endif                      
                     </td>
                     <td>
@@ -242,6 +246,8 @@
                       @else
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['sekretaris']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_sekretaris}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratBentuk->nama_sekretaris,25)}}</div>
                       @endif                      
                     </td>
                     <td>
@@ -254,6 +260,8 @@
                       @else
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratBentuk['kepala_dinas']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratBentuk->tgl_kepala}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratBentuk->nama_kepala_dinas,25)}}</div>
                       @endif              
                     </td>
                   </tr>

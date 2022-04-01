@@ -31,8 +31,8 @@ class QrCodeController extends Controller
         $data = FormSifat::find($formSifat->id);
 
         $qr = QrCode::size(100)->generate($url);
-        // $qr = base64_encode(QrCode::format('png')->merge(public_path('/img/logo/dishub.png'),0.3,true)->size(100)->generate($url));
         $qr2 = QrCode::size(100)->generate($url2);
+        // $qr = base64_encode(QrCode::format('png')->merge(public_path('/img/logo/dishub.png'),0.3,true)->size(100)->generate($url));
 
         return view('admin.suratSifat', compact('qr', 'data', 'date', 'qr2'));
     }
@@ -69,6 +69,7 @@ class QrCodeController extends Controller
 
         $qr = QrCode::size(100)->generate($url);
         $qr2 = QrCode::size(100)->generate($url2);
+        // $qr = base64_encode(QrCode::format('png')->merge(public_path('/img/logo/dishub.png'),0.3,true)->size(100)->generate($url));
 
         return view('admin.suratBentuk', compact('qr', 'data', 'date', 'qr2'));
     }

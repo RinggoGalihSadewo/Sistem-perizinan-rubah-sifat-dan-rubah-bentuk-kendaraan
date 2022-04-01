@@ -368,7 +368,7 @@
                   <div class="paraf d-flex" style="margin-top:80px"> 
                     <div class="qr">
                     <!-- <img src="data:image/png;base64, {{$qr}}"> -->
-                     <!-- {{$qr}} -->
+                     {{$qr}}
                     </div>
                     <div class="subParaf">
                       <table border="0" cellpadding="5">
@@ -386,14 +386,14 @@
                           <td>KEPALA DINAS</td>
                         </tr>
                         <tr>
-                        <td>{{$qr2}}</td>
+                        <!-- <td>{{$qr2}}</td> -->
                         </tr>
                       </table>
                       <div style="margin-left: 1%;">
                         <div>
-                          <!-- <img src="/img/ttd kadis.jpeg" alt="" width="240px">  -->
+                          <img src="/img/ttd kadis.jpeg" alt="" width="240px"> 
                         </div>
-                        <b><u>BAMBANG SUMBOGO, SE,. MM</u></b>
+                        <!-- <b><u>BAMBANG SUMBOGO, SE,. MM</u></b> -->
                         <p>
                           Pembina Utama Muda
                           <br>

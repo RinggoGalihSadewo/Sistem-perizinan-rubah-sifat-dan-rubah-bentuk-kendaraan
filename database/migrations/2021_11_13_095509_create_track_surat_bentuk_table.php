@@ -20,12 +20,16 @@ class CreateTrackSuratBentukTable extends Migration
             ->onDelete('cascade');
             $table->string('kasi');
             $table->string('tgl_kasi');
+            $table->string('nama_kasi')->default('-');
             $table->string('kabid');
             $table->string('tgl_kabid');
+            $table->string('nama_kabid')->default('-');
             $table->string('sekretaris');
             $table->string('tgl_sekretaris');
+            $table->string('nama_sekretaris')->default('-');
             $table->string('kepala_dinas');
             $table->string('tgl_kepala');
+            $table->string('nama_kepala_dinas')->default('-');
             $table->timestamps();
         });
     }

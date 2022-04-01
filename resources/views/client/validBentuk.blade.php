@@ -63,15 +63,19 @@
                 <td>{{$data->nomor_kendaraan}}</td>
                 <td>
                   <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_kasi']}}</p>
+                  <p>{{$data->trackSuratBentuk['nama_kasi']}}</p>
                 </td>
                 <td>
-                  <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_kabid']}}</p>        
+                  <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_kabid']}}</p>   
+                  <p>{{$data->trackSuratBentuk['nama_kabid']}}</p>     
                 </td>
                 <td>
-                  <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_sekretaris']}}</p>                      
+                  <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_sekretaris']}}</p>    
+                  <p>{{$data->trackSuratBentuk['nama_sekretaris']}}</p>                  
                 </td>
                 <td>
-                  <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_kepala']}}</p>           
+                  <p class="badge bg-success">{{$data->trackSuratBentuk['tgl_kepala']}}</p>   
+                  <p>{{$data->trackSuratBentuk['nama_kepala_dinas']}}</p>        
                 </td>
               </tr>
             </tbody>

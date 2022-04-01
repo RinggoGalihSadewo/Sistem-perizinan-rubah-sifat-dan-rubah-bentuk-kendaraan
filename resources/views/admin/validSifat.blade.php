@@ -220,6 +220,8 @@
                       @endcanany
                       @elseif($d->trackSuratSifat['staff_angkutan'] == "Sudah Validasi")
                       <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_staff}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratSifat->nama_staff,25)}}</div>
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['staff_angkutan']}}</a> -->
                       @endif
                     </td>
@@ -233,6 +235,8 @@
                       @else
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kasi_angkutan']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_kasi}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratSifat->nama_kasi,25)}}</div>
                       @endif             
                     </td>
                     <td>
@@ -245,6 +249,8 @@
                       @else
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kabid_lla']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_kabid}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratSifat->nama_kabid,25)}}</div>
                       @endif                      
                     </td>
                     <td>
@@ -257,6 +263,8 @@
                       @else
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['sekretariat']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_sekretariat}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratSifat->nama_sekretariat,25)}}</div>
                       @endif              
                     </td>
                     <td>
@@ -269,6 +277,8 @@
                       @else
                       <!-- <a href="#" class="btn btn-sm btn-success">{{$d->trackSuratSifat['kepala_dinas']}}</a> -->
                       <div class="badge bg-success text-white">{{$d->trackSuratSifat->tgl_kepala}}</div>
+                      <br>
+                      <div class="">{{Str::limit($d->trackSuratSifat->nama_kepala_dinas,25)}}</div>
                       @endif
                     </td>
                   </tr>
