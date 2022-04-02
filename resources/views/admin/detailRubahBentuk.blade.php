@@ -177,7 +177,7 @@
             <div class="col-lg-6 mb-4">
               <p>Nomor kendaraan : {{$formBentuk->nomor_kendaraan}}</p>
               <p>Nama pemilik lama : {{$formBentuk->nama_pemilik_lama}}</p>
-              <p>Nama pemilik lama : {{$formBentuk->nama_pemilik_baru}}</p>
+              <p>Nama pemilik baru : {{$formBentuk->nama_pemilik_baru}}</p>
               <p>Alamat : {{$formBentuk->alamat}}</p>
               <p>Merk : {{$formBentuk->merk}}</p>
               <p>Jenis : {{$formBentuk->jenis}}</p>
