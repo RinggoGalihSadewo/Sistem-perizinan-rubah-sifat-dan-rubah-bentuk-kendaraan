@@ -776,6 +776,8 @@ footer .footer2{
   }
 }
 
+/* Responsive hp & tab */
+
 @media only screen and (max-width:992px){
   
   nav h2{
