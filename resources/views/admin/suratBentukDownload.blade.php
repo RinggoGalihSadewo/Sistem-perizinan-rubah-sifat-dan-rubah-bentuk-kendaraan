@@ -73,7 +73,7 @@
             <td>Bahwa berdasarkan hasil penelitian fisik kendaraan dan memenuhi persyaratan untuk dilakukan <b> Perubahan Bentuk.</b></td>
           </tr>
           <tr>
-            <td valign="top">Mengigat</td>
+            <td valign="top">Mengingat</td>
             <td valign="top">:</td>
             <td>
               <ol start="1">

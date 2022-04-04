@@ -22,7 +22,6 @@
         padding: 0px;
         font-family: 'times new roman';
         color: black;
-        
     }
 
     .paraf{
@@ -79,7 +78,7 @@
             <td>Bahwa berdasarkan hasil penelitian/check fisik kendaraan tersebut memenuhi persyaratan untuk dilakukan <b>Perubahan Sifat.</b></td>
           </tr>
           <tr>
-            <td valign="top">Mengigat</td>
+            <td valign="top">Mengingat</td>
             <td valign="top">:</td>
             <td valign="top">
               <ol start="1" valign="top">

@@ -133,7 +133,24 @@
                                 Jenis
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="" name="jenis" value="{{$data[0]->jenis}}">
+                                <select class="form-select @error('jenis') is-invalid @enderror" name="jenis" id="jenis" onClick="update()" value="{{old('jenis')}}">
+                                    <option value="{{$data[0]->jenis}}" selected>{{$data[0]->jenis}}</option>
+                                    <option value="Mobil Bak Muatan Terbuka" {{old('jenis') == 'Mobil Bak Muatan Terbuka' ? 'selected' : '' }}>Mobil Bak Muatan Terbuka</option>
+                                    <option value="Mobil Bak Muatan Tertutup" {{old('jenis') == 'Mobil Bak Muatan Tertutup' ? 'selected' : '' }}>Mobil Bak Muatan Tertutup</option>
+                                    <option value="Mobil Tangki" {{old('jenis') == 'Mobil Tangki' ? 'selected' : '' }}>Mobil Tangki</option>
+                                    <option value="Mobil Penarik" {{old('jenis') == 'Mobil Penarik' ? 'selected' : '' }}>Mobil Penarik</option>
+                                    <option value="Mobil Penumpang" {{old('jenis') == 'Mobil Penumpang' ? 'selected' : '' }}>Mobil Penumpang</option>
+                                    <option value="Mobil Bus" {{old('jenis') == 'Mobil Bus' ? 'selected' : '' }}>Mobil Bus</option>
+                                    <option value="Mobil Barang" {{old('jenis') == 'Mobil Barang' ? 'selected' : '' }}>Mobil Barang</option>
+                                    <option value="Kendaraan Khusus" {{old('jenis') == 'Kendaraan Khusus' ? 'selected' : '' }}>Kendaraan Khusus</option>
+                                </select>
+                                @error('jenis')
+                                <div class="invalid-feedback">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}	
+                                    </div>
+                                </div>
+                                @enderror
                             </div>
                         </div>
 

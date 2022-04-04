@@ -497,6 +497,7 @@ class UserController extends Controller
 
     public function storePerbaikanBentuk(FormBentuk $formBentuk, Request $request, BerkasBentuk $berkasBentuk)
     {
+        dd($request->all());
 
         $validatedData = $request->validate([
 
@@ -595,7 +596,6 @@ class UserController extends Controller
 
     public function storeSifat(Request $request)
     {
-
         $validatedData = $request->validate([
 
             'noKendaraan' => 'required',
@@ -605,7 +605,7 @@ class UserController extends Controller
             'namaPemilikBaru' => 'required',
             'alamat' => 'required',
             'merk' => 'required',
-            'jenis' => 'required',
+            'jenis' => 'required|in:Mobil Bak Muatan Terbuka,Mobil Bak Muatan Tertutup,Mobil Tangki,Mobil Penarik,Mobil Penumpang,Mobil Bus,Mobil Barang,Kendaraan Khusus',
             'model' => 'required',
             'warna' => 'required',
             'tahun' => 'required',
@@ -637,6 +637,7 @@ class UserController extends Controller
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
             'jenis.required' => 'Jenis wajib di isi',
+            'jenis.in' => 'Jenis tidak tersedia',
             'model.required' => 'Model wajib di isi',
             'warna.required' => 'Warna wajib di isi',
             'tahun.required' => 'Tahun wajib di isi',
@@ -880,7 +881,7 @@ class UserController extends Controller
             'perubahanBentuk' => 'required',
             'alamat' => 'required',
             'merk' => 'required',
-            'jenis' => 'required',
+            'jenis' => 'required|in:Mobil Bak Muatan Terbuka,Mobil Bak Muatan Tertutup,Mobil Tangki,Mobil Penarik,Mobil Penumpang,Mobil Bus,Mobil Barang,Kendaraan Khusus',
             'warna' => 'required',
             'tahun' => 'required',
             'silinder' => 'required',
@@ -902,6 +903,7 @@ class UserController extends Controller
             'alamat.required' => 'Alamat wajib di isi',
             'merk.required' => 'merk wajib di isi',
             'jenis.required' => 'Jenis wajib di isi',
+            'jenis.in' => 'Jenis tidak tersedia',
             'warna.required' => 'Warna wajib di isi',
             'tahun.required' => 'Tahun wajib di isi',
             'silinder.required' => 'Silinder wajib di isi',

@@ -268,8 +268,18 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail5">Jenis</label>
-                    <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="exampleInputEmail5" name="jenis" value="{{$formSifat->jenis}}">
+                    <label for="inputEmail1" class="col-form-label">Jenis</label>
+                    <select class="form-control @error('jenis') is-invalid @enderror" name="jenis" id="jenis" onClick="update()" value="{{old('jenis')}}">
+                        <option value="{{$formSifat->jenis}}" selected>{{$formSifat->jenis}}</option>
+                        <option value="Mobil Bak Muatan Terbuka" {{old('jenis') == 'Mobil Bak Muatan Terbuka' ? 'selected' : '' }}>Mobil Bak Muatan Terbuka</option>
+                        <option value="Mobil Bak Muatan Tertutup" {{old('jenis') == 'Mobil Bak Muatan Tertutup' ? 'selected' : '' }}>Mobil Bak Muatan Tertutup</option>
+                        <option value="Mobil Tangki" {{old('jenis') == 'Mobil Tangki' ? 'selected' : '' }}>Mobil Tangki</option>
+                        <option value="Mobil Penarik" {{old('jenis') == 'Mobil Penarik' ? 'selected' : '' }}>Mobil Penarik</option>
+                        <option value="Mobil Penumpang" {{old('jenis') == 'Mobil Penumpang' ? 'selected' : '' }}>Mobil Penumpang</option>
+                        <option value="Mobil Bus" {{old('jenis') == 'Mobil Bus' ? 'selected' : '' }}>Mobil Bus</option>
+                        <option value="Mobil Barang" {{old('jenis') == 'Mobil Barang' ? 'selected' : '' }}>Mobil Barang</option>
+                        <option value="Kendaraan Khusus" {{old('jenis') == 'Kendaraan Khusus' ? 'selected' : '' }}>Kendaraan Khusus</option>
+                    </select>
                     @error('jenis')
                     <div class="invalid-feedback">
                         <div class="alert alert-danger" role="alert">
@@ -277,7 +287,7 @@
                         </div>
                     </div>
                     @enderror
-                </div>
+                </div>     
                 <div class="form-group">
                     <label for="exampleInputEmail6">Model</label>
                     <input type="text" class="form-control @error('model') is-invalid @enderror" id="exampleInputEmail6" name="model" value="{{$formSifat->model}}">

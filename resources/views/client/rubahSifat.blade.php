@@ -224,7 +224,16 @@
                                 Jenis
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="" name="jenis" value="{{old('jenis')}}">
+                                <select class="form-select @error('jenis') is-invalid @enderror" name="jenis" id="jenis" onClick="update()" value="{{old('jenis')}}">
+                                    <option value="Mobil Bak Muatan Terbuka" {{old('jenis') == 'Mobil Bak Muatan Terbuka' ? 'selected' : '' }}>Mobil Bak Muatan Terbuka</option>
+                                    <option value="Mobil Bak Muatan Tertutup" {{old('jenis') == 'Mobil Bak Muatan Tertutup' ? 'selected' : '' }}>Mobil Bak Muatan Tertutup</option>
+                                    <option value="Mobil Tangki" {{old('jenis') == 'Mobil Tangki' ? 'selected' : '' }}>Mobil Tangki</option>
+                                    <option value="Mobil Penarik" {{old('jenis') == 'Mobil Penarik' ? 'selected' : '' }}>Mobil Penarik</option>
+                                    <option value="Mobil Penumpang" {{old('jenis') == 'Mobil Penumpang' ? 'selected' : '' }}>Mobil Penumpang</option>
+                                    <option value="Mobil Bus" {{old('jenis') == 'Mobil Bus' ? 'selected' : '' }}>Mobil Bus</option>
+                                    <option value="Mobil Barang" {{old('jenis') == 'Mobil Barang' ? 'selected' : '' }}>Mobil Barang</option>
+                                    <option value="Kendaraan Khusus" {{old('jenis') == 'Kendaraan Khusus' ? 'selected' : '' }}>Kendaraan Khusus</option>
+                                </select>
                                 @error('jenis')
                                 <div class="invalid-feedback">
                                     <div class="alert alert-danger" role="alert">
@@ -609,7 +618,7 @@
                         <br>
 
                         <div class="row" id="notaris">
-                            <div class="col-sm-6">Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control @error('akteNotaris') is-invalid @enderror" id="iNotaris" name="akteNotaris" value="{{old('akteNotaris')}}">
+                            <div class="col-sm-6">Foto Akte Notaris</div><div class="col-sm-6"><input type="file" class="form-control @error('akteNotaris') is-invalid @enderror" id="iNotaris" name="akteNotaris" value="{{old('akteNotaris')}}">
                             @error('akteNotaris')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
@@ -625,7 +634,7 @@
                         </div>
 
                         <div class="row" id="kbli">
-                            <div class="col-sm-6">NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control @error('kbli') is-invalid @enderror" id="iKbli" name="kbli" value="{{old('kbli')}}">
+                            <div class="col-sm-6">Foto NIB / SIUP / TDP dengan KBLI yang sudah ditentukan</div><div class="col-sm-6"><input type="file" class="form-control @error('kbli') is-invalid @enderror" id="iKbli" name="kbli" value="{{old('kbli')}}">
                             @error('kbli')
                             <div class="invalid-feedback">
                                 <div class="alert alert-danger" role="alert">
