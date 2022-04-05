@@ -190,7 +190,7 @@
                     <tr>
                       <td>Membaca</td>
                       <td>:</td>
-                      <td>Permohonan Rubah Bentuk dari <b>Sdr. {{$data->nama_pemilik_baru}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+                      <td>Permohonan Rubah Bentuk dari <b>Sdr. {{$data->nama_pemilik_baru}}</b> Tanggal {{$data->created_at->isoFormat('D MMMM Y')}}. yang beralamat di {{$data->alamat}}</td>
                     </tr>
                     <tr>
                       <td></td>

@@ -26,7 +26,7 @@ class QrCodeController extends Controller
 
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->slug;
 
-        $date = Carbon::now()->format("d M Y");
+        $date = Carbon::now()->isoFormat('D MMMM Y');
 
         $data = FormSifat::find($formSifat->id);
 
@@ -65,7 +65,7 @@ class QrCodeController extends Controller
 
         $data = FormBentuk::find($formBentuk->id);
 
-        $date = Carbon::now()->format("d M Y");
+        $date = Carbon::now()->isoFormat('D MMMM Y');
 
         $qr = QrCode::size(100)->generate($url);
         $qr2 = QrCode::size(100)->generate($url2);

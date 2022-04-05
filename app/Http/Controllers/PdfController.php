@@ -24,7 +24,7 @@ class PdfController extends Controller
     {
         $data = FormSifat::find($formSifat->id);
 
-        $date = Carbon::now()->format("d M Y");
+        $date = Carbon::now()->isoFormat('D MMMM Y');
         
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-sifat/".$formSifat->slug;
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-sifat/kepala-dinas/".$formSifat->slug;
@@ -44,7 +44,7 @@ class PdfController extends Controller
     {
         $data = FormBentuk::find($formBentuk->id);
 
-        $date = Carbon::now()->format("d M Y");
+        $date = Carbon::now()->isoFormat('D MMMM Y');
         
         $url = "http://127.0.0.1:8000/qr-code/perizinan-rubah-bentuk/".$formBentuk->slug;
         $url2 = "http://127.0.0.1:8000/perizinan-rubah-bentuk/kepala-dinas/".$formBentuk->slug;

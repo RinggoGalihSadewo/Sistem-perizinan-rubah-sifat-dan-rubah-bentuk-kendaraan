@@ -42,7 +42,7 @@ class GenerateQRController extends Controller
         elseif($request->catatan){
             $qr->catatan = $request->catatan;
         }
-        $qr->masa = Carbon::now()->addMonth(3)->format("d M Y");
+        $qr->masa = Carbon::now()->addMonth(3)->isoFormat('D MMMM Y');
         $qr->qr_valid = $valid;
         $qr->save();
 
@@ -76,7 +76,7 @@ class GenerateQRController extends Controller
         elseif($request->catatan){
             $qr->catatan = $request->catatan;
         }
-        $qr->masa = Carbon::now()->addMonth(6)->format("d M Y");
+        $qr->masa = Carbon::now()->addMonth(6)->isoFormat('D MMMM Y');
         $qr->qr_valid = $valid;
         $qr->save();
 

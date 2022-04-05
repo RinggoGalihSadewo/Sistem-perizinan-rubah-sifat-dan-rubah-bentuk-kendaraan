@@ -25,7 +25,7 @@ class ValidasiBentukController extends Controller
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
                 'kasi' => $valid,
-                'tgl_kasi' => Carbon::now()->format("d M Y"),
+                'tgl_kasi' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_kasi' => Auth::user()->nama_pemilik
         ]);
 
@@ -39,7 +39,7 @@ class ValidasiBentukController extends Controller
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
                 'kabid' => $valid,
-                'tgl_kabid' => Carbon::now()->format("d M Y"),
+                'tgl_kabid' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_kabid' => Auth::user()->nama_pemilik
         ]);
 
@@ -53,7 +53,7 @@ class ValidasiBentukController extends Controller
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
                 'sekretaris' => $valid,
-                'tgl_sekretaris' => Carbon::now()->format("d M Y"),
+                'tgl_sekretaris' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_sekretaris' => Auth::user()->nama_pemilik
         ]);
 
@@ -67,7 +67,7 @@ class ValidasiBentukController extends Controller
         TrackSuratBentuk::where('form_bentuk_id', $formBentuk->id)
             ->update([
                 'kepala_dinas' => $valid,
-                'tgl_kepala' => Carbon::now()->format("d M Y"),
+                'tgl_kepala' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_kepala_dinas' => Auth::user()->nama_pemilik
         ]);
 

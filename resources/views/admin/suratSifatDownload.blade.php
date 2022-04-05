@@ -66,9 +66,9 @@
             <td valign="top">:</td>
             <td>Permohonan dari 
             @if($data->jenis_perubahan === "Perubahan Sifat (HITAM)")
-            <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+            <b>Sdr. {{$data->nama_pemilik}}</b> Tanggal {{$data->created_at->isoFormat('D MMMM Y')}}. yang beralamat di {{$data->alamat}}</td>
             @elseif($data->jenis_perubahan === "Perubahan Sifat (HITAM) BBN" || $data->jenis_perubahan === "Penetapan Sifat (KUNING)" || $data->jenis_perubahan === "Perubahan Sifat (HITAM KE KUNING)")
-            <b>Sdr. {{$data->nama_pemilik_lama}}</b> Tanggal {{$data->created_at}}. yang beralamat di {{$data->alamat}}</td>
+            <b>Sdr. {{$data->nama_pemilik_lama}}</b> Tanggal {{$data->created_at->isoFormat('D MMMM Y')}}. yang beralamat di {{$data->alamat}}</td>
             @endif
           </tr>
           <br>

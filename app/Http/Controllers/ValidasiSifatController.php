@@ -27,7 +27,7 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'staff_angkutan' => $valid,
-                'tgl_staff' => Carbon::now()->format("d M Y"),
+                'tgl_staff' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_staff' => Auth::user()->nama_pemilik
         ]);
 
@@ -41,7 +41,7 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'kasi_angkutan' => $valid,
-                'tgl_kasi' => Carbon::now()->format("d M Y"),
+                'tgl_kasi' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_kasi' => Auth::user()->nama_pemilik
         ]);
 
@@ -55,7 +55,7 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'kabid_lla' => $valid,
-                'tgl_kabid' => Carbon::now()->format("d M Y"),
+                'tgl_kabid' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_kabid' => Auth::user()->nama_pemilik
         ]);
 
@@ -69,7 +69,7 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'sekretariat' => $valid,
-                'tgl_sekretariat' => Carbon::now()->format("d M Y"),
+                'tgl_sekretariat' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_sekretariat' => Auth::user()->nama_pemilik
         ]);
 
@@ -83,7 +83,7 @@ class ValidasiSifatController extends Controller
         TrackSuratSifat::where('form_sifat_id', $formSifat->id)
             ->update([
                 'kepala_dinas' => $valid,
-                'tgl_kepala' => Carbon::now()->format("d M Y"),
+                'tgl_kepala' => Carbon::now()->isoFormat('D MMMM Y'),
                 'nama_kepala_dinas' => Auth::user()->nama_pemilik
         ]);
 
