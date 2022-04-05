@@ -191,11 +191,25 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nama Pemilik</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="namaPemilik" value="{{old('namaPemilik')}}">
+                    <input type="text" class="form-control @error('namaPemilik') is-invalid @enderror" id="exampleInputEmail1" name="namaPemilik" value="{{old('namaPemilik')}}">
+                    @error('namaPemilik')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail2">Username</label>
-                    <input type="text" class="form-control" id="exampleInputEmail2" name="username" value="{{old('username')}}">
+                    <input type="text" class="form-control @error('username') is-invalid @enderror" id="exampleInputEmail2" name="username" value="{{old('username')}}">
+                    @error('username')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail2">Jabatan</label>
@@ -211,11 +225,25 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Password</label>
-                    <input type="password" class="form-control" id="exampleInputEmail3" name="password" value="{{old('password')}}">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputEmail3" name="password" value="{{old('password')}}">
+                    @error('password')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail4">Konfirmasi Password</label>
-                    <input type="password" class="form-control" id="exampleInputEmail4" name="passwordConfirm" value="{{old('password')}}">
+                    <input type="password" class="form-control  @error('passwordConfirm') is-invalid @enderror" id="exampleInputEmail4" name="passwordConfirm" value="{{old('passwordConfirm')}}">
+                    @error('passwordConfirm')
+                    <div class="invalid-feedback">
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}	
+                        </div>
+                    </div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary">Buat</button>
               </form>

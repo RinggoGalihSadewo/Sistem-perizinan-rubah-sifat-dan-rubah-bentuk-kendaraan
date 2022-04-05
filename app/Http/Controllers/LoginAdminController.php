@@ -60,7 +60,20 @@ class LoginAdminController extends Controller
     public function storeTambahAdmin(User $user, Request $request)
     {
 
-        if($request->password === $request->passwordConfirm){     
+        if($request->password === $request->passwordConfirm){  
+            
+            $request->validate([
+                'namaPemilik' => ['required'],
+                'username' => ['required'],
+                'password' => ['required'],
+                'passwordConfirm' => ['required']
+            ],
+            [
+                'username.required' => 'Username wajib di isi',
+                'namaPemilik.required' => 'Nama pemilik wajib di isi',
+                'passwordConfirm.required' => 'Konfirmasi password wajib di isi',
+                'password.required' => 'Password wajib di isi'
+            ]);
 
             User::create([
                 'username' => $request->username,
