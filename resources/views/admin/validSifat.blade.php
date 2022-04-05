@@ -288,6 +288,9 @@
             </div>
             <div class="card-footer"></div>
           </div>
+          <div class="d-flex mt-4 float-right">
+                {!! $data->links() !!}
+          </div>
         </div>
       </div>
       <!--Row-->

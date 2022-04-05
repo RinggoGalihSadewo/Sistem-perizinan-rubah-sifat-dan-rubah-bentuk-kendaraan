@@ -28,7 +28,7 @@ class AdminController extends Controller
     public function index(User $user)
     {
         
-        $users = User::where('role', 'Pengguna')->get();
+        $users = User::where('role', 'Pengguna')->paginate(10);
 
         return view('admin.index', compact('users'));
     }
@@ -94,7 +94,7 @@ class AdminController extends Controller
     {
 
         // $users = User::with('formSifat')->get();
-        $data = FormSifat::with('user')->get(); 
+        $data = FormSifat::with('user')->paginate(10); 
         return view('admin.RubahSifat', compact('data'));
     }
 
@@ -431,7 +431,7 @@ class AdminController extends Controller
 
     public function rubahBentuk()
     {
-        $data = FormBentuk::with('user')->get();
+        $data = FormBentuk::with('user')->paginate(10);
         return view('admin.RubahBentuk', compact('data'));
     }
 
@@ -560,7 +560,7 @@ class AdminController extends Controller
 
     public function laporan(Laporan $laporan)
     {
-        $data = Laporan::all();
+        $data = Laporan::paginate(10);
 
         return view('admin.laporan', compact('data'));
     }

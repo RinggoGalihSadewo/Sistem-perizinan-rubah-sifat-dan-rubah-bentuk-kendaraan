@@ -15,7 +15,7 @@ class ValidasiSifatController extends Controller
 
     public function index(FormSifat $formSifat)
     {
-        $data = FormSifat::where('konfirmasi', 'Diterima')->get();
+        $data = FormSifat::where('konfirmasi', 'Diterima')->paginate(10);
         return view('admin.validSifat', compact('data'));
     }
 

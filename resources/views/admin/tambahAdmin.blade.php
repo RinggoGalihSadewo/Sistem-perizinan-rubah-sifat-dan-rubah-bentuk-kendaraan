@@ -181,6 +181,12 @@
                   </div>
               @endif
 
+              @if (session('failed'))
+                  <div class="alert alert-danger">
+                      {{ session('failed') }}
+                  </div>
+              @endif
+
               <form action="/admin/tambah-admin" method="post">
                 @csrf
                 <div class="form-group">
@@ -206,6 +212,10 @@
                 <div class="form-group">
                     <label for="exampleInputEmail3">Password</label>
                     <input type="password" class="form-control" id="exampleInputEmail3" name="password" value="{{old('password')}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail4">Konfirmasi Password</label>
+                    <input type="password" class="form-control" id="exampleInputEmail4" name="passwordConfirm" value="{{old('password')}}">
                 </div>
                 <button class="btn btn-primary">Buat</button>
               </form>

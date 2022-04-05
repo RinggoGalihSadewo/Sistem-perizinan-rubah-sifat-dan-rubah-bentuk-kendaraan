@@ -228,6 +228,9 @@
                 </div>
                 <div class="card-footer"></div>
               </div>
+              <div class="d-flex mt-4 float-right">
+                {!! $users->links() !!}
+              </div>
             </div>
           </div>
           <!--Row-->
@@ -253,10 +256,11 @@
               </div>
             </div>
           </div>
-
         </div>
+
         <!---Container Fluid-->
       </div>
+      
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">

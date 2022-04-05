@@ -15,7 +15,7 @@ class QrCodeController extends Controller
     //
     public function viewSifat(FormSifat $formSifat)
     {
-        $data = FormSifat::all();
+        $data = FormSifat::paginate(10);
         return view('admin.dataQrSifat', compact('data'));
     }
 
@@ -53,7 +53,7 @@ class QrCodeController extends Controller
 
     public function viewBentuk(FormBentuk $formBentuk)
     {
-        $data = FormBentuk::all();
+        $data = FormBentuk::paginate(10);
         return view('admin.dataQrBentuk', compact('data'));
     }
 

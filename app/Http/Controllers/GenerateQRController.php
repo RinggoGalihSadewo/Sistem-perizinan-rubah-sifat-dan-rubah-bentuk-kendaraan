@@ -16,7 +16,7 @@ class GenerateQRController extends Controller
     //
     public function viewGenerateRubahSifat(FormSifat $formSifat)
     {
-        $data = FormSifat::with('user')->get();
+        $data = FormSifat::with('user')->paginate(10);
         return view('admin.genRubahSifat', compact('data'));
     }
 
@@ -51,7 +51,7 @@ class GenerateQRController extends Controller
 
     public function viewGenerateRubahBentuk(FormBentuk $formBentuk)
     {
-        $data = FormBentuk::with('user')->get();
+        $data = FormBentuk::with('user')->paginate(10);
         return view('admin.genRubahBentuk', compact('data'));
     }
 

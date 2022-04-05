@@ -59,20 +59,28 @@ class LoginAdminController extends Controller
 
     public function storeTambahAdmin(User $user, Request $request)
     {
-        User::create([
-            'username' => $request->username,
-            'password' => bcrypt($request->password),
-            'role' => $request->role,
-            'nama_perusahaan' => "-",
-            'nama_pemilik' => $request->namaPemilik,
-            'nama_perusahaan' => "-",
-            'kabupaten' => "-",
-            'npwp' => "-",
-            'alamat' => "-",
-            'email' => "-",
-            'no_hp' => "-",
-            'foto_profile' => "-"
-        ]);
-        return redirect('admin/tambah-admin')->with('status', 'Berhasil menambahkan admin !');
+
+        if($request->password === $request->passwordConfirm){     
+
+            User::create([
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+                'role' => $request->role,
+                'nama_perusahaan' => "-",
+                'nama_pemilik' => $request->namaPemilik,
+                'nama_perusahaan' => "-",
+                'kabupaten' => "-",
+                'npwp' => "-",
+                'alamat' => "-",
+                'email' => "-",
+                'no_hp' => "-",
+                'foto_profile' => "-"
+            ]);
+            return redirect('admin/tambah-admin')->with('status', 'Berhasil menambahkan admin !');
+        }
+
+        else{
+            return redirect('admin/tambah-admin')->with('failed', 'Gagal menambahkan akun, karena password dan konfirmasi password tidak sama !');
+        }
     }
 }
