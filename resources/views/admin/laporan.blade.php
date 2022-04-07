@@ -118,7 +118,7 @@
       <li class="nav-item active">
         <a class="nav-link collapsed" href="{{url('/admin/laporan')}}">
           <i class="fas fa-file"></i>
-          <span>Laporan</span>
+          <span>Pengaduan</span>
         </a>
       </li>
       @canany(['superadmin','rs-admin','rb-admin','sekretaris','kepala-dinas'])
@@ -169,7 +169,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Laporan</h1>
+            <h1 class="h3 mb-0 text-gray-800">Pengaduan</h1>
           </div>
 
           <div class="row">
