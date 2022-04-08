@@ -29,13 +29,13 @@
       <div class="sidebar-heading">
         Menu
       </div>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="{{url('/admin/dashboard')}}">
           <i class="fas fa-users"></i>
           <span>Data Pengguna</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
           <i class="fas fa-file-alt"></i>
