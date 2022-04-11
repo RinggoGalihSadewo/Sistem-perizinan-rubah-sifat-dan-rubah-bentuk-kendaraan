@@ -27,6 +27,7 @@ class UserController extends Controller
     {
         return view('client.beranda');
     }
+    
     public function halamanBeranda()
     {
         return view('client.halamanBeranda');
@@ -497,7 +498,6 @@ class UserController extends Controller
 
     public function storePerbaikanBentuk(FormBentuk $formBentuk, Request $request, BerkasBentuk $berkasBentuk)
     {
-        dd($request->all());
 
         $validatedData = $request->validate([
 
