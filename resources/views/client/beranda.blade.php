@@ -261,7 +261,14 @@
                             type="text"
                             placeholder="Cari alamat anda"
                             />
-                            <div id="map" class="mt-3"></div>
+                            <div id="map" class="mt-3 @error('lat') is-invalid @enderror"></div>
+                            @error('lat')
+                            <div class="invalid-feedback mt-3">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}	
+                                </div>
+                            </div>
+                            @enderror
                             <input type="text" name="lat" id="lat" hidden="true">
                             <input type="text" name="lng" id="lng" hidden="true">
                         </div>

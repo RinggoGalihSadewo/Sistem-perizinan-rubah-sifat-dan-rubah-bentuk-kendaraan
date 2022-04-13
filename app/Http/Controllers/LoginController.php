@@ -40,6 +40,7 @@ class LoginController extends Controller
             'namaPemilik.required' => 'nama pemilik wajib di isi',
             'kabupaten.required' => 'kabupaten wajib di isi',
             'npwp.required' => 'npwp wajib di isi',
+            'lat.required' => 'Wajib pilih maps alamat',
             'alamat.required' => 'alamat wajib di isi',
             'email.required' => 'email wajib di isi',
             'email.email' => 'harap masukan email sesuai dengan formatnya',
