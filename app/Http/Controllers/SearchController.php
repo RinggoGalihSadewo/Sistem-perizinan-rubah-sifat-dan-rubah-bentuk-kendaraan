@@ -19,9 +19,10 @@ class SearchController extends Controller
     //
     public function pengguna(User $user, Request $request)
     {
+        
         $users = DB::table('users')
                     ->where('nama_perusahaan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.index', compact('users'));
     }
 
@@ -29,7 +30,7 @@ class SearchController extends Controller
     {
         $data = FormSifat::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.RubahSifat', compact('data'));
     }
 
@@ -37,7 +38,7 @@ class SearchController extends Controller
     {
         $data = FormBentuk::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.RubahBentuk', compact('data'));
     }
 
@@ -45,7 +46,7 @@ class SearchController extends Controller
     {
         $data = FormSifat::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.dataQrSifat', compact('data'));
     }  
     
@@ -53,7 +54,7 @@ class SearchController extends Controller
     {
         $data = FormBentuk::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.dataQrBentuk', compact('data'));
     }  
 
@@ -61,7 +62,7 @@ class SearchController extends Controller
     {
         $data = FormSifat::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.genRubahSifat', compact('data'));
     } 
 
@@ -69,7 +70,7 @@ class SearchController extends Controller
     {
         $data = FormBentuk::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.genRubahBentuk', compact('data'));
     }
     
@@ -77,7 +78,7 @@ class SearchController extends Controller
     {
         $data = FormSifat::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.validSifat', compact('data'));
     }
     
@@ -85,7 +86,7 @@ class SearchController extends Controller
     {
         $data = FormBentuk::with('user')
                     ->where('nomor_kendaraan','like',"%".$request->key."%")
-                    ->get();
+                    ->paginate(10);
         return view('admin.validBentuk', compact('data'));
     }
 }
